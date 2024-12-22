@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__SYSTEM__SYSTEM_H
-#define __CACTUSOS__SYSTEM__SYSTEM_H
+#ifndef __Novanix__SYSTEM__SYSTEM_H
+#define __Novanix__SYSTEM__SYSTEM_H
 
 #define BOCHS_GFX_HACK 0        // Enable or disable the bochs hack
 #define ENABLE_USB 1            // Enable USB-Stack
@@ -44,7 +44,7 @@
 
 #define GDB_BREAK() asm("int $3");
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

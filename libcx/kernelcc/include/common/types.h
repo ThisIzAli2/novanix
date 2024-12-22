@@ -1,7 +1,7 @@
-#ifndef CACTUSOS__COMMON__TYPES_H
-#define CACTUSOS__COMMON__TYPES_H
+#ifndef Novanix__COMMON__TYPES_H
+#define Novanix__COMMON__TYPES_H
 
-namespace CactusOS
+namespace Novanix
 {
     namespace common
     {

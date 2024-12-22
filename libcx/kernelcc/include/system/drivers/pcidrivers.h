@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__PCIDRIVERS_H
-#define __CACTUSOS__SYSTEM__DRIVERS__PCIDRIVERS_H
+#ifndef __Novanix__SYSTEM__DRIVERS__PCIDRIVERS_H
+#define __Novanix__SYSTEM__DRIVERS__PCIDRIVERS_H
 
 #include <system/components/pci.h>
 #include <system/drivers/drivermanager.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

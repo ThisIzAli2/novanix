@@ -1,5 +1,5 @@
-#ifndef __CACTUSOSLIB__IMAGING__BMPIMAGE_H
-#define __CACTUSOSLIB__IMAGING__BMPIMAGE_H
+#ifndef __NovanixLIB__IMAGING__BMPIMAGE_H
+#define __NovanixLIB__IMAGING__BMPIMAGE_H
 
 #include <imaging/image.h>
 

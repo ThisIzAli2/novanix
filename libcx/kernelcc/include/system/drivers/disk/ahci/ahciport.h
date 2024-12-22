@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__DISK_CONTROLLERS__AHCIPORT_H
-#define __CACTUSOS__SYSTEM__DRIVERS__DISK_CONTROLLERS__AHCIPORT_H
+#ifndef __Novanix__SYSTEM__DRIVERS__DISK_CONTROLLERS__AHCIPORT_H
+#define __Novanix__SYSTEM__DRIVERS__DISK_CONTROLLERS__AHCIPORT_H
 
 #include <system/drivers/driver.h>
 #include <system/components/pci.h>
@@ -9,7 +9,7 @@
 
 #include <system/disks/diskcontroller.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

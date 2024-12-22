@@ -1,7 +1,7 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVER_H
-#define __CACTUSOS__SYSTEM__DRIVER_H
+#ifndef __Novanix__SYSTEM__DRIVER_H
+#define __Novanix__SYSTEM__DRIVER_H
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

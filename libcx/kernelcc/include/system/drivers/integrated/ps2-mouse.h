@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__PS2MOUSE_H
-#define __CACTUSOS__SYSTEM__DRIVERS__PS2MOUSE_H
+#ifndef __Novanix__SYSTEM__DRIVERS__PS2MOUSE_H
+#define __Novanix__SYSTEM__DRIVERS__PS2MOUSE_H
 
 #include <system/drivers/driver.h>
 #include <system/interruptmanager.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

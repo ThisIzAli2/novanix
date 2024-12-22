@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__COMMON__MEMORYOPERATIONS_H
-#define __CACTUSOS__COMMON__MEMORYOPERATIONS_H
+#ifndef __Novanix__COMMON__MEMORYOPERATIONS_H
+#define __Novanix__COMMON__MEMORYOPERATIONS_H
 
 #include <common/types.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace common
     {

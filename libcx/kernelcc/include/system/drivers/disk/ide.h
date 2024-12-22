@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__DISK_CONTROLLERS__IDE_H
-#define __CACTUSOS__SYSTEM__DRIVERS__DISK_CONTROLLERS__IDE_H
+#ifndef __Novanix__SYSTEM__DRIVERS__DISK_CONTROLLERS__IDE_H
+#define __Novanix__SYSTEM__DRIVERS__DISK_CONTROLLERS__IDE_H
 
 /*//// Source /////
 https://wiki.osdev.org/PCI_IDE_Controller
@@ -12,7 +12,7 @@ https://wiki.osdev.org/PCI_IDE_Controller
 #include <system/disks/diskcontroller.h>
 #include <system/tasking/lock.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

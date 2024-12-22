@@ -128,7 +128,7 @@ enum Systemcalls {
         //////////////
         // Other
         //////////////
-        SYSCALL_SET_CACTUSOS_LIB = 0xFFFF,
+        SYSCALL_SET_Novanix_LIB = 0xFFFF,
     };
 
 #ifdef __cplusplus

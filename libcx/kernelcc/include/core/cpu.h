@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__CORE__CPU_H
-#define __CACTUSOS__CORE__CPU_H
+#ifndef __Novanix__CORE__CPU_H
+#define __Novanix__CORE__CPU_H
 
 #include <common/types.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace core
     {

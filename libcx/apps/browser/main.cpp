@@ -24,7 +24,7 @@ int main(int argc, char** argv)
     GUI::SetDefaultFont();
 
     mainWindow = new Window(600, 600, 300, 300);
-    mainWindow->titleString = "CactusOS File Browser";
+    mainWindow->titleString = "Novanix File Browser";
 
     ScrollBar* scroll = new ScrollBar(Vertical);
     scroll->x = 100;

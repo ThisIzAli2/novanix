@@ -1,10 +1,10 @@
-#ifndef CACTUSOS__COMMON__CONVERT_H
-#define CACTUSOS__COMMON__CONVERT_H
+#ifndef Novanix__COMMON__CONVERT_H
+#define Novanix__COMMON__CONVERT_H
 
 #include <common/types.h>
 #include <common/memoryoperations.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace common
     {

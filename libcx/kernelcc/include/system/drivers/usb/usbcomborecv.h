@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__USB__COMBORECEIVER_H
-#define __CACTUSOS__SYSTEM__DRIVERS__USB__COMBORECEIVER_H
+#ifndef __Novanix__SYSTEM__DRIVERS__USB__COMBORECEIVER_H
+#define __Novanix__SYSTEM__DRIVERS__USB__COMBORECEIVER_H
 
 #include <system/drivers/usb/usbdriver.h>
 #include <system/usb/hidparser.h>
 #include <system/input/keyboard.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

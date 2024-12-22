@@ -1,5 +1,5 @@
-#ifndef __CACTUSOSLIB__IMAGING_IMAGE_H
-#define __CACTUSOSLIB__IMAGING_IMAGE_H
+#ifndef __NovanixLIB__IMAGING_IMAGE_H
+#define __NovanixLIB__IMAGING_IMAGE_H
 
 #include <types.h>
 #include <gui/canvas.h>

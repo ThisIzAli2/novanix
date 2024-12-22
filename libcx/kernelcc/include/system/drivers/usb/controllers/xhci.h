@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__USB__CONTROLLERS__XHCI_H
-#define __CACTUSOS__SYSTEM__DRIVERS__USB__CONTROLLERS__XHCI_H
+#ifndef __Novanix__SYSTEM__DRIVERS__USB__CONTROLLERS__XHCI_H
+#define __Novanix__SYSTEM__DRIVERS__USB__CONTROLLERS__XHCI_H
 
 /*
  * xHCI Support is not working yet, at the moment it is to much work to support the controller.
@@ -12,7 +12,7 @@
 #include <system/interruptmanager.h>
 #include <system/usb/usbcontroller.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

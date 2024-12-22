@@ -1,12 +1,12 @@
-#ifndef __CACTUSOS__INSTALLER__INSTALLER_H
-#define __CACTUSOS__INSTALLER__INSTALLER_H
+#ifndef __Novanix__INSTALLER__INSTALLER_H
+#define __Novanix__INSTALLER__INSTALLER_H
 
 #include <system/disks/partitionmanager.h>
 #include <system/vfs/fat.h>
 
-namespace CactusOS
+namespace Novanix
 {
-    // Class responsible for installing CactusOS on a hard drive
+    // Class responsible for installing Novanix on a hard drive
     class Installer
     {
     public:

@@ -1,12 +1,12 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__PS2KEYBOARD_H
-#define __CACTUSOS__SYSTEM__DRIVERS__PS2KEYBOARD_H
+#ifndef __Novanix__SYSTEM__DRIVERS__PS2KEYBOARD_H
+#define __Novanix__SYSTEM__DRIVERS__PS2KEYBOARD_H
 
 #include <system/drivers/driver.h>
 #include <system/interruptmanager.h>
 #include <system/memory/fifostream.h>
 #include <system/input/keyboard.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__COMMON__RANDOM_H
-#define __CACTUSOS__COMMON__RANDOM_H
+#ifndef __Novanix__COMMON__RANDOM_H
+#define __Novanix__COMMON__RANDOM_H
 
 #include <common/types.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace common
     {

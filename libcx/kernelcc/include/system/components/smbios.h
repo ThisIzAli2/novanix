@@ -1,12 +1,12 @@
-#ifndef __CACTUSOS__SYSTEM__SMBIOS_H
-#define __CACTUSOS__SYSTEM__SMBIOS_H
+#ifndef __Novanix__SYSTEM__SMBIOS_H
+#define __Novanix__SYSTEM__SMBIOS_H
 
 #include <system/components/systemcomponent.h>
 #include <system/bootconsole.h>
 #include <common/string.h>
 #include <common/list.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

@@ -64,7 +64,7 @@ char** ArgumentParser(char* arguments, int* argcPtr)
 // Called by the initializing assembly (crt0.asm)
 extern "C" void libMain()
 {
-    // First tell the systemcalls subsystem that we want to use CactusOS syscalls and not linux
+    // First tell the systemcalls subsystem that we want to use Novanix syscalls and not linux
     API::Initialize();
 
     // Enable the FPU device for mathematical calculations

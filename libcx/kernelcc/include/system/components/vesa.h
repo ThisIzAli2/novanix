@@ -1,12 +1,12 @@
-#ifndef __CACTUSOS__SYSTEM__COMPONENTS__VESA_H
-#define __CACTUSOS__SYSTEM__COMPONENTS__VESA_H
+#ifndef __Novanix__SYSTEM__COMPONENTS__VESA_H
+#define __Novanix__SYSTEM__COMPONENTS__VESA_H
 
 #include <common/types.h>
 #include <system/virtual8086/VM86Manager.h>
 #include <system/components/graphicsdevice.h>
 #include <core/virtualmemory.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

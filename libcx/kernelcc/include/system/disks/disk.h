@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__SYSTEM__DISKS__DISK_H
-#define __CACTUSOS__SYSTEM__DISKS__DISK_H
+#ifndef __Novanix__SYSTEM__DISKS__DISK_H
+#define __Novanix__SYSTEM__DISKS__DISK_H
 
 #include <common/types.h>
 
 #include <system/disks/diskcontroller.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

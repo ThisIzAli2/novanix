@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__DISKS__PARTITIONMANAGER_H
-#define __CACTUSOS__SYSTEM__DISKS__PARTITIONMANAGER_H
+#ifndef __Novanix__SYSTEM__DISKS__PARTITIONMANAGER_H
+#define __Novanix__SYSTEM__DISKS__PARTITIONMANAGER_H
 
 #include <system/disks/diskmanager.h>
 #include <system/vfs/vfsmanager.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

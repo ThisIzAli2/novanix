@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__CORE__IDT_H
-#define __CACTUSOS__CORE__IDT_H
+#ifndef __Novanix__CORE__IDT_H
+#define __Novanix__CORE__IDT_H
 
 #include <common/types.h>
 #include <core/port.h>
@@ -10,7 +10,7 @@
 #include <common/memoryoperations.h>
 #include <system/interruptmanager.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace core
     {

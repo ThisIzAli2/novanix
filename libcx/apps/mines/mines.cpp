@@ -237,7 +237,7 @@ int main(int argc, char** argv)
     gameStatus = Bussy;
     
     Window* mainWindow = new Window(300, 330, GUI::Width/2 - 150, GUI::Width/2 - 165);
-    mainWindow->titleString = "CactusOS Mines Game";
+    mainWindow->titleString = "Novanix Mines Game";
     
     for(int placeY = 0; placeY < fieldHeight; placeY++)
         for(int placeX = 0; placeX < fieldWidth; placeX++)

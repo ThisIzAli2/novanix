@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__SYSTEM__COMPONENTS__BOCHSVBE_H
-#define __CACTUSOS__SYSTEM__COMPONENTS__BOCHSVBE_H
+#ifndef __Novanix__SYSTEM__COMPONENTS__BOCHSVBE_H
+#define __Novanix__SYSTEM__COMPONENTS__BOCHSVBE_H
 
 #include <system/components/graphicsdevice.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

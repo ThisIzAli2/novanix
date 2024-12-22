@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__VFS__LISTINGCONTROLLER_H
-#define __CACTUSOS__SYSTEM__VFS__LISTINGCONTROLLER_H
+#ifndef __Novanix__SYSTEM__VFS__LISTINGCONTROLLER_H
+#define __Novanix__SYSTEM__VFS__LISTINGCONTROLLER_H
 
 #include <system/vfs/virtualfilesystem.h>
 #include <system/tasking/process.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

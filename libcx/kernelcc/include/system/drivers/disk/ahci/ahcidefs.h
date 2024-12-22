@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__AHCIDEFS_H
-#define __CACTUSOS__SYSTEM__DRIVERS__AHCIDEFS_H
+#ifndef __Novanix__SYSTEM__DRIVERS__AHCIDEFS_H
+#define __Novanix__SYSTEM__DRIVERS__AHCIDEFS_H
 
 #include <system/drivers/driver.h>
 #include <system/components/pci.h>
@@ -7,7 +7,7 @@
 
 #include <system/disks/diskcontroller.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

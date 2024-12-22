@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__COMMON__STRING_H
-#define __CACTUSOS__COMMON__STRING_H
+#ifndef __Novanix__COMMON__STRING_H
+#define __Novanix__COMMON__STRING_H
 
 #include <common/types.h>
 #include <common/list.h>
 #include <common/memoryoperations.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace common
     {

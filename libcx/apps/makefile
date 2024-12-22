@@ -21,7 +21,7 @@ OBJFILES := $(patsubst %.cpp,%.o,$(patsubst %.s,%.o,$(patsubst %.asm,%.o,$(patsu
 all: linker.ld $(LIBFILE) $(OBJFILES)
 	for app in $(APPS) ; do \
 		echo building $$app.bin to $(APPOUT)/$$app.bin; \
-    	i686-elf-ld $(LDPARAMS) -T $< -o $(APPOUT)/$$app.bin $$app/*.o -L$(LIBDIR) --library=cactusos; \
+    	i686-elf-ld $(LDPARAMS) -T $< -o $(APPOUT)/$$app.bin $$app/*.o -L$(LIBDIR) --library=Novanix; \
 		nm -a $(APPOUT)/$$app.bin | sort -d > $(APPOUT)/$$app.sym; \
 	done
 

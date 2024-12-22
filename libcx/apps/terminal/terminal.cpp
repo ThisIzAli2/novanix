@@ -39,7 +39,7 @@ int main(int argc, char** argv)
     GUI::SetDefaultFont();
     
     Window* mainWindow = new Window(600, 400, GUI::Width/2 - 300, GUI::Width/2 - 200);
-    mainWindow->titleString = "CactusOS Terminal";
+    mainWindow->titleString = "Novanix Terminal";
 
     termWindow = new TerminalControl(mainWindow->width, mainWindow->height - 30);
     mainWindow->AddChild(termWindow);

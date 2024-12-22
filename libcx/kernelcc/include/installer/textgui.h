@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__INSTALLER__TEXTGUI_H
-#define __CACTUSOS__INSTALLER__TEXTGUI_H
+#ifndef __Novanix__INSTALLER__TEXTGUI_H
+#define __Novanix__INSTALLER__TEXTGUI_H
 
 #include <system/bootconsole.h>
 
-namespace CactusOS
+namespace Novanix
 {
     #define TEXT_COLOR system::VGA_COLOR_WHITE
 

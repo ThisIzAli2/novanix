@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__SYSTEM__DEBUGGER_H
-#define __CACTUSOS__SYSTEM__DEBUGGER_H
+#ifndef __Novanix__SYSTEM__DEBUGGER_H
+#define __Novanix__SYSTEM__DEBUGGER_H
 
 #include <core/registers.h>
 #include <common/types.h>
 #include <common/list.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

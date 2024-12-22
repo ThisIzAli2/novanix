@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__COMPONENTS__RTC_H
-#define __CACTUSOS__SYSTEM__COMPONENTS__RTC_H
+#ifndef __Novanix__SYSTEM__COMPONENTS__RTC_H
+#define __Novanix__SYSTEM__COMPONENTS__RTC_H
 
 #include <core/port.h>
 #include <system/components/systemcomponent.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

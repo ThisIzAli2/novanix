@@ -1,12 +1,12 @@
-#ifndef __CACTUSOS__SYSTEM__COMPONENTS__DMA_H
-#define __CACTUSOS__SYSTEM__COMPONENTS__DMA_H
+#ifndef __Novanix__SYSTEM__COMPONENTS__DMA_H
+#define __Novanix__SYSTEM__COMPONENTS__DMA_H
 
 // Main source: http://www.brokenthorn.com/Resources/OSDev21.html
 
 #include <system/components/systemcomponent.h>
 #include <common/types.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

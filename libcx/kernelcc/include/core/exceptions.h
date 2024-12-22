@@ -1,12 +1,12 @@
-#ifndef __CACTUSOS__CORE__EXCEPTIONS_H
-#define __CACTUSOS__CORE__EXCEPTIONS_H
+#ifndef __Novanix__CORE__EXCEPTIONS_H
+#define __Novanix__CORE__EXCEPTIONS_H
 
 #include <common/types.h>
 #include <system/bootconsole.h>
 #include <common/convert.h>
 #include <core/idt.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace core
     {

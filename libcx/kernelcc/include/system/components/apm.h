@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__COMPONENTS__APM_H
-#define __CACTUSOS__SYSTEM__COMPONENTS__APM_H
+#ifndef __Novanix__SYSTEM__COMPONENTS__APM_H
+#define __Novanix__SYSTEM__COMPONENTS__APM_H
 
 #include <system/components/systemcomponent.h>
 #include <common/types.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

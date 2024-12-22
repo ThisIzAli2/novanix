@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__CORE__TSS_H
-#define __CACTUSOS__CORE__TSS_H
+#ifndef __Novanix__CORE__TSS_H
+#define __Novanix__CORE__TSS_H
 
 #include <common/types.h>
 #include <common/memoryoperations.h>
 #include <core/gdt.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace core
     {

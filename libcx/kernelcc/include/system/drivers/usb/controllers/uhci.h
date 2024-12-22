@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__USB__CONTROLLERS__UHCI_H
-#define __CACTUSOS__SYSTEM__DRIVERS__USB__CONTROLLERS__UHCI_H
+#ifndef __Novanix__SYSTEM__DRIVERS__USB__CONTROLLERS__UHCI_H
+#define __Novanix__SYSTEM__DRIVERS__USB__CONTROLLERS__UHCI_H
 
 
 #include <system/drivers/driver.h>
@@ -7,7 +7,7 @@
 #include <system/interruptmanager.h>
 #include <system/usb/usbcontroller.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

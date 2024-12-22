@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__USB__MOUSE_H
-#define __CACTUSOS__SYSTEM__DRIVERS__USB__MOUSE_H
+#ifndef __Novanix__SYSTEM__DRIVERS__USB__MOUSE_H
+#define __Novanix__SYSTEM__DRIVERS__USB__MOUSE_H
 
 #include <system/drivers/usb/usbdriver.h>
 #include <system/usb/hidparser.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

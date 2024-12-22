@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__USB__USBDEFS_H
-#define __CACTUSOS__SYSTEM__DRIVERS__USB__USBDEFS_H
+#ifndef __Novanix__SYSTEM__DRIVERS__USB__USBDEFS_H
+#define __Novanix__SYSTEM__DRIVERS__USB__USBDEFS_H
 
 #include <common/types.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

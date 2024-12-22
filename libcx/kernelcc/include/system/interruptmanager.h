@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__INTERRUPTMANAGER_H
-#define __CACTUSOS__SYSTEM__INTERRUPTMANAGER_H
+#ifndef __Novanix__SYSTEM__INTERRUPTMANAGER_H
+#define __Novanix__SYSTEM__INTERRUPTMANAGER_H
 
 #include <common/list.h>
 #include <common/types.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

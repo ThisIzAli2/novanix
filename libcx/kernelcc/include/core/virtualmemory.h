@@ -2,14 +2,14 @@
 *   Structs from: https://wiki.osdev.org/Paging
 */
 
-#ifndef __CACTUSOS__CORE__VIRTUALMEMORY_H
-#define __CACTUSOS__CORE__VIRTUALMEMORY_H
+#ifndef __Novanix__CORE__VIRTUALMEMORY_H
+#define __Novanix__CORE__VIRTUALMEMORY_H
 
 #include <core/physicalmemory.h>
 #include <common/types.h>
 #include <system/memory/heap.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace core
     {

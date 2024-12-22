@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__FLOPPY_H
-#define __CACTUSOS__SYSTEM__DRIVERS__FLOPPY_H
+#ifndef __Novanix__SYSTEM__DRIVERS__FLOPPY_H
+#define __Novanix__SYSTEM__DRIVERS__FLOPPY_H
 
 #include <system/drivers/driver.h>
 #include <system/interruptmanager.h>
 #include <system/disks/diskcontroller.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

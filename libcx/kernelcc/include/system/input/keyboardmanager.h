@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__SYSTEM__INPUT__KEYBOARDMANAGER_H
-#define __CACTUSOS__SYSTEM__INPUT__KEYBOARDMANAGER_H
+#ifndef __Novanix__SYSTEM__INPUT__KEYBOARDMANAGER_H
+#define __Novanix__SYSTEM__INPUT__KEYBOARDMANAGER_H
 
 #include <system/input/keyboard.h>
 #include <common/list.h>
 #include <system/memory/fifostream.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

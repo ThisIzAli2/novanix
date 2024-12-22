@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__CORE__PHYSICALMEMORY_H
-#define __CACTUSOS__CORE__PHYSICALMEMORY_H
+#ifndef __Novanix__CORE__PHYSICALMEMORY_H
+#define __Novanix__CORE__PHYSICALMEMORY_H
 
 #include <common/types.h>
 #include <common/convert.h>
@@ -7,7 +7,7 @@
 #include <system/bootconsole.h>
 #include <multiboot/multiboot.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace core
     {

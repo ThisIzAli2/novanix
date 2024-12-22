@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__CORE__GDT_H
-#define __CACTUSOS__CORE__GDT_H
+#ifndef __Novanix__CORE__GDT_H
+#define __Novanix__CORE__GDT_H
 
 #include <common/types.h>
 
-using namespace CactusOS::common;
+using namespace Novanix::common;
 
-namespace CactusOS
+namespace Novanix
 {
     namespace core
     {

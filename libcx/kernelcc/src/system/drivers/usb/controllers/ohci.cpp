@@ -4,11 +4,11 @@
 #include <system/drivers/usb/usbdefs.h>
 #include <system/drivers/usb/usbdriver.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
-using namespace CactusOS::system::drivers;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
+using namespace Novanix::system::drivers;
 
 OHCIController::OHCIController(PCIDevice* device)
 : USBController(OHCI), Driver("OHCI USB Controller", "Controller for a OHCI device"),

@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__USB__MASS_STORAGE_H
-#define __CACTUSOS__SYSTEM__DRIVERS__USB__MASS_STORAGE_H
+#ifndef __Novanix__SYSTEM__DRIVERS__USB__MASS_STORAGE_H
+#define __Novanix__SYSTEM__DRIVERS__USB__MASS_STORAGE_H
 
 #include <system/drivers/usb/usbdriver.h>
 #include <system/disks/disk.h>
 #include <system/tasking/lock.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

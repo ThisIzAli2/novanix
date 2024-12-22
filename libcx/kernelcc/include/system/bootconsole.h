@@ -1,12 +1,12 @@
-#ifndef __CACTUSOS__SYSTEM__BOOTCONSOLE_H
-#define __CACTUSOS__SYSTEM__BOOTCONSOLE_H
+#ifndef __Novanix__SYSTEM__BOOTCONSOLE_H
+#define __Novanix__SYSTEM__BOOTCONSOLE_H
 
 #include <common/types.h>
 #include <system/serialport.h>
 
 #include <stdarg.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

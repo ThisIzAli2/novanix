@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__SYSTEM__SERIALPORT_H
-#define __CACTUSOS__SYSTEM__SERIALPORT_H
+#ifndef __Novanix__SYSTEM__SERIALPORT_H
+#define __Novanix__SYSTEM__SERIALPORT_H
 
 #include <common/types.h>
 #include <core/port.h>
 #include <system/serialport.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

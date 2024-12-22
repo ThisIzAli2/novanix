@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__SYSTEM__LOG_H
-#define __CACTUSOS__SYSTEM__LOG_H
+#ifndef __Novanix__SYSTEM__LOG_H
+#define __Novanix__SYSTEM__LOG_H
 
 #include <common/types.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

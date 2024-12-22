@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__COMMON__PRINTF_H
-#define __CACTUSOS__COMMON__PRINTF_H
+#ifndef __Novanix__COMMON__PRINTF_H
+#define __Novanix__COMMON__PRINTF_H
 
 #include <common/types.h>
 #include <common/convert.h>
 #include <system/bootconsole.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace common
     {

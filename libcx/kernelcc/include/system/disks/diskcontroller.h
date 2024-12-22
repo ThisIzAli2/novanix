@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__SYSTEM__DISKS__DISKCONTROLLER_H
-#define __CACTUSOS__SYSTEM__DISKS__DISKCONTROLLER_H
+#ifndef __Novanix__SYSTEM__DISKS__DISKCONTROLLER_H
+#define __Novanix__SYSTEM__DISKS__DISKCONTROLLER_H
 
 
 #include <common/types.h>
@@ -9,7 +9,7 @@
 #include <system/disks/disk.h>
 #include <system/disks/diskmanager.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

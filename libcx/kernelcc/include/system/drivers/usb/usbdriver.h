@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERS__USB__USBDRIVER_H
-#define __CACTUSOS__SYSTEM__DRIVERS__USB__USBDRIVER_H
+#ifndef __Novanix__SYSTEM__DRIVERS__USB__USBDRIVER_H
+#define __Novanix__SYSTEM__DRIVERS__USB__USBDRIVER_H
 
 #include <system/drivers/driver.h>
 #include <system/usb/usbdevice.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

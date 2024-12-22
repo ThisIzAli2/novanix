@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__COMMON__LIST_H
-#define __CACTUSOS__COMMON__LIST_H
+#ifndef __Novanix__COMMON__LIST_H
+#define __Novanix__COMMON__LIST_H
 
 #include <system/tasking/lock.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace common
     {
@@ -88,7 +88,7 @@ namespace CactusOS
     }
 }
 
-using namespace CactusOS::common;
+using namespace Novanix::common;
 
 /////////////
 // Implementations

@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__CORE__PIT_H
-#define __CACTUSOS__CORE__PIT_H
+#ifndef __Novanix__CORE__PIT_H
+#define __Novanix__CORE__PIT_H
 
 #include <system/interruptmanager.h>
 #include <system/components/systemcomponent.h>
 #include <core/port.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

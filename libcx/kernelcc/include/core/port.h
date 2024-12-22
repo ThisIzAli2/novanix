@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__CORE__PORT_H
-#define __CACTUSOS__CORE__PORT_H
+#ifndef __Novanix__CORE__PORT_H
+#define __Novanix__CORE__PORT_H
 
 #include <common/types.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace core
     {

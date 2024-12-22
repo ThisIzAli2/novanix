@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__SYSTEM__COMPONENTS__PCI_H
-#define __CACTUSOS__SYSTEM__COMPONENTS__PCI_H
+#ifndef __Novanix__SYSTEM__COMPONENTS__PCI_H
+#define __Novanix__SYSTEM__COMPONENTS__PCI_H
 
 #include <core/port.h>
 #include <common/list.h>
@@ -7,7 +7,7 @@
 #include <system/bootconsole.h>
 #include <system/initrd.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {
@@ -43,8 +43,8 @@ namespace CactusOS
         {
             bool prefetchable;
             BaseAddressRegisterType type;
-            CactusOS::common::uint32_t size;
-            CactusOS::common::uint64_t address;
+            Novanix::common::uint32_t size;
+            Novanix::common::uint64_t address;
         };
 
         class PCIController : public SystemComponent

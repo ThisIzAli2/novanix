@@ -1,5 +1,5 @@
-#ifndef __CACTUSOSLIB__GUI__DIRECTGUI_H
-#define __CACTUSOSLIB__GUI__DIRECTGUI_H
+#ifndef __NovanixLIB__GUI__DIRECTGUI_H
+#define __NovanixLIB__GUI__DIRECTGUI_H
 
 #include <types.h>
 #include <gui/canvas.h>

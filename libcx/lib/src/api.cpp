@@ -8,8 +8,8 @@ using namespace Novanix;
 
 void API::Initialize()
 {
-    //Call kernel to set this process as a cactusos process
-    Process::ID = DoSyscall(SYSCALL_SET_CACTUSOS_LIB);
+    //Call kernel to set this process as a Novanix process
+    Process::ID = DoSyscall(SYSCALL_SET_Novanix_LIB);
 
-    Log(Info, "CactusOS API Initialized for this process");
+    Log(Info, "Novanix API Initialized for this process");
 }

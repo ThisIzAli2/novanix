@@ -1,5 +1,5 @@
-#ifndef __CACTUSOSLIB__IMAGING__PNGIMAGE_H
-#define __CACTUSOSLIB__IMAGING__PNGIMAGE_H
+#ifndef __NovanixLIB__IMAGING__PNGIMAGE_H
+#define __NovanixLIB__IMAGING__PNGIMAGE_H
 
 #include <imaging/image.h>
 #include <bitreader.h>

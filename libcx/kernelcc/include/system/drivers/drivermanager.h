@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__SYSTEM__DRIVERMANAGER__DRIVER_H
-#define __CACTUSOS__SYSTEM__DRIVERMANAGER__DRIVER_H
+#ifndef __Novanix__SYSTEM__DRIVERMANAGER__DRIVER_H
+#define __Novanix__SYSTEM__DRIVERMANAGER__DRIVER_H
 
 #include <common/types.h>
 #include <common/list.h>
@@ -7,7 +7,7 @@
 #include <system/drivers/driver.h>
 #include <system/bootconsole.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {
