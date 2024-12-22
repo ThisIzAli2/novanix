@@ -19,7 +19,7 @@ void KeyboardManager::HandleKeyChange(Keyboard* src, uint32_t key, bool pressed)
     //Log(Info, "Got key %d from keyboard, pressed = %b", key, pressed);
     
     bool updateLeds = false;
-    LIBCactusOS::KeypressPacket packet = {.startByte = KEYPACKET_START, .keyCode = 0, .flags = pressed ? LIBCactusOS::Pressed : LIBCactusOS::NoFlags};
+    Novanix::KeypressPacket packet = {.startByte = KEYPACKET_START, .keyCode = 0, .flags = pressed ? Novanix::Pressed : Novanix::NoFlags};
 
     ////////////
     // Update keyboards globals
@@ -34,22 +34,22 @@ void KeyboardManager::HandleKeyChange(Keyboard* src, uint32_t key, bool pressed)
     }
     
     // Update packet flags
-    packet.flags = (packet.flags | (this->sharedStatus.CapsLock ? LIBCactusOS::CapsLock : LIBCactusOS::NoFlags));
-    packet.flags = (packet.flags | (this->sharedStatus.NumLock ? LIBCactusOS::NumLock : LIBCactusOS::NoFlags));
+    packet.flags = (packet.flags | (this->sharedStatus.CapsLock ? Novanix::CapsLock : Novanix::NoFlags));
+    packet.flags = (packet.flags | (this->sharedStatus.NumLock ? Novanix::NumLock : Novanix::NoFlags));
     
-    packet.flags = (packet.flags | (src->status.LeftShift ? LIBCactusOS::LeftShift : LIBCactusOS::NoFlags));
-    packet.flags = (packet.flags | (src->status.RightShift ? LIBCactusOS::RightShift : LIBCactusOS::NoFlags));
-    packet.flags = (packet.flags | (src->status.LeftControl ? LIBCactusOS::LeftControl : LIBCactusOS::NoFlags));
-    packet.flags = (packet.flags | (src->status.RightControl ? LIBCactusOS::RightControl : LIBCactusOS::NoFlags));
-    packet.flags = (packet.flags | (src->status.Alt ? LIBCactusOS::Alt : LIBCactusOS::NoFlags));
+    packet.flags = (packet.flags | (src->status.LeftShift ? Novanix::LeftShift : Novanix::NoFlags));
+    packet.flags = (packet.flags | (src->status.RightShift ? Novanix::RightShift : Novanix::NoFlags));
+    packet.flags = (packet.flags | (src->status.LeftControl ? Novanix::LeftControl : Novanix::NoFlags));
+    packet.flags = (packet.flags | (src->status.RightControl ? Novanix::RightControl : Novanix::NoFlags));
+    packet.flags = (packet.flags | (src->status.Alt ? Novanix::Alt : Novanix::NoFlags));
 
     // Set keycode
     packet.keyCode = key;
 
     if(System::screenMode == ScreenMode::GraphicsMode)
-        for(int i = 0; i < (int)sizeof(LIBCactusOS::KeypressPacket); i++)
+        for(int i = 0; i < (int)sizeof(Novanix::KeypressPacket); i++)
             this->Write(*((char*)((uint32_t)&packet + i)));
-    else if(System::setupMode == true && (packet.flags & LIBCactusOS::Pressed))
+    else if(System::setupMode == true && (packet.flags & Novanix::Pressed))
         this->Write(key); //Make things easier for the setup
 
     if(updateLeds) {

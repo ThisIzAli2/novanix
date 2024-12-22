@@ -10,7 +10,7 @@
 #include <string.h>
 #include <gui/widgets/label.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 #define BLOCK_W 30
 #define BLOCK_H 30

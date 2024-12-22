@@ -1,6 +1,6 @@
 #include "contextmanager.h"
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 ContextManager::ContextManager()
 : contextList()

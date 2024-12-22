@@ -2,7 +2,7 @@
 
 #include <syscall.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 void Time::Sleep(uint32_t ms)
 {

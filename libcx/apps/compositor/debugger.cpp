@@ -3,7 +3,7 @@
 #include <time.h>
 #include <gui/gui.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 CompositorDebugger::CompositorDebugger(Compositor* target)
 {

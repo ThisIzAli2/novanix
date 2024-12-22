@@ -42,7 +42,7 @@ namespace CactusOS
                 common::uint32_t heapStart;
                 common::uint32_t heapEnd;
             } heap;
-            List<LIBCactusOS::IPCMessage> ipcMessages;
+            List<Novanix::IPCMessage> ipcMessages;
 
             Stream* stdInput;
             Stream* stdOutput;

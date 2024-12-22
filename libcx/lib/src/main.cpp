@@ -6,7 +6,7 @@
 #include <math.h>
 #include <string.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 // External pointer to main function, will be linked later by the compiler
 // This is the part of the program where the user has control, this is more in the background

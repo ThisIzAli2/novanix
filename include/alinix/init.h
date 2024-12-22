@@ -71,8 +71,8 @@
 #include <alinix/xheap.h>
 #include <alinix/security/apparmor/audit.h>
 #include <alinix/graphics/model.h>
-#include <asm/hwrpb.h>
-#include <asm/setup.h>
+// #include <asm/hwrpb.h>
+// #include <asm/setup.h>
 #include <alinix/log.h>
 #include <alinix/enums.h>
 #include <alinix/bootconsole.h>

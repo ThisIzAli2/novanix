@@ -5,7 +5,7 @@
 #include <list.h>
 #include <shared.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     // Read file contents into buffer
     int ReadFile(char* filename, uint8_t* buffer, uint32_t offset = 0, uint32_t len = -1);

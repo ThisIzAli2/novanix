@@ -48,7 +48,7 @@ using namespace CactusOS::common;
 using namespace CactusOS::core;
 using namespace CactusOS::system;
 using namespace CactusOS::system::drivers;
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 multiboot_info_t* System::mbi = 0;
 PIT* System::pit = 0;

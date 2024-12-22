@@ -1,7 +1,7 @@
-#ifndef __LIBCACTUSOS__DATETIME_H
-#define __LIBCACTUSOS__DATETIME_H
+#ifndef __Novanix__DATETIME_H
+#define __Novanix__DATETIME_H
 
-namespace LIBCactusOS
+namespace Novanix
 {
     class DateTime
     {

@@ -3,7 +3,7 @@
 #include <proc.h>
 #include <gui/widgets/window.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 TerminalControl::TerminalControl(int w, int h)
 : Control(w, h), inputKeys()

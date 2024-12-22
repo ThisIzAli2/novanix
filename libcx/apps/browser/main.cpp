@@ -10,7 +10,7 @@
 #include <log.h>
 #include <proc.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 Window* mainWindow = 0;
 

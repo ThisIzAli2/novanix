@@ -14,14 +14,14 @@ SIPROCESSOR SystemInfoManager::processor;
 
 bool SystemInfoManager::HandleSysinfoRequest(void* arrayPointer, int count, common::uint32_t retAddr, bool getSize)
 {
-    LIBCactusOS::SIPropertyProvider* items = (LIBCactusOS::SIPropertyProvider*)arrayPointer;
+    Novanix::SIPropertyProvider* items = (Novanix::SIPropertyProvider*)arrayPointer;
 
-    if(items[0].type != LIBCactusOS::SIPropertyIdentifier::String || !items[0].id)
+    if(items[0].type != Novanix::SIPropertyIdentifier::String || !items[0].id)
         return false; // First identifier needs to be a string
 
     if(String::strcmp(items[0].id, "properties"))
     {
-        if(items[1].type != LIBCactusOS::SIPropertyIdentifier::String || !items[1].id)
+        if(items[1].type != Novanix::SIPropertyIdentifier::String || !items[1].id)
             return false; // Second identifier needs to be a string
         
         if(String::strcmp(items[1].id, "disks")) {
@@ -29,7 +29,7 @@ bool SystemInfoManager::HandleSysinfoRequest(void* arrayPointer, int count, comm
                 *((int*)retAddr) = System::diskManager->allDisks.size();
                 return true;
             }
-            if(items[2].type != LIBCactusOS::SIPropertyIdentifier::Index || items[3].type != LIBCactusOS::SIPropertyIdentifier::String)
+            if(items[2].type != Novanix::SIPropertyIdentifier::Index || items[3].type != Novanix::SIPropertyIdentifier::String)
                 return false; // Needs to be index for collection and next needs to be property id
 
             int index = items[2].index;
@@ -64,7 +64,7 @@ bool SystemInfoManager::HandleSysinfoRequest(void* arrayPointer, int count, comm
                 *((int*)retAddr) = System::usbManager->deviceList.size();
                 return true;
             }
-            if(items[2].type != LIBCactusOS::SIPropertyIdentifier::Index || items[3].type != LIBCactusOS::SIPropertyIdentifier::String)
+            if(items[2].type != Novanix::SIPropertyIdentifier::Index || items[3].type != Novanix::SIPropertyIdentifier::String)
                 return false; // Needs to be index for collection and next needs to be property id
 
             int index = items[2].index;
@@ -107,7 +107,7 @@ bool SystemInfoManager::HandleSysinfoRequest(void* arrayPointer, int count, comm
                 *((int*)retAddr) = System::usbManager->controllerList.size();
                 return true;
             }
-            if(items[2].type != LIBCactusOS::SIPropertyIdentifier::Index || items[3].type != LIBCactusOS::SIPropertyIdentifier::String)
+            if(items[2].type != Novanix::SIPropertyIdentifier::Index || items[3].type != Novanix::SIPropertyIdentifier::String)
                 return false; // Needs to be index for collection and next needs to be property id
 
             int index = items[2].index;
@@ -123,7 +123,7 @@ bool SystemInfoManager::HandleSysinfoRequest(void* arrayPointer, int count, comm
                 *((int*)retAddr) = System::pci->deviceList.size();
                 return true;
             }
-            if(items[2].type != LIBCactusOS::SIPropertyIdentifier::Index || items[3].type != LIBCactusOS::SIPropertyIdentifier::String)
+            if(items[2].type != Novanix::SIPropertyIdentifier::Index || items[3].type != Novanix::SIPropertyIdentifier::String)
                 return false; // Needs to be index for collection and next needs to be property id
 
             int index = items[2].index;
@@ -171,7 +171,7 @@ bool SystemInfoManager::HandleSysinfoRequest(void* arrayPointer, int count, comm
                 return false;         
         }
         else if(String::strcmp(items[1].id, "gfxdevice")) {
-            if(items[2].type != LIBCactusOS::SIPropertyIdentifier::String)
+            if(items[2].type != Novanix::SIPropertyIdentifier::String)
                 return false; // Needs to be property id
             
             if(String::strcmp(items[2].id, "bpp")) {
@@ -205,7 +205,7 @@ bool SystemInfoManager::HandleSysinfoRequest(void* arrayPointer, int count, comm
                 *((int*)retAddr) = ProcessHelper::Processes.size();
                 return true;
             }
-            if(items[2].type != LIBCactusOS::SIPropertyIdentifier::Index || items[3].type != LIBCactusOS::SIPropertyIdentifier::String)
+            if(items[2].type != Novanix::SIPropertyIdentifier::Index || items[3].type != Novanix::SIPropertyIdentifier::String)
                 return false; // Needs to be index for collection and next needs to be property id
 
             int index = items[2].index;
@@ -248,7 +248,7 @@ bool SystemInfoManager::HandleSysinfoRequest(void* arrayPointer, int count, comm
                 return false;
         }
         else if(String::strcmp(items[1].id, "memory")) {
-            if(items[2].type != LIBCactusOS::SIPropertyIdentifier::String)
+            if(items[2].type != Novanix::SIPropertyIdentifier::String)
                 return false; // Needs to be property id
             
             if(String::strcmp(items[2].id, "total")) {
@@ -267,7 +267,7 @@ bool SystemInfoManager::HandleSysinfoRequest(void* arrayPointer, int count, comm
                 return false;
         }
         else if(String::strcmp(items[1].id, "bios")) {
-            if(items[2].type != LIBCactusOS::SIPropertyIdentifier::String)
+            if(items[2].type != Novanix::SIPropertyIdentifier::String)
                 return false; // Needs to be property id
 
             if(String::strcmp(items[2].id, "vendor")) {                
@@ -295,7 +295,7 @@ bool SystemInfoManager::HandleSysinfoRequest(void* arrayPointer, int count, comm
                 return false;
         }
         else if(String::strcmp(items[1].id, "system")) {
-            if(items[2].type != LIBCactusOS::SIPropertyIdentifier::String)
+            if(items[2].type != Novanix::SIPropertyIdentifier::String)
                 return false; // Needs to be property id
 
             if(String::strcmp(items[2].id, "manufacturer")) {                
@@ -344,7 +344,7 @@ bool SystemInfoManager::HandleSysinfoRequest(void* arrayPointer, int count, comm
                 return false;
         }
         else if(String::strcmp(items[1].id, "enclosure")) {
-            if(items[2].type != LIBCactusOS::SIPropertyIdentifier::String)
+            if(items[2].type != Novanix::SIPropertyIdentifier::String)
                 return false; // Needs to be property id
 
             if(String::strcmp(items[2].id, "manufacturer")) {                
@@ -379,7 +379,7 @@ bool SystemInfoManager::HandleSysinfoRequest(void* arrayPointer, int count, comm
                 return false;
         }
         else if(String::strcmp(items[1].id, "processor")) {
-            if(items[2].type != LIBCactusOS::SIPropertyIdentifier::String)
+            if(items[2].type != Novanix::SIPropertyIdentifier::String)
                 return false; // Needs to be property id
 
             if(String::strcmp(items[2].id, "manufacturer")) {                

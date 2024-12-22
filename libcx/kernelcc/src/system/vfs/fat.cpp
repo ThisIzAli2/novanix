@@ -960,9 +960,9 @@ uint16_t FAT::FatDate()
 
 
 
-List<LIBCactusOS::VFSEntry>* FAT::DirectoryList(const char* path)
+List<Novanix::VFSEntry>* FAT::DirectoryList(const char* path)
 { 
-    List<LIBCactusOS::VFSEntry>* ret = new List<LIBCactusOS::VFSEntry>();
+    List<Novanix::VFSEntry>* ret = new List<Novanix::VFSEntry>();
     uint32_t parentCluster = this->rootDirCluster;
     bool rootdir = String::strlen(path) == 0;
 
@@ -978,8 +978,8 @@ List<LIBCactusOS::VFSEntry>* FAT::DirectoryList(const char* path)
     List<FATEntryInfo> childs = GetDirectoryEntries(parentCluster, rootdir);
     for(FATEntryInfo item : childs) {
         // Create new entry and clear it to 0's
-        LIBCactusOS::VFSEntry entry;
-        MemoryOperations::memset(&entry, 0, sizeof(LIBCactusOS::VFSEntry));
+        Novanix::VFSEntry entry;
+        MemoryOperations::memset(&entry, 0, sizeof(Novanix::VFSEntry));
         
         // Fill in the info
         entry.size = item.entry.FileSize;

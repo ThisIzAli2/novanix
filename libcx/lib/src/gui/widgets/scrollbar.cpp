@@ -1,7 +1,7 @@
 #include <gui/widgets/scrollbar.h>
 #include <math.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 ScrollBar::ScrollBar(ScrollBarType type, int min, int max, int dragSize)
 : Control(type == Horizontal ? SCROLLBAR_DEFAULT_WIDTH : SCROLLBAR_DEFAULT_HEIGHT, type == Vertical ? SCROLLBAR_DEFAULT_WIDTH : SCROLLBAR_DEFAULT_HEIGHT)

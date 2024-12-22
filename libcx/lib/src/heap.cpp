@@ -2,14 +2,14 @@
 #include <syscall.h>
 #include <log.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 uint32_t UserHeap::startAddress = 0;
 uint32_t UserHeap::endAddress = 0;
 uint32_t UserHeap::maxAddress = 3_GB - 1_MB; //1 MB Below the kernel
 MemoryHeader* UserHeap::firstHeader = 0;
 
-uint32_t LIBCactusOS::pageRoundUp(uint32_t address)
+uint32_t Novanix::pageRoundUp(uint32_t address)
 {
     if((address & 0xFFFFF000) != address)
     {
@@ -18,7 +18,7 @@ uint32_t LIBCactusOS::pageRoundUp(uint32_t address)
     }
     return address;
 }
-uint32_t LIBCactusOS::pageRoundDown(uint32_t address)
+uint32_t Novanix::pageRoundDown(uint32_t address)
 {
     return address & 0xFFFFF000;
 }

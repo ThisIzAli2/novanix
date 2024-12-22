@@ -1,9 +1,9 @@
-#ifndef __LIBCACTUSOS__GUI__FONTS__FONT_H
-#define __LIBCACTUSOS__GUI__FONTS__FONT_H
+#ifndef __Novanix__GUI__FONTS__FONT_H
+#define __Novanix__GUI__FONTS__FONT_H
 
 #include <types.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     struct Font
     {

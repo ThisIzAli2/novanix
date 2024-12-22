@@ -1,9 +1,9 @@
 #include <gui/property.h>
 #include <gui/widgets/control.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
-void LIBCactusOS::UpdateGUIPropertyTargetGUI(Control* target)
+void Novanix::UpdateGUIPropertyTargetGUI(Control* target)
 {
     if(target) target->ForcePaint();
 }

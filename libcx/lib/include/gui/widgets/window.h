@@ -1,12 +1,12 @@
-#ifndef __LIBCACTUSOS__WINDOW_H
-#define __LIBCACTUSOS__WINDOW_H
+#ifndef __Novanix__WINDOW_H
+#define __Novanix__WINDOW_H
 
 #include <gui/widgets/control.h>
 #include <gui/widgets/button.h>
 #include <gui/context.h>
 #include <gui/property.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     class Button;
     

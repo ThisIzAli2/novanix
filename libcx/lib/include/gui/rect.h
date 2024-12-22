@@ -1,10 +1,10 @@
-#ifndef __LIBCACTUSOS__GUI__RECT_H
-#define __LIBCACTUSOS__GUI__RECT_H
+#ifndef __Novanix__GUI__RECT_H
+#define __Novanix__GUI__RECT_H
 
 #include <types.h>
 #include <list.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     /**
      * A class that describes a rectangular shape

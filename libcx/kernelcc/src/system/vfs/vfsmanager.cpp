@@ -120,7 +120,7 @@ bool VFSManager::SearchBootPartition()
     return false;
 }
 
-List<LIBCactusOS::VFSEntry>* VFSManager::DirectoryList(const char* path)
+List<Novanix::VFSEntry>* VFSManager::DirectoryList(const char* path)
 {
     uint8_t idSize = 0;
     int disk = ExtractDiskNumber(path, &idSize);

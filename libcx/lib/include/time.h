@@ -1,9 +1,9 @@
-#ifndef __LIBCACTUSOS__TIME_H
-#define __LIBCACTUSOS__TIME_H
+#ifndef __Novanix__TIME_H
+#define __Novanix__TIME_H
 
 #include <types.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     class Time
     {

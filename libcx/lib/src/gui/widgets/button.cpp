@@ -1,7 +1,7 @@
 #include <gui/widgets/button.h>
 #include <log.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 Button::Button(char* text)
 : Control(80, 40)

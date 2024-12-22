@@ -3,7 +3,7 @@
 #include <log.h>
 #include <math.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 Slider::Slider(int min, int max, int current)
 : Control(200, 15)

@@ -1,12 +1,12 @@
-#ifndef __LIBCACTUSOS__GUI__SCROLLBAR_H
-#define __LIBCACTUSOS__GUI__SCROLLBAR_H
+#ifndef __Novanix__GUI__SCROLLBAR_H
+#define __Novanix__GUI__SCROLLBAR_H
 
 #include <gui/widgets/control.h>
 #include <gui/property.h>
 #include <gui/events.h>
 #include <gui/colors.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     // Different type of scrollbars
     enum ScrollBarType

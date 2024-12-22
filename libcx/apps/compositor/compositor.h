@@ -78,7 +78,7 @@ protected:
     /**
      * Image class of the background
     */
-    LIBCactusOS::Imaging::Image* backgroundImage = 0;
+    Novanix::Imaging::Image* backgroundImage = 0;
 
 #pragma endregion
 #pragma region Canvasses

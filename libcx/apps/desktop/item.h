@@ -6,8 +6,8 @@
 #include <imaging/image.h>
 #include <imaging/pngformat.h>
 
-using namespace LIBCactusOS;
-using namespace LIBCactusOS::Imaging;
+using namespace Novanix;
+using namespace Novanix::Imaging;
 
 class DesktopItem : Rectangle
 {

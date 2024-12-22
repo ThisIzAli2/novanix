@@ -1,9 +1,9 @@
-#ifndef __LIBCACTUSOS__GUI__COLORS_H
-#define __LIBCACTUSOS__GUI__COLORS_H
+#ifndef __Novanix__GUI__COLORS_H
+#define __Novanix__GUI__COLORS_H
 
 #include <types.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     // Union describing a ARGB color in the following format:
     // 0xAARRGGBB

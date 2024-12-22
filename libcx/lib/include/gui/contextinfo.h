@@ -30,20 +30,20 @@ inline Direction operator|(Direction a, Direction b)
 struct ContextInfo
 {
     // To which memory address is the framebuffer mapped on the server side (ContextInfo is placed just before this address)
-    LIBCactusOS::uint32_t virtAddrServer;
+    Novanix::uint32_t virtAddrServer;
     // To which memory address is the framebuffer mapped on the client side (ContextInfo is placed just before this address)
-    LIBCactusOS::uint32_t virtAddrClient;
+    Novanix::uint32_t virtAddrClient;
 
     // How many bytes does this context use? This includes the memory used by this struct
-    LIBCactusOS::uint32_t bytes;
+    Novanix::uint32_t bytes;
     // The width of this context
-    LIBCactusOS::uint32_t width;
+    Novanix::uint32_t width;
     // The height of this context
-    LIBCactusOS::uint32_t height;
+    Novanix::uint32_t height;
     // The position on the horizontal axis
-    LIBCactusOS::int32_t x;
+    Novanix::int32_t x;
     // The position on the vertical axis
-    LIBCactusOS::int32_t y;
+    Novanix::int32_t y;
 
     // The PID of the process that created this context
     int clientID;
@@ -65,7 +65,7 @@ struct ContextInfo
     bool dirtyLockFlag;
 
     // Number of dirty rectangles in the array below
-    LIBCactusOS::uint16_t numDirtyRects;
+    Novanix::uint16_t numDirtyRects;
 
     // Array of dirty rectangles specific to this context
     struct

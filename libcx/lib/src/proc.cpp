@@ -1,7 +1,7 @@
 #include <proc.h>
 #include <listing.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 int Process::ID = -1;
 int Process::numThreads = 1;

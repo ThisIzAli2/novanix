@@ -4,7 +4,7 @@
 #include <types.h>
 #include <gui/directgui.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 class ProgressBar
 {

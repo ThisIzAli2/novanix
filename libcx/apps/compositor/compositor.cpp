@@ -14,8 +14,8 @@
 #include <string.h>
 #include <heap.h>
 
-using namespace LIBCactusOS;
-using namespace LIBCactusOS::Imaging;
+using namespace Novanix;
+using namespace Novanix::Imaging;
 
 extern uint8_t ConvertKeycode(KeypressPacket* packet); //In scancodes.cpp
 

@@ -11,7 +11,7 @@
 #include <gui/widgets/window.h>
 #include <gui/fonts/fontparser.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 int GUI::Width = 0;
 int GUI::Height = 0;

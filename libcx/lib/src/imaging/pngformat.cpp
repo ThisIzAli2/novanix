@@ -6,8 +6,8 @@
 #include <vfs.h>
 #include <heap.h>
 
-using namespace LIBCactusOS;
-using namespace LIBCactusOS::Imaging;
+using namespace Novanix;
+using namespace Novanix::Imaging;
 
 #define BYTES_PER_PIXEL 4
 

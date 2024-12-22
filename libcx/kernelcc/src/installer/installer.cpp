@@ -361,7 +361,7 @@ void CopyFile(VirtualFileSystem* src, VirtualFileSystem* dest, char* path)
 void CopyDirectory(VirtualFileSystem* src, VirtualFileSystem* dest, char* path)
 {
     auto content = src->DirectoryList(path);
-    for(LIBCactusOS::VFSEntry item : *content)
+    for(Novanix::VFSEntry item : *content)
     {
         char itemPath[255];
         MemoryOperations::memset(itemPath, 0, 255);

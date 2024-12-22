@@ -2,9 +2,9 @@
 #include <proc.h>
 #include <string.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
-int LIBCactusOS::IPCSend(int dest, int type, unsigned int arg1, unsigned int arg2, unsigned int arg3, unsigned int arg4, unsigned int arg5, unsigned int arg6)
+int Novanix::IPCSend(int dest, int type, unsigned int arg1, unsigned int arg2, unsigned int arg3, unsigned int arg4, unsigned int arg5, unsigned int arg6)
 {
     //Create IPCMessage
     IPCMessage message;
@@ -23,17 +23,17 @@ int LIBCactusOS::IPCSend(int dest, int type, unsigned int arg1, unsigned int arg
     return IPCSend(message);
 }
 
-int LIBCactusOS::IPCSend(IPCMessage message)
+int Novanix::IPCSend(IPCMessage message)
 {
     return DoSyscall(SYSCALL_IPC_SEND, (uint32_t)&message);
 }
 
-int LIBCactusOS::IPCAvailable()
+int Novanix::IPCAvailable()
 {
     return DoSyscall(SYSCALL_IPC_AVAILABLE);
 }
 
-IPCMessage LIBCactusOS::ICPReceive(int fromID, int* errOut, int type)
+IPCMessage Novanix::ICPReceive(int fromID, int* errOut, int type)
 {
     IPCMessage result;
     DoSyscall(SYSCALL_IPC_RECEIVE, (uint32_t)&result, fromID, (uint32_t)errOut, type);

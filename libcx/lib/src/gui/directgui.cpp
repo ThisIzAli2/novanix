@@ -8,7 +8,7 @@
 #include <systeminfo.h>
 #include <math.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 Canvas* base = 0;
 

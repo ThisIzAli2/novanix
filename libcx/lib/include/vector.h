@@ -1,9 +1,9 @@
-#ifndef __LIBCACTUSOS__VECTOR_H
-#define __LIBCACTUSOS__VECTOR_H
+#ifndef __Novanix__VECTOR_H
+#define __Novanix__VECTOR_H
 
 #include <types.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     template<typename T>
     class Vector

@@ -14,8 +14,8 @@
 #include <imaging/image.h>
 #include "progress.h"
 
-using namespace LIBCactusOS;
-using namespace LIBCactusOS::Imaging;
+using namespace Novanix;
+using namespace Novanix::Imaging;
 
 char* path = "B:\\boot.jpg";
 

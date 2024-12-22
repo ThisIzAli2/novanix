@@ -1,9 +1,9 @@
-#ifndef __LIBCACTUSOS__GUI__LABEL_H
-#define __LIBCACTUSOS__GUI__LABEL_H
+#ifndef __Novanix__GUI__LABEL_H
+#define __Novanix__GUI__LABEL_H
 
 #include <gui/widgets/control.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     class Label : public Control
     {

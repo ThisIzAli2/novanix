@@ -1,11 +1,11 @@
-#ifndef __LIBCACTUSOS__GUI__GUI_H
-#define __LIBCACTUSOS__GUI__GUI_H
+#ifndef __Novanix__GUI__GUI_H
+#define __Novanix__GUI__GUI_H
 
 #include <gui/widgets/control.h>
 #include <gui/widgets/window.h>
 #include <gui/context.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     // Event definitions
     enum GUIEvents

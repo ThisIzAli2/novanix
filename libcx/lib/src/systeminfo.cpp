@@ -6,7 +6,7 @@
 #include <types.h>
 #include <log.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 SIPropertyProvider SystemInfo::Properties = SIPropertyProvider("properties");
 

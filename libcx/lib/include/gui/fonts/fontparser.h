@@ -1,10 +1,10 @@
-#ifndef __LIBCACTUSOS__GUI__FONTS__FONTPARSER_H
-#define __LIBCACTUSOS__GUI__FONTS__FONTPARSER_H
+#ifndef __Novanix__GUI__FONTS__FONTPARSER_H
+#define __Novanix__GUI__FONTS__FONTPARSER_H
 
 #include <types.h>
 #include <gui/fonts/font.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     // Header of a CactusOS Font File (CFF)
     struct CFFHeader

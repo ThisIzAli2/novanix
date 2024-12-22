@@ -10,7 +10,7 @@
 #include <log.h>
 #include <proc.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 void ButtonClickHandler(void* sender, MouseButtonArgs arg);
 void CalculateButtonHandler(void* sender, MouseButtonArgs arg);

@@ -6,9 +6,9 @@
 #include <convert.h>
 #include <proc.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
-void LIBCactusOS::Log(LogLevel level, char* msg)
+void Novanix::Log(LogLevel level, char* msg)
 {
     DoSyscall(SYSCALL_LOG, level, (int)msg);
 }
@@ -18,7 +18,7 @@ void printLen(const char* data, uint32_t length)
     Process::WriteStdOut((char*)data, (int)length);
 }
 
-void LIBCactusOS::Print(const char* __restrict__ format, ...)
+void Novanix::Print(const char* __restrict__ format, ...)
 {
     va_list parameters;
 	va_start(parameters, format);

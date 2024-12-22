@@ -1,6 +1,6 @@
 #include <random.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 uint32_t next = 12;
 

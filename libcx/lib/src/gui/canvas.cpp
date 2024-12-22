@@ -3,7 +3,7 @@
 #include <math.h>
 #include <gui/colors.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 Canvas::Canvas(void* buffer, int w, int h)
 {

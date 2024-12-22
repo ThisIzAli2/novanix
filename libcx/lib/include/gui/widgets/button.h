@@ -1,10 +1,10 @@
-#ifndef __LIBCACTUSOS__GUI__BUTTON_H
-#define __LIBCACTUSOS__GUI__BUTTON_H
+#ifndef __Novanix__GUI__BUTTON_H
+#define __Novanix__GUI__BUTTON_H
 
 #include <gui/widgets/control.h>
 #include <gui/gui.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     /**
      * A GUI button

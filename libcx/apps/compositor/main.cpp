@@ -6,7 +6,7 @@
 
 #include "compositor.h"
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 int main(int argc, char** argv)
 {

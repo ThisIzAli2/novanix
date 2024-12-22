@@ -9,8 +9,8 @@
 #include <imaging/jpeg_decoder.h>
 #include <imaging/pngformat.h>
 
-using namespace LIBCactusOS;
-using namespace LIBCactusOS::Imaging;
+using namespace Novanix;
+using namespace Novanix::Imaging;
 
 Image::Image(const int width, const int height)
 {

@@ -36,12 +36,12 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.asm
 	mkdir -p $(@D)
 	nasm -f elf32 -O0 $< -o $@
 
-libcactusos.a: $(OBJFILES)
-	i686-elf-ar r libcactusos.a $(OBJFILES)
+Novanix.a: $(OBJFILES)
+	i686-elf-ar r Novanix.a $(OBJFILES)
 
 .PHONY: clean filelist
 clean:
-	rm -rf $(OBJDIR) libcactusos.a
+	rm -rf $(OBJDIR) Novanix.a
 
 filelist:
 	@echo "Source Files:"

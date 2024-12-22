@@ -1,10 +1,10 @@
-#ifndef __LIBCACTUSOS__GUI__CANVAS_H
-#define __LIBCACTUSOS__GUI__CANVAS_H
+#ifndef __Novanix__GUI__CANVAS_H
+#define __Novanix__GUI__CANVAS_H
 
 #include <types.h>
 #include <gui/fonts/font.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     class Canvas
     {

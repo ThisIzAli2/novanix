@@ -3,7 +3,7 @@ include ${CONFIG}
 
 LIBINCLUDE := ../lib/include
 LIBDIR := ../lib
-LIBFILE := ../lib/libcactusos.a
+LIBFILE := ../lib/Novanix.a
 DEBUG := -g
 
 G++PARAMS := -m32 $(DEBUG) -I $(LIBINCLUDE) $(OPTIMIZE_FLAGS) -Wall -fno-omit-frame-pointer -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-exceptions -fno-rtti -fno-leading-underscore -Wno-write-strings -fpermissive -Wno-unknown-pragmas
@@ -28,7 +28,7 @@ all: linker.ld $(LIBFILE) $(OBJFILES)
 clean:
 	rm -rf $(OBJFILES) $(LIBFILE)
 
-# Build libcactusos.a with makefile in the LIBDIR
+# Build Novanix.a with makefile in the LIBDIR
 $(LIBFILE):
 	cd $(LIBDIR) && $(MAKE)
 

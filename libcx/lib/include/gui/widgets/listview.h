@@ -1,11 +1,11 @@
-#ifndef __LIBCACTUSOS__GUI__LISTVIEW_H
-#define __LIBCACTUSOS__GUI__LISTVIEW_H
+#ifndef __Novanix__GUI__LISTVIEW_H
+#define __Novanix__GUI__LISTVIEW_H
 
 #include <gui/widgets/control.h>
 #include <imaging/image.h>
 #include <gui/gui.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     class ListViewItem
     {

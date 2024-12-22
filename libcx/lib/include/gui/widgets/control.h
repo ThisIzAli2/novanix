@@ -1,5 +1,5 @@
-#ifndef __LIBCACTUSOS__GUI__CONTROL_H
-#define __LIBCACTUSOS__GUI__CONTROL_H
+#ifndef __Novanix__GUI__CONTROL_H
+#define __Novanix__GUI__CONTROL_H
 
 #include <types.h>
 #include <gui/rect.h>
@@ -11,7 +11,7 @@
 #include <gui/fonts/font.h>
 #include <gui/colors.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     // Defines the alignment of a specific entry
     // This is for the x and the y direction

@@ -2,7 +2,7 @@
 #include <types.h>
 #include <log.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 uint32_t getMXCSR (void)
 {

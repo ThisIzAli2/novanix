@@ -1,6 +1,6 @@
 #include <gui/colors.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 static const int AMASK = 0xFF000000;
 static const int RBMASK = 0x00FF00FF;

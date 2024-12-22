@@ -2,7 +2,7 @@
 #include <gui/gui.h>
 #include <log.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 Control::Control(int w, int h, int x, int y)
 : EventObject(), Rectangle(w, h, x, y)

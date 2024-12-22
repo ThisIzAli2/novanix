@@ -1,9 +1,9 @@
-#ifndef __LIBCACTUSOS__GUI__CONTEXTHEAP_H
-#define __LIBCACTUSOS__GUI__CONTEXTHEAP_H
+#ifndef __Novanix__GUI__CONTEXTHEAP_H
+#define __Novanix__GUI__CONTEXTHEAP_H
 
 #include <types.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     //Class that provides functions for allocating memory space for contexts.
     //Note: Memory region is not allocated, just a block that is reserved after allocating.

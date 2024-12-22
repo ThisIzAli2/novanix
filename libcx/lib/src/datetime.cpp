@@ -5,7 +5,7 @@
 #include <string.h>
 #include <log.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 DateTime DateTime::Current()
 {

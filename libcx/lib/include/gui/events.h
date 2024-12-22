@@ -1,11 +1,11 @@
-#ifndef __LIBCACTUSOS__GUI__EVENTS_H
-#define __LIBCACTUSOS__GUI__EVENTS_H
+#ifndef __Novanix__GUI__EVENTS_H
+#define __Novanix__GUI__EVENTS_H
 
 #include <list.h>
 #include <gui/widgets/control.h>
 #include <shared.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     // A class that defines a callback function 
     template<typename ArgumentType>

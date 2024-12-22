@@ -3,7 +3,7 @@
 #include <log.h>
 #include <heap.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 Rectangle::Rectangle(int w, int h, int x_p, int y_p)
 {

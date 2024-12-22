@@ -1,6 +1,6 @@
 #include <gui/widgets/label.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 Label::Label(char* text)
 : Control(80, 20)

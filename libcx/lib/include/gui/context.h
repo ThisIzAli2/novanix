@@ -1,5 +1,5 @@
-#ifndef __LIBCACTUSOS__GUI__CONTEXT_H
-#define __LIBCACTUSOS__GUI__CONTEXT_H
+#ifndef __Novanix__GUI__CONTEXT_H
+#define __Novanix__GUI__CONTEXT_H
 
 #include <types.h>
 #include <gui/rect.h>
@@ -7,7 +7,7 @@
 #include <gui/widgets/control.h>
 #include <shared.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {   
     /**
      * Represents a region of framebuffer shared between client and server

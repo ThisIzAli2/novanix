@@ -20,12 +20,12 @@ extern PowerRequest powerRequestState; //Defined in kernel.cpp
 
 CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
 {
-    LIBCactusOS::Systemcalls sysCall = (LIBCactusOS::Systemcalls)state->EAX;
+    Novanix::Systemcalls sysCall = (Novanix::Systemcalls)state->EAX;
     Process* proc = System::scheduler->CurrentProcess();
 
     switch (sysCall)
     {
-        case LIBCactusOS::SYSCALL_EXIT:
+        case Novanix::SYSCALL_EXIT:
             Log(Info, "Process %d %s exited with code %d", proc->id, proc->fileName, (int)state->EBX);
             ProcessHelper::RemoveProcess(proc);
             state->EAX = SYSCALL_RET_SUCCES;
@@ -35,11 +35,11 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
         // Logging
         /////////////
 
-        case LIBCactusOS::SYSCALL_LOG:
+        case Novanix::SYSCALL_LOG:
             Log((LogLevel)state->EBX, (const char* __restrict__)state->ECX);
             state->EAX = SYSCALL_RET_SUCCES;
             break;
-        case LIBCactusOS::SYSCALL_PRINT:
+        case Novanix::SYSCALL_PRINT:
             Print((const char*)state->EBX, state->ECX);
             break;
         
@@ -47,28 +47,28 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
         // VFS
         /////////////
         
-        case LIBCactusOS::SYSCALL_FILE_EXISTS:
+        case Novanix::SYSCALL_FILE_EXISTS:
             state->EAX = System::vfs->FileExists((char*)state->EBX);
             break;
-        case LIBCactusOS::SYSCALL_DIR_EXISTS:
+        case Novanix::SYSCALL_DIR_EXISTS:
             state->EAX = System::vfs->DirectoryExists((char*)state->EBX);
             break;
-        case LIBCactusOS::SYSCALL_GET_FILESIZE:
+        case Novanix::SYSCALL_GET_FILESIZE:
             state->EAX = System::vfs->GetFileSize((char*)state->EBX);
             break;
-        case LIBCactusOS::SYSCALL_READ_FILE:
+        case Novanix::SYSCALL_READ_FILE:
             state->EAX = System::vfs->ReadFile((char*)state->EBX, (uint8_t*)state->ECX);
             break;
-        case LIBCactusOS::SYSCALL_WRITE_FILE:
+        case Novanix::SYSCALL_WRITE_FILE:
             state->EAX = System::vfs->WriteFile((char*)state->EBX, (uint8_t*)state->ECX, state->EDX, (bool)state->ESI);
             break;
-        case LIBCactusOS::SYSCALL_CREATE_FILE:
+        case Novanix::SYSCALL_CREATE_FILE:
             state->EAX = System::vfs->CreateFile((char*)state->EBX);
             break;
-        case LIBCactusOS::SYSCALL_CREATE_DIRECTORY:
+        case Novanix::SYSCALL_CREATE_DIRECTORY:
             state->EAX = System::vfs->CreateDirectory((char*)state->EBX);
             break;
-        case LIBCactusOS::SYSCALL_EJECT_DISK:
+        case Novanix::SYSCALL_EJECT_DISK:
             state->EAX = System::vfs->EjectDrive((char*)state->EBX);
             break;
 
@@ -76,13 +76,13 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
         // GUI
         //////////////
         
-        case LIBCactusOS::SYSCALL_GUI_GETLFB:
+        case Novanix::SYSCALL_GUI_GETLFB:
             VirtualMemoryManager::mapVirtualToPhysical((void*)System::gfxDevice->framebufferPhys, (void*)state->EBX, pageRoundUp(System::gfxDevice->GetBufferSize()), false, true);
             state->EAX = SYSCALL_RET_SUCCES;
             Log(Info, "Mapped LFB for process %d to virtual address %x", proc->id, state->EBX);
             break;
 
-        case LIBCactusOS::SYSCALL_GET_SCREEN_PROPERTIES:
+        case Novanix::SYSCALL_GET_SCREEN_PROPERTIES:
             if(System::gfxDevice) {
                 *((int*)state->EBX) = System::gfxDevice->width;
                 *((int*)state->ECX) = System::gfxDevice->height;
@@ -98,17 +98,17 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
         // Memory
         //////////////
 
-        case LIBCactusOS::SYSCALL_GET_HEAP_START:
+        case Novanix::SYSCALL_GET_HEAP_START:
             state->EAX = proc->heap.heapStart;
             break;
-        case LIBCactusOS::SYSCALL_GET_HEAP_END:
+        case Novanix::SYSCALL_GET_HEAP_END:
             state->EAX = proc->heap.heapEnd;
             break;
-        case LIBCactusOS::SYSCALL_SET_HEAP_SIZE:
+        case Novanix::SYSCALL_SET_HEAP_SIZE:
             ProcessHelper::UpdateHeap(proc, state->EBX);
             state->EAX = SYSCALL_RET_SUCCES;
             break;
-        case LIBCactusOS::SYSCALL_CREATE_SHARED_MEM:
+        case Novanix::SYSCALL_CREATE_SHARED_MEM:
             {
                 Process* proc2 = ProcessHelper::ProcessById(state->EBX);
                 if(proc2 == 0) {
@@ -118,7 +118,7 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
                 state->EAX = SharedMemory::CreateSharedRegion(proc, proc2, state->ECX, state->EDX, state->ESI);
             }
             break;
-        case LIBCactusOS::SYSCALL_REMOVE_SHARED_MEM:
+        case Novanix::SYSCALL_REMOVE_SHARED_MEM:
             {
                 Process* proc2 = ProcessHelper::ProcessById(state->EBX);
                 if(proc2 == 0) {
@@ -128,7 +128,7 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
                 state->EAX = SharedMemory::RemoveSharedRegion(proc, proc2, state->ECX, state->EDX, state->ESI);
             }
             break;
-        case LIBCactusOS::SYSCALL_MAP_SYSINFO:
+        case Novanix::SYSCALL_MAP_SYSINFO:
             {
                 //Put systeminfo into address space
                 uint32_t sysInfoPhys = (uint32_t)VirtualMemoryManager::virtualToPhysical((void*)System::systemInfo);
@@ -146,7 +146,7 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
         // Scheduler
         //////////////
         
-        case LIBCactusOS::SYSCALL_RUN_PROC:
+        case Novanix::SYSCALL_RUN_PROC:
             {    
                 char* applicationPath = (char*)state->EBX;
                 bool block = (bool)state->ECX;
@@ -172,14 +172,14 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
                     state->EAX = SYSCALL_RET_ERROR;
             }
             break;
-        case LIBCactusOS::SYSCALL_SLEEP_MS:
+        case Novanix::SYSCALL_SLEEP_MS:
             {
                 Thread* currentThread = System::scheduler->CurrentThread();
                 currentThread->timeDelta = state->EBX;
                 System::scheduler->Block(currentThread, BlockedState::SleepMS);
             }
             break;
-        case LIBCactusOS::SYSCALL_START_THREAD:
+        case Novanix::SYSCALL_START_THREAD:
             {     
                 Log(Info, "Creating new thread for proc %d %s, jumps to %x", proc->id, proc->fileName, state->EBX);
                 //Create new thread
@@ -202,10 +202,10 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
                     System::scheduler->ForceSwitch();
             }
             break;
-        case LIBCactusOS::SYSCALL_YIELD:
+        case Novanix::SYSCALL_YIELD:
             System::scheduler->ForceSwitch();
             break;
-        case LIBCactusOS::SYSCALL_PROC_EXIST:
+        case Novanix::SYSCALL_PROC_EXIST:
             {
                 Process* proc = ProcessHelper::ProcessById(state->EBX);
                 if(proc != 0)
@@ -214,20 +214,20 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
                     state->EAX = false;
             }
             break;
-        case LIBCactusOS::SYSCALL_UNBLOCK:
+        case Novanix::SYSCALL_UNBLOCK:
             {
                 Process* proc = ProcessHelper::ProcessById(state->EBX);
                 if(proc != 0 && (int)state->ECX < proc->Threads.size())
                     proc->Threads[state->ECX]->state = Started;
             }
             break;
-        case LIBCactusOS::SYSCALL_SET_SCHEDULER:
+        case Novanix::SYSCALL_SET_SCHEDULER:
             {
                 bool active = (bool)state->EBX;
                 System::scheduler->Enabled = active;
             }
             break;
-        case LIBCactusOS::SYSCALL_GET_ARGUMENTS:
+        case Novanix::SYSCALL_GET_ARGUMENTS:
             {
                 char* target = (char*)state->EBX;
                 char* src = proc->args;
@@ -242,13 +242,13 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
         // IPC
         //////////////
         
-        case LIBCactusOS::SYSCALL_IPC_SEND:
+        case Novanix::SYSCALL_IPC_SEND:
             IPCManager::HandleSend(state, proc);
             break;
-        case LIBCactusOS::SYSCALL_IPC_RECEIVE:
+        case Novanix::SYSCALL_IPC_RECEIVE:
             IPCManager::HandleReceive(state, proc);
             break;
-        case LIBCactusOS::SYSCALL_IPC_AVAILABLE:
+        case Novanix::SYSCALL_IPC_AVAILABLE:
             state->EAX = proc->ipcMessages.size();
             break;
 
@@ -256,16 +256,16 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
         // Clock
         //////////////
 
-        case LIBCactusOS::SYSCALL_GET_TICKS:
+        case Novanix::SYSCALL_GET_TICKS:
             {
                 uint64_t* ticksPtr = (uint64_t*)state->EBX;
                 *ticksPtr = System::pit->Ticks();
                 state->EAX = SYSCALL_RET_SUCCES;
             }
             break;
-        case LIBCactusOS::SYSCALL_GET_DATETIME:
+        case Novanix::SYSCALL_GET_DATETIME:
             {
-                LIBCactusOS::DateTime* resultPtr = (LIBCactusOS::DateTime*)state->EBX;
+                Novanix::DateTime* resultPtr = (Novanix::DateTime*)state->EBX;
                 resultPtr->Day = System::rtc->GetDay();
                 resultPtr->Hours = System::rtc->GetHour();
                 resultPtr->Minutes = System::rtc->GetMinute();
@@ -280,13 +280,13 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
         // Power
         //////////////
 
-        case LIBCactusOS::SYSCALL_SHUTDOWN:
+        case Novanix::SYSCALL_SHUTDOWN:
             Log(Info, "Process requested shutdown");
             powerRequestState = Shutdown; //Tell kernel process to shutdown on next schedule
             
             state->EAX = SYSCALL_RET_SUCCES;
             break;
-        case LIBCactusOS::SYSCALL_REBOOT:
+        case Novanix::SYSCALL_REBOOT:
             Log(Info, "Process requested reboot");
             powerRequestState = Reboot; //Tell kernel process to reboot on next schedule
 
@@ -297,7 +297,7 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
         // STDIO
         //////////////        
 
-        case LIBCactusOS::SYSCALL_READ_STDIO:
+        case Novanix::SYSCALL_READ_STDIO:
             if(proc->stdInput != 0)
             {
                 while (proc->stdInput->Available() <= 0) //TODO: Use blocking here
@@ -308,7 +308,7 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
                 Log(Warning, "StdIn is zero for process %s", proc->fileName);
 
             break;
-        case LIBCactusOS::SYSCALL_WRITE_STDIO:
+        case Novanix::SYSCALL_WRITE_STDIO:
             if(proc->stdOutput != 0) {
                 char* data = (char*)state->EBX;
                 if(data == 0 || state->ECX <= 0)
@@ -329,7 +329,7 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
                 Log(Warning, "StdOut is zero for process %s", proc->fileName);
             
             break;
-        case LIBCactusOS::SYSCALL_REDIRECT_STDIO:
+        case Novanix::SYSCALL_REDIRECT_STDIO:
             {
                 int fromID = state->EBX;
                 int toID = state->ECX;
@@ -356,7 +356,7 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
                 fromProc->stdOutput = toProc->stdInput;
             }
             break;
-        case LIBCactusOS::SYSCALL_STDIO_AVAILABLE:
+        case Novanix::SYSCALL_STDIO_AVAILABLE:
             if(proc->stdInput != 0)
                 state->EAX = proc->stdInput->Available();
             else
@@ -368,7 +368,7 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
         // Listings
         //////////////        
 
-        case LIBCactusOS::SYSCALL_BEGIN_LISTING:
+        case Novanix::SYSCALL_BEGIN_LISTING:
             {
                 int type = state->EBX;
                 if(!(System::listings->size() > type)) {
@@ -379,7 +379,7 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
                 state->EAX = System::listings->GetAt(type)->BeginListing(System::scheduler->CurrentThread(), state->ECX);
             }
             break;
-        case LIBCactusOS::SYSCALL_LISTING_ENTRY:
+        case Novanix::SYSCALL_LISTING_ENTRY:
             {
                 int type = state->EBX;
                 if(!(System::listings->size() > type)) {
@@ -390,7 +390,7 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
                 state->EAX = System::listings->GetAt(type)->GetEntry(System::scheduler->CurrentThread(), (int)state->ECX, state->EDX);
             }
             break;
-        case LIBCactusOS::SYSCALL_END_LISTING:
+        case Novanix::SYSCALL_END_LISTING:
             {
                 int type = state->EBX;
                 if(!(System::listings->size() > type)) {
@@ -401,7 +401,7 @@ CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
                 System::listings->GetAt(type)->EndListing(System::scheduler->CurrentThread());
             }
             break;
-        case LIBCactusOS::SYSCALL_GET_SYSINFO_VALUE:
+        case Novanix::SYSCALL_GET_SYSINFO_VALUE:
             {
                 state->EAX = SystemInfoManager::HandleSysinfoRequest((void*)state->EBX, state->EDX, state->ECX, (bool)state->ESI);
             }

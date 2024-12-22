@@ -52,7 +52,7 @@ namespace CactusOS
             // Get size of specified file in bytes
             virtual uint32_t GetFileSize(const char* filename);
             // Returns list of context inside a directory
-            virtual List<LIBCactusOS::VFSEntry>* DirectoryList(const char* path);
+            virtual List<Novanix::VFSEntry>* DirectoryList(const char* path);
         };
     }
 }

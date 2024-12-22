@@ -1,9 +1,9 @@
-#ifndef __LIBCACTUSOS__CONVERT_H
-#define __LIBCACTUSOS__CONVERT_H
+#ifndef __Novanix__CONVERT_H
+#define __Novanix__CONVERT_H
 
 #include <types.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     class Convert
     {

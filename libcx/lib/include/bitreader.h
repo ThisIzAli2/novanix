@@ -1,9 +1,9 @@
-#ifndef __LIBCACTUSOS__BITREADER_H
-#define __LIBCACTUSOS__BITREADER_H
+#ifndef __Novanix__BITREADER_H
+#define __Novanix__BITREADER_H
 
 #include <types.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     // Used to read specific bits of a datastream
     class BitReader

@@ -1,12 +1,12 @@
-#ifndef __LIBCACTUSOS__GUI__SLIDER_H
-#define __LIBCACTUSOS__GUI__SLIDER_H
+#ifndef __Novanix__GUI__SLIDER_H
+#define __Novanix__GUI__SLIDER_H
 
 #include <gui/widgets/control.h>
 #include <gui/property.h>
 #include <gui/events.h>
 #include <gui/colors.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     class Slider : public Control
     {

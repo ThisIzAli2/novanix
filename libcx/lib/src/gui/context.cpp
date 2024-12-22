@@ -6,7 +6,7 @@
 #include <gui/contextheap.h>
 #include <heap.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 Context::Context(uint32_t framebufferAddr, int width, int height)
 {

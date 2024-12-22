@@ -1,10 +1,10 @@
-#ifndef __LIBCACTUSOS__GUI__SCROLLBOX_H
-#define __LIBCACTUSOS__GUI__SCROLLBOX_H
+#ifndef __Novanix__GUI__SCROLLBOX_H
+#define __Novanix__GUI__SCROLLBOX_H
 
 #include <gui/widgets/control.h>
 #include <gui/widgets/scrollbar.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     class ScrollBox : public Control
     {

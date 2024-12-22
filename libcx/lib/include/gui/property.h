@@ -1,9 +1,9 @@
-#ifndef __LIBCACTUSOS__GUI__PROPERTY_H
-#define __LIBCACTUSOS__GUI__PROPERTY_H
+#ifndef __Novanix__GUI__PROPERTY_H
+#define __Novanix__GUI__PROPERTY_H
 
 #include <types.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     class Control;
 

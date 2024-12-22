@@ -7,7 +7,7 @@
 #include <string.h>
 #include <vector.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     namespace Imaging
     {

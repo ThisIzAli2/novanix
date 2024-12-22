@@ -3,7 +3,7 @@
 #include <log.h>
 #include <gui/colors.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 Window::Window(Context* base)
 : Control(base->sharedContextInfo->width, base->sharedContextInfo->height, base->sharedContextInfo->x, base->sharedContextInfo->y)

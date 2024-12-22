@@ -1,7 +1,7 @@
 #include <types.h>
 #include <shared.h>
 
-using namespace LIBCactusOS;
+using namespace Novanix;
 
 /////////////////
 // US/International keyboard map

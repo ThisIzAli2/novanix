@@ -102,7 +102,7 @@ namespace CactusOS
             static Scheduler* scheduler;
             static SystemCallHandler* syscalls;
             static APMController* apm;
-            static LIBCactusOS::SharedSystemInfo* systemInfo;
+            static Novanix::SharedSystemInfo* systemInfo;
 
             static ScreenMode screenMode;
             static bool gdbEnabled; //Is the gdb stub enabled?
