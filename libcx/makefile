@@ -150,3 +150,5 @@ filelist:
 
 runit:
 	qemu-system-x86_64 -kernel alinix.bin
+
+install: qemu runit
