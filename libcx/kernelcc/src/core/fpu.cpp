@@ -1,9 +1,9 @@
 #include <core/fpu.h>
 #include <common/memoryoperations.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
 
 void FPU::Enable()
 {

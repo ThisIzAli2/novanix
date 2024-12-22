@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__SYSTEM__VIRTUAL_8086__VM86MANAGER_H
-#define __CACTUSOS__SYSTEM__VIRTUAL_8086__VM86MANAGER_H
+#ifndef __Novanix__SYSTEM__VIRTUAL_8086__VM86MANAGER_H
+#define __Novanix__SYSTEM__VIRTUAL_8086__VM86MANAGER_H
 
 #include <system/interruptmanager.h>
 #include <system/virtual8086/VM86Args.h>
@@ -7,7 +7,7 @@
 #include <core/idt.h>
 #include <core/tss.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

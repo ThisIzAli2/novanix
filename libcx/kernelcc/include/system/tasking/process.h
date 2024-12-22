@@ -7,7 +7,7 @@
 #include <../../lib/include/ipc.h>
 #include <system/memory/stream.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

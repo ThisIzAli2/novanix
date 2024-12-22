@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__USB__USBDEVICE_H
-#define __CACTUSOS__SYSTEM__USB__USBDEVICE_H
+#ifndef __Novanix__SYSTEM__USB__USBDEVICE_H
+#define __Novanix__SYSTEM__USB__USBDEVICE_H
 
 #include <system/usb/usbcontroller.h>
 #include <system/usb/usbendpoint.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

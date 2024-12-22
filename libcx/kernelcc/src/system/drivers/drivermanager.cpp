@@ -1,9 +1,9 @@
 #include <system/drivers/drivermanager.h>
 #include <system/log.h>
 
-using namespace CactusOS;
-using namespace CactusOS::system;
-using namespace CactusOS::system::drivers;
+using namespace Novanix;
+using namespace Novanix::system;
+using namespace Novanix::system::drivers;
 
 DriverManager::DriverManager()
 {

@@ -1,6 +1,6 @@
 #include <common/memoryoperations.h>
 
-using namespace CactusOS::common;
+using namespace Novanix::common;
 
 void* MemoryOperations::memmove(void* dstptr, const void* srcptr, uint32_t size)
 {

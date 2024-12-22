@@ -3,10 +3,10 @@
 #include <common/print.h>
 #include <alinix/security.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
 
 // Should we try to automaticaly fix pagefaults?
 bool autoFixPagefaults = false;

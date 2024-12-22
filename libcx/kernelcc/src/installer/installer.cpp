@@ -4,11 +4,11 @@
 #include <core/power.h>
 #include <system/vfs/fat.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
-using namespace CactusOS::system::drivers;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
+using namespace Novanix::system::drivers;
 
 #define SECTORS_PER_TRACK 80
 
@@ -29,7 +29,7 @@ char* FileList[] = {
     "B:\\setup\\warning.txt",
 };
 
-// Modules required by grub in order to boot CactusOS
+// Modules required by grub in order to boot Novanix
 char* GrubModules[] = {
     "B:\\boot\\grub\\i386-pc\\bufio.mod",
     "B:\\boot\\grub\\i386-pc\\gettext.mod",
@@ -161,7 +161,7 @@ void Installer::ShowWarningMessage()
 void Installer::ShowDiskSelection()
 {
     TextGUI::ClearScreen(VGA_COLOR_BLUE);
-    TextGUI::DrawString("Select a disk to install CactusOS to:", 0, 0);
+    TextGUI::DrawString("Select a disk to install Novanix to:", 0, 0);
     TextGUI::StatusBar("Select disk.    [Up/Down/Enter]", 10);
 
     const int optionStart = 5; //Rows between options to start
@@ -243,7 +243,7 @@ void Installer::ShowDiskEraseMenu()
 void Installer::ShowInstallScreen()
 {
     TextGUI::ClearScreen();
-    TextGUI::DrawString("You are about to start the installation of CactusOS to your hard drive", 0, 0);
+    TextGUI::DrawString("You are about to start the installation of Novanix to your hard drive", 0, 0);
     TextGUI::DrawString("The installation process will contain the following:", 0, 1);
     TextGUI::DrawString("   - Replace the MBR with grub stage1 boot code + partition table", 0, 2);
     TextGUI::DrawString("   - Copy rest of the bootloader to harddisk", 0, 3);
@@ -481,7 +481,7 @@ void Installer::CreateFatPartition(PartitionTableEntry* pEntry)
     biosParameterBlock.bootCode[1] = 0x3C;
     biosParameterBlock.bootCode[2] = 0x90;
 
-    MemoryOperations::memcpy(biosParameterBlock.Oem_Id, "CactusOS", 8);
+    MemoryOperations::memcpy(biosParameterBlock.Oem_Id, "Novanix", 8);
     biosParameterBlock.bytesPerSector = 512;
     biosParameterBlock.SectorsPerCluster = sizeMB > 32_KB ? 64 : sizeMB > 16_KB ? 32 : sizeMB > 8_KB ? 16 : sizeMB > 260 ? 8 : 1; //_KB Can be a bit misleading, we are comparing MB with MB
     biosParameterBlock.ReservedSectors = 32;
@@ -512,7 +512,7 @@ void Installer::CreateFatPartition(PartitionTableEntry* pEntry)
 
     char volumeID[4] = { (char)System::rtc->GetSecond(), (char)System::rtc->GetDay(), (char)System::rtc->GetMonth(), (char)(System::rtc->GetYear() - 2000) };
     biosParameterBlock.VolumeIDSerial = *(uint32_t*)volumeID;
-    MemoryOperations::memcpy(biosParameterBlock.VolumeLabel, "CactusOS HD", 11);
+    MemoryOperations::memcpy(biosParameterBlock.VolumeLabel, "Novanix HD", 11);
     MemoryOperations::memcpy(biosParameterBlock.SystemIDString, "FAT32   ", 8);
     biosParameterBlock.BootSignature = 0xAA55;
 

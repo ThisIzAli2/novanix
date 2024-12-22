@@ -1,7 +1,7 @@
 #include <common/string.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
+using namespace Novanix;
+using namespace Novanix::common;
 
 int String::strlen(const char* str)
 {

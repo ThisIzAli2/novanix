@@ -1,10 +1,10 @@
 #include <core/cpu.h>
 #include <system/bootconsole.h>
 
-using namespace CactusOS;
-using namespace CactusOS::core;
-using namespace CactusOS::common;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::core;
+using namespace Novanix::common;
+using namespace Novanix::system;
 
 extern "C" void EnableSSE();
 

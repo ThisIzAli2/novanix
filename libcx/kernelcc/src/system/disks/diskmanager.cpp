@@ -3,10 +3,10 @@
 #include <system/drivers/disk/ide.h>
 #include <system/system.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::system;
-using namespace CactusOS::system::drivers;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::system;
+using namespace Novanix::system::drivers;
 
 // VM86 Function to get info about a specific disk device
 // We must do it this way because the DS:SI gets used by the CallInterrupt() method

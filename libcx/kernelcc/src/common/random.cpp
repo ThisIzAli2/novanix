@@ -1,6 +1,6 @@
 #include <common/random.h>
 
-using namespace CactusOS::common;
+using namespace Novanix::common;
 
 uint32_t Random::next;
 

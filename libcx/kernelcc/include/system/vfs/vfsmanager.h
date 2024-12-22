@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__SYSTEM__VFS__VFSMANAGER_H
-#define __CACTUSOS__SYSTEM__VFS__VFSMANAGER_H
+#ifndef __Novanix__SYSTEM__VFS__VFSMANAGER_H
+#define __Novanix__SYSTEM__VFS__VFSMANAGER_H
 
 #include <system/vfs/virtualfilesystem.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

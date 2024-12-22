@@ -1,7 +1,7 @@
 #include <core/gdt.h>
 
-using namespace CactusOS::common;
-using namespace CactusOS::core;
+using namespace Novanix::common;
+using namespace Novanix::core;
 
 /*/////////////////
 // Variables

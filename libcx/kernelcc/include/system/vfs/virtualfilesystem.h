@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__SYSTEM__VFS__VIRTUALFILESYSTEM_H
-#define __CACTUSOS__SYSTEM__VFS__VIRTUALFILESYSTEM_H
+#ifndef __Novanix__SYSTEM__VFS__VIRTUALFILESYSTEM_H
+#define __Novanix__SYSTEM__VFS__VIRTUALFILESYSTEM_H
 
 #include <common/types.h>
 #include <common/list.h>
@@ -7,7 +7,7 @@
 #include <system/disks/disk.h>
 #include <../../lib/include/shared.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__SYSTEM__TASKING__SCHEDULER_H
-#define __CACTUSOS__SYSTEM__TASKING__SCHEDULER_H
+#ifndef __Novanix__SYSTEM__TASKING__SCHEDULER_H
+#define __Novanix__SYSTEM__TASKING__SCHEDULER_H
 
 #include <common/types.h>
 #include <system/interruptmanager.h>
 #include <system/tasking/thread.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

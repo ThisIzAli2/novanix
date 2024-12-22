@@ -1,9 +1,9 @@
 #include <common/print.h>
 
-using namespace CactusOS;
-using namespace CactusOS::system;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
+using namespace Novanix;
+using namespace Novanix::system;
+using namespace Novanix::common;
+using namespace Novanix::core;
 
 void Print::printfHex(uint8_t key)
 {

@@ -59,7 +59,7 @@ MODULE_VERSION("1.0")
 
 struct JoystickStatus *jst;
 
-using namespace CactusOS::system;
+using namespace Novanix::system;
 
 /**
  * @brief Checks if a specific joystick button is pressed.
@@ -78,7 +78,7 @@ bool joystick_button_cxx(uint8_t buttonnum){
     int i;
     for (i = 4; i <= 8; ++i){
         if (joystick_values[i] == buttonnum){
-            return ((CactusOS::core::inportb(JOYSTICK_PORT) & buttonnum) == 0);
+            return ((Novanix::core::inportb(JOYSTICK_PORT) & buttonnum) == 0);
         }
     }
     // Log(Error,"Invalid value:; Out of bounds.\n");
@@ -122,8 +122,8 @@ uint16_t joy_stick_status_cxx(uint8_t byte){
     /* Any read needs to be with a write. The byte that we send 
      * can be garbage, it doesn't matters.
      */
-    unsigned char stat = (uint16_t)CactusOS::core::inportb(JOYSTICK_PORT);
-    CactusOS::core::outportb(JOYSTICK_PORT, GARBAGE_DATA);
+    unsigned char stat = (uint16_t)Novanix::core::inportb(JOYSTICK_PORT);
+    Novanix::core::outportb(JOYSTICK_PORT, GARBAGE_DATA);
 
     while (1){
         if (stat & byte){

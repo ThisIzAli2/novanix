@@ -6,7 +6,7 @@
 #include <common/types.h>
 #include <core/registers.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

@@ -2,10 +2,10 @@
 #include <common/types.h>
 #include <core/port.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::system;
-using namespace CactusOS::core;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::system;
+using namespace Novanix::core;
 
 volatile uint16_t* videoMemory = (uint16_t*)0xC00B8000;
 

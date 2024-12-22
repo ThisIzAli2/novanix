@@ -47,10 +47,10 @@ SOFTWARE.
 #include <stdbool.h>
 #include <stdarg.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
 
 char* logLevelMessage[3] {
     "[Info]",
@@ -67,7 +67,7 @@ uint32_t GetMSSinceBoot()
 }
 #endif
 
-void CactusOS::system::Print(const char* data, uint32_t length) {
+void Novanix::system::Print(const char* data, uint32_t length) {
     if(System::screenMode == ScreenMode::TextMode)
     {
         for (uint32_t i = 0; i < length; i++)
@@ -80,7 +80,7 @@ void CactusOS::system::Print(const char* data, uint32_t length) {
     }
 }
 
-void CactusOS::system::Log(LogLevel level, const char* __restrict__ format, ...)
+void Novanix::system::Log(LogLevel level, const char* __restrict__ format, ...)
 {
     uint8_t prevColor = BootConsole::ForegroundColor;
     if(System::screenMode == ScreenMode::TextMode)

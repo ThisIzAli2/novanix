@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__USB__USBMANAGER_H
-#define __CACTUSOS__SYSTEM__USB__USBMANAGER_H
+#ifndef __Novanix__SYSTEM__USB__USBMANAGER_H
+#define __Novanix__SYSTEM__USB__USBMANAGER_H
 
 #include <system/usb/usbcontroller.h>
 #include <system/usb/usbdevice.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

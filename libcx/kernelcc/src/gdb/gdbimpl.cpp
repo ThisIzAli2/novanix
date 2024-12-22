@@ -4,10 +4,10 @@
 #include <common/convert.h>
 #include <common/string.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
 
 extern "C" void _putDebugChar(char a)
 {

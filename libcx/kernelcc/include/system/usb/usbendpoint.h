@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__SYSTEM__USB__USBENDPOINT_H
-#define __CACTUSOS__SYSTEM__USB__USBENDPOINT_H
+#ifndef __Novanix__SYSTEM__USB__USBENDPOINT_H
+#define __Novanix__SYSTEM__USB__USBENDPOINT_H
 
 #include <system/drivers/usb/usbdefs.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

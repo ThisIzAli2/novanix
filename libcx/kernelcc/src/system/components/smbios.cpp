@@ -2,9 +2,9 @@
 #include <system/system.h>
 #include <system/listings/systeminfo.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::system;
 
 char* SMBIOS::CopyString(char* src)
 {

@@ -5,10 +5,10 @@ http://www.petesqbsite.com/sections/tutorials/tuts/vbe3.pdf
 #include <system/components/vesa.h>
 #include <system/system.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::system;
-using namespace CactusOS::core;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::system;
+using namespace Novanix::core;
 
 uint16_t* RealPTRToAddr(Real_Pointer ptr){
     return (uint16_t*)((ptr.B * 0x10) + ptr.A);

@@ -1,8 +1,8 @@
 #include <system/disks/diskcontroller.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::system;
 
 DiskController::DiskController()
 { }

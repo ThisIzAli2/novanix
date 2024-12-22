@@ -63,10 +63,10 @@ SOFTWARE.
 
 
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
 
 extern "C" uint32_t _kernel_base;
 extern "C" uint32_t _kernel_end;
@@ -87,7 +87,7 @@ extern "C" void _set_debug_traps();
 PowerRequest powerRequestState;
 void IdleThread()
 {
-    powerRequestState = None;
+    powerRequestState = PowerRequest::None;
     uint64_t prevTicks = System::pit->Ticks();
     while(1) {
         uint64_t ticks = System::pit->Ticks();

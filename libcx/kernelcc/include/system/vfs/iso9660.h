@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__VFS__ISO9660_H
-#define __CACTUSOS__SYSTEM__VFS__ISO9660_H
+#ifndef __Novanix__SYSTEM__VFS__ISO9660_H
+#define __Novanix__SYSTEM__VFS__ISO9660_H
 
 #include <common/types.h>
 #include <system/vfs/virtualfilesystem.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

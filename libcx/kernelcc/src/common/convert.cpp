@@ -1,7 +1,7 @@
 #include <common/convert.h>
 #include <common/string.h>
 
-using namespace CactusOS::common;
+using namespace Novanix::common;
 
 int IsSpace(char c)
 {

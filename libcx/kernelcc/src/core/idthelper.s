@@ -83,7 +83,7 @@ interrupthandler:
 
 	pushl %esp
 	# Call the kernel IRQ handler
-	call _ZN8CactusOS4core24InterruptDescriptorTable15HandleInterruptEPNS0_8CPUStateE
+	call _ZN7Novanix4core24InterruptDescriptorTable15HandleInterruptEPNS0_8CPUStateE
 	mov %eax, %esp
 
     # Restore Registers
