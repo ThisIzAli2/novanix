@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__SYSTEM__SYSCALLS__SYSCALLS_H
-#define __CACTUSOS__SYSTEM__SYSCALLS__SYSCALLS_H
+#ifndef __Novanix__SYSTEM__SYSCALLS__SYSCALLS_H
+#define __Novanix__SYSTEM__SYSCALLS__SYSCALLS_H
 
 #include <system/interruptmanager.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

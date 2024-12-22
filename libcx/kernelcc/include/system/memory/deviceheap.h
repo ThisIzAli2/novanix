@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__DEVICEHEAP_H
-#define __CACTUSOS__SYSTEM__DEVICEHEAP_H
+#ifndef __Novanix__SYSTEM__DEVICEHEAP_H
+#define __Novanix__SYSTEM__DEVICEHEAP_H
 
 #include <core/virtualmemory.h>
 #include <common/types.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

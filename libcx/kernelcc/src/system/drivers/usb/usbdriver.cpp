@@ -1,11 +1,11 @@
 #include <system/drivers/usb/usbdriver.h>
 #include <system/log.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
-using namespace CactusOS::system::drivers;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
+using namespace Novanix::system::drivers;
 
 USBDriver::USBDriver(USBDevice* dev, char* driverName)
 : Driver(driverName)

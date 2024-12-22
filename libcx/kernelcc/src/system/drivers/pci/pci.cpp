@@ -34,9 +34,9 @@ uint16_t pciConfigReadWord(uint8_t bus, uint8_t slot, uint8_t func, uint8_t offs
     address = (uint32_t)((lbus << 16) | (lslot << 11) |
               (lfunc << 8) | (offset & 0xFC) | ((uint32_t)0x80000000));
     
-    CactusOS::core::outportl(0xCF8,address);
+    Novanix::core::outportl(0xCF8,address);
 
-    tmp = (uint16_t)((CactusOS::core::inportl(0xCFC) >> ((offset & 2) * 8)) & 0xFFFF);
+    tmp = (uint16_t)((Novanix::core::inportl(0xCFC) >> ((offset & 2) * 8)) & 0xFFFF);
     return tmp;
 }
 

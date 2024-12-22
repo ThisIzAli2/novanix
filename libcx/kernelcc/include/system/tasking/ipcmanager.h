@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__TASKING__IPCMANAGER_H
-#define __CACTUSOS__SYSTEM__TASKING__IPCMANAGER_H
+#ifndef __Novanix__SYSTEM__TASKING__IPCMANAGER_H
+#define __Novanix__SYSTEM__TASKING__IPCMANAGER_H
 
 #include <core/registers.h>
 #include <system/tasking/process.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

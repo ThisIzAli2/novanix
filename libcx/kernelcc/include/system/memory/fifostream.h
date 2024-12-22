@@ -1,11 +1,11 @@
-#ifndef __CACTUSOS__SYSTEM__MEMORY__FIFOSTREAM_H
-#define __CACTUSOS__SYSTEM__MEMORY__FIFOSTREAM_H
+#ifndef __Novanix__SYSTEM__MEMORY__FIFOSTREAM_H
+#define __Novanix__SYSTEM__MEMORY__FIFOSTREAM_H
 
 #include <common/types.h>
 #include <common/memoryoperations.h>
 #include <system/memory/stream.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

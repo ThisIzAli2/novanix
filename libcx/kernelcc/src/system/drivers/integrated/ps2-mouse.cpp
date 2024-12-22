@@ -2,11 +2,11 @@
 #include <core/port.h>
 #include <system/system.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::system;
-using namespace CactusOS::system::drivers;
-using namespace CactusOS::core;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::system;
+using namespace Novanix::system::drivers;
+using namespace Novanix::core;
 
 PS2MouseDriver::PS2MouseDriver()
 : InterruptHandler(0x2C), Driver("PS2 Mouse", "Driver for a generic ps2 mouse")

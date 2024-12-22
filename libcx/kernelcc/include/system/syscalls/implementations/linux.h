@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__SYSTEM__SYSCALLS__IMPLEMENTATIONS_LINUX_H
-#define __CACTUSOS__SYSTEM__SYSCALLS__IMPLEMENTATIONS_LINUX_H
+#ifndef __Novanix__SYSTEM__SYSCALLS__IMPLEMENTATIONS_LINUX_H
+#define __Novanix__SYSTEM__SYSCALLS__IMPLEMENTATIONS_LINUX_H
 
 #include <core/registers.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

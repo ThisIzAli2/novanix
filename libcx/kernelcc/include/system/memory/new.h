@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__NEW_H
-#define __CACTUSOS__SYSTEM__NEW_H
+#ifndef __Novanix__SYSTEM__NEW_H
+#define __Novanix__SYSTEM__NEW_H
 
 #include <stddef.h>
 #include <system/memory/heap.h>
 
-using namespace CactusOS::system;
+using namespace Novanix::system;
  
 void *operator new(size_t size)
 {

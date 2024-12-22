@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__HEAP_H
-#define __CACTUSOS__SYSTEM__HEAP_H
+#ifndef __Novanix__SYSTEM__HEAP_H
+#define __Novanix__SYSTEM__HEAP_H
 
 #include <core/virtualmemory.h>
 #include <system/tasking/lock.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

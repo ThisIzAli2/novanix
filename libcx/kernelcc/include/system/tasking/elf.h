@@ -1,10 +1,10 @@
-#ifndef __CACTUSOS__SYSTEM__ELFLOADER_H
-#define __CACTUSOS__SYSTEM__ELFLOADER_H
+#ifndef __Novanix__SYSTEM__ELFLOADER_H
+#define __Novanix__SYSTEM__ELFLOADER_H
 
 #include <common/types.h>
 #include <system/tasking/process.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

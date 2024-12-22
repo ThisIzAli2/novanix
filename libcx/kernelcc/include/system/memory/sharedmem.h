@@ -1,9 +1,9 @@
-#ifndef __CACTUSOS__SYSTEM__MEMORY__SHAREDMEM_H
-#define __CACTUSOS__SYSTEM__MEMORY__SHAREDMEM_H
+#ifndef __Novanix__SYSTEM__MEMORY__SHAREDMEM_H
+#define __Novanix__SYSTEM__MEMORY__SHAREDMEM_H
 
 #include <system/tasking/process.h>
 
-namespace CactusOS
+namespace Novanix
 {
     namespace system
     {

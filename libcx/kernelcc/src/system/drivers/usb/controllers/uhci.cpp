@@ -3,11 +3,11 @@
 #include <system/drivers/usb/usbdriver.h>
 #include <system/system.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
-using namespace CactusOS::system::drivers;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
+using namespace Novanix::system::drivers;
 
 UHCIController::UHCIController(PCIDevice* device)
 : USBController(UHCI), Driver("UHCI USB Controller", "Controller for a UHCI device"), InterruptHandler(IDT_INTERRUPT_OFFSET + device->interrupt)

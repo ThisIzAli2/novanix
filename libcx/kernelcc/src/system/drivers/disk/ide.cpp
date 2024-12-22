@@ -3,11 +3,11 @@
 #include <system/tasking/scheduler.h>
 #include <system/tasking/lock.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
-using namespace CactusOS::system::drivers;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
+using namespace Novanix::system::drivers;
 
 IDEInterruptHandler::IDEInterruptHandler(IDEController* parent, uint8_t interrupt)
 : InterruptHandler(IDT_INTERRUPT_OFFSET + interrupt)

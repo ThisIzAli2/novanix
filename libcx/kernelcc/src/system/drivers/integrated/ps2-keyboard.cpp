@@ -3,11 +3,11 @@
 #include <system/bootconsole.h>
 #include <system/system.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::system;
-using namespace CactusOS::system::drivers;
-using namespace CactusOS::core;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::system;
+using namespace Novanix::system::drivers;
+using namespace Novanix::core;
 
 PS2KeyboardDriver::PS2KeyboardDriver()
 : InterruptHandler(0x21), Keyboard(KeyboardType::PS2), Driver("PS2 Keyboard", "Driver for a generic ps2 keyboard"), FIFOStream(100)
