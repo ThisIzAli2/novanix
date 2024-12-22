@@ -2,10 +2,10 @@
 #include <system/system.h>
 #include <system/memory/deviceheap.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::system;
-using namespace CactusOS::core;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::system;
+using namespace Novanix::core;
 
 static const uint16_t codeSegment = 0x2000;
 static const uint16_t stackSegment = 0x8000;

@@ -1,5 +1,5 @@
-#ifndef __CACTUSOSLIB__HEAP_H
-#define __CACTUSOSLIB__HEAP_H
+#ifndef __NovanixLIB__HEAP_H
+#define __NovanixLIB__HEAP_H
 
 #include <types.h>
 

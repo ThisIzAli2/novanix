@@ -1,10 +1,10 @@
 #include <system/vfs/vfsmanager.h>
 #include <system/system.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
 
 VFSManager::VFSManager()
 {
@@ -67,7 +67,7 @@ void VFSManager::UnmountByDisk(Disk* disk)
 bool VFSManager::SearchBootPartition()
 {
     List<Disk*> posibleDisks;
-    char* pathString = "####:\\boot\\CactusOS.bin";
+    char* pathString = "####:\\boot\\Novanix.bin";
 
     // First we create a collection of disks which may be the boot disk
     // Could be more then one when there are more than 1 cd drives installed

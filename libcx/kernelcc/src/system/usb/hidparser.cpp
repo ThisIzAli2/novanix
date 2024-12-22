@@ -2,9 +2,9 @@
 #include <common/memoryoperations.h>
 #include <system/log.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::system;
 
 #define HID_SHOW_INFO 0
 

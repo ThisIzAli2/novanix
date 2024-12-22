@@ -1,5 +1,5 @@
-#ifndef __CACTUSOSLIB__API_H
-#define __CACTUSOSLIB__API_H
+#ifndef __NovanixLIB__API_H
+#define __NovanixLIB__API_H
 
 #include <types.h>
 
@@ -9,7 +9,7 @@ namespace Novanix
     {
     public:
         /**
-         * Initialize the CactusOS Api for this process
+         * Initialize the Novanix Api for this process
         */
         static void Initialize();
     };

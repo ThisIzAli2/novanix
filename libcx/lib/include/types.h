@@ -1,5 +1,5 @@
-#ifndef __CACTUSOSLIB__TYPES_H
-#define __CACTUSOSLIB__TYPES_H
+#ifndef __NovanixLIB__TYPES_H
+#define __NovanixLIB__TYPES_H
 
 namespace Novanix
 {

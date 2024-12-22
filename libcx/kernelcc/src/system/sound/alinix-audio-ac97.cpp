@@ -33,11 +33,11 @@ MODULE_VERSION("1.0")
 
 
 static inline void ac97_write_register(uint16_t reg,uint16_t value,struct ac97_codec* dev){
-    CactusOS::core::outportw(dev->base_address + reg,value);
+    Novanix::core::outportw(dev->base_address + reg,value);
 }
 
 static inline uint16_t ac97_read_register(uint16_t reg,struct ac97_codec* dev){
-    return CactusOS::core::inportw(dev->base_address + reg);
+    return Novanix::core::inportw(dev->base_address + reg);
 }
 
 

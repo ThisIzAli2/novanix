@@ -1,5 +1,5 @@
-#ifndef __CACTUSOSLIB__SYSCALL_H
-#define __CACTUSOSLIB__SYSCALL_H
+#ifndef __NovanixLIB__SYSCALL_H
+#define __NovanixLIB__SYSCALL_H
 
 namespace Novanix
 {
@@ -104,7 +104,7 @@ namespace Novanix
         //////////////
         // Other
         //////////////
-        SYSCALL_SET_CACTUSOS_LIB = 0xFFFF,
+        SYSCALL_SET_Novanix_LIB = 0xFFFF,
     };
 
     int DoSyscall(unsigned int intNum, unsigned int arg1 = 0, unsigned int arg2 = 0, unsigned int arg3 = 0, unsigned int arg4 = 0, unsigned int arg5 = 0);

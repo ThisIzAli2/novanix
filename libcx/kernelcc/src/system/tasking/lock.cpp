@@ -1,8 +1,8 @@
 #include <system/tasking/lock.h>
 #include <system/system.h>
 
-using namespace CactusOS;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::system;
 
 extern "C" int TestAndSet(int newValue, int* ptr);
 

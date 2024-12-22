@@ -67,7 +67,7 @@ namespace Novanix
         return static_cast<KEYPACKET_FLAGS>(static_cast<int>(a) | static_cast<int>(b));
     }
 
-    // Keys not present in ascii table but used by CactusOS and applications
+    // Keys not present in ascii table but used by Novanix and applications
     enum SpecialKeys : uint8_t {
         EscapeKey = 27,
 

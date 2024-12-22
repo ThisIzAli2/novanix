@@ -1,9 +1,9 @@
 #include <system/memory/stream.h>
 #include <system/log.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::system;
 
 Stream::Stream() {}
 Stream::~Stream() {}

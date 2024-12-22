@@ -4,9 +4,9 @@
 
 #include <system/memory/heap.h>
 
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
 
 //with this we don't need to allocate and free buffers all the time
 uint8_t readBuffer[CDROM_SECTOR_SIZE];

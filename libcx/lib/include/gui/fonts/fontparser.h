@@ -6,7 +6,7 @@
 
 namespace Novanix
 {
-    // Header of a CactusOS Font File (CFF)
+    // Header of a Novanix Font File (CFF)
     struct CFFHeader
     {
         uint32_t Magic;                     // Magic number containing 0xCFF

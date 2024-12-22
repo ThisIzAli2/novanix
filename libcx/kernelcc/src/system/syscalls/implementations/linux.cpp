@@ -2,17 +2,17 @@
 
 #include <system/system.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
 
 CPUState* LinuxSyscalls::HandleSyscall(CPUState* state)
 {
     switch (state->EAX)
     {
-        case 0xFFFF: //We use this systemcall for setting the CactusOS Syscall implementation for this process since linux is the default one
-            //From now on this uses CactusOS Systemcalls
+        case 0xFFFF: //We use this systemcall for setting the Novanix Syscall implementation for this process since linux is the default one
+            //From now on this uses Novanix Systemcalls
             System::scheduler->CurrentProcess()->syscallID = 1;
             //Return a succes
             state->EAX = System::scheduler->CurrentProcess()->id; //Return the pid

@@ -2,10 +2,10 @@
 #include <system/memory/heap.h>
 #include <system/log.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
 
 uint32_t DeviceHeap::currentAddress = DEVICE_HEAP_START;
 

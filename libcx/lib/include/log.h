@@ -1,5 +1,5 @@
-#ifndef __CACTUSOSLIB__LOG_H
-#define __CACTUSOSLIB__LOG_H
+#ifndef __NovanixLIB__LOG_H
+#define __NovanixLIB__LOG_H
 
 namespace Novanix
 {

@@ -3,10 +3,10 @@
 #include <system/system.h>
 #include <core/tss.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::system;
-using namespace CactusOS::core;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::system;
+using namespace Novanix::core;
 
 extern "C" void enter_usermode(uint32_t location, uint32_t stackAddress, uint32_t flags);
 

@@ -1,5 +1,5 @@
-#ifndef __CACTUSOSLIB__VFS_H
-#define __CACTUSOSLIB__VFS_H
+#ifndef __NovanixLIB__VFS_H
+#define __NovanixLIB__VFS_H
 
 #include <types.h>
 #include <list.h>

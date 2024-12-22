@@ -1,7 +1,7 @@
 #ifndef __Novanix__SYSTEMINFO_H
 #define __Novanix__SYSTEMINFO_H
 
-#ifdef CACTUSOSKERNEL
+#ifdef NovanixKERNEL
 #include <common/types.h>
 #else
 #include <types.h>

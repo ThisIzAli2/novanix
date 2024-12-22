@@ -1,4 +1,4 @@
-#include <system/syscalls/implementations/cactusos.h>
+#include <system/syscalls/implementations/Novanix.h>
 
 #include <../../lib/include/syscall.h>
 #include <../../lib/include/datetime.h>
@@ -10,15 +10,15 @@
 #include <system/listings/listingcontroller.h>
 #include <system/listings/systeminfo.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
 
 MutexLock stdOutStream;
 extern PowerRequest powerRequestState; //Defined in kernel.cpp
 
-CPUState* CactusOSSyscalls::HandleSyscall(CPUState* state)
+CPUState* NovanixSyscalls::HandleSyscall(CPUState* state)
 {
     Novanix::Systemcalls sysCall = (Novanix::Systemcalls)state->EAX;
     Process* proc = System::scheduler->CurrentProcess();

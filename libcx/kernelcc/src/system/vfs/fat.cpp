@@ -3,9 +3,9 @@
 #include <system/log.h>
 #include <system/system.h>
 
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
 
 FAT::FAT(Disk* disk, uint32_t start, uint32_t size)
 : VirtualFileSystem(disk, start, size) 

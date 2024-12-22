@@ -1,10 +1,10 @@
 #include <system/listings/directorylisting.h>
 #include <system/system.h>
 
-using namespace CactusOS;
-using namespace CactusOS::common;
-using namespace CactusOS::core;
-using namespace CactusOS::system;
+using namespace Novanix;
+using namespace Novanix::common;
+using namespace Novanix::core;
+using namespace Novanix::system;
 
 // List which holds the files in the current requested directory.
 List<Novanix::VFSEntry>* currentDirectoryList = 0;

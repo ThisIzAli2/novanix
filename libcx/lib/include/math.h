@@ -1,5 +1,5 @@
-#ifndef __CACTUSOSLIB__MATH_H
-#define __CACTUSOSLIB__MATH_H
+#ifndef __NovanixLIB__MATH_H
+#define __NovanixLIB__MATH_H
 
 #include <types.h>
 

@@ -1,5 +1,5 @@
-#ifndef __CACTUSOSLIB__MEMORYOPERATIONS_H
-#define __CACTUSOSLIB__MEMORYOPERATIONS_H
+#ifndef __NovanixLIB__MEMORYOPERATIONS_H
+#define __NovanixLIB__MEMORYOPERATIONS_H
 
 #include <stddef.h>
 #include <list.h>

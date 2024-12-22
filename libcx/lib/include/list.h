@@ -1,5 +1,5 @@
-#ifndef __CACTUSOS__COMMON__LIST_H
-#define __CACTUSOS__COMMON__LIST_H
+#ifndef __Novanix__COMMON__LIST_H
+#define __Novanix__COMMON__LIST_H
 
 namespace Novanix
 {
