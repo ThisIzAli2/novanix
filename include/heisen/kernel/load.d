@@ -1,0 +1,1 @@
+load.o: load.S
