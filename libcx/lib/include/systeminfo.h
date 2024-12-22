@@ -1,5 +1,5 @@
-#ifndef __LIBCACTUSOS__SYSTEMINFO_H
-#define __LIBCACTUSOS__SYSTEMINFO_H
+#ifndef __Novanix__SYSTEMINFO_H
+#define __Novanix__SYSTEMINFO_H
 
 #ifdef CACTUSOSKERNEL
 #include <common/types.h>
@@ -7,7 +7,7 @@
 #include <types.h>
 #endif
 
-namespace LIBCactusOS
+namespace Novanix
 {
     #define SYSTEM_INFO_ADDR 0xBFFEE000
 

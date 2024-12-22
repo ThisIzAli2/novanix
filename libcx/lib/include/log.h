@@ -1,7 +1,7 @@
 #ifndef __CACTUSOSLIB__LOG_H
 #define __CACTUSOSLIB__LOG_H
 
-namespace LIBCactusOS
+namespace Novanix
 {
     enum LogLevel
     {

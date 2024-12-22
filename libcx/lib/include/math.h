@@ -3,7 +3,7 @@
 
 #include <types.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     #define MATH_PI 3.14159265358979323846
 

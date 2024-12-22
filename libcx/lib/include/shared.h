@@ -1,11 +1,11 @@
-#ifndef __LIBCACTUSOS__SHARED_H
-#define __LIBCACTUSOS__SHARED_H
+#ifndef __Novanix__SHARED_H
+#define __Novanix__SHARED_H
 
 /////////////////
 // Data structures shared between userspace and kernel
 /////////////////
 
-namespace LIBCactusOS
+namespace Novanix
 {
     #define VFS_NAME_LENGTH 255
 

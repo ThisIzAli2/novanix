@@ -1,7 +1,7 @@
-#ifndef __LIBCACTUSOS__IPC_H
-#define __LIBCACTUSOS__IPC_H
+#ifndef __Novanix__IPC_H
+#define __Novanix__IPC_H
 
-namespace LIBCactusOS
+namespace Novanix
 {
     enum IPCMessageType : int
     {

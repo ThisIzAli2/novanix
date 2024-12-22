@@ -1,9 +1,9 @@
-#ifndef LIBCACTUSOS__RANDOM_H
-#define LIBCACTUSOS__RANDOM_H
+#ifndef Novanix__RANDOM_H
+#define Novanix__RANDOM_H
 
 #include <types.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     class Random
     {

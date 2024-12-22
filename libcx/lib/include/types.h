@@ -1,7 +1,7 @@
 #ifndef __CACTUSOSLIB__TYPES_H
 #define __CACTUSOSLIB__TYPES_H
 
-namespace LIBCactusOS
+namespace Novanix
 {
     #define STATIC_ASSERT(condition) typedef char p__LINE__[ (condition) ? 1 : -1];
 

@@ -1,7 +1,7 @@
-#ifndef __LIBCACTUSOS__LISTING_H
-#define __LIBCACTUSOS__LISTING_H
+#ifndef __Novanix__LISTING_H
+#define __Novanix__LISTING_H
 
-namespace LIBCactusOS
+namespace Novanix
 {
     #define DIRECTORY_LISTING 0
     #define DISK_LISTING 1

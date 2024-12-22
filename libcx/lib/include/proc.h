@@ -1,5 +1,5 @@
-#ifndef __LIBCACTUSOS__PROC_H
-#define __LIBCACTUSOS__PROC_H
+#ifndef __Novanix__PROC_H
+#define __Novanix__PROC_H
 
 #include <syscall.h>
 #include <types.h>
@@ -7,7 +7,7 @@
 #include <list.h>
 #include <shared.h>
 
-namespace LIBCactusOS
+namespace Novanix
 {
     #define DECLARE_LOCK(name) volatile int name ## Locked
     #define LOCK(name) \

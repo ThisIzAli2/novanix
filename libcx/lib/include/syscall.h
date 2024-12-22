@@ -1,7 +1,7 @@
 #ifndef __CACTUSOSLIB__SYSCALL_H
 #define __CACTUSOSLIB__SYSCALL_H
 
-namespace LIBCactusOS
+namespace Novanix
 {
     #define SYSCALL_RET_SUCCES 1
     #define SYSCALL_RET_ERROR 0
