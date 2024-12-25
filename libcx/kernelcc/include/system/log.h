@@ -18,6 +18,7 @@ namespace Novanix
 
         void Log(LogLevel level, const char* __restrict__ format, ...);
         void Print(const char* data, common::uint32_t length);
+        void printk(const char* __restrict__ format, ...);
     }
 }
 
