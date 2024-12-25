@@ -90,7 +90,6 @@ void System::Start()
     
     System::rtc = new RTC();
     Log(Info, "- RTC [Done]     (%x)", (uint32_t)System::rtc);
-
     InterruptDescriptorTable::DisableInterrupts();
     System::pit = new PIT();
     InterruptDescriptorTable::EnableInterrupts();
@@ -110,6 +109,7 @@ void System::Start()
     // The graphics component is added here but not used right away, we don't need to be in video mode so early.
     System::gfxDevice = GraphicsDevice::GetBestDevice();
     Log(Info, "- GFX [Done]     (%x)", (uint32_t)System::gfxDevice);
+    Serialport::WriteStr("HIIII");
 
     // Check for monitor EDID
     System::edid = new EDID();
