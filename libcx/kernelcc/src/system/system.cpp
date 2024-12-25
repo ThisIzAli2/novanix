@@ -48,6 +48,7 @@ SOFTWARE.
 #include <stringify.h>
 #include <logo.h>
 #include <libmath.h>
+#include <delay.h>
 
 inline void prLogo(){
 
@@ -105,47 +106,64 @@ uint16_t joyStickStat = joy_stick_status_cxx(1024);
 
 void System::Start()
 {
+    delay(DELAY_CONSTANT);
+    printk(vga_color::VGA_COLOR_WHITE,"Running the kernel keyboard");
+    System::keyboardManager = new KeyboardManager();
 
     BootConsole::ForegroundColor = VGA_COLOR_BLACK;
     Log(Info, "Adding system components to kernel");
-    
+    delay(DELAY_CONSTANT);
+    Log(Info, "System::Start() - Starting system initialization");
+Log(Info, "System::Start() - System initialization complete");
     System::rtc = new RTC();
     Log(Info, "- RTC [Done]     (%x)", (uint32_t)System::rtc);
+    delay(DELAY_CONSTANT);
+
     InterruptDescriptorTable::DisableInterrupts();
     System::pit = new PIT();
     InterruptDescriptorTable::EnableInterrupts();
+    delay(DELAY_CONSTANT);
+
     Log(Info, "- PIT [Done] [OK]    (%x)", (uint32_t)System::pit);
+    delay(DELAY_CONSTANT);
 
     System::dma = new DMAController();
     Log(Info, "- DMA [Done] [OK]     (%x)", (uint32_t)System::dma);
+    delay(DELAY_CONSTANT);
 
     System::smbios = new SMBIOS();
     Log(Info, "- SMBIOS [Done]     (%x)", (uint32_t)System::smbios);
     printk(vga_color::VGA_COLOR_GREEN,"     Running novanix kernel %s",KERNEL_VERSION);
+    delay(DELAY_CONSTANT);
 
     Log(Info, "Adding Virtual 8086");
     System::vm86Manager = new Virtual8086Manager();
     System::vm86Monitor = new Virtual8086Monitor();
+    delay(DELAY_CONSTANT);
 
     // The graphics component is added here but not used right away, we don't need to be in video mode so early.
     System::gfxDevice = GraphicsDevice::GetBestDevice();
     Log(Info, "- GFX [Done]     (%x)", (uint32_t)System::gfxDevice);
     Serialport::WriteStr("HIIII");
+    delay(DELAY_CONSTANT);
 
     // Check for monitor EDID
     System::edid = new EDID();
     Log(Info, "- EDID [Done]     (%x)", (uint32_t)System::edid);
     System::edid->AcquireEDID();
+    delay(DELAY_CONSTANT);
 
     // Start the rtl 
     Log(Info,"[OK] calling the RTL constructor");
     printk(vga_color::VGA_COLOR_BLUE,"Hello world");
     init_rtl();
+    delay(DELAY_CONSTANT);
 
     Log(Info, "Loading Initial Ramdisk [OK]");
     InitialRamDisk::Initialize(System::mbi);
     Log(Info, "Loading Initial Novanix Kernel Base...\n");
 
+    delay(DELAY_CONSTANT);
 
     System::pci = new PCIController();
     Log(Info, "- PCI [Done]     (%x)", (uint32_t)System::pci);
@@ -153,11 +171,14 @@ void System::Start()
     
     System::pci->PopulateDeviceList();
 
+    delay(DELAY_CONSTANT);
+
     Log(Info, "Starting Driver Manager");
     System::driverManager = new DriverManager();
 
     Log(Info, "Starting Disk Manager");
     System::diskManager = new DiskManager();
+    delay(DELAY_CONSTANT);
 
     Log(Info, "Starting Keyboard Manager");
     System::keyboardManager = new KeyboardManager();
