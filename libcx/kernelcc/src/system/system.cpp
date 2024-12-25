@@ -122,7 +122,7 @@ void System::Start()
 
     Log(Info, "Loading Initial Ramdisk [OK]");
     InitialRamDisk::Initialize(System::mbi);
-    Log(Info, "Loading Initial Alinix Kernel Base...\n");
+    Log(Info, "Loading Initial Novanix Kernel Base...\n");
 
 
     System::pci = new PCIController();
