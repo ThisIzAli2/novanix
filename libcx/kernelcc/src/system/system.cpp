@@ -42,6 +42,7 @@ SOFTWARE.
 #include <alinix/c++/gameport.hpp>
 #include <alinix/security.h>
 #include <alinix/RTL8139.h>
+#include <version.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -100,7 +101,8 @@ void System::Start()
 
     System::smbios = new SMBIOS();
     Log(Info, "- SMBIOS [Done]     (%x)", (uint32_t)System::smbios);
-
+    printk(vga_color::VGA_COLOR_WHITE,"Running novanix kernel");
+    printk(vga_color::VGA_COLOR_GREEN,KERNEL_VERSION);
 
     Log(Info, "Adding Virtual 8086");
     System::vm86Manager = new Virtual8086Manager();
@@ -118,6 +120,7 @@ void System::Start()
 
     // Start the rtl 
     Log(Info,"[OK] calling the RTL constructor");
+    printk(vga_color::VGA_COLOR_BLUE,"Hello world");
     init_rtl();
 
     Log(Info, "Loading Initial Ramdisk [OK]");

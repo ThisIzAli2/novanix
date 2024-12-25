@@ -82,21 +82,32 @@ void Novanix::system::Print(const char* data, uint32_t length) {
 
 
 
-void Novanix::system::printk(const char* __restrict__ format, ...) {
+void Novanix::system::printk(enum vga_color color, const char* __restrict__ format, ...) {
     uint8_t prevColor = BootConsole::ForegroundColor;
+
+    // Set the foreground color based on the input color
+    switch (color) {
+        case VGA_COLOR_WHITE:
+            BootConsole::ForegroundColor = VGA_COLOR_WHITE;
+            break;
+        case VGA_COLOR_BLUE:
+            BootConsole::ForegroundColor = VGA_COLOR_BLUE;
+            break;
+        case VGA_COLOR_BLACK:
+            BootConsole::ForegroundColor = VGA_COLOR_BLACK;
+            break;
+        default:
+            BootConsole::ForegroundColor = VGA_COLOR_WHITE; // Default to white if an unknown color is passed
+            break;
+    }
 
     if (System::screenMode == ScreenMode::TextMode) {
 #if LOG_SHOW_MS
-        BootConsole::Write("[");
-        BootConsole::Write(Convert::IntToString(GetMSSinceBoot()));
-        BootConsole::Write("] ");
+
 #endif
-        BootConsole::ForegroundColor = VGA_COLOR_WHITE; // Default color
     } else if (Serialport::Initialized && (System::gdbEnabled == false)) {
 #if LOG_SHOW_MS
-        Serialport::WriteStr("[");
-        Serialport::WriteStr(Convert::IntToString(GetMSSinceBoot()));
-        Serialport::WriteStr("] ");
+
 #endif
     }
 
@@ -165,7 +176,6 @@ void Novanix::system::printk(const char* __restrict__ format, ...) {
             Print(str, sizeof(uint32_t) << 1);
             delete str;
         } else {
-            format = format_begun_at;
             uint32_t len = String::strlen(format);
             Print(format, len);
             format += len;
