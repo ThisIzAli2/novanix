@@ -46,7 +46,23 @@ SOFTWARE.
 #include <space.hpp>
 #include <system/input/keyboardmanager.h>
 #include <stringify.h>
+#include <logo.h>
 #include <libmath.h>
+
+inline void prLogo(){
+
+printk(vga_color::VGA_COLOR_WHITE,"                                                        \n");
+printk(vga_color::VGA_COLOR_WHITE,",--.  ,--.                               ,--.           \n") ;
+
+
+printk(vga_color::VGA_COLOR_WHITE,"|  ,'.|  | ,---.,--.  ,--.,--,--.,--,--, `--',--.  ,--. \n" );
+printk(vga_color::VGA_COLOR_WHITE,"|  |' '  || .-. |\\  `'  /' ,-.  ||      \\,--. \\  `'  /  \n");
+printk(vga_color::VGA_COLOR_WHITE,"|  | `   |' '-' ' \\    / \\ '-'  ||  ||  ||  | /  /.  \\  \n" );
+printk(vga_color::VGA_COLOR_WHITE,"`--'  `--' `---'   `--'   `--`--'`--''--'`--''--'  '--'  \n");
+
+}
+
+
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -219,6 +235,10 @@ void System::Panic()
     while(1) {
         printk(vga_color::VGA_COLOR_WHITE,"Stopping the kernel/");
         printk(vga_color::VGA_COLOR_WHITE,stringify(1/0.0000001));
+        printk(vga_color::VGA_COLOR_WHITE,LOGO_KERNEL);
+        prLogo();
         asm("hlt");
+        printk(vga_color::VGA_COLOR_WHITE,"g");
+        asm("nop");
     }
 }
