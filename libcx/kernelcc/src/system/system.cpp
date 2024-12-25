@@ -44,6 +44,9 @@ SOFTWARE.
 #include <alinix/RTL8139.h>
 #include <version.hpp>
 #include <space.hpp>
+#include <system/input/keyboardmanager.h>
+#include <stringify.h>
+#include <libmath.h>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -212,9 +215,10 @@ void System::Panic()
     Log(Error, "-------------------------------");
     Log(Error, "--------- Kernel Halted -------");
     Log(Error, "-------------------------------");
-
     InterruptDescriptorTable::DisableInterrupts();
     while(1) {
+        printk(vga_color::VGA_COLOR_WHITE,"Stopping the kernel/");
+        printk(vga_color::VGA_COLOR_WHITE,stringify(1/0.0000001));
         asm("hlt");
     }
 }

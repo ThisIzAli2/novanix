@@ -57,7 +57,7 @@ uint32_t Exceptions::PageFault(uint32_t esp)
     InterruptDescriptorTable::DisableInterrupts();
 
     uint32_t errorAddress;
-    asm volatile("mov %%cr2, %0" : "=r" (errorAddress));
+    asm volatile("mov %%cr2, %0" : "=r"(errorAddress));
 
     CPUState* regs = (CPUState*)esp;
 
