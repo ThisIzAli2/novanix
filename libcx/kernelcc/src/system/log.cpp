@@ -96,6 +96,12 @@ void Novanix::system::printk(enum vga_color color, const char* __restrict__ form
         case VGA_COLOR_BLACK:
             BootConsole::ForegroundColor = VGA_COLOR_BLACK;
             break;
+        case VGA_COLOR_GREEN:
+            BootConsole::ForegroundColor = VGA_COLOR_GREEN;
+            break; 
+        case VGA_COLOR_BROWN:
+            BootConsole::ForegroundColor = VGA_COLOR_BROWN;
+            break;
         default:
             BootConsole::ForegroundColor = VGA_COLOR_WHITE; // Default to white if an unknown color is passed
             break;
