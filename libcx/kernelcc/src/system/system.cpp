@@ -232,13 +232,15 @@ void System::Panic()
     Log(Error, "--------- Kernel Halted -------");
     Log(Error, "-------------------------------");
     InterruptDescriptorTable::DisableInterrupts();
-    while(1) {
+    for (;;) {
         printk(vga_color::VGA_COLOR_WHITE,"Stopping the kernel/");
         printk(vga_color::VGA_COLOR_WHITE,stringify(1/0.0000001));
         printk(vga_color::VGA_COLOR_WHITE,LOGO_KERNEL);
         prLogo();
+        printk(vga_color::VGA_COLOR_WHITE,"\n\n\n\n\n\n\n\n\n\n");
+        printk(vga_color::VGA_COLOR_WHITE,"Kernel Booted ");
+        printk(vga_color::VGA_COLOR_WHITE,"--------------------------------------------------");
         asm("hlt");
-        printk(vga_color::VGA_COLOR_WHITE,"g");
         asm("nop");
     }
 }
