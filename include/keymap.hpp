@@ -86,6 +86,27 @@ inline char* handle_keyboard(uint8_t scan_code){
         case 44:
         case 172:
         return "z";
+        case 173:
+        case 45:
+        return "x";
+        case 174:
+        case 46:
+        return "c";
+        case 175:
+        case 47:
+        return "v";
+        case 176:
+        case 48:
+        return "b";
+        case 177:
+        case 49:
+        return "n";
+        case 178:
+        case 50:
+        return "m";
+        case 179:
+        case 51:
+        return ",";
 
     }
 }
