@@ -299,8 +299,11 @@ void System::Panic()
         printk(vga_color::VGA_COLOR_GREEN,"Starting the keyboard");
         // readKeyboardInput();
         printk(VGA_COLOR_WHITE,"Press any key to continue...");
+        Log(Error,"Failed to boot kernel GUI, switching to CUI...");
+        do{
         read_key();
-        printk(VGA_COLOR_WHITE,stringify(read_key()));
+        printk(VGA_COLOR_WHITE,handle_keyboard(read_key()));
+        }while(read_key() != 0);
         // setup_interrupts_and_keyboard();
         printk(vga_color::VGA_COLOR_GREEN,"Started the keyboard");
         printk(VGA_COLOR_WHITE, "%s", "Welcome to Novanix!");
