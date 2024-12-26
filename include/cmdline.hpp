@@ -42,7 +42,6 @@ inline void cmdline() {
             if (index < 127) {
                 // Check if Enter key is pressed
                 if (key[0] == '\n') {
-                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,">", 0);
                     // Copy cmd to full_cmd when Enter is pressed
                     for (int k = 0; k < index; ++k) {
                         full_cmd[k] = cmd[k];
@@ -50,7 +49,7 @@ inline void cmdline() {
                     full_cmd[index] = '\0';  // Null-terminate the full_cmd string
 
                     // Print the full command entered
-                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, full_cmd, 0);
+                    // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, full_cmd, 0);
 
                     // Compare full_cmd with "help"
                     if (cmd_cmp(full_cmd, "help") == 0) {
