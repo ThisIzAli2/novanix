@@ -225,7 +225,7 @@ extern "C" void kernelMain(const multiboot_info_t* mbi, unsigned int multiboot_m
 
     VirtualMemoryManager::Initialize();
     BootConsole::WriteLine("Virtual Memory Loaded");
-    Log(Info,"Starting the Alinix kernel heap...");
+    Log(Info,"Starting the Novanix kernel heap...");
     KernelHeap::Initialize(KERNEL_HEAP_START, KERNEL_HEAP_START + KERNEL_HEAP_SIZE);
     Log(Info, "Kernel Heap Initialized : [OK]");
 

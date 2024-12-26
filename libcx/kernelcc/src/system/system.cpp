@@ -184,6 +184,7 @@ Log(Info, "System::Start() - System initialization complete");
     System::keyboardManager = new KeyboardManager();
 
     Log(Info, "\n[OK]");
+    delay(DELAY_CONSTANT);
 
 
     Log(Info, "Starting Scheduler");
@@ -198,6 +199,8 @@ Log(Info, "System::Start() - System initialization complete");
 
     Log(Info, "Setting up random...");
     Random::SetSeed(pit->Ticks());
+    delay(DELAY_CONSTANT);
+
 
     Log(Info, "Assigning PCI Drivers");
     PCIDrivers::AssignDriversFromPCI(System::pci, System::driverManager);
@@ -205,6 +208,7 @@ Log(Info, "System::Start() - System initialization complete");
     Log(Info, "Creating shared region for system info");
     System::systemInfo = (SharedSystemInfo*)KernelHeap::alignedMalloc(PAGE_SIZE, PAGE_SIZE);
     MemoryOperations::memset(System::systemInfo, 0, PAGE_SIZE);
+    delay(DELAY_CONSTANT);
 
     Log(Info, "Added drivers for integrated devices");
     System::driverManager->AddDriver(new PS2MouseDriver());
@@ -213,12 +217,14 @@ Log(Info, "System::Start() - System initialization complete");
     
     Log(Info, "Activating Drivers");
     System::driverManager->ActivateAll();
+    delay(DELAY_CONSTANT);
 
     Log(Info, "Setting up found USB controllers");
     System::usbManager->SetupAll();
     Log(Info, "Setting up found USB devices");
     System::usbManager->AssignAllDrivers();
     System::usbManager->USBPoll();
+    delay(DELAY_CONSTANT);
 
     // Advanced Power Management
     System::apm = new APMController();
@@ -233,16 +239,20 @@ Log(Info, "System::Start() - System initialization complete");
 
     Log(Info, "Starting Debugger");
     System::kernelDebugger = new SymbolDebugger("B:\\debug.sym", true);
+    delay(DELAY_CONSTANT);
 
     Log(Info, "Starting Systemcalls");
     System::syscalls = new SystemCallHandler();
+    delay(DELAY_CONSTANT);
 
     Log(Info, "Preparing IPC");
     IPCManager::Initialize();
+    delay(DELAY_CONSTANT);
 
     Log(Info, "Adding default listing handlers");
     System::listings = new List<ListingController*>();
     System::listings->push_back(new DirectoryListing());
+    delay(DELAY_CONSTANT);
 
     System::ProcStandardOut = new StandardOutSteam();
     Log(Info, "System Initialized");
