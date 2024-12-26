@@ -4,7 +4,7 @@
 #define KEYBOARD_STATUS_PORT 0x64
 
 #include <stringify.h>
-
+#include <system/log.h>
 // Function to read a byte from the keyboard data port
 
 // Inline assembly function to read from I/O port
@@ -112,9 +112,41 @@ inline char* handle_keyboard(uint8_t scan_code){
         case 152:
         case 24:
         return "o";
-
-        default:
-            return stringify(scan_code);
+        case 156:
+        return "\n";
+        case 185:
+        return " ";
+        case 143:
+        return "    ";
+        case 130:
+        return "1";
+        case 131:
+        return "2";
+        case 132:
+        return "3";
+        case 133:
+        return "4";
+        case 134:
+        return "5";
+        case 135:
+        return "6";
+        case 136:
+        return "7";
+        case 137:
+        return "8";
+        case 138:
+        return "9";
+        case 139:
+        return "0";
+        case 140:
+        return "-";
+        case 141:
+        return "=";
+        case 169:
+        return "~";
+        // default:
+        // int code = (sca)
+            // return system::printk(VGA_COLOR_WHITE,(scan_code)(int),1);
 
     }
 }

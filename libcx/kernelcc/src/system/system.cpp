@@ -302,6 +302,7 @@ void System::Panic()
         Log(Error,"Failed to boot kernel GUI, switching to CUI...");
         do{
         read_key();
+        // printk(VGA_COLOR_WHITE,stringify(read_key()),1);
         printk(VGA_COLOR_WHITE,handle_keyboard(read_key()),0);
         }while(read_key() != 0);
         // setup_interrupts_and_keyboard();
