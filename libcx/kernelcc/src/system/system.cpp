@@ -49,6 +49,9 @@ SOFTWARE.
 #include <logo.h>
 #include <libmath.h>
 #include <delay.h>
+#include <system/drivers/usb/usbkeyboard.h>
+
+
 
 inline void prLogo(){
 
@@ -71,6 +74,7 @@ using namespace Novanix::core;
 using namespace Novanix::system;
 using namespace Novanix::system::drivers;
 using namespace Novanix;
+using namespace Novanix::system::drivers;
 
 multiboot_info_t* System::mbi = 0;
 PIT* System::pit = 0;
