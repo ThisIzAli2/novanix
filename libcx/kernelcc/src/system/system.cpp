@@ -205,7 +205,7 @@ void System::Start()
     System::diskManager = new DiskManager();
     delay(DELAY_CONSTANT);
 
-    Log(Info, "Starting Keyboard Manager");
+    Log(Warning, "Starting Keyboard Manager");
     System::keyboardManager = new KeyboardManager();
 
     Log(Info, "\n[OK]");
@@ -297,7 +297,9 @@ void System::Panic()
         printk(vga_color::VGA_COLOR_WHITE,"Kernel Booted ");
         printk(vga_color::VGA_COLOR_WHITE,"--------------------------------------------------");
         printk(vga_color::VGA_COLOR_GREEN,"Starting the keyboard");
-        readKeyboardInput();
+        // readKeyboardInput();
+        printk(VGA_COLOR_WHITE,"Press any key to continue...");
+        read_key();
         // setup_interrupts_and_keyboard();
         printk(vga_color::VGA_COLOR_GREEN,"Started the keyboard");
         printk(VGA_COLOR_GREEN, "%s", "k");
