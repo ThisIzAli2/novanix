@@ -5,7 +5,6 @@
 #include <system/bootconsole.h>
 #include <common/string.h>
 
-
 int inline cmd_cmp(const char* str1, const char* str2) {
     // Compare each character of both strings
     while (*str1 != '\0' && *str2 != '\0') {
@@ -21,37 +20,61 @@ int inline cmd_cmp(const char* str1, const char* str2) {
     return *str1 - *str2;
 }
 
-inline void cmdline(){
-    char* key = new char[2];
+inline void cmdline() {
+    char* key = new char[2];  // Single character input
     int index = 0;
-    char *cmd = new char[128];
+    char* cmd = new char[128];  // Command buffer
     int i = 0;
-    char* full_cmd = new char[128];
+    char* full_cmd = new char[128];  // To hold the full command
     int j = 0;
-    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,">",0);
-    do{
-        if (key == "\n"){
-        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,">",0);
-
-        }
+    
+    // Print the prompt
+    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, ">", 0);
+    
+    do {
+        // Read the key and handle the input
         read_key();
-        // printk(Novanix::system::VGA_COLOR_WHITE,stringify(read_key()),1); // 4 test
-        key = handle_keyboard(read_key());
-        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,key,0);
-        if (key !=0){
-             if (index < 127){
-                if (cmd_cmp(key,"\n") == 0)
-                Novanix::common::MemoryOperations::memcpy(full_cmd,cmd,0);                    
+        key = handle_keyboard(read_key());  // Get the key pressed
+        
+        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, key, 0);
+        
+        if (key != nullptr) {
+            if (index < 127) {
+                // Check if Enter key is pressed
+                if (key[0] == '\n') {
+                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,">", 0);
+                    // Copy cmd to full_cmd when Enter is pressed
+                    for (int k = 0; k < index; ++k) {
+                        full_cmd[k] = cmd[k];
+                    }
+                    full_cmd[index] = '\0';  // Null-terminate the full_cmd string
 
-                cmd[index++] = key[0];
-                i++;
-            Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,full_cmd,0);
-            if (cmd_cmp(full_cmd,"help") == 0){
-                Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Help Menu",1);
+                    // Print the full command entered
+                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, full_cmd, 0);
+
+                    // Compare full_cmd with "help"
+                    if (cmd_cmp(full_cmd, "help") == 0) {
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "Help Menu", 1);
+                    }
+                    else {
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Your command does not exists",1);
+                    }
+
+                    // Reset the cmd and full_cmd arrays
+                    Novanix::common::MemoryOperations::memset(cmd, 0, 128);  // Clear cmd array
+                    Novanix::common::MemoryOperations::memset(full_cmd, 0, 128);  // Clear full_cmd array
+                    index = 0;  // Reset the index for the next command
+                } else {
+                    // Store the character in cmd if it's not Enter
+                    cmd[index++] = key[0];
+                    i++;
+                }
             }
-            Novanix::common::MemoryOperations::memset(full_cmd,0,128);
-            i = 0;
-             }
         }
-    }while(read_key() != 0);
+    } while (read_key() != 0);  // Loop until a key is pressed
+
+    // Deallocate memory
+    delete[] key;
+    delete[] cmd;
+    delete[] full_cmd;
 }
