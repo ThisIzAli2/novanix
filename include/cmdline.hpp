@@ -58,6 +58,7 @@ inline void cmdline() {
                     else {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Your command does not exists",1);
                     }
+                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,">", 0);
 
                     // Reset the cmd and full_cmd arrays
                     Novanix::common::MemoryOperations::memset(cmd, 0, 128);  // Clear cmd array
