@@ -53,8 +53,39 @@ inline char* handle_keyboard(uint8_t scan_code){
         case 155:
         case 27:
         return "}";
-        
-
+        case 186:
+        case 30:
+        return "a";
+        case 159:
+        case 31:
+        return "s";
+        case 160:
+        case 32:
+        return "d";
+        case 161:
+        case 33:
+        return "f";
+        case 162:
+        case 34:
+        return "g";
+        case 163:
+        case 35:
+        return "h";
+        case 164:
+        case 36:
+        return "j";
+        case 165:
+        case 37:
+        return "k";
+        case 166:
+        case 38:
+        return "l";
+        case 167:
+        case 39:
+        return ";";
+        case 44:
+        case 172:
+        return "z";
 
     }
 }
