@@ -300,7 +300,7 @@ void System::Panic()
         readKeyboardInput();
         // setup_interrupts_and_keyboard();
         printk(vga_color::VGA_COLOR_GREEN,"Started the keyboard");
-        printk(VGA_COLOR_GREEN, "%c", "key");
+        printk(VGA_COLOR_GREEN, "%s", "k");
         asm("hlt");
         asm("nop");
     }
