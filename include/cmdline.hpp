@@ -3,6 +3,8 @@
 #include <keymap.hpp>
 #include <system/log.h>
 #include <system/bootconsole.h>
+#include <common/string.h>
+
 
 inline void cmdline(){
     const char* cmd;
