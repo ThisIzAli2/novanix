@@ -109,6 +109,9 @@ inline char* handle_keyboard(uint8_t scan_code){
         case 179:
         case 51:
         return ",";
+        case 152:
+        case 24:
+        return "o";
 
         default:
             return stringify(scan_code);
