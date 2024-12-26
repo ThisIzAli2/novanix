@@ -144,6 +144,36 @@ inline char* handle_keyboard(uint8_t scan_code){
         return "=";
         case 169:
         return "~";
+        case 28:
+        return "\n";
+        case 57:
+        return " ";
+        case 2:
+        return "1";
+        case 3:
+        return "2";
+        case 4:
+        return "3";
+        case 5:
+        return "4";
+        case 6:
+        return "5";
+        case 7:
+        return "6";
+        case 8:
+        return "7";
+        case 9:
+        return "8";
+        case 10:
+        return "9";
+        case 11:
+        return "0";
+        case 12:
+        return "-";
+        case 15:
+        return "    ";
+        
+        
         // default:
         // int code = (sca)
             // return system::printk(VGA_COLOR_WHITE,(scan_code)(int),1);
