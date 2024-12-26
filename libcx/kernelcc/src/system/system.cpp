@@ -114,7 +114,7 @@ void System::Start()
     Log(Info, "Adding system components to kernel");
     delay(DELAY_CONSTANT);
     Log(Info, "System::Start() - Starting system initialization");
-Log(Info, "System::Start() - System initialization complete");
+    Log(Info, "System::Start() - System initialization complete");
     System::rtc = new RTC();
     Log(Info, "- RTC [Done]     (%x)", (uint32_t)System::rtc);
     delay(DELAY_CONSTANT);
