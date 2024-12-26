@@ -52,6 +52,7 @@ SOFTWARE.
 #include <core/port.h>
 #include <system/drivers/usb/usbkeyboard.h>
 #include <keymap.hpp>
+#include <cmdline.hpp>
 
 
 #define PS2_DATA_PORT 0x60
@@ -300,11 +301,7 @@ void System::Panic()
         // readKeyboardInput();
         printk(VGA_COLOR_WHITE,"Press any key to continue...",1);
         Log(Error,"Failed to boot kernel GUI, switching to CUI...");
-        do{
-        read_key();
-        // printk(VGA_COLOR_WHITE,stringify(read_key()),1); // 4 test
-        printk(VGA_COLOR_WHITE,handle_keyboard(read_key()),0);
-        }while(read_key() != 0);
+        cmdline();
         // setup_interrupts_and_keyboard();
         printk(vga_color::VGA_COLOR_GREEN,"Started the keyboard",1);
         // printk(VGA_COLOR_WHITE, "%s","Welcome to Novanix!");
