@@ -19,7 +19,7 @@ namespace Novanix
 
         void Log(LogLevel level, const char* __restrict__ format, ...);
         void Print(const char* data, common::uint32_t length);
-        void printk(enum vga_color color, const char* __restrict__ format, ...);
+        void printk(enum vga_color color, const char* __restrict__ format,int next, ...);
     }
 }
 

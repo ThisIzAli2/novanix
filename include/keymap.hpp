@@ -3,6 +3,8 @@
 #define KEYBOARD_DATA_PORT 0x60
 #define KEYBOARD_STATUS_PORT 0x64
 
+#include <stringify.h>
+
 // Function to read a byte from the keyboard data port
 
 // Inline assembly function to read from I/O port
@@ -107,6 +109,9 @@ inline char* handle_keyboard(uint8_t scan_code){
         case 179:
         case 51:
         return ",";
+
+        default:
+            return stringify(scan_code);
 
     }
 }

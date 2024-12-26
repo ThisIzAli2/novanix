@@ -73,14 +73,14 @@ inline void readKeyboardInput() {
 
 inline void prLogo(){
 
-printk(vga_color::VGA_COLOR_WHITE,"                                                        \n");
-printk(vga_color::VGA_COLOR_WHITE,",--.  ,--.                               ,--.           \n") ;
+printk(vga_color::VGA_COLOR_WHITE,"                                                        \n",1);
+printk(vga_color::VGA_COLOR_WHITE,",--.  ,--.                               ,--.           \n",1) ;
 
 
-printk(vga_color::VGA_COLOR_WHITE,"|  ,'.|  | ,---.,--.  ,--.,--,--.,--,--, `--',--.  ,--. \n" );
-printk(vga_color::VGA_COLOR_WHITE,"|  |' '  || .-. |\\  `'  /' ,-.  ||      \\,--. \\  `'  /  \n");
-printk(vga_color::VGA_COLOR_WHITE,"|  | `   |' '-' ' \\    / \\ '-'  ||  ||  ||  | /  /.  \\  \n" );
-printk(vga_color::VGA_COLOR_WHITE,"`--'  `--' `---'   `--'   `--`--'`--''--'`--''--'  '--'  \n");
+printk(vga_color::VGA_COLOR_WHITE,"|  ,'.|  | ,---.,--.  ,--.,--,--.,--,--, `--',--.  ,--. \n" ,1);
+printk(vga_color::VGA_COLOR_WHITE,"|  |' '  || .-. |\\  `'  /' ,-.  ||      \\,--. \\  `'  /  \n",1);
+printk(vga_color::VGA_COLOR_WHITE,"|  | `   |' '-' ' \\    / \\ '-'  ||  ||  ||  | /  /.  \\  \n" ,1);
+printk(vga_color::VGA_COLOR_WHITE,"`--'  `--' `---'   `--'   `--`--'`--''--'`--''--'  '--'  \n",1);
 
 }
 
@@ -132,7 +132,7 @@ void System::Start()
     delay(DELAY_CONSTANT);
 
 
-    printk(vga_color::VGA_COLOR_WHITE,"Running the kernel keyboard");
+    printk(vga_color::VGA_COLOR_WHITE,"Running the kernel keyboard",1);
     System::keyboardManager = new KeyboardManager();
 
     BootConsole::ForegroundColor = VGA_COLOR_BLACK;
@@ -158,7 +158,7 @@ void System::Start()
 
     System::smbios = new SMBIOS();
     Log(Info, "- SMBIOS [Done]     (%x)", (uint32_t)System::smbios);
-    printk(vga_color::VGA_COLOR_GREEN,"     Running novanix kernel %s",KERNEL_VERSION);
+    printk(vga_color::VGA_COLOR_GREEN,"   ,  Running novanix kernel %s",1,KERNEL_VERSION);
     delay(DELAY_CONSTANT);
 
     Log(Info, "Adding Virtual 8086");
@@ -180,7 +180,7 @@ void System::Start()
 
     // Start the rtl 
     Log(Info,"[OK] calling the RTL constructor");
-    printk(vga_color::VGA_COLOR_BLUE,"Hello world");
+    // printk(vga_color::VGA_COLOR_BLUE,"Hello world,1");
     init_rtl();
     delay(DELAY_CONSTANT);
 
@@ -289,24 +289,24 @@ void System::Panic()
     Log(Error, "-------------------------------");
     InterruptDescriptorTable::DisableInterrupts();
     for (;;) {
-        printk(vga_color::VGA_COLOR_WHITE,"Stopping the kernel/");
-        printk(vga_color::VGA_COLOR_WHITE,stringify(1/0.0000001));
-        printk(vga_color::VGA_COLOR_WHITE,LOGO_KERNEL);
+        printk(vga_color::VGA_COLOR_WHITE,"Stopping the kernel",1);
+        // printk(vga_color::VGA_COLOR_WHITE,stringify(1/0.0000001));
+        printk(vga_color::VGA_COLOR_WHITE,LOGO_KERNEL,1);
         prLogo();
-        printk(vga_color::VGA_COLOR_WHITE,"\n\n\n\n\n\n\n\n\n\n");
-        printk(vga_color::VGA_COLOR_WHITE,"Kernel Booted ");
-        printk(vga_color::VGA_COLOR_WHITE,"--------------------------------------------------");
-        printk(vga_color::VGA_COLOR_GREEN,"Starting the keyboard");
+        printk(vga_color::VGA_COLOR_WHITE,"\n\n\n\n\n\n\n\n\n\n",1);
+        printk(vga_color::VGA_COLOR_WHITE,"Kernel Booted ",1);
+        printk(vga_color::VGA_COLOR_WHITE,"--------------------------------------------------",1);
+        printk(vga_color::VGA_COLOR_GREEN,"Starting the keyboard",1);
         // readKeyboardInput();
-        printk(VGA_COLOR_WHITE,"Press any key to continue...");
+        printk(VGA_COLOR_WHITE,"Press any key to continue...",1);
         Log(Error,"Failed to boot kernel GUI, switching to CUI...");
         do{
         read_key();
-        printk(VGA_COLOR_WHITE,handle_keyboard(read_key()));
+        printk(VGA_COLOR_WHITE,handle_keyboard(read_key()),0);
         }while(read_key() != 0);
         // setup_interrupts_and_keyboard();
-        printk(vga_color::VGA_COLOR_GREEN,"Started the keyboard");
-        printk(VGA_COLOR_WHITE, "%s", "Welcome to Novanix!");
+        printk(vga_color::VGA_COLOR_GREEN,"Started the keyboard",1);
+        // printk(VGA_COLOR_WHITE, "%s","Welcome to Novanix!");
         asm("hlt");
         asm("nop");
     }

@@ -82,7 +82,7 @@ void Novanix::system::Print(const char* data, uint32_t length) {
 
 
 
-void Novanix::system::printk(enum vga_color color, const char* __restrict__ format, ...) {
+void Novanix::system::printk(enum vga_color color, const char* __restrict__ format,int next, ...) {
     uint8_t prevColor = BootConsole::ForegroundColor;
 
     // Set the foreground color based on the input color
@@ -190,7 +190,8 @@ void Novanix::system::printk(enum vga_color color, const char* __restrict__ form
 
     va_end(parameters);
 
-    Print("\n", 1);
+    if (next)
+        Print("\n", 1);
 
     if (System::screenMode == ScreenMode::TextMode)
         BootConsole::ForegroundColor = prevColor;
