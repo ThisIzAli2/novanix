@@ -172,7 +172,10 @@ inline char* handle_keyboard(uint8_t scan_code){
         return "-";
         case 15:
         return "    ";
-        
+        case 23:
+        return "i";
+        case 151:
+        return "i";        
         
         // default:
         // int code = (sca)
