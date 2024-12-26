@@ -302,7 +302,7 @@ void System::Panic()
         read_key();
         // setup_interrupts_and_keyboard();
         printk(vga_color::VGA_COLOR_GREEN,"Started the keyboard");
-        printk(VGA_COLOR_GREEN, "%s", "k");
+        printk(VGA_COLOR_WHITE, "%s", "Welcome to Novanix!");
         asm("hlt");
         asm("nop");
     }
