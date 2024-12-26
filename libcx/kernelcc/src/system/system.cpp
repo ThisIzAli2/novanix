@@ -49,9 +49,27 @@ SOFTWARE.
 #include <logo.h>
 #include <libmath.h>
 #include <delay.h>
+#include <core/port.h>
 #include <system/drivers/usb/usbkeyboard.h>
+#include <keymap.hpp>
 
 
+#define PS2_DATA_PORT 0x60
+#define PS2_STATUS_PORT 0x64
+
+inline void readKeyboardInput() {
+    uint8_t status;
+    uint8_t scanCode;
+
+    // Check if there is data to read
+    status = Novanix::core::inportb(PS2_STATUS_PORT);
+    if (status & 0x01 || true) { // Check if output buffer is full
+        scanCode = Novanix::core::inportb(PS2_DATA_PORT);
+
+        // Handle scan code (e.g., map to a character or process a command)
+        printk(vga_color::VGA_COLOR_WHITE, "Scan Code: 0x%x\n", scanCode);
+    }
+}
 
 inline void prLogo(){
 
@@ -75,6 +93,7 @@ using namespace Novanix::system;
 using namespace Novanix::system::drivers;
 using namespace Novanix;
 using namespace Novanix::system::drivers;
+
 
 multiboot_info_t* System::mbi = 0;
 PIT* System::pit = 0;
@@ -111,6 +130,8 @@ uint16_t joyStickStat = joy_stick_status_cxx(1024);
 void System::Start()
 {
     delay(DELAY_CONSTANT);
+
+
     printk(vga_color::VGA_COLOR_WHITE,"Running the kernel keyboard");
     System::keyboardManager = new KeyboardManager();
 
@@ -275,6 +296,11 @@ void System::Panic()
         printk(vga_color::VGA_COLOR_WHITE,"\n\n\n\n\n\n\n\n\n\n");
         printk(vga_color::VGA_COLOR_WHITE,"Kernel Booted ");
         printk(vga_color::VGA_COLOR_WHITE,"--------------------------------------------------");
+        printk(vga_color::VGA_COLOR_GREEN,"Starting the keyboard");
+        readKeyboardInput();
+        // setup_interrupts_and_keyboard();
+        printk(vga_color::VGA_COLOR_GREEN,"Started the keyboard");
+        printk(VGA_COLOR_GREEN, "%c", "key");
         asm("hlt");
         asm("nop");
     }
