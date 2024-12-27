@@ -36,7 +36,7 @@ namespace Novanix
 }
 
 inline char* strcat(char* dest, const char* src) {
-    char* ptr = dest + strlen(dest); // Move the pointer to the end of the destination string
+    char* ptr = dest + Novanix::common::String::strlen(dest); // Move the pointer to the end of the destination string
     while (*src) {
         *ptr++ = *src++; // Copy each character from src to dest
     }

@@ -16,7 +16,7 @@ using namespace Novanix::system;
 
 class FileSystem{
     private:
-     char currentDirectory[CURRENT_DIR_BUFFER_SIZE];
+     char currentDirectory[CURRENT_DIR_BUFFER_SIZE] = "home";
     struct Directory {
         const char* name;
         Directory* subdirectories;
@@ -33,7 +33,21 @@ class FileSystem{
         return nullptr;
     } 
     
-    
+    public:
+        FileSystem(){
+            Novanix::common::String::strcpy(currentDirectory, "/");
+            static Directory home = {"home", nullptr, 0};
+            static Directory usr = {"usr", nullptr, 0};
+            static Directory bin = {"bin", nullptr, 0};
+            static Directory subdirectories[] = {home, usr, bin};
+            root = {"/", subdirectories, 3};
+        }
+
+        void printCurrentDir(){
+            Novanix::system::printk(VGA_COLOR_WHITE,"Current Directory: %s\n",1,currentDirectory);
+
+        }
+
 };
 
 #endif
