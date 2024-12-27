@@ -95,7 +95,7 @@ __always_inline VOID cmdline() {
                     i++;
                 }
             } else {
-                Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"The entered string is too long, cannot be handled by the buffer.",1);
+                Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"\nThe entered string is too long, cannot be handled by the buffer.\n",0);
                 Novanix::common::MemoryOperations::memset(full_cmd,0,sizeof(full_cmd));
                 index = 0;
                 // free the buffer 
