@@ -56,6 +56,9 @@ inline void cmdline() {
                     if (cmd_cmp(full_cmd, "help") == 0) {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, HELP_MENU,1);
                     }
+                    else if (cmd_cmp(full_cmd, "") == 0){
+                        
+                    }
                     else {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Your command does not exists",1);
                     }
