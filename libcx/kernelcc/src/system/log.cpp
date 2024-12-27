@@ -82,7 +82,7 @@ void Novanix::system::Print(const char* data, uint32_t length) {
 
 
 
-void Novanix::system::printk(enum vga_color color, const char* __restrict__ format,int next=1, ...) {
+void Novanix::system::printk(enum vga_color color, const char* __restrict__ format,int next, ...) {
     uint8_t prevColor = BootConsole::ForegroundColor;
 
     // Set the foreground color based on the input color

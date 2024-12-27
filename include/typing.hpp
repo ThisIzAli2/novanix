@@ -6,5 +6,6 @@
 #define INTEGER int
 #define VOID void
 #define __always_inline inline
+#define ELIF else if
 
 #endif
