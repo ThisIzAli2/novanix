@@ -6,6 +6,8 @@
 #include <common/string.h>
 #include <help.hpp>
 #include <typing.hpp>
+#include <shutdownsys.h>
+
 
 int __always_inline cmd_cmp(const char* str1, const char* str2) {
     // Compare each character of both strings
@@ -56,6 +58,9 @@ __always_inline VOID cmdline() {
                     // Compare full_cmd with "help"
                     if (cmd_cmp(full_cmd, "help") == 0) {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, HELP_MENU,1);
+                    }
+                    if (cmd_cmp(full_cmd,"shutdown-now") == 0){
+                        shutdown_sys_now();
                     }
                     else if (cmd_cmp(full_cmd, "") == 0){
 
