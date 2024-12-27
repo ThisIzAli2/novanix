@@ -3,6 +3,7 @@
 
 #include <common/types.h>
 #include <system/bootconsole.h>
+#include <typing.hpp>
 
 namespace Novanix
 {

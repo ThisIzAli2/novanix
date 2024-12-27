@@ -202,7 +202,7 @@ VOID Novanix::system::printk(enum vga_color color, const char* __restrict__ form
 
 
 
-void Novanix::system::Log(LogLevel level, const char* __restrict__ format, ...)
+VOID Novanix::system::Log(LogLevel level, const char* __restrict__ format, ...)
 {
     uint8_t prevColor = BootConsole::ForegroundColor;
     if(System::screenMode == ScreenMode::TextMode)
