@@ -1,21 +1,22 @@
 #include <core/cpu.h>
 #include <system/bootconsole.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::core;
 using namespace Novanix::common;
 using namespace Novanix::system;
 
-extern "C" void EnableSSE();
+extern "C" VOID EnableSSE();
 
-static inline void cpuid(uint32_t reg, uint32_t *eax, uint32_t *ebx, uint32_t *ecx, uint32_t *edx)
+static __always_inline VOID cpuid(uint32_t reg, uint32_t *eax, uint32_t *ebx, uint32_t *ecx, uint32_t *edx)
 {
     asm volatile("cpuid"
         : "=a" (*eax), "=b" (*ebx), "=c" (*ecx), "=d" (*edx)
         : "0" (reg));
 }
 
-void CPU::PrintVendor()
+VOID CPU::PrintVendor()
 {
     uint32_t largestStandardFunc;
     char vendor[13];
@@ -25,7 +26,7 @@ void CPU::PrintVendor()
     BootConsole::Write("CPU Vendor: "); BootConsole::WriteLine(vendor);
 }
 
-void CPU::EnableFeatures()
+VOID CPU::EnableFeatures()
 {
     uint32_t eax, ebx, ecx, edx;
 
