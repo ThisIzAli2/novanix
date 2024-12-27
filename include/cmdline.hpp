@@ -4,6 +4,7 @@
 #include <system/log.h>
 #include <system/bootconsole.h>
 #include <common/string.h>
+#include <help.hpp>
 
 int inline cmd_cmp(const char* str1, const char* str2) {
     // Compare each character of both strings
@@ -53,7 +54,7 @@ inline void cmdline() {
 
                     // Compare full_cmd with "help"
                     if (cmd_cmp(full_cmd, "help") == 0) {
-                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "Help Menu", 1);
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, HELP_MENU,1);
                     }
                     else {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Your command does not exists",1);
