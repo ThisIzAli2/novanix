@@ -9,7 +9,7 @@
 #include <shutdownsys.h>
 
 
-int __always_inline cmd_cmp(const char* str1, const char* str2) {
+INTEGER __always_inline cmd_cmp(const char* str1, const char* str2) {
     // Compare each character of both strings
     while (*str1 != '\0' && *str2 != '\0') {
         if (*str1 != *str2) {
