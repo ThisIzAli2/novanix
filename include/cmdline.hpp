@@ -26,11 +26,11 @@ INTEGER __always_inline cmd_cmp(const char* str1, const char* str2) {
 
 __always_inline VOID cmdline() {
     char* key = new char[2];  // Single character input
-    int index = 0;
+    INTEGER index = 0;
     char* cmd = new char[128];  // Command buffer
-    int i = 0;
+    INTEGER i = 0;
     char* full_cmd = new char[128];  // To hold the full command
-    int j = 0;
+    INTEGER j = 0;
     
     // Print the prompt
     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, ">", 0);
