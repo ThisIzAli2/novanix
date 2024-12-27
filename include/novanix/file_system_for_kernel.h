@@ -3,18 +3,17 @@
 
 
 #include <common/string.h>
+#include <system/log.h>
+#include <system/bootconsole.h>
+
+using namespace Novanix::system;
+
 
 
 #define CURRENT_DIR_BUFFER_SIZE 256
 
-class FileSystem{
-    private:
-        char current_dir [CURRENT_DIR_BUFFER_SIZE];
-        struct Directory {
-        const char* name;
-        Directory* subdirectories;
-        int subdirectoryCount;
-    } root;
-};
+
+
+class
 
 #endif
