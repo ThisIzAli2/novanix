@@ -36,14 +36,16 @@ __always_inline VOID cmdline() {
     
     // Print the prompt
     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, ">", 0);
-    
+
     do {
         // Read the key and handle the input
-        read_key();
-        key = handle_keyboard(read_key());  // Get the key pressed
+        // read_key();
+        int keycode = read_key();  // Store the result of read_key()
+
+        key = handle_keyboard(keycode);  // Get the key pressed
+        
         
         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, key, 0);
-        int keycode = read_key();  // Store the result of read_key()
 
         if (key != nullptr) {
             if (index < 127) {
@@ -51,10 +53,12 @@ __always_inline VOID cmdline() {
                 
                 
                 if (keycode == 142 || keycode == 14){
-                    if (index > 0) {
-                        // index--;  // Decrement index to remove the last character from the buffer
-                    cmd[--index] = '\0';  // Null-terminate the string
                     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "\b \b", 0);  // Move cursor back and clear the character
+                    if (index > 0) {
+
+                        // index--;  // Decrement index to remove the last character from the buffer
+                    // cmd[--index] = '\0';  // Null-terminate the string
+                    // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "\b \b", 0);  // Move cursor back and clear the character
 
                 }
                 }
