@@ -9,6 +9,7 @@
 #include <shutdownsys.h>
 #include <buffer.h>
 #include <putchar.h>
+#include <novanix/dir.h>
 
 
 
@@ -79,13 +80,15 @@ __always_inline VOID cmdline() {
                     if (cmd_cmp(full_cmd, "help") == 0) {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, HELP_MENU,1);
                     }
-                    if (cmd_cmp(full_cmd,"shutdown-now") == 0){
+                    else if (cmd_cmp(full_cmd,"shutdown-now") == 0){
                         shutdown_sys_now();
+                    }
+                    else if (cmd_cmp(full_cmd,"pwd") == 0){
+                        fs_manager->printCurrentDir();
                     }
                     else if (cmd_cmp(full_cmd, "") == 0){
 
-                    }
-                    else {
+                    }  else {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Entered command does not exists",1);
                     }
                     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,">", 0);
