@@ -7,6 +7,7 @@
 #include <help.hpp>
 #include <typing.hpp>
 #include <shutdownsys.h>
+#include <buffer.h>
 
 
 INTEGER __always_inline cmd_cmp(const char* str1, const char* str2) {
@@ -27,9 +28,9 @@ INTEGER __always_inline cmd_cmp(const char* str1, const char* str2) {
 __always_inline VOID cmdline() {
     char* key = new char[2];  // Single character input
     INTEGER index = 0;
-    char* cmd = new char[128];  // Command buffer
+    char* cmd = new char[BUFFER_CONSTANT];  // Command buffer
     INTEGER i = 0;
-    char* full_cmd = new char[128];  // To hold the full command
+    char* full_cmd = new char[BUFFER_CONSTANT];  // To hold the full command
     INTEGER j = 0;
     
     // Print the prompt
