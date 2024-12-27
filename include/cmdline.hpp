@@ -50,14 +50,14 @@ inline void cmdline() {
                     full_cmd[index] = '\0';  // Null-terminate the full_cmd string
 
                     // Print the full command entered
-                    // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, full_cmd, 0);
+                    // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, stringify((int)key), 0);
 
                     // Compare full_cmd with "help"
                     if (cmd_cmp(full_cmd, "help") == 0) {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, HELP_MENU,1);
                     }
                     else if (cmd_cmp(full_cmd, "") == 0){
-                        
+
                     }
                     else {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Your command does not exists",1);
