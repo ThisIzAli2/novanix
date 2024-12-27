@@ -12,11 +12,14 @@ using namespace Novanix::system;
 
 #define CURRENT_DIR_BUFFER_SIZE 256
 
+char* current_directory = "/home";
 
 
 class FileSystem{
+    public:
+        const char* currDir = "home";
+
     private:
-    const char* currDir = "home";
      char currentDirectory[CURRENT_DIR_BUFFER_SIZE] = "home";
     struct Directory {
         const char* name;
@@ -45,7 +48,8 @@ class FileSystem{
         }
 
         void printCurrentDir(){
-            Novanix::system::printk(VGA_COLOR_WHITE,currDir,0);
+            Novanix::system::printk(VGA_COLOR_WHITE,"%s",1,current_directory);
+            return;
 
         }
 

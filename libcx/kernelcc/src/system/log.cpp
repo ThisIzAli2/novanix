@@ -200,6 +200,8 @@ void Novanix::system::printk(enum vga_color color, const char* __restrict__ form
         BootConsole::ForegroundColor = prevColor;
 }
 
+
+
 void Novanix::system::Log(LogLevel level, const char* __restrict__ format, ...)
 {
     uint8_t prevColor = BootConsole::ForegroundColor;
