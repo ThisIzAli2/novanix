@@ -5,8 +5,9 @@
 #include <system/bootconsole.h>
 #include <common/string.h>
 #include <help.hpp>
+#include <typing.hpp>
 
-int inline cmd_cmp(const char* str1, const char* str2) {
+int __always_inline cmd_cmp(const char* str1, const char* str2) {
     // Compare each character of both strings
     while (*str1 != '\0' && *str2 != '\0') {
         if (*str1 != *str2) {
@@ -21,7 +22,7 @@ int inline cmd_cmp(const char* str1, const char* str2) {
     return *str1 - *str2;
 }
 
-inline void cmdline() {
+__always_inline VOID cmdline() {
     char* key = new char[2];  // Single character input
     int index = 0;
     char* cmd = new char[128];  // Command buffer
