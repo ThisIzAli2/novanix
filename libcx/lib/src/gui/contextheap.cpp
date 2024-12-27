@@ -2,6 +2,7 @@
 #include <list.h>
 #include <string.h>
 #include <proc.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 
@@ -19,15 +20,15 @@ uint32_t blockCount = 0;
 //To create thread safety for memory allocation
 DECLARE_LOCK(bitmapOpperation);
 
-inline void SetBit(uint32_t bit)
+__always_inline VOID SetBit(uint32_t bit)
 {
     memoryBitmap[bit / 32] |= (1 << (bit % 32));
 }
-inline void UnsetBit(uint32_t bit)
+__always_inline VOID UnsetBit(uint32_t bit)
 {
     memoryBitmap[bit / 32] &= ~ (1 << (bit % 32));
 }
-inline bool TestBit(uint32_t bit)
+__always_inline bool TestBit(uint32_t bit)
 {
     return memoryBitmap[bit / 32] & (1 << (bit % 32));
 }
@@ -58,7 +59,7 @@ uint32_t FirstFreeSize(uint32_t size)
     return -1;
 }
 
-void ContextHeap::Init()
+VOID ContextHeap::Init()
 {
     //Calculate amount of blocks
     blockCount = (endAddress - startAddress) / blockSize;
@@ -85,7 +86,7 @@ uint32_t ContextHeap::AllocateArea(uint32_t blocks)
     UNLOCK(bitmapOpperation);
     return startAddress + frame * blockSize; 
 }
-void ContextHeap::FreeArea(uint32_t addr, uint32_t blocks)
+VOID ContextHeap::FreeArea(uint32_t addr, uint32_t blocks)
 {
     addr -= startAddress;
     uint32_t frame = addr / blockSize;
