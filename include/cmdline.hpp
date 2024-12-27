@@ -79,6 +79,11 @@ __always_inline VOID cmdline() {
                     cmd[index++] = key[0];
                     i++;
                 }
+            } else {
+                Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"The entered string is too long, cannot be handled by the buffer.",1);
+                Novanix::common::MemoryOperations::memset(full_cmd,0,sizeof(full_cmd));
+                index = 0;
+                // free the buffer 
             }
         }
     } while (read_key() != 0);  // Loop until a key is pressed
