@@ -67,7 +67,7 @@ uint32_t GetMSSinceBoot()
 }
 #endif
 
-void Novanix::system::Print(const char* data, uint32_t length) {
+VOID Novanix::system::Print(const char* data, uint32_t length) {
     if(System::screenMode == ScreenMode::TextMode)
     {
         for (uint32_t i = 0; i < length; i++)
@@ -82,7 +82,7 @@ void Novanix::system::Print(const char* data, uint32_t length) {
 
 
 
-void Novanix::system::printk(enum vga_color color, const char* __restrict__ format,int next, ...) {
+VOID Novanix::system::printk(enum vga_color color, const char* __restrict__ format,int next, ...) {
     uint8_t prevColor = BootConsole::ForegroundColor;
 
     // Set the foreground color based on the input color
