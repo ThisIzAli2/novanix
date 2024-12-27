@@ -53,12 +53,13 @@ SOFTWARE.
 #include <system/drivers/usb/usbkeyboard.h>
 #include <keymap.hpp>
 #include <cmdline.hpp>
+#include <typing.hpp>
 
 
 #define PS2_DATA_PORT 0x60
 #define PS2_STATUS_PORT 0x64
 
-inline void readKeyboardInput() {
+__always_inline VOID readKeyboardInput() {
     uint8_t status;
     uint8_t scanCode;
 
@@ -72,7 +73,7 @@ inline void readKeyboardInput() {
     }
 }
 
-inline void prLogo(){
+__always_inline VOID prLogo(){
 
 printk(vga_color::VGA_COLOR_WHITE,"                                                        \n",1);
 printk(vga_color::VGA_COLOR_WHITE,",--.  ,--.                               ,--.           \n",1) ;
