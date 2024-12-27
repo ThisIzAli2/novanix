@@ -67,7 +67,11 @@ namespace Novanix
         inline static common::uint32_t readMemReg(const common::uint32_t addr) {
             return *(volatile common::uint32_t*)addr;
         }
+
     }
 }
+
+#define outb Novanix::core::outportb
+
 
 #endif

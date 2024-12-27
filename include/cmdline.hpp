@@ -8,6 +8,7 @@
 #include <typing.hpp>
 #include <shutdownsys.h>
 #include <buffer.h>
+#include <putchar.h>
 
 
 INTEGER __always_inline cmd_cmp(const char* str1, const char* str2) {
@@ -42,9 +43,22 @@ __always_inline VOID cmdline() {
         key = handle_keyboard(read_key());  // Get the key pressed
         
         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, key, 0);
-        
+        int keycode = read_key();  // Store the result of read_key()
+
         if (key != nullptr) {
             if (index < 127) {
+
+                
+                
+                if (keycode == 142 || keycode == 14){
+                    if (index > 0) {
+                        // index--;  // Decrement index to remove the last character from the buffer
+                    cmd[--index] = '\0';  // Null-terminate the string
+                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "\b \b", 0);  // Move cursor back and clear the character
+
+                }
+                }
+
                 // Check if Enter key is pressed
                 if (key[0] == '\n') {
                     // Copy cmd to full_cmd when Enter is pressed
@@ -67,7 +81,7 @@ __always_inline VOID cmdline() {
 
                     }
                     else {
-                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Your command does not exists",1);
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Entered command does not exists",1);
                     }
                     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,">", 0);
 
