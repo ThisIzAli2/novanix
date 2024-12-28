@@ -663,7 +663,7 @@ List<LFNEntry> FAT::CreateLFNEntriesFromName(char* name, INTEGER num, uint8_t ch
 BOOL FAT::WriteLongFilenameEntries(List<LFNEntry>* entries, uint32_t targetCluster, uint32_t targetSector, uint32_t sectorOffset, bool rootDirectory)
 {
     uint32_t sector = 0;
-    for(int i = 0; i < entries->size(); i++)
+    for(INTEGER i = 0; i < entries->size(); i++)
     {
         uint32_t entryOffset = sectorOffset + i * sizeof(DirectoryEntry);
 
@@ -700,7 +700,7 @@ BOOL FAT::WriteLongFilenameEntries(List<LFNEntry>* entries, uint32_t targetClust
     return true;
 }
 
-bool FAT::WriteDirectoryEntry(DirectoryEntry entry, uint32_t targetSector, uint32_t sectorOffset, bool rootDirectory)
+BOOL FAT::WriteDirectoryEntry(DirectoryEntry entry, uint32_t targetSector, uint32_t sectorOffset, bool rootDirectory)
 {
     // Read disk at sector
     if(this->disk->ReadSector(this->StartLBA + targetSector, this->readBuffer) != 0)
@@ -817,7 +817,7 @@ DirectoryEntry* FAT::CreateEntry(uint32_t parentCluster, char* name, uint8_t att
     return (DirectoryEntry*)(this->readBuffer + sectorOffset);
 }
 
-int FAT::CreateNewDirFileEntry(const char* path, uint8_t attributes)
+INTEGER FAT::CreateNewDirFileEntry(const char* path, uint8_t attributes)
 {
     List<char*> pathParts = String::Split(path, PATH_SEPERATOR_C);
     DirectoryEntry* ret = 0;
@@ -830,7 +830,7 @@ int FAT::CreateNewDirFileEntry(const char* path, uint8_t attributes)
     else
     {
         char* parentDirectory = (char*)path;
-        int i = String::IndexOf(path, PATH_SEPERATOR_C, pathParts.size() - 2);
+        INTEGER i = String::IndexOf(path, PATH_SEPERATOR_C, pathParts.size() - 2);
 
         // Kinda stupid way to split filename and filepath, but it works!
         char tmp = parentDirectory[i];
@@ -918,7 +918,7 @@ int FAT::CreateNewDirFileEntry(const char* path, uint8_t attributes)
     return -1;
 }
 
-bool FAT::ModifyEntry(FATEntryInfo* entry, DirectoryEntry newVersion)
+BOOL FAT::ModifyEntry(FATEntryInfo* entry, DirectoryEntry newVersion)
 {
     if(entry == 0)
         return false;
@@ -965,7 +965,7 @@ List<Novanix::VFSEntry>* FAT::DirectoryList(const char* path)
 { 
     List<Novanix::VFSEntry>* ret = new List<Novanix::VFSEntry>();
     uint32_t parentCluster = this->rootDirCluster;
-    bool rootdir = String::strlen(path) == 0;
+    BOOL rootdir = String::strlen(path) == 0;
 
     if(!rootdir) // Not the Root directory
     {
@@ -993,7 +993,7 @@ List<Novanix::VFSEntry>* FAT::DirectoryList(const char* path)
         entry.creationTime.min = (item.entry.CreationTime >> 5) & 0b111111;
         entry.creationTime.hour = (item.entry.CreationTime >> 11) & 0b11111;
 
-        int len = String::strlen(item.filename);
+        INTEGER len = String::strlen(item.filename);
         MemoryOperations::memcpy(entry.name, item.filename, len < VFS_NAME_LENGTH ? len : VFS_NAME_LENGTH);
         
         ret->push_back(entry);
@@ -1019,9 +1019,9 @@ uint32_t FAT::GetFileSize(const char* path)
 
     return fileSize;
 }
-int FAT::ReadFile(const char* path, uint8_t* buffer, uint32_t offset, uint32_t len)
+INTEGER FAT::ReadFile(const char* path, uint8_t* buffer, uint32_t offset, uint32_t len)
 { 
-    if((int)len == -1)
+    if((INTEGER)len == -1)
         len = GetFileSize(path);
 
     FATEntryInfo* entry = GetEntryByPath((char*)path);
@@ -1067,7 +1067,7 @@ int FAT::ReadFile(const char* path, uint8_t* buffer, uint32_t offset, uint32_t l
     return 0;
 }
 
-int FAT::WriteFile(const char* path, uint8_t* buffer, uint32_t len, bool create)
+INTEGER FAT::WriteFile(const char* path, uint8_t* buffer, uint32_t len, BOOL create)
 {
     if(FileExists(path) == false && create)
         if(CreateFile(path) != 0)
@@ -1140,20 +1140,20 @@ int FAT::WriteFile(const char* path, uint8_t* buffer, uint32_t len, bool create)
     return 0;
 }
 
-int FAT::CreateFile(const char* path)
+INTEGER FAT::CreateFile(const char* path)
 {
     return CreateNewDirFileEntry(path, 0);
 }
 
-int FAT::CreateDirectory(const char* path)
+INTEGER FAT::CreateDirectory(const char* path)
 {
     return CreateNewDirFileEntry(path, ATTR_DIRECTORY);
 }
 
-bool FAT::FileExists(const char* path)
+BOOL FAT::FileExists(const char* path)
 {
     FATEntryInfo* entry = GetEntryByPath((char*)path);
-    bool exists = false;
+    BOOL exists = false;
     if(entry == 0)
         return false;
     
@@ -1164,10 +1164,10 @@ bool FAT::FileExists(const char* path)
 
     return exists;
 }
-bool FAT::DirectoryExists(const char* path)
+BOOL FAT::DirectoryExists(const char* path)
 {
     FATEntryInfo* entry = GetEntryByPath((char*)path);
-    bool exists = false;
+    BOOL exists = false;
     if(entry == 0)
         return false;
     
