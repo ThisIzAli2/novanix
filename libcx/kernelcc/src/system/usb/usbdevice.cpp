@@ -227,7 +227,7 @@ BOOL USBDevice::AssignDriver()
 
     //Print Class Info
     char* hexClass = Convert::IntToHexString((uint8_t)this->classID);
-    for(int i = 0; i < numClassCodeStrings; i++)
+    for(INTEGER i = 0; i < numClassCodeStrings; i++)
         if(String::strncmp(hexClass, USBClassCodeStrings[i], 2) == true) {
             Log(Info, "USB Class: %s", USBClassCodeStrings[i] + 3);
             break;
@@ -270,7 +270,7 @@ USBDevice::~USBDevice()
     for(USBEndpoint* endP : this->endpoints)
         delete endP;
 }
-void USBDevice::OnUnplugged()
+VOID USBDevice::OnUnplugged()
 {
     if(this->driver != 0) {
         Log(Info, "Unloading driver %s", this->driver->GetDriverName());
