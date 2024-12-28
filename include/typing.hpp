@@ -7,5 +7,6 @@
 #define VOID void
 #define __always_inline inline
 #define ELIF else if
+#define BOOL bool
 
 #endif
