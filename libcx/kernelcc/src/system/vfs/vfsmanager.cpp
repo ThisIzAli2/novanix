@@ -1,5 +1,6 @@
 #include <system/vfs/vfsmanager.h>
 #include <system/system.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -11,16 +12,16 @@ VFSManager::VFSManager()
     this->Filesystems = new List<VirtualFileSystem*>();
 }
 
-int VFSManager::ExtractDiskNumber(const char* path, uint8_t* idSizeReturn)
+INTEGER VFSManager::ExtractDiskNumber(const char* path, uint8_t* idSizeReturn)
 {
     if(String::Contains(path, ':') && String::Contains(path, PATH_SEPERATOR_C))
     {
-        int idLength = String::IndexOf(path, ':');
+        INTEGER idLength = String::IndexOf(path, ':');
 
         char* idStr = new char[idLength];
         MemoryOperations::memcpy(idStr, path, idLength);
 
-        int idValue = 0;
+        INTEGER idValue = 0;
 
         if(isalpha(idStr[0])) //Are we using a character instead of a integer
         {
@@ -49,22 +50,22 @@ int VFSManager::ExtractDiskNumber(const char* path, uint8_t* idSizeReturn)
     return -1;
 }
 
-void VFSManager::Mount(VirtualFileSystem* vfs)
+VOID VFSManager::Mount(VirtualFileSystem* vfs)
 {
     this->Filesystems->push_back(vfs); //Just add it to the list of known filesystems, easy.
 }
-void VFSManager::Unmount(VirtualFileSystem* vfs)
+VOID VFSManager::Unmount(VirtualFileSystem* vfs)
 {
     this->Filesystems->Remove(vfs);
 }
-void VFSManager::UnmountByDisk(Disk* disk)
+VOID VFSManager::UnmountByDisk(Disk* disk)
 {
     for(VirtualFileSystem* vfs : *Filesystems)
         if(vfs->disk == disk)
             Unmount(vfs);
 }
 
-bool VFSManager::SearchBootPartition()
+BOOL VFSManager::SearchBootPartition()
 {
     List<Disk*> posibleDisks;
     char* pathString = "####:\\boot\\Novanix.bin";
@@ -101,13 +102,13 @@ bool VFSManager::SearchBootPartition()
     // Now loop though all the filesystems mounted and check if the disk can be the booted one
     // If that is the case check for the kernel file
     // At this point we can assume this is the boot disk
-    for(int i = 0; i < Filesystems->size(); i++)
+    for(INTEGER i = 0; i < Filesystems->size(); i++)
     {
         if(posibleDisks.IndexOf(Filesystems->GetAt(i)->disk) == -1)
             continue; // This partition is not present on the posible disks we booted from
         
         char* idStr = Convert::IntToString(i);
-        int idStrLen = String::strlen(idStr);
+        INTEGER idStrLen = String::strlen(idStr);
 
         MemoryOperations::memcpy(pathString + (4-idStrLen), idStr, idStrLen);
 
@@ -123,7 +124,7 @@ bool VFSManager::SearchBootPartition()
 List<Novanix::VFSEntry>* VFSManager::DirectoryList(const char* path)
 {
     uint8_t idSize = 0;
-    int disk = ExtractDiskNumber(path, &idSize);
+    INTEGER disk = ExtractDiskNumber(path, &idSize);
     if(disk != -1 && Filesystems->size() > disk)
         return Filesystems->GetAt(disk)->DirectoryList(path + idSize + 2); // skips the 0:\ part
     else
@@ -133,17 +134,17 @@ List<Novanix::VFSEntry>* VFSManager::DirectoryList(const char* path)
 uint32_t VFSManager::GetFileSize(const char* path)
 {
     uint8_t idSize = 0;
-    int disk = ExtractDiskNumber(path, &idSize);
+    INTEGER disk = ExtractDiskNumber(path, &idSize);
     if(disk != -1 && Filesystems->size() > disk)
         return Filesystems->GetAt(disk)->GetFileSize(path + idSize + 2); // skips the 0:\ part
     else
         return -1;
 }
 
-int VFSManager::ReadFile(const char* path, uint8_t* buffer, uint32_t offset, uint32_t len)
+INTEGER VFSManager::ReadFile(const char* path, uint8_t* buffer, uint32_t offset, uint32_t len)
 {
     uint8_t idSize = 0;
-    int disk = ExtractDiskNumber(path, &idSize);
+    INTEGER disk = ExtractDiskNumber(path, &idSize);
 
     if(disk != -1 && Filesystems->size() > disk)
         return Filesystems->GetAt(disk)->ReadFile(path + idSize + 2, buffer, offset, len);
@@ -151,10 +152,10 @@ int VFSManager::ReadFile(const char* path, uint8_t* buffer, uint32_t offset, uin
         return -1;
 }
 
-int VFSManager::WriteFile(const char* path, uint8_t* buffer, uint32_t len, bool create)
+INTEGER VFSManager::WriteFile(const char* path, uint8_t* buffer, uint32_t len, BOOL create)
 {
     uint8_t idSize = 0;
-    int disk = ExtractDiskNumber(path, &idSize);
+    INTEGER disk = ExtractDiskNumber(path, &idSize);
 
     if(disk != -1 && Filesystems->size() > disk)
         return Filesystems->GetAt(disk)->WriteFile(path + idSize + 2, buffer, len, create);
@@ -162,10 +163,10 @@ int VFSManager::WriteFile(const char* path, uint8_t* buffer, uint32_t len, bool 
         return -1;
 }
 
-bool VFSManager::FileExists(const char* path)
+BOOL VFSManager::FileExists(const char* path)
 {
     uint8_t idSize = 0;
-    int disk = ExtractDiskNumber(path, &idSize);
+    INTEGER disk = ExtractDiskNumber(path, &idSize);
 
     if(disk != -1 && Filesystems->size() > disk)
         return Filesystems->GetAt(disk)->FileExists(path + idSize + 2);
@@ -173,10 +174,10 @@ bool VFSManager::FileExists(const char* path)
         return false;
 }
 
-bool VFSManager::DirectoryExists(const char* path)
+BOOL VFSManager::DirectoryExists(const char* path)
 {
     uint8_t idSize = 0;
-    int disk = ExtractDiskNumber(path, &idSize);
+    INTEGER disk = ExtractDiskNumber(path, &idSize);
 
     if(disk != -1 && Filesystems->size() > disk) {
         if(String::strlen(path) == idSize + 2) //Only disk part, like 0:\ ofcourse this is a directory as well
@@ -188,10 +189,10 @@ bool VFSManager::DirectoryExists(const char* path)
         return false;
 }
 
-int VFSManager::CreateFile(const char* path)
+INTEGER VFSManager::CreateFile(const char* path)
 {
     uint8_t idSize = 0;
-    int disk = ExtractDiskNumber(path, &idSize);
+    INTEGER disk = ExtractDiskNumber(path, &idSize);
 
     if(disk != -1 && Filesystems->size() > disk) {
         if(String::strlen(path) == idSize + 2) //Only disk part, like 0:\ ofcourse this is a directory as well
@@ -202,10 +203,10 @@ int VFSManager::CreateFile(const char* path)
     else
         return -1;
 }
-int VFSManager::CreateDirectory(const char* path)
+INTEGER VFSManager::CreateDirectory(const char* path)
 {
     uint8_t idSize = 0;
-    int disk = ExtractDiskNumber(path, &idSize);
+    INTEGER disk = ExtractDiskNumber(path, &idSize);
 
     if(disk != -1 && Filesystems->size() > disk) {
         if(String::strlen(path) == idSize + 2) //Only disk part, like 0:\ ofcourse this is a directory as well
@@ -217,10 +218,10 @@ int VFSManager::CreateDirectory(const char* path)
         return -1;
 }
 
-bool VFSManager::EjectDrive(const char* path)
+BOOL VFSManager::EjectDrive(const char* path)
 {
     uint8_t idSize = 0;
-    int disk = ExtractDiskNumber(path, &idSize);
+    INTEGER disk = ExtractDiskNumber(path, &idSize);
 
     if(disk != -1 && Filesystems->size() > disk) {
         VirtualFileSystem* fs = Filesystems->GetAt(disk);
