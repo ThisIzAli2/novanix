@@ -42,7 +42,7 @@ __always_inline VOID cmdline() {
     do {
         // Read the key and handle the input
         // read_key();
-        int keycode = read_key();  // Store the result of read_key()
+        INTEGER keycode = read_key();  // Store the result of read_key()
 
         key = handle_keyboard(keycode);  // Get the key pressed
         
