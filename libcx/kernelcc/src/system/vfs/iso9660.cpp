@@ -3,6 +3,7 @@
 #include <system/vfs/iso9660.h>
 
 #include <system/memory/heap.h>
+#include <typing.hpp>
 
 using namespace Novanix::common;
 using namespace Novanix::core;
@@ -17,13 +18,13 @@ ISO9660::ISO9660(Disk* disk, uint32_t start, uint32_t size)
     this->Name = "ISO9660 Filesystem";
 }
 
-bool ISO9660::Initialize()
+BOOL ISO9660::Initialize()
 {
     BootConsole::WriteLine();
     BootConsole::WriteLine("Starting ISO9660 fileystem");
     BootConsole::WriteLine("Reading Volume Descriptors");
-    bool FoundPVD = false;
-    int Offset = ISO_START_SECTOR;
+    BOOL FoundPVD = false;
+    INTEGER Offset = ISO_START_SECTOR;
 
     while (FoundPVD == false)
     {
@@ -63,7 +64,7 @@ bool ISO9660::Initialize()
             return false;
         }
 
-        if(Offset < (int)(this->SizeInSectors - (uint32_t)ISO_START_SECTOR))
+        if(Offset < (INTEGER)(this->SizeInSectors - (uint32_t)ISO_START_SECTOR))
             Offset++; //Read the next sector
         else
         {
@@ -86,7 +87,7 @@ char* ISO9660::GetRecordName(DirectoryRecord* record)
 
     // Search for Rockridge extension first
     if(record->name[record->name_length + 1] != 0) {
-        int offset = record->name_length + 1;
+        INTEGER offset = record->name_length + 1;
         if(offset % 2 == 0) // Even number
             offset -= 1;
         
@@ -95,7 +96,7 @@ char* ISO9660::GetRecordName(DirectoryRecord* record)
             int len = record->name[offset + 2];
             if(String::strncmp(record->name + offset, "NM", 2)) // Name field
             {
-                int strLen = len - 5;
+                INTEGER strLen = len - 5;
                 char* entry = new char[strLen + 1];
                 MemoryOperations::memcpy(entry, record->name + offset + 5, strLen);
                 entry[strLen] = '\0';
@@ -136,8 +137,8 @@ Iso_EntryType ISO9660::GetEntryType(DirectoryRecord* entry)
 
 DirectoryRecord* ISO9660::SearchInDirectory(DirectoryRecord* searchIn, const char* name)
 {
-    int Offset = ((searchIn == rootDirectory) ? searchIn->length : 0);
-    int SectorOffset = 1;
+    INTEGER Offset = ((searchIn == rootDirectory) ? searchIn->length : 0);
+    INTEGER SectorOffset = 1;
 
     if(this->disk->ReadSector(searchIn->extent_location, readBuffer) != 0)
         return 0;
@@ -194,7 +195,7 @@ DirectoryRecord* ISO9660::GetEntry(const char* path)
     if(pathList.size() == 0) //The path represents a entry in the root directory
         return this->SearchInDirectory(searchIn, path);
 
-    for(int i = 0; i < pathList.size(); i++)
+    for(INTEGER i = 0; i < pathList.size(); i++)
     {
         DirectoryRecord* entry = this->SearchInDirectory(searchIn, pathList[i]);
         if(entry == 0)
@@ -217,8 +218,8 @@ List<Novanix::VFSEntry>* ISO9660::DirectoryList(const char* path)
     if(parent == 0 || GetEntryType(parent) == Iso_File)
         return result;
 
-    int Offset = ((parent == rootDirectory) ? parent->length : 0);
-    int SectorOffset = 1;
+    INTEGER Offset = ((parent == rootDirectory) ? parent->length : 0);
+    INTEGER SectorOffset = 1;
     if(this->disk->ReadSector(parent->extent_location, readBuffer) != 0)
         return result;
 
@@ -282,7 +283,7 @@ uint32_t ISO9660::GetFileSize(const char* path)
     delete entry;
     return len;
 }
-int ISO9660::ReadFile(const char* path, uint8_t* buffer, uint32_t offset, uint32_t len)
+INTEGER ISO9660::ReadFile(const char* path, uint8_t* buffer, uint32_t offset, uint32_t len)
 {
     DirectoryRecord* entry = GetEntry(path);
 
@@ -295,10 +296,10 @@ int ISO9660::ReadFile(const char* path, uint8_t* buffer, uint32_t offset, uint32
         len = entry->data_length;
 
     //TODO: Actually implement partial file reading, for now we read the whole file
-    int sectorCount = entry->data_length / CDROM_SECTOR_SIZE;
-    int dataRemainder = entry->data_length % CDROM_SECTOR_SIZE;
+    INTEGER sectorCount = entry->data_length / CDROM_SECTOR_SIZE;
+    INTEGER dataRemainder = entry->data_length % CDROM_SECTOR_SIZE;
 
-    for(int i = 0; i < sectorCount; i++)
+    for(INTEGER i = 0; i < sectorCount; i++)
         if(this->disk->ReadSector(entry->extent_location + i, buffer + (CDROM_SECTOR_SIZE * i)) != 0) {
             delete entry;
             return -1;
@@ -316,20 +317,20 @@ int ISO9660::ReadFile(const char* path, uint8_t* buffer, uint32_t offset, uint32
     delete entry;
     return 0;
 }
-int ISO9660::WriteFile(const char* path, uint8_t* buffer, uint32_t len, bool create)
+INTEGER ISO9660::WriteFile(const char* path, uint8_t* buffer, uint32_t len, bool create)
 {
     return -1; // ISO9660 is readonly
 }
-int ISO9660::CreateFile(const char* path)
+INTEGER ISO9660::CreateFile(const char* path)
 {
     return -1;
 }
-int ISO9660::CreateDirectory(const char* path)
+INTEGER ISO9660::CreateDirectory(const char* path)
 {
     return -1;
 }
 
-bool ISO9660::FileExists(const char* path)
+BOOL ISO9660::FileExists(const char* path)
 {
     DirectoryRecord* entry = GetEntry(path);
     if(entry == 0 || GetEntryType(entry) == Iso_Directory)
@@ -342,7 +343,7 @@ bool ISO9660::FileExists(const char* path)
     return true;
 }
 
-bool ISO9660::DirectoryExists(const char* path)
+BOOL ISO9660::DirectoryExists(const char* path)
 {
     DirectoryRecord* entry = GetEntry(path);
     if(entry == 0 || GetEntryType(entry) == Iso_File)
