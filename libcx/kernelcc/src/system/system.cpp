@@ -116,8 +116,8 @@ SystemCallHandler* System::syscalls = 0;
 SharedSystemInfo* System::systemInfo = 0;
 
 ScreenMode System::screenMode = ScreenMode::TextMode;
-bool System::gdbEnabled = false;
-bool System::setupMode = false;
+BOOL System::gdbEnabled = false;
+BOOL System::setupMode = false;
 KeyboardManager* System::keyboardManager = 0;
 Stream* System::ProcStandardOut = 0;
 List<ListingController*>* System::listings = 0;
