@@ -49,6 +49,7 @@ SOFTWARE.
 #include <alinix/c++/gameport.hpp>
 #include <system/log.h>
 #include <alinix/module.h>
+#include <typing.hpp>
 
 
 MODULE_AUTHOR("Ali Mirmohammad")
@@ -96,7 +97,7 @@ bool joystick_button_cxx(uint8_t buttonnum){
  * @return A `JoystickStatus` struct containing the current state of the joystick,
  *         including axis positions, deltas, and button states.
  */
-struct JoystickStatus joystick_dump(void)
+struct JoystickStatus joystick_dump(VOID)
 {
     struct JoystickStatus jst;
     jst.AxisX   = joy_stick_status_cxx(JoystickAxisX);
