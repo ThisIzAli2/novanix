@@ -1,6 +1,7 @@
 #include <system/usb/hidparser.h>
 #include <common/memoryoperations.h>
 #include <system/log.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -117,12 +118,12 @@ uint32_t format_value(uint32_t value, uint8_t size) {
 }
 
 
-bool HIDParser::Parse(struct HID_DATA* data)
+BOOL HIDParser::Parse(struct HID_DATA* data)
 {
-    bool found = false;
+    BOOL found = false;
     static unsigned space_cnt = 0;
-    static bool did_collection = false;
-    static int item_size[4] = { 0, 1, 2, 4 };
+    static BOOL did_collection = false;
+    static INTEGER item_size[4] = { 0, 1, 2, 4 };
     
     while (!found && (this->pos < this->report_desc_size)) {
         // Get new this->item if current this->count is empty 
@@ -359,7 +360,7 @@ bool HIDParser::Parse(struct HID_DATA* data)
     return found;
 }
 
-void HIDParser::Reset()
+VOID HIDParser::Reset()
 {
     this->pos = 0;
     this->count = 0;
@@ -377,7 +378,7 @@ void HIDParser::Reset()
     this->data.report_id = 1; // we must give it a non-zero value or the parser doesn't work
 }
 
-bool HIDParser::FindObject(struct HID_DATA* data)
+BOOL HIDParser::FindObject(struct HID_DATA* data)
 {
     struct HID_DATA found_data;
     this->Reset();
@@ -397,9 +398,9 @@ bool HIDParser::FindObject(struct HID_DATA* data)
     }
     return false;
 }
-int* HIDParser::GetReportOffset(const common::uint8_t report_id, const common::uint8_t report_type)
+INTEGER* HIDParser::GetReportOffset(const common::uint8_t report_id, const common::uint8_t report_type)
 {
-    int pos = 0;
+    INTEGER pos = 0;
     while ((pos < MAX_REPORT) && (this->offset_table[pos][0] != 0)) {
         if ((this->offset_table[pos][0] == report_id) && (this->offset_table[pos][1] == report_type))
             return &this->offset_table[pos][2];
