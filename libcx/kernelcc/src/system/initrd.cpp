@@ -39,14 +39,15 @@ SOFTWARE.
 */
 #include <system/initrd.h>
 #include <system/log.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
 using namespace Novanix::system;
 
-void* locationInMemory = 0;
+VOID* locationInMemory = 0;
 
-void InitialRamDisk::Initialize(multiboot_info_t* mbi)
+VOID InitialRamDisk::Initialize(multiboot_info_t* mbi)
 {
     if(mbi->mods_count <= 0)
     {
@@ -60,10 +61,10 @@ void InitialRamDisk::Initialize(multiboot_info_t* mbi)
     Log(Info, "Ramdisk is at: %x", ramdiskLocation);
     Log(Info, "Ramdisk size: %d", ramdiskEnd - ramdiskLocation);
 
-    locationInMemory = (void*)ramdiskLocation;
+    locationInMemory = (VOID*)ramdiskLocation;
 }
 
-void* InitialRamDisk::ReadFile(const char* path, uint32_t* fileSizeReturn)
+VOID* InitialRamDisk::ReadFile(const char* path, uint32_t* fileSizeReturn)
 {
     InitrdFileHeader* header = (InitrdFileHeader*)locationInMemory;
     while(header->size != 0)
