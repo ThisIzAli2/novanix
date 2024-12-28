@@ -1,5 +1,6 @@
 #include <system/usb/usbmanager.h>
 #include <system/system.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -15,21 +16,21 @@ USBManager::USBManager()
     this->initDone = false;
 }
 
-void USBManager::USBPoll()
+VOID USBManager::USBPoll()
 {
     for(USBController* c : controllerList)
         c->ControllerChecksThread();
 }
 
-void USBManager::AddController(USBController* c)
+VOID USBManager::AddController(USBController* c)
 {
     controllerList.push_front(c);
 }
-void USBManager::RemoveController(USBController* c)
+VOID USBManager::RemoveController(USBController* c)
 {
     controllerList.Remove(c);
 }
-void USBManager::AddDevice(USBDevice* c)
+VOID USBManager::AddDevice(USBDevice* c)
 {
     deviceList.push_back(c);
 
@@ -40,7 +41,7 @@ void USBManager::AddDevice(USBDevice* c)
             Log(Warning, "USBDevice %s driver assignment failed!", c->deviceName != 0 ? c->deviceName : "Unnamed");
     }
 }
-void USBManager::RemoveDevice(USBController* controller, uint8_t port)
+VOID USBManager::RemoveDevice(USBController* controller, uint8_t port)
 {
     USBDevice* dev = 0;
     for(USBDevice* c : deviceList)
@@ -60,13 +61,13 @@ void USBManager::RemoveDevice(USBController* controller, uint8_t port)
     }
 }
 
-void USBManager::SetupAll()
+VOID USBManager::SetupAll()
 {
     for(USBController* c : controllerList)
         c->Setup();
 }
 
-void USBManager::AssignAllDrivers()
+VOID USBManager::AssignAllDrivers()
 {
     for(USBDevice* c : deviceList) {
         if(c->AssignDriver())
