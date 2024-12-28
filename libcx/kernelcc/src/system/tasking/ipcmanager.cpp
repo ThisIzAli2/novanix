@@ -1,6 +1,7 @@
 #include <../../lib/include/syscall.h>
 #include <system/tasking/ipcmanager.h>
 #include <system/system.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -8,13 +9,13 @@ using namespace Novanix::core;
 using namespace Novanix::system;
 
 List<IPCReceiveDescriptor>* receivingBlockedList;
-void IPCManager::Initialize()
+VOID IPCManager::Initialize()
 {
     receivingBlockedList = new List<IPCReceiveDescriptor>();
 }
 
 //Called from systemcalls when process tries to send a ipc message
-void IPCManager::HandleSend(core::CPUState* state, Process* proc)
+VOID IPCManager::HandleSend(core::CPUState* state, Process* proc)
 {
     //Log(Info, "IPC Send from process %s", proc->fileName);
     // Get message pointer from ebx register
@@ -36,7 +37,7 @@ void IPCManager::HandleSend(core::CPUState* state, Process* proc)
     //Add the message to the buffer of the target process
     target->ipcMessages.push_back(*msg);
 
-    int i = 0;
+    INTEGER i = 0;
     for(IPCReceiveDescriptor desc : *receivingBlockedList) {
         if(desc.receivingProcess == target && (desc.receiveFromPID == -1 ? true : desc.receiveFromPID == proc->id) && (desc.receiveType == -1 ? true : desc.receiveType == msg->type))
         {    
@@ -56,12 +57,12 @@ void IPCManager::HandleSend(core::CPUState* state, Process* proc)
 
 //ebx = Message pointer
 //Called from systemcalls when process tries to receive a ipc message
-void IPCManager::HandleReceive(core::CPUState* state, Process* proc)
+VOID IPCManager::HandleReceive(core::CPUState* state, Process* proc)
 {
     //Log(Info, "IPC Receive from process %s", proc->fileName);
-    int recvFrom = state->ECX;
-    int* errRet = (int*)state->EDX;
-    int type = state->ESI;
+    INTEGER recvFrom = state->ECX;
+    INTEGER* errRet = (INTEGER*)state->EDX;
+    INTEGER type = state->ESI;
 
     //We need to block ourself if there are no messages at the moment
     if (proc->ipcMessages.size() <= 0) {
@@ -82,7 +83,7 @@ void IPCManager::HandleReceive(core::CPUState* state, Process* proc)
     }
 
     //If we get here we are either unblocked or there was already a message ready to receive
-    int messageIndex = 0;
+    INTEGER messageIndex = 0;
     Novanix::IPCMessage message = proc->ipcMessages.GetAt(messageIndex);
     
     //Loop throug all the messages until we find a correct one.
