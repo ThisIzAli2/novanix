@@ -1,4 +1,5 @@
 #include <system/vfs/fat.h>
+#include <typing.hpp>
 
 #include <system/log.h>
 #include <system/system.h>
@@ -19,7 +20,7 @@ FAT::~FAT()
     delete this->readBuffer;
 }
 
-bool FAT::Initialize()
+BOOL FAT::Initialize()
 {
     Log(Info, "Initializing FAT Filesystem");
 
@@ -151,7 +152,7 @@ uint32_t FAT::ReadTable(uint32_t cluster)
     }
 }
 
-void FAT::WriteTable(uint32_t cluster, uint32_t value)
+VOID FAT::WriteTable(uint32_t cluster, uint32_t value)
 {
     if(cluster < 2 || cluster > this->totalClusters) {
         Log(Error, "%s invallid cluster number %d", this->FatTypeString, cluster);
@@ -231,7 +232,7 @@ uint32_t FAT::AllocateCluster()
 	return 0;
 }
 
-void FAT::ClearCluster(uint32_t cluster)
+VOID FAT::ClearCluster(uint32_t cluster)
 {
     uint32_t sector = ClusterToSector(cluster);
     MemoryOperations::memset(this->readBuffer, 0, this->bytesPerSector);
@@ -482,7 +483,7 @@ char* FAT::ParseShortFilename(char* str)
 
 #pragma region Write Support
 
-bool FAT::FindEntryStartpoint(uint32_t cluster, uint32_t entryCount, bool rootDirectory, uint32_t* targetCluster, uint32_t* targetSector, uint32_t* sectorOffset)
+BOOL FAT::FindEntryStartpoint(uint32_t cluster, uint32_t entryCount, bool rootDirectory, uint32_t* targetCluster, uint32_t* targetSector, uint32_t* sectorOffset)
 {
     uint32_t sector = 0;
     uint32_t freeCount = 0;
@@ -561,32 +562,32 @@ char* FAT::CreateShortFilename(char* name)
     MemoryOperations::memset(result, ' ', 11);
     result[11] = '\0';
 
-    int len = String::strlen(name);
-    int dotIndex = String::IndexOf(name, '.');
+    INTEGER len = String::strlen(name);
+    INTEGER dotIndex = String::IndexOf(name, '.');
 
     // Write the extension
     if(dotIndex >= 0) {
-        for(int i = 0; i < 3; i++) {
-            int charIndex = dotIndex + 1 + i;
+        for(INTEGER i = 0; i < 3; i++) {
+            INTEGER charIndex = dotIndex + 1 + i;
             uint8_t c = charIndex >= len ? ' ' : String::Uppercase(name[charIndex]);
             result[8 + i] = c;
         }
     }
     // No extension in name
     else {
-        for(int i = 0; i < 3; i++) {
+        for(INTEGER i = 0; i < 3; i++) {
             result[8 + i] = ' ';
         }
     }
 
     // Write the filename.
-    int flen = len;
+    INTEGER flen = len;
     if(dotIndex >= 0)
         flen = dotIndex;
     
     if(flen > 8) {
         // Write the name with the thingy
-        for(int i = 0; i < 6; i++)
+        for(INTEGER i = 0; i < 6; i++)
             result[i] = String::Uppercase(name[i]);
 
         result[6] = '~';
@@ -594,7 +595,7 @@ char* FAT::CreateShortFilename(char* name)
     }
     else {
         // Just write the file name.
-        for(int i = 0; i < flen; i++) {
+        for(INTEGER i = 0; i < flen; i++) {
             result[i] = String::Uppercase(name[i]);
         }
     }
@@ -602,15 +603,15 @@ char* FAT::CreateShortFilename(char* name)
     return result;
 }
 
-List<LFNEntry> FAT::CreateLFNEntriesFromName(char* name, int num, uint8_t checksum)
+List<LFNEntry> FAT::CreateLFNEntriesFromName(char* name, INTEGER num, uint8_t checksum)
 {
     List<LFNEntry> entries;
 
-    int charsWritten = 0;
-    int nameLen = String::strlen(name);
+    INTEGER charsWritten = 0;
+    INTEGER nameLen = String::strlen(name);
     char* namePtr = name;
 
-    for(int n = 0; n < num; n++)
+    for(INTEGER n = 0; n < num; n++)
     {
         LFNEntry entry;
         MemoryOperations::memset(&entry, 0, sizeof(LFNEntry));
@@ -620,7 +621,7 @@ List<LFNEntry> FAT::CreateLFNEntriesFromName(char* name, int num, uint8_t checks
         entry.Attributes = ATTR_LONG_NAME;
 
         // First part of filename
-        for(int i = 0; i < 9; i+=2) {
+        for(INTEGER i = 0; i < 9; i+=2) {
             if(charsWritten < nameLen)
                 entry.namePart1[i] = *namePtr;
             else
@@ -640,7 +641,7 @@ List<LFNEntry> FAT::CreateLFNEntriesFromName(char* name, int num, uint8_t checks
         }
 
         // Third part of filename
-        for(int i = 0; i < 3; i+=2) {
+        for(INTEGER i = 0; i < 3; i+=2) {
             if(charsWritten < nameLen)
                 entry.namePart3[i] = *namePtr;
             else
@@ -659,7 +660,7 @@ List<LFNEntry> FAT::CreateLFNEntriesFromName(char* name, int num, uint8_t checks
     return entries;
 }
 
-bool FAT::WriteLongFilenameEntries(List<LFNEntry>* entries, uint32_t targetCluster, uint32_t targetSector, uint32_t sectorOffset, bool rootDirectory)
+BOOL FAT::WriteLongFilenameEntries(List<LFNEntry>* entries, uint32_t targetCluster, uint32_t targetSector, uint32_t sectorOffset, bool rootDirectory)
 {
     uint32_t sector = 0;
     for(int i = 0; i < entries->size(); i++)
