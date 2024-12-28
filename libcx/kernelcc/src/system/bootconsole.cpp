@@ -38,6 +38,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #include <system/bootconsole.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -46,11 +47,11 @@ using namespace Novanix::system;
 /*/////////////////
 // Static variable initialisations
 /*/////////////////
-int BootConsole::XOffset = 0;
-int BootConsole::YOffset = 0;
+INTEGER BootConsole::XOffset = 0;
+INTEGER BootConsole::YOffset = 0;
 uint8_t BootConsole::BackgroundColor = VGA_COLOR_BLACK; //Default console background color
 uint8_t BootConsole::ForegroundColor = VGA_COLOR_WHITE; //Default console foreground color
-bool BootConsole::writeToSerial = false;
+BOOL BootConsole::writeToSerial = false;
 
 /*/////////////////
 // Variables
@@ -61,15 +62,15 @@ static uint16_t* videoMemory = (uint16_t*)0xC00B8000;
 /*/////////////////
 // Private functions
 /*/////////////////
-void BootConsole::Scroll()
+VOID BootConsole::Scroll()
 {
-    for(int i = 0; i < 24; i++){
-        for (int m = 0; m < 80; m++){
+    for(INTEGER i = 0; i < 24; i++){
+        for (INTEGER m = 0; m < 80; m++){
             videoMemory[i * 80 + m] = videoMemory[(i + 1) * 80 + m];
         }
     }
 
-    for(int x = 0; x < 80; x++)
+    for(INTEGER x = 0; x < 80; x++)
     {
         uint16_t attrib = (BackgroundColor << 4) | (ForegroundColor & 0x0F);
         volatile uint16_t * where;
@@ -83,7 +84,7 @@ void BootConsole::Scroll()
 /*/////////////////
 // Public functions
 /*/////////////////
-void BootConsole::Init(bool enableSerial)
+VOID BootConsole::Init(BOOL enableSerial)
 {
     BootConsole::writeToSerial = enableSerial;
     if(enableSerial)
@@ -93,19 +94,19 @@ void BootConsole::Init(bool enableSerial)
     }
 }
 
-void BootConsole::Write(char c)
+VOID BootConsole::Write(char c)
 {
     static char* str = " ";
     str[0] = c;
     Write(str);
 }
 
-void BootConsole::Write(char* str)
+VOID BootConsole::Write(char* str)
 {
     if (writeToSerial)
         Serialport::WriteStr(str);
 
-    for(int i = 0; str[i] != '\0'; ++i)
+    for(INTEGER i = 0; str[i] != '\0'; ++i)
     {
         switch(str[i])
         {
@@ -139,16 +140,16 @@ void BootConsole::Write(char* str)
         }
     }
 }
-void BootConsole::WriteLine(char* str)
+VOID BootConsole::WriteLine(char* str)
 {
     BootConsole::Write(str);
     BootConsole::Write("\n");
 }
-void BootConsole::WriteLine()
+VOID BootConsole::WriteLine()
 {
     BootConsole::Write("\n");
 }
-void BootConsole::Clear()
+VOID BootConsole::Clear()
 {
     for(int y = 0; y < VGA_HEIGHT; y++)
         for(int x = 0; x < VGA_WIDTH; x++) {
@@ -166,11 +167,11 @@ uint16_t* BootConsole::GetBuffer()
     return videoMemory;
 }
 
-void BootConsole::SetX(int x)
+VOID BootConsole::SetX(INTEGER x)
 {
     XOffset = x;
 }
-void BootConsole::SetY(int y)
+VOID BootConsole::SetY(INTEGER y)
 {
     YOffset = y;
 }
