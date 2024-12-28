@@ -97,8 +97,10 @@ __always_inline VOID cmdline() {
                             Novanix::system::printk(VGA_COLOR_WHITE,to_print,0);
 
                         }
+                        Novanix::system::printk(VGA_COLOR_WHITE,"\n",0);
                         delete i_for_echo_cmd;
                         delete count;
+                        delete[] to_print;
                     }
                     ELIF (cmd_cmp(full_cmd, "") == 0){
 
