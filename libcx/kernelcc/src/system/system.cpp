@@ -129,7 +129,7 @@ bool System::isBochs = false; //are we running inside bochs
 System::SYSTEM_STATS System::statistics = {};
 uint16_t joyStickStat = joy_stick_status_cxx(1024);
 
-void System::Start()
+VOID System::Start()
 {
     delay(DELAY_CONSTANT);
 
