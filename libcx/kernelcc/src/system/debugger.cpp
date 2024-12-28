@@ -48,7 +48,7 @@ using namespace Novanix::common;
 using namespace Novanix::system;
 using namespace Novanix::core;
 
-SymbolDebugger::SymbolDebugger(char* symFile, bool kernel)
+SymbolDebugger::SymbolDebugger(char* symFile, BOOL kernel)
 {
     MemoryOperations::memset(this->messageBuffer, 0, sizeof(this->messageBuffer));
     this->isKernel = kernel;
@@ -273,7 +273,7 @@ VOID SymbolDebugger::SendUpdateToHost()
 
     Serialport::WriteStr("\n");
 }
-VOID SymbolDebugger::PrintMemoryDump(uint32_t address, uint32_t size, bool virtMemory)
+VOID SymbolDebugger::PrintMemoryDump(uint32_t address, uint32_t size, BOOL virtMemory)
 {
     //Log(Info, "KernelDebugger::PrintMemoryDump(%x, %x, %d)", address, size, virtMemory);
 
@@ -396,7 +396,7 @@ VOID SymbolDebugger::PrintPageTables(INTEGER pid)
     if(pid != -1)
         VirtualMemoryManager::SwitchPageDirectory(prevPageDir);
 }
-VOID SymbolDebugger::PrintPageItem(VOID* item, bool table, uint16_t pdIndex, uint16_t ptIndex)
+VOID SymbolDebugger::PrintPageItem(VOID* item, BOOL table, uint16_t pdIndex, uint16_t ptIndex)
 {
     static uint32_t curChainSize = 0;
     static uint32_t curChainStart = 0;
