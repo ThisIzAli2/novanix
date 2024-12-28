@@ -41,6 +41,7 @@ SOFTWARE.
 #include <system/system.h>
 #include <system/memory/deviceheap.h>
 #include <system/listings/systeminfo.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -154,7 +155,7 @@ const char* SymbolDebugger::FindSymbol(uint32_t address, uint32_t* offset)
 	}
 	return 0;
 }
-void SymbolDebugger::Stacktrace(CPUState* esp)
+VOID SymbolDebugger::Stacktrace(CPUState* esp)
 {
     if(this->symbolTable.size() == 0) {
         Log(Error, "Debugger symbols not loaded!");
@@ -174,7 +175,7 @@ void SymbolDebugger::Stacktrace(CPUState* esp)
 		frame = frame->next;
 	}
 }
-void SymbolDebugger::Update()
+VOID SymbolDebugger::Update()
 {
     if(this->isKernel == false) // Only kernel debugger has acces to serial
         return;
@@ -201,7 +202,7 @@ void SymbolDebugger::Update()
         }
     }
 }
-void SymbolDebugger::HandleDebugCommand(int size)
+VOID SymbolDebugger::HandleDebugCommand(INTEGER size)
 {
     //Log(Info, "%s", messageBuffer);
     if (String::strncmp(messageBuffer, "ReqDebugUpdate", 14)) {
@@ -245,7 +246,7 @@ void SymbolDebugger::HandleDebugCommand(int size)
         Log(Error, "Unknown debug command %s", messageBuffer);
     }
 }
-void SymbolDebugger::SendUpdateToHost()
+VOID SymbolDebugger::SendUpdateToHost()
 {
     if(this->isKernel == false) // Only kernel debugger has acces to serial
         return;
@@ -272,7 +273,7 @@ void SymbolDebugger::SendUpdateToHost()
 
     Serialport::WriteStr("\n");
 }
-void SymbolDebugger::PrintMemoryDump(uint32_t address, uint32_t size, bool virtMemory)
+VOID SymbolDebugger::PrintMemoryDump(uint32_t address, uint32_t size, bool virtMemory)
 {
     //Log(Info, "KernelDebugger::PrintMemoryDump(%x, %x, %d)", address, size, virtMemory);
 
@@ -346,7 +347,7 @@ void SymbolDebugger::PrintMemoryDump(uint32_t address, uint32_t size, bool virtM
     BootConsole::WriteLine();
     BootConsole::WriteLine("-----------------------------------");
 }
-void SymbolDebugger::PrintPageTables(int pid)
+VOID SymbolDebugger::PrintPageTables(INTEGER pid)
 {
     uint32_t prevPageDir = VirtualMemoryManager::GetPageDirectoryAddress();
     if(pid != -1) {
@@ -395,7 +396,7 @@ void SymbolDebugger::PrintPageTables(int pid)
     if(pid != -1)
         VirtualMemoryManager::SwitchPageDirectory(prevPageDir);
 }
-void SymbolDebugger::PrintPageItem(void* item, bool table, uint16_t pdIndex, uint16_t ptIndex)
+VOID SymbolDebugger::PrintPageItem(VOID* item, bool table, uint16_t pdIndex, uint16_t ptIndex)
 {
     static uint32_t curChainSize = 0;
     static uint32_t curChainStart = 0;
