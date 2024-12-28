@@ -1,4 +1,5 @@
 #include <system/usb/usbendpoint.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -13,13 +14,13 @@ USBEndpoint::USBEndpoint(struct ENDPOINT_DESC* src)
     this->interval = src->interval;
 }
 
-bool USBEndpoint::Toggle()
+BOOL USBEndpoint::Toggle()
 {
     this->toggleState = !this->toggleState;
     return !this->toggleState; // Return original value
 }
 
-void USBEndpoint::SetToggle(bool v)
+VOID USBEndpoint::SetToggle(BOOL v)
 {
     this->toggleState = v;
 }
