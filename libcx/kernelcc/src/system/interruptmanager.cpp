@@ -38,6 +38,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #include <system/interruptmanager.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -58,7 +59,7 @@ uint32_t InterruptHandler::HandleInterrupt(uint32_t esp)
 
 List<InterruptHandler*>* InterruptManager::interruptCallbacks[256]; //Allows for multiple interrupt handlers per interrupt
 
-void InterruptManager::Initialize()
+VOID InterruptManager::Initialize()
 {
     for(int i = 0; i < 256; i++)
     {
@@ -83,14 +84,14 @@ uint32_t InterruptManager::HandleInterrupt(uint8_t num, uint32_t esp)
     return esp;
 }
 
-void InterruptManager::AddHandler(InterruptHandler* handler, uint8_t interrupt)
+VOID InterruptManager::AddHandler(InterruptHandler* handler, uint8_t interrupt)
 {
     if(interruptCallbacks[interrupt] == 0)
         interruptCallbacks[interrupt] = new List<InterruptHandler*>(); //Create new list
     
     interruptCallbacks[interrupt]->push_back(handler);
 }
-void InterruptManager::RemoveHandler(InterruptHandler* handler, uint8_t interrupt)
+VOID InterruptManager::RemoveHandler(InterruptHandler* handler, uint8_t interrupt)
 {
     interruptCallbacks[interrupt]->Remove(handler);
     if(interruptCallbacks[interrupt]->size() == 0) {
