@@ -1,6 +1,7 @@
 #include <system/usb/usbcontroller.h>
 #include <system/drivers/usb/usbdefs.h>
 #include <system/system.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -14,11 +15,11 @@ USBController::USBController(USBControllerType usbType)
     this->interrupTransfers.Clear();
 }
 
-void USBController::Setup()
+VOID USBController::Setup()
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
 }
-void USBController::ControllerChecksThread()
+VOID USBController::ControllerChecksThread()
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
 }
@@ -27,27 +28,27 @@ void USBController::ControllerChecksThread()
 // Controller specific transfer functions
 //////////////
 
-bool USBController::BulkIn(USBDevice* device, void* retBuffer, int len, int endP)
+BOOL USBController::BulkIn(USBDevice* device, VOID* retBuffer, INTEGER len, INTEGER endP)
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
     return false;
 }
-bool USBController::BulkOut(USBDevice* device, void* sendBuffer, int len, int endP)
+BOOL USBController::BulkOut(USBDevice* device, VOID* sendBuffer, INTEGER len, INTEGER endP)
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
     return false;
 }
-bool USBController::ControlIn(USBDevice* device, void* target, const int len, const uint8_t requestType, const uint8_t request, const uint16_t valueHigh, const uint16_t valueLow, const uint16_t index)
+BOOL USBController::ControlIn(USBDevice* device, VOID* target, const INTEGER len, const uint8_t requestType, const uint8_t request, const uint16_t valueHigh, const uint16_t valueLow, const uint16_t index)
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
     return false;
 }
-bool USBController::ControlOut(USBDevice* device, const int len, const uint8_t requestType, const uint8_t request, const uint16_t valueHigh, const uint16_t valueLow, const uint16_t index)
+BOOL USBController::ControlOut(USBDevice* device, const INTEGER len, const uint8_t requestType, const uint8_t request, const uint16_t valueHigh, const uint16_t valueLow, const uint16_t index)
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
     return false;
 }
-void USBController::InterruptIn(USBDevice* device, int len, int endP)
+VOID USBController::InterruptIn(USBDevice* device, INTEGER len, INTEGER endP)
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
 }
@@ -58,17 +59,17 @@ void USBController::InterruptIn(USBDevice* device, int len, int endP)
 /////////////
 
 
-bool USBController::GetDeviceDescriptor(struct DEVICE_DESC* dev_desc, USBDevice* device)
+BOOL USBController::GetDeviceDescriptor(struct DEVICE_DESC* dev_desc, USBDevice* device)
 {
     return ControlIn(device, dev_desc, sizeof(struct DEVICE_DESC), STDRD_GET_REQUEST, DeviceRequest::GET_DESCRIPTOR, DescriptorTypes::DEVICE);
 }
 
-bool USBController::GetStringDescriptor(struct STRING_DESC* stringDesc, USBDevice* device, uint16_t index, uint16_t lang)
+BOOL USBController::GetStringDescriptor(struct STRING_DESC* stringDesc, USBDevice* device, uint16_t index, uint16_t lang)
 {
     if(!ControlIn(device, stringDesc, 2, STDRD_GET_REQUEST, DeviceRequest::GET_DESCRIPTOR, DescriptorTypes::STRING, index, lang))
         return false;
         
-    int totalSize = stringDesc->len;
+    INTEGER totalSize = stringDesc->len;
     return ControlIn(device, stringDesc, totalSize, STDRD_GET_REQUEST, DeviceRequest::GET_DESCRIPTOR, DescriptorTypes::STRING, index, lang);
 }
 
@@ -80,7 +81,7 @@ uint8_t* USBController::GetConfigDescriptor(USBDevice* device)
     if(!ControlIn(device, &confDesc, sizeof(struct CONFIG_DESC), STDRD_GET_REQUEST, GET_DESCRIPTOR, CONFIG))
         return 0;
     
-    int totalSize = confDesc.tot_len;
+    INTEGER totalSize = confDesc.tot_len;
     uint8_t* buffer = new uint8_t[totalSize];
     MemoryOperations::memset(buffer, 0, totalSize);
 
@@ -90,12 +91,12 @@ uint8_t* USBController::GetConfigDescriptor(USBDevice* device)
     return buffer;
 }
 
-bool USBController::SetConfiguration(USBDevice* device, uint8_t config)
+BOOL USBController::SetConfiguration(USBDevice* device, uint8_t config)
 {
     return ControlOut(device, 0, STDRD_SET_REQUEST, SET_CONFIGURATION, 0, config);
 }
 
-int USBController::GetConfiguration(USBDevice* device)
+INTEGER USBController::GetConfiguration(USBDevice* device)
 {
     uint8_t ret = 0;
     if(!ControlIn(device, &ret, 1, STDRD_GET_REQUEST, GET_CONFIGURATION))
@@ -104,10 +105,10 @@ int USBController::GetConfiguration(USBDevice* device)
     return ret;
 }
 
-int USBController::GetMaxLuns(USBDevice* device)
+INTEGER USBController::GetMaxLuns(USBDevice* device)
 {
     uint8_t ret = 0;
-    for(int i = 0; i < 3; i++) {
+    for(INTEGER i = 0; i < 3; i++) {
         if(ControlIn(device, &ret, 1, DEV_TO_HOST | REQ_TYPE_CLASS | RECPT_INTERFACE, GET_MAX_LUNS))
             return ret;
         
