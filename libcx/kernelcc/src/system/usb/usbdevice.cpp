@@ -8,6 +8,8 @@
 #include <system/drivers/usb/usbkeyboard.h>
 #include <system/drivers/usb/usbcomborecv.h>
 
+#include <typing.hpp>
+
 using namespace Novanix;
 using namespace Novanix::common;
 using namespace Novanix::core;
@@ -46,7 +48,7 @@ char* USBClassCodeStrings[] =
     "FE Application-specific",
     "FF Vendor-specific"
 };
-const int numClassCodeStrings = sizeof(USBClassCodeStrings) / sizeof(char*);
+const INTEGER numClassCodeStrings = sizeof(USBClassCodeStrings) / sizeof(char*);
 
 //Create new USBDevice, only called by controllers
 USBDevice::USBDevice()
@@ -54,7 +56,7 @@ USBDevice::USBDevice()
 { }
 
 //Automaticly test this device for its specs and assign a driver if found
-bool USBDevice::AssignDriver()
+BOOL USBDevice::AssignDriver()
 {
     if(this->controller == 0 || this->devAddress == 0) {
         Log(Error, "USB Device not properly initialized by controller");
@@ -107,9 +109,9 @@ bool USBDevice::AssignDriver()
     //Check if device supports some languages
     if(stringLangDesc.len > 2)
     {
-        int englishIndex = -1; //Index of english LANGID
+        INTEGER englishIndex = -1; //Index of english LANGID
         Log(Info, "Supported Languages by USB Device = %d", (stringLangDesc.len - 2) / 2);
-        for(int i = 0; i < (stringLangDesc.len - 2) / 2; i++) {
+        for(INTEGER i = 0; i < (stringLangDesc.len - 2) / 2; i++) {
             Log(Info, "Language: %w", stringLangDesc.string[i]);
             if(stringLangDesc.string[i] == 0x0409)
                 englishIndex = i;
@@ -123,12 +125,12 @@ bool USBDevice::AssignDriver()
                 MemoryOperations::memset(&stringDesc, 0, sizeof(struct STRING_DESC));
                 if(this->controller->GetStringDescriptor(&stringDesc, this, dev_desc.prod_indx, 0x0409))
                 {
-                    int strLen = (stringDesc.len-2)/2;
+                    INTEGER strLen = (stringDesc.len-2)/2;
                     if(strLen > 0) {
                         //Convert Unicode string to ASCII
                         this->deviceName = new char[strLen + 1];
                         this->deviceName[strLen] = '\0';
-                        for(int i = 0; i < strLen; i++)
+                        for(INTEGER i = 0; i < strLen; i++)
                             this->deviceName[i] = stringDesc.string[i];
                     }
                 }
@@ -142,7 +144,7 @@ bool USBDevice::AssignDriver()
     uint8_t* configBuffer = this->controller->GetConfigDescriptor(this);
     if(configBuffer)
     {
-        int confLen = *(uint16_t*)(configBuffer + 2);
+        INTEGER confLen = *(uint16_t*)(configBuffer + 2);
 
         uint8_t* startByte = configBuffer;
         uint8_t* endByte = configBuffer + confLen;
@@ -163,12 +165,12 @@ bool USBDevice::AssignDriver()
                     MemoryOperations::memset(&configString, 0, sizeof(struct STRING_DESC));
                     if(this->controller->GetStringDescriptor(&configString, this, c->config_indx, 0x0409))
                     {
-                        int strLen = (configString.len-2)/2;
+                        INTEGER strLen = (configString.len-2)/2;
                         if(strLen > 0) {
                             //Convert Unicode string to ASCII
                             char* tmp = new char[strLen + 1];
                             tmp[strLen] = '\0';
-                            for(int i = 0; i < strLen; i++)
+                            for(INTEGER i = 0; i < strLen; i++)
                                 tmp[i] = configString.string[i];
                             
                             Log(Info, "     Config String -> %s", tmp);
