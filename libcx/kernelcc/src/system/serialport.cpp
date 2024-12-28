@@ -38,6 +38,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #include <system/serialport.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -48,16 +49,16 @@ using namespace Novanix::system;
 // Static variable initialisations
 /*/////////////////
 COMPort Serialport::PortAddress = COMPort::COM1;
-bool Serialport::Initialized = false;
+BOOL Serialport::Initialized = false;
 
 /*/////////////////
 // Private functions
 /*/////////////////
-int Serialport::SerialReceiveReady()
+INTEGER Serialport::SerialReceiveReady()
 {
     return inportb(PortAddress + 5) & 1;
 }
-int Serialport::SerialSendReady()
+INTEGER Serialport::SerialSendReady()
 {
     return inportb(PortAddress + 5) & 0x20;
 }
@@ -71,19 +72,19 @@ char Serialport::Read()
 
     return inportb(PortAddress);
 }
-void Serialport::Write(char a)
+VOID Serialport::Write(char a)
 {
     while (SerialSendReady() == 0);
 
     outportb(PortAddress, a);
 }
-void Serialport::WriteStr(char* str)
+VOID Serialport::WriteStr(char* str)
 {
     for(int i = 0; str[i] != '\0'; ++i)
         Write(str[i]);
 }
 
-void Serialport::Init(COMPort port)
+VOID Serialport::Init(COMPort port)
 {
     Serialport::PortAddress = port;
 
