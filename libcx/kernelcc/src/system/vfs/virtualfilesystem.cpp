@@ -1,5 +1,6 @@
 #include <system/vfs/virtualfilesystem.h>
 #include <system/log.h>
+#include <typing.hpp>
 
 using namespace Novanix::common;
 using namespace Novanix::core;
@@ -18,37 +19,37 @@ VirtualFileSystem::~VirtualFileSystem()
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
 }
 
-bool VirtualFileSystem::Initialize()
+BOOL VirtualFileSystem::Initialize()
 {
     return false;
 }
 
-int VirtualFileSystem::ReadFile(const char* filename, uint8_t* buffer, uint32_t offset, uint32_t len)
+INTEGER VirtualFileSystem::ReadFile(const char* filename, uint8_t* buffer, uint32_t offset, uint32_t len)
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
     return -1;
 }
-int VirtualFileSystem::WriteFile(const char* filename, uint8_t* buffer, uint32_t len, bool create)
+INTEGER VirtualFileSystem::WriteFile(const char* filename, uint8_t* buffer, uint32_t len, BOOL create)
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
     return -1;
 }
-bool VirtualFileSystem::FileExists(const char* filename)
+BOOL VirtualFileSystem::FileExists(const char* filename)
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
     return false;
 }
-bool VirtualFileSystem::DirectoryExists(const char* filename)
+BOOL VirtualFileSystem::DirectoryExists(const char* filename)
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
     return false;
 }
-int VirtualFileSystem::CreateFile(const char* path)
+INTEGER VirtualFileSystem::CreateFile(const char* path)
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
     return -1;
 }
-int VirtualFileSystem::CreateDirectory(const char* path)
+INTEGER VirtualFileSystem::CreateDirectory(const char* path)
 {
     Log(Error, "Virtual function called directly %s:%d", __FILE__, __LINE__);
     return -1;
