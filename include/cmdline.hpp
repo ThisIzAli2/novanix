@@ -89,10 +89,13 @@ __always_inline VOID cmdline() {
                     ELIF(full_cmd[0] == 'e' && full_cmd[1] == 'c' && full_cmd[2] == 'h' && full_cmd[3] == 'o'){
                         INTEGER *i_for_echo_cmd = new INTEGER;
                         INTEGER *count = new INTEGER;
+                        char* to_print = new char[1024]; 
                         *count = 0;
-                        for (*i_for_echo_cmd = 6; full_cmd[*i_for_echo_cmd] != '\0'; ++(*i_for_echo_cmd)) {
+                        for (*i_for_echo_cmd = 5; full_cmd[*i_for_echo_cmd] != '\0'; ++(*i_for_echo_cmd)) {
                             ++(*count);
-                            Novanix::system::printk(VGA_COLOR_WHITE,&full_cmd[*i_for_echo_cmd],1);
+                            *to_print = full_cmd[*i_for_echo_cmd];
+                            Novanix::system::printk(VGA_COLOR_WHITE,to_print,0);
+
                         }
                         delete i_for_echo_cmd;
                         delete count;
