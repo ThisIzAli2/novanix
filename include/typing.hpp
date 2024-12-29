@@ -8,5 +8,6 @@
 #define __always_inline inline
 #define ELIF else if
 #define BOOL bool
+#define LPVOID void*
 
 #endif

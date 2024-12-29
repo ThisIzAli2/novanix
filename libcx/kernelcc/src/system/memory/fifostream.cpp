@@ -1,5 +1,6 @@
 #include <system/memory/fifostream.h>
 #include <system/system.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -20,14 +21,14 @@ FIFOStream::~FIFOStream()
     delete this->buffer;
 }
 
-void FIFOStream::Write(char item)
+VOID FIFOStream::Write(char item)
 {
     if(this->count == this->capacity) {
         Log(Error, "Item count has reached capacity for this stream, data will be ignored. Capacity=%d", this->capacity);
         return;
     }
 
-    MemoryOperations::memcpy((void*)this->head, (void*)&item, sizeof(char));
+    MemoryOperations::memcpy((LPVOID)this->head, (LPVOID)&item, sizeof(char));
     this->head = (char*)(this->head + sizeof(char));
     if(this->head == this->buffer_end)
         this->head = this->buffer;
@@ -41,7 +42,7 @@ char FIFOStream::Read()
     if(this->count == 0)
         return result;
 
-    MemoryOperations::memcpy((void*)&result, (void*)this->tail, sizeof(char));
+    MemoryOperations::memcpy((LPVOID)&result, (LPVOID)this->tail, sizeof(char));
     this->tail = (char*)(this->tail + sizeof(char));
     if(this->tail == this->buffer_end)
         this->tail = this->buffer;
@@ -50,7 +51,7 @@ char FIFOStream::Read()
     return result;
 }
 
-int FIFOStream::Available()
+INTEGER FIFOStream::Available()
 {
     return this->count;
 }
