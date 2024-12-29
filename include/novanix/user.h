@@ -9,6 +9,6 @@
 #define PASSWORD_BUFFER_SIZE BASE_USER_PASS_BUFFER
 
 char user_name[USER_NAME_BUFFER] = "admin";
-char *user_password = new char[PASSWORD_BUFFER_SIZE];
+char *user_password = "password";
 
 #endif

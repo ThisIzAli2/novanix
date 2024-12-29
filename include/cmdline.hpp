@@ -109,20 +109,21 @@ __always_inline VOID cmdline() {
                         char *second_attempt_set_password = new char[BASE_USER_PASS_BUFFER];
                         char* to_save_pass = new char[1024];
                         INTEGER *i_pass = new INTEGER;
-                        INTEGER *count = new INTEGER;
+                        INTEGER *count_on = new INTEGER;
                         for (*i_pass = 13; full_cmd[*i_pass] != '\0'; ++(*i_pass)) {
-                            ++(*count);
+                            ++(*count_on);
                             *to_save_pass = full_cmd[*i_pass];
                             *user_password = *to_save_pass;
+
+                        }
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Your password is:",0);
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,to_save_pass,0);
-                        }
 
                         delete[] first_attempt_set_password;
                         delete[] second_attempt_set_password;
                         delete[] to_save_pass;
                         delete i_pass;
-                        delete count;
+                        delete count_on;
 
 
 
