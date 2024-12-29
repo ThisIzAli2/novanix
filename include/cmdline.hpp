@@ -10,6 +10,7 @@
 #include <buffer.h>
 #include <putchar.h>
 #include <novanix/dir.h>
+#include <novanix/user.h>
 
 
 
@@ -101,6 +102,30 @@ __always_inline VOID cmdline() {
                         delete i_for_echo_cmd;
                         delete count;
                         delete[] to_print;
+                    }
+
+                    ELIF(full_cmd[0] == 's' && full_cmd[1] == 'e' && full_cmd[2] == 't' && full_cmd[3] == '-' && full_cmd[4] == 'p' && full_cmd[5] == 'a' && full_cmd[6] == 's' && full_cmd[7] == 's' && full_cmd[8] == 'w' && full_cmd[9] == 'o' && full_cmd[10] == 'r' && full_cmd[11] == 'd'){
+                        char *first_attempt_set_password = new char[BASE_USER_PASS_BUFFER];
+                        char *second_attempt_set_password = new char[BASE_USER_PASS_BUFFER];
+                        char* to_save_pass = new char[1024];
+                        INTEGER *i_pass = new INTEGER;
+                        INTEGER *count = new INTEGER;
+                        for (*i_pass = 13; full_cmd[*i_pass] != '\0'; ++(*i_pass)) {
+                            ++(*count);
+                            *to_save_pass = full_cmd[*i_pass];
+                            *user_password = *to_save_pass;
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Your password is:",0);
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,to_save_pass,0);
+                        }
+
+                        delete[] first_attempt_set_password;
+                        delete[] second_attempt_set_password;
+                        delete[] to_save_pass;
+                        delete i_pass;
+                        delete count;
+
+
+
                     }
                     ELIF (cmd_cmp(full_cmd, "") == 0){
 
