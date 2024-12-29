@@ -2,6 +2,7 @@
 #include <system/system.h>
 #include <common/print.h>
 #include <alinix/security.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -9,7 +10,7 @@ using namespace Novanix::core;
 using namespace Novanix::system;
 
 // Should we try to automaticaly fix pagefaults?
-bool autoFixPagefaults = false;
+BOOL autoFixPagefaults = false;
 
 uint32_t Exceptions::DivideByZero(uint32_t esp)
 {
@@ -62,11 +63,11 @@ uint32_t Exceptions::PageFault(uint32_t esp)
     CPUState* regs = (CPUState*)esp;
 
     // The error code gives us details of what happened.
-    int present   = !(regs->ErrorCode & 0x1); // Page not present
-    int rw = regs->ErrorCode & 0x2;           // Write operation?
-    int us = regs->ErrorCode & 0x4;           // Processor was in user-mode?
-    int reserved = regs->ErrorCode & 0x8;     // Overwritten CPU-reserved bits of page entry?
-    int id = regs->ErrorCode & 0x10;          // Caused by an instruction fetch?
+    INTEGER present   = !(regs->ErrorCode & 0x1); // Page not present
+    INTEGER rw = regs->ErrorCode & 0x2;           // Write operation?
+    INTEGER us = regs->ErrorCode & 0x4;           // Processor was in user-mode?
+    INTEGER reserved = regs->ErrorCode & 0x8;     // Overwritten CPU-reserved bits of page entry?
+    INTEGER id = regs->ErrorCode & 0x10;          // Caused by an instruction fetch?
 
     BootConsole::Write("Got Page Fault (");
     kernelMemoryCorruptionLockDown();
@@ -100,7 +101,7 @@ uint32_t Exceptions::PageFault(uint32_t esp)
 
     if(autoFixPagefaults && present) //Identity map error address
     {
-        void* ptr = (void*)errorAddress;
+        LPVOID ptr = (LPVOID)errorAddress;
         VirtualMemoryManager::mapVirtualToPhysical(ptr, ptr, true, true); //Readonly is probably a good idea        
         
         BootConsole::WriteLine(" Fixed pagefault");
@@ -189,16 +190,16 @@ uint32_t Exceptions::HandleException(uint32_t number, uint32_t esp)
     return esp;
 }
 
-void Exceptions::EnablePagefaultAutoFix()
+VOID Exceptions::EnablePagefaultAutoFix()
 {
     autoFixPagefaults = true;
 }
-void Exceptions::DisablePagefaultAutoFix()
+VOID Exceptions::DisablePagefaultAutoFix()
 {
     autoFixPagefaults = false;
 }
 
-void Exceptions::ShowStacktrace(common::uint32_t esp)
+VOID Exceptions::ShowStacktrace(common::uint32_t esp)
 {
     Log(Info, "---------- Stacktrace -----------");
     if(System::scheduler != 0 && System::scheduler->CurrentProcess() != 0) {
