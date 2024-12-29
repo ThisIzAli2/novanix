@@ -11,6 +11,10 @@
 #include <putchar.h>
 #include <novanix/dir.h>
 #include <novanix/user.h>
+#include <novanix/access.h>
+
+
+#define VGA_WHITE VGA_COLOR_WHITE
 
 
 
@@ -128,8 +132,32 @@ __always_inline VOID cmdline() {
 
 
                     }
-                    ELIF (cmd_cmp(full_cmd, "") == 0){
+                    ELIF (full_cmd[0] == 's' and full_cmd[1] == 'u' and full_cmd[2] == 'd' and full_cmd[3] == 'o' and full_cmd[4] == ' ' and full_cmd[5] == 's' and full_cmd[6] == 'u'){
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Enter password:",1);
+                        char *enter_password = new char[PASSWORD_BUFFER_SIZE];
+                        INTEGER *x = new INTEGER;
+                        INTEGER *counter = new INTEGER;
+                        char *pass = new char[PASSWORD_BUFFER_SIZE];
+                        
+                        for (*x = 9;full_cmd[*x] != '\0';++(*x)){
+                            ++(*counter);
+                            *enter_password = full_cmd[*x];
+                            *pass = *enter_password;
 
+                        }
+                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,enter_password,1);
+                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,pass,1);
+
+                    if (cmd_cmp(user_password,pass) == 0){
+                                Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Granted!",1);
+                            }
+                        delete[] enter_password;
+                        delete x;
+                        delete counter;
+                        delete[] pass;
+                    }
+                    ELIF (cmd_cmp(full_cmd, "") == 0){
+                    
                     }  else {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Entered command does not exists",1);
                     }
