@@ -1,14 +1,15 @@
 #include <common/convert.h>
 #include <common/string.h>
+#include <typing.hpp>
 
 using namespace Novanix::common;
 
-int IsSpace(char c)
+INTEGER IsSpace(char c)
 {
     return c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r';
 }
 
-char* Convert::IntToString(int n)
+char* Convert::IntToString(INTEGER n)
 {
     static char ret[24];
     int numChars = 0;
