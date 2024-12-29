@@ -12,9 +12,9 @@ INTEGER IsSpace(char c)
 char* Convert::IntToString(INTEGER n)
 {
     static char ret[24];
-    int numChars = 0;
+    INTEGER numChars = 0;
     // Determine if integer is negative
-    bool isNegative = false;
+    BOOL isNegative = false;
     if (n < 0)
     {
         n = -n;
@@ -22,7 +22,7 @@ char* Convert::IntToString(INTEGER n)
         numChars++;
     }
     // Count how much space we will need for the string
-    int temp = n;
+    INTEGER temp = n;
     do
     {
         numChars++;
@@ -34,7 +34,7 @@ char* Convert::IntToString(INTEGER n)
     if (isNegative)
         ret[0] = '-';
     // Copy digits to string in reverse order
-    int i = numChars - 1;
+    INTEGER i = numChars - 1;
     do
     {
         ret[i--] = n % 10 + '0';
@@ -45,9 +45,9 @@ char* Convert::IntToString(INTEGER n)
 char* Convert::IntToString32(uint32_t n)
 {
     static char ret[32];
-    int numChars = 0;
+    INTEGER numChars = 0;
     // Count how much space we will need for the string
-    int temp = n;
+    INTEGER temp = n;
     do
     {
         numChars++;
@@ -57,7 +57,7 @@ char* Convert::IntToString32(uint32_t n)
     ret[numChars] = 0;
     
     // Copy digits to string in reverse order
-    int i = numChars - 1;
+    INTEGER i = numChars - 1;
     do
     {
         ret[i--] = n % 10 + '0';
@@ -100,11 +100,11 @@ char* Convert::IntToHexString(uint32_t w)
     return rc;
 }
 
-int Convert::StringToInt(char* string)
+INTEGER Convert::StringToInt(char* string)
 {
-    int result = 0;
+    INTEGER result = 0;
     unsigned int digit;
-    int sign;
+    INTEGER sign;
 
     while (IsSpace(*string)) {
         string += 1;
@@ -139,12 +139,12 @@ int Convert::StringToInt(char* string)
 }
 uint32_t Convert::HexToInt(char* string)
 {
-    int length = String::strlen(string);
+    INTEGER length = String::strlen(string);
 
 	if (length>8)
 		length = 8;
 
-	int fact = 1;
+	INTEGER fact = 1;
     uint32_t result = 0;
 	for(int i = length - 1; i >= 0; i--)
 	{
