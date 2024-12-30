@@ -1,5 +1,6 @@
 #include <system/memory/heap.h>
 #include <system/system.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -11,7 +12,7 @@ uint32_t KernelHeap::endAddress = 0;
 MemoryHeader* KernelHeap::firstHeader = 0;
 MutexLock KernelHeap::heapMutex = MutexLock();
 
-void KernelHeap::Initialize(uint32_t start, uint32_t end)
+VOID KernelHeap::Initialize(uint32_t start, uint32_t end)
 {
     Log(Info, "KernelHeap: Initializing (Size of MemoryHeader = %d)", sizeof(MemoryHeader));
     if (start % PAGE_SIZE != 0 || end % PAGE_SIZE != 0) {
@@ -46,7 +47,7 @@ MemoryHeader* KernelHeap::FirstFree(uint32_t size)
     return 0;
 }
 
-void* KernelHeap::InternalAllocate(uint32_t size)
+VOID* KernelHeap::InternalAllocate(uint32_t size)
 {
     // Set Mutex
     heapMutex.Lock();
@@ -93,9 +94,9 @@ void* KernelHeap::InternalAllocate(uint32_t size)
     // Free mutex
     heapMutex.Unlock();
 
-    return (void*)((uint32_t)freeBlock + sizeof(MemoryHeader));
+    return (VOID*)((uint32_t)freeBlock + sizeof(MemoryHeader));
 }
-void KernelHeap::free(void* ptr)
+VOID KernelHeap::free(VOID* ptr)
 {
     // Set mutex
     heapMutex.Lock();
@@ -148,9 +149,9 @@ void KernelHeap::free(void* ptr)
     heapMutex.Unlock();
 }
 
-void* KernelHeap::malloc(uint32_t size, uint32_t* physReturn)
+VOID* KernelHeap::malloc(uint32_t size, uint32_t* physReturn)
 {
-    void* addr = InternalAllocate(size);
+    VOID* addr = InternalAllocate(size);
     if(physReturn != 0)
     {
         PageTableEntry* page = VirtualMemoryManager::GetPageForAddress((uint32_t)addr, 0);
@@ -159,9 +160,9 @@ void* KernelHeap::malloc(uint32_t size, uint32_t* physReturn)
     return addr;
 }
 
-void* KernelHeap::alignedMalloc(uint32_t size, uint32_t align, uint32_t* physReturn)
+VOID* KernelHeap::alignedMalloc(uint32_t size, uint32_t align, uint32_t* physReturn)
 {
-    void* ptr = 0;
+    VOID* ptr = 0;
     if(!(align & (align - 1)) == 0)
         return 0;
 
@@ -169,10 +170,10 @@ void* KernelHeap::alignedMalloc(uint32_t size, uint32_t align, uint32_t* physRet
     {
         uint32_t hdr_size = sizeof(uint16_t) + (align - 1);
         uint32_t phys = 0;
-        void* block = malloc(size + hdr_size, &phys);
+        VOID* block = malloc(size + hdr_size, &phys);
         if(block)
         {
-            ptr = (void*)align_up(((uintptr_t)block + sizeof(uint16_t)), align);
+            ptr = (VOID*)align_up(((uintptr_t)block + sizeof(uint16_t)), align);
             if(physReturn)
                 *physReturn = (uint32_t)VirtualMemoryManager::virtualToPhysical(ptr);
 
@@ -182,17 +183,17 @@ void* KernelHeap::alignedMalloc(uint32_t size, uint32_t align, uint32_t* physRet
 
     return ptr;
 }
-void KernelHeap::allignedFree(void* ptr)
+VOID KernelHeap::allignedFree(VOID* ptr)
 {   
     if(ptr == 0)
         return;
 
     uint16_t offset = *((uint16_t*)ptr - 1);
-    void* newPtr = (void*)((common::uint8_t*)ptr - offset);
+    VOID* newPtr = (VOID*)((common::uint8_t*)ptr - offset);
     free(newPtr);
 }
 
-bool KernelHeap::CheckForErrors()
+BOOL KernelHeap::CheckForErrors()
 {
     // Not sure if this is needed, but why not?
     heapMutex.Lock();
