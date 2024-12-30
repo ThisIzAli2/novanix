@@ -162,26 +162,61 @@ inline char* handle_keyboard(uint8_t scan_code){
         }
         return "1";
         case 3:
+        if (shift){
+            return "@";
+        }
         return "2";
         case 4:
+        if (shift){
+            return "#";
+            }
         return "3";
         case 5:
+        if (shift){
+            return "$";
+            }
         return "4";
         case 6:
+        if (shift){
+            return "%";
+            }
         return "5";
         case 7:
+        if (shift){
+            return "^";
+            }
+
         return "6";
         case 8:
+        if (shift){
+            return "&";
+            }
         return "7";
         case 9:
+        if (shift){
+            return "*";
+            }
         return "8";
         case 10:
+        if (shift){
+            return "(";
+            }
+
         return "9";
         case 11:
+        if (shift){
+            return ")";
+            }
         return "0";
         case 12:
+        if (shift){
+            return "-";
+            }
         return "-";
         case 15:
+        if (shift){
+            return "_";
+            }
         return "    ";
         case 23:
         return "i";
