@@ -1,6 +1,7 @@
 #include <core/power.h>
 #include <core/idt.h>
 #include <system/system.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -49,19 +50,19 @@ struct FACP
 };
 
 // check if the given address has a valid header
-unsigned int* acpiCheckRSDPtr(unsigned int* ptr)
+unsigned int* acpiCheckRSDPtr(unsigned INTEGER* ptr)
 {
     char* sig = "RSD PTR ";
     struct RSDPtr* rsdp = (struct RSDPtr*)ptr;
     uint8_t* bptr;
     uint8_t check = 0;
-    int i;
+    INTEGER i;
 
     if(MemoryOperations::memcmp(sig, rsdp, 8) == 0)
     {
         // check checksum rsdpd
         bptr = (uint8_t*)ptr;
-        for (i = 0; i < (int)sizeof(struct RSDPtr); i++)
+        for (i = 0; i < (INTEGER)sizeof(struct RSDPtr); i++)
         {
             check += *bptr;
             bptr++;
@@ -74,7 +75,7 @@ unsigned int* acpiCheckRSDPtr(unsigned int* ptr)
             else
                 Log(Info, "ACPI Version 2");
             
-            return (unsigned int*)rsdp->RsdtAddress;
+            return (unsigned INTEGER*)rsdp->RsdtAddress;
         }
     }
 
@@ -84,13 +85,13 @@ unsigned int* acpiCheckRSDPtr(unsigned int* ptr)
 
 
 // finds the acpi header and returns the address of the rsdt
-unsigned int* acpiGetRSDPtr(void)
+unsigned INTEGER* acpiGetRSDPtr(VOID)
 {
-    unsigned int* addr;
-    unsigned int* rsdp;
+    unsigned INTEGER* addr;
+    unsigned INTEGER* rsdp;
 
     // search below the 1mb mark for RSDP signature
-    for(addr = (unsigned int*)0x000E0000; (int)addr < 0x00100000; addr += 0x10/sizeof(addr))
+    for(addr = (unsigned INTEGER*)0x000E0000; (INTEGER)addr < 0x00100000; addr += 0x10/sizeof(addr))
     {
         rsdp = acpiCheckRSDPtr(addr);
         if (rsdp != 0)
@@ -98,11 +99,11 @@ unsigned int* acpiGetRSDPtr(void)
     }
 
     // at address 0x40:0x0E is the RM segment of the ebda
-    int ebda = *((short*)0x40E);   // get pointer
+    INTEGER ebda = *((short*)0x40E);   // get pointer
     ebda = ebda*0x10 & 0x000FFFFF;   // transform segment into linear address
 
     // search Extended BIOS Data Area for the Root System Description Pointer signature
-    for(addr = (unsigned int*)ebda; (int)addr < ebda + 1024; addr += 0x10/sizeof(addr))
+    for(addr = (unsigned INTEGER*)ebda; (INTEGER)addr < ebda + 1024; addr += 0x10/sizeof(addr))
     {
         rsdp = acpiCheckRSDPtr(addr);
         if (rsdp != 0)
