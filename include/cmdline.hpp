@@ -124,9 +124,6 @@ __always_inline VOID cmdline() {
                     }
 
                     ELIF(full_cmd[0] == 's' && full_cmd[1] == 'e' && full_cmd[2] == 't' && full_cmd[3] == '-' && full_cmd[4] == 'p' && full_cmd[5] == 'a' && full_cmd[6] == 's' && full_cmd[7] == 's' && full_cmd[8] == 'w' && full_cmd[9] == 'o' && full_cmd[10] == 'r' && full_cmd[11] == 'd'){
-                        char *first_attempt_set_password = new char[BASE_USER_PASS_BUFFER];
-                        char *second_attempt_set_password = new char[BASE_USER_PASS_BUFFER];
-                        char* to_save_pass = new char[1024];
                         INTEGER *i_pass = new INTEGER;
                         INTEGER *count_on = new INTEGER;
                         char password_saved[50] = {0};
@@ -141,9 +138,6 @@ __always_inline VOID cmdline() {
                         Novanix::system::printk(VGA_WHITE,password_saved,1);
 
 
-                        delete[] first_attempt_set_password;
-                        delete[] second_attempt_set_password;
-                        delete[] to_save_pass;
                         delete i_pass;
                         delete count_on;
 
