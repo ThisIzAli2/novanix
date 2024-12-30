@@ -129,14 +129,17 @@ __always_inline VOID cmdline() {
                         char* to_save_pass = new char[1024];
                         INTEGER *i_pass = new INTEGER;
                         INTEGER *count_on = new INTEGER;
-                        for (*i_pass = 13; full_cmd[*i_pass] != '\0'; ++(*i_pass)) {
+                        char password_saved[50] = {0};
+                        INTEGER n = 0;
+                        for (int i_pass = 13; full_cmd[i_pass] != '\0' && n < sizeof(password_saved) - 1; ++i_pass) {
+                            password_saved[n++] = full_cmd[i_pass];
                             ++(*count_on);
-                            *to_save_pass = full_cmd[*i_pass];
-                            *user_password = *to_save_pass;
 
                         }
-                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Your password is:",0);
-                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,to_save_pass,0);
+                        password_saved[n++] = '\0';
+                        Novanix::system::printk(VGA_WHITE,"Your password is:",0);
+                        Novanix::system::printk(VGA_WHITE,password_saved,1);
+
 
                         delete[] first_attempt_set_password;
                         delete[] second_attempt_set_password;
