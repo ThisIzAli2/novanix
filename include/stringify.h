@@ -1,11 +1,13 @@
 #ifndef __STRINGIFY_H
 #define __STRINGIFY_H
 
+#include <typing.hpp>
 
-char* stringify(int num){
-        static char str[20];  // Make sure this is large enough to hold the result (including negative sign)
-    int i = 0;
-    bool isNegative = false;
+
+char* stringify(INTEGER num){
+    static char str[20];  // Make sure this is large enough to hold the result (including negative sign)
+    INTEGER i = 0;
+    BOOL isNegative = false;
 
     // Handle 0 explicitly
     if (num == 0) {
@@ -35,8 +37,8 @@ char* stringify(int num){
     str[i] = '\0';
 
     // Reverse the string to get the correct order
-    int start = 0;
-    int end = i - 1;
+    INTEGER start = 0;
+    INTEGER end = i - 1;
     while (start < end) {
         char temp = str[start];
         str[start] = str[end];
