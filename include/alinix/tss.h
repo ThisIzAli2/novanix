@@ -27,11 +27,12 @@
 
 #include <alinix/memory.h>
 #include <alinix/types.h>
+#include <typing.hpp>
 #include <alinix/core/tss.h>
 
-void TSS_Install(uint32_t idx, uint32_t kernelSS, uint32_t kernelESP);
+VOID TSS_Install(uint32_t idx, uint32_t kernelSS, uint32_t kernelESP);
 
-void TSS_SetStack(uint32_t kernelSS, uint32_t kernelESP);
+VOID TSS_SetStack(uint32_t kernelSS, uint32_t kernelESP);
 
 struct TSSEntry* TSS_GetCurrent();
 
