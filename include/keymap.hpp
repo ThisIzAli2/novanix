@@ -185,6 +185,14 @@ inline char* handle_keyboard(uint8_t scan_code){
         case 14:
         case 142:
         return "\b";
+        case 244:
+        return "left";
+        case 182:
+        case 170:
+        return "$";
+
+        default:
+        return stringify(scan_code);
         
         // default:
         // int code = (sca)
