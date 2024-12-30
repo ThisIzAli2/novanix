@@ -26,6 +26,7 @@
 
 
 #include <alinix/types.h>
+#include <typing.hpp>
 
 /**
  * @brief VTOC file system structure implemented.
@@ -38,8 +39,8 @@ struct DSCB1{
 
 };
 
-void GetCHRFromVTOC(void *buffer);
-void CheckDSCB(struct DSCB1 *dscb, const char *name);
-void FindFile(const char *name) ;
+VOID GetCHRFromVTOC(VOID *buffer);
+VOID CheckDSCB(struct DSCB1 *dscb, const char *name);
+VOID FindFile(const char *name) ;
 
 #endif /*__ALINIX_KERNEL_V_TOC_H*/
