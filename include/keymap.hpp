@@ -6,8 +6,9 @@
 #include <stringify.h>
 #include <system/log.h>
 #include <typing.hpp>
-bool shift = false;
-int count = 0;
+
+BOOL shift = false;
+INTEGER count = 0;
 
 
 
