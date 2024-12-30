@@ -132,7 +132,7 @@ __always_inline VOID cmdline() {
 
 
                     }
-                    ELIF (full_cmd[0] == 's' and full_cmd[1] == 'u' and full_cmd[2] == 'd' and full_cmd[3] == 'o' and full_cmd[4] == ' ' and full_cmd[5] == 's' and full_cmd[6] == 'u'){
+                    ELIF (full_cmd[0] == 's' and full_cmd[1] == 'u' and full_cmd[2] == 'd' and full_cmd[3] == 'o' and full_cmd[4] == '-' and full_cmd[5] == 's' and full_cmd[6] == 'u'){
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Enter password:",1);
                         char *enter_password = new char[PASSWORD_BUFFER_SIZE];
                         INTEGER *x = new INTEGER;
@@ -143,12 +143,16 @@ __always_inline VOID cmdline() {
                             ++(*counter);
                             *enter_password = full_cmd[*x];
                             *pass = *enter_password;
+                            // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,enter_password,1);
+                            Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,enter_password,0);
 
                         }
-                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,enter_password,1);
-                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,pass,1);
-
-                    if (cmd_cmp(user_password,pass) == 0){
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"\n",0);
+                    // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,enter_password,1);
+                    // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,pass,1);
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,enter_password,1);
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,user_password,1);
+                    if (cmd_cmp(user_password,enter_password) == 0){
                                 Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Granted!",1);
                             }
                         delete[] enter_password;
