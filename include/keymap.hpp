@@ -253,7 +253,7 @@ inline char* handle_keyboard(uint8_t scan_code){
 
         #else  
 
-        return stringify(-1);
+        return nullptr;
         
         #endif
         
