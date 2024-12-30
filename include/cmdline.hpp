@@ -108,6 +108,7 @@ __always_inline VOID cmdline() {
                     ELIF(cmd_cmp(full_cmd,"pwd") == 0){
                         fs_manager->printCurrentDir();
                     }
+                    
                     ELIF(full_cmd[0] == 'e' && full_cmd[1] == 'c' && full_cmd[2] == 'h' && full_cmd[3] == 'o'){
                         INTEGER *i_for_echo_cmd = new INTEGER;
                         INTEGER *count = new INTEGER;

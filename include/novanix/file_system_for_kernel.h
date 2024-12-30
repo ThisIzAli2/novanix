@@ -19,7 +19,8 @@ char* current_directory = "/home";
 class FileSystem {
 public:
     const char* currDir = "home";
-
+    char dirs[1000];
+    int count = 0;
 private:
     char currentDirectory[CURRENT_DIR_BUFFER_SIZE] = "home";
 
@@ -54,33 +55,8 @@ public:
         return;
     }
 
-    bool mkdir(const char* name) {
-        Directory* currentDir = findDirectory(&root, currentDirectory);
-        if (!currentDir) {
-            Novanix::system::printk(VGA_COLOR_RED, "Error: Current directory not found.\n",1);
-            return false;
-        }
-
-        if (currentDir->subdirectoryCount >= MAX_SUBDIRECTORIES) {
-            Novanix::system::printk(VGA_COLOR_RED, "Error: Maximum subdirectory limit reached.\n",1);
-            return false;
-        }
-
-        if (findDirectory(currentDir, name)) {
-            Novanix::system::printk(VGA_COLOR_RED, "Error: Directory already exists.\n",1);
-            return false;
-        }
-
-        Directory* newSubdirectories = new Directory[currentDir->subdirectoryCount + 1];
-        for (int i = 0; i < currentDir->subdirectoryCount; i++) {
-            newSubdirectories[i] = currentDir->subdirectories[i];
-        }
-        newSubdirectories[currentDir->subdirectoryCount] = {name, nullptr, 0, currentDir};
-        currentDir->subdirectories = newSubdirectories;
-        currentDir->subdirectoryCount++;
-
-        Novanix::system::printk(VGA_COLOR_GREEN, "Directory '%s' created successfully.\n", 1,name);
-        return true;
+    bool mkdir(const char name) {
+        dirs[count++] = name;
     }
 
     bool rmdir(const char* name) {
