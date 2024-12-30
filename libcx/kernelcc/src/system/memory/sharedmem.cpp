@@ -1,17 +1,18 @@
 #include <system/memory/sharedmem.h>
 #include <core/virtualmemory.h>
 #include <system/system.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
 using namespace Novanix::core;
 using namespace Novanix::system;
 
-bool SharedMemory::CreateSharedRegion(Process* proc1, Process* proc2, uint32_t virtStart, uint32_t len)
+BOOL SharedMemory::CreateSharedRegion(Process* proc1, Process* proc2, uint32_t virtStart, uint32_t len)
 {
     return SharedMemory::CreateSharedRegion(proc1, proc2, virtStart, virtStart, len);
 }
-bool SharedMemory::CreateSharedRegion(Process* proc1, Process* proc2, uint32_t virtStart1, uint32_t virtStart2, uint32_t len)
+BOOL SharedMemory::CreateSharedRegion(Process* proc1, Process* proc2, uint32_t virtStart1, uint32_t virtStart2, uint32_t len)
 {
     if(proc1 == 0 || proc2 == 0 || len <= 0)
         return false;
@@ -63,11 +64,11 @@ bool SharedMemory::CreateSharedRegion(Process* proc1, Process* proc2, uint32_t v
     
     return true;
 }
-bool SharedMemory::RemoveSharedRegion(Process* proc1, Process* proc2, uint32_t virtStart, uint32_t len)
+BOOL SharedMemory::RemoveSharedRegion(Process* proc1, Process* proc2, uint32_t virtStart, uint32_t len)
 {
     return RemoveSharedRegion(proc1, proc2, virtStart, virtStart, len);
 }
-bool SharedMemory::RemoveSharedRegion(Process* proc1, Process* proc2, uint32_t virtStart1, uint32_t virtStart2, uint32_t len)
+BOOL SharedMemory::RemoveSharedRegion(Process* proc1, Process* proc2, uint32_t virtStart1, uint32_t virtStart2, uint32_t len)
 {
     if(proc1 == 0 || proc2 == 0 || len <= 0)
         return false;
