@@ -169,7 +169,7 @@ __always_inline VOID cmdline() {
                         // Simulate password entry and comparison
                         // Assume `enter_password` is filled with user input from some mechanism
                         // Replace the following line with actual input logic
-                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, passwrd, 1);
+                        // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, passwrd, 1);
 
                         if (cmd_cmp(user_password, passwrd) == 0) {
                             Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "SUDO access Granted!", 1);
