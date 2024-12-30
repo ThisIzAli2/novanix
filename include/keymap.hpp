@@ -198,6 +198,8 @@ inline char* handle_keyboard(uint8_t scan_code){
         shift = true;
         case 54:
         shift = false;
+        case 58:
+        return "caps";
 
 
 
