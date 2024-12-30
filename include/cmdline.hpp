@@ -153,6 +153,8 @@ __always_inline VOID cmdline() {
                         if (cmd_cmp(user_password, passwrd) == 0) {
                             Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "SUDO access Granted!", 1);
                             have_access = true;
+                        } else {
+                            Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "Wrong password", 1);
                         }
                     }
                     ELIF (cmd_cmp(full_cmd, "") == 0){
