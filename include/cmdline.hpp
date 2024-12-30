@@ -140,9 +140,6 @@ __always_inline VOID cmdline() {
 
                         delete i_pass;
                         delete count_on;
-
-
-
                     }
                     ELIF (cmd_cmp(full_cmd,"shutdown") == 0){
                         Novanix::system::printk(VGA_WHITE,"Use shutdown-[option]",1);
