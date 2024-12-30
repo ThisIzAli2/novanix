@@ -6,6 +6,8 @@
 #include <stringify.h>
 #include <system/log.h>
 #include <typing.hpp>
+bool shift = false;
+
 
 #define DEV
 // Function to read a byte from the keyboard data port
@@ -152,6 +154,9 @@ inline char* handle_keyboard(uint8_t scan_code){
         case 57:
         return " ";
         case 2:
+        if (shift){
+            return "!";
+        }
         return "1";
         case 3:
         return "2";
@@ -192,6 +197,12 @@ inline char* handle_keyboard(uint8_t scan_code){
         case 182:
         case 170:
         return "$";
+        case 42:
+        shift = true;
+        case 54:
+        shift = false;
+
+
 
         default:
         #ifdef DEV
