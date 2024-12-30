@@ -5,6 +5,7 @@
 
 #include <stringify.h>
 #include <system/log.h>
+#include <typing.hpp>
 // Function to read a byte from the keyboard data port
 
 // Inline assembly function to read from I/O port
@@ -193,7 +194,7 @@ inline char* handle_keyboard(uint8_t scan_code){
 }
 
 // Interrupt handler for keyboard interrupt (IRQ1)
-extern "C" void keyboard_interrupt_handler() {
+extern "C" VOID keyboard_interrupt_handler() {
     uint8_t key = read_key();
 
     // Process the key here (e.g., store it, display it, etc.)
