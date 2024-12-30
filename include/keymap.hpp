@@ -11,7 +11,7 @@ int count = 0;
 
 
 
-#define DEV
+// #define DEV
 // Function to read a byte from the keyboard data port
 
 // Inline assembly function to read from I/O port
@@ -245,10 +245,15 @@ inline char* handle_keyboard(uint8_t scan_code){
         // return "caps";
 
 
-        #ifdef DEV
 
         default:
+        #ifdef DEV
+
         return stringify(scan_code);
+
+        #else  
+
+        return stringify(-1);
         
         #endif
         
