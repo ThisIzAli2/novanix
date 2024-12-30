@@ -194,9 +194,6 @@ inline char* handle_keyboard(uint8_t scan_code){
         return "\b";
         case 244:
         return "left";
-        case 182:
-        case 170:
-        return "$";
         case 42:
         shift = true;
         case 54:
