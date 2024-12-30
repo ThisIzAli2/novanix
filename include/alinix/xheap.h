@@ -26,6 +26,7 @@
 
 #include <alinix/types.h>
 #include <alinix/mm.h>
+#include <typing.hpp>
 
 #define HEAP_MAGIC      0xA0B0C0
 
@@ -35,9 +36,9 @@
  * @brief Heap data structure.
 */
 typedef struct heap_header {
-    int magic; // sanity check: 0xA0B0C0
+    INTEGER magic; // sanity check: 0xA0B0C0
     size_t size;
-    int is_free;
+    INTEGER is_free;
     struct heap_header *next;
 } heap_header_t;
 
@@ -51,17 +52,17 @@ typedef struct {
 /**
  * @brief X heap function(memory stuff)
  */
-void heap_init(vmm_addr_t *addr);
-void *umalloc(size_t len, vmm_addr_t *heap);
-void ufree(void *ptr, vmm_addr_t *heap);
-void *umalloc_sys(size_t len);
-void ufree_sys(void *ptr);
-void kheap_init();
-void *kmalloc(size_t len);
-void kfree(void *ptr);
-void *first_free(size_t len);
-int get_heap_size();
-int get_used_heap();
-void print_header(heap_header_t *head);
+VOID heap_init(vmm_addr_t *addr);
+VOID *umalloc(size_t len, vmm_addr_t *heap);
+VOID ufree(VOID *ptr, vmm_addr_t *heap);
+VOID *umalloc_sys(size_t len);
+VOID ufree_sys(VOID *ptr);
+VOID kheap_init();
+VOID *kmalloc(size_t len);
+VOID kfree(VOID *ptr);
+VOID *first_free(size_t len);
+INTEGER get_heap_size();
+INTEGER get_used_heap();
+VOID print_header(heap_header_t *head);
 
 #endif /*__ALINIX_KERNEL_X_HEAP_H*/
