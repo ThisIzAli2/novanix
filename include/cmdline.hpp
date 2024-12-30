@@ -132,25 +132,31 @@ __always_inline VOID cmdline() {
                         for (INTEGER i_pass = 13; full_cmd[i_pass] != '\0' && n < sizeof(password_saved) - 1; ++i_pass) {
                             password_saved[n++] = full_cmd[i_pass];
                             ++(*count_on);
-                            if (Novanix::common::String::strlen(password_saved) < USER_NOVANIX){
-                                Novanix::system::printk(VGA_COLOR_WHITE,"Password is too short, should be greater than 8 characters",1);
-                                Novanix::system::printk(VGA_COLOR_WHITE,password_saved,1);
-                                user_password = DEFAULT_PASSWORD;
-                                failed = true;
-                            }
+                            // if (Novanix::common::String::strlen(password_saved) < USER_NOVANIX){
+                            //     Novanix::system::printk(VGA_COLOR_WHITE,"Password is too short, should be greater than 8 characters",1);
+                            //     Novanix::system::printk(VGA_COLOR_WHITE,password_saved,1);
+                            //     user_password = DEFAULT_PASSWORD;
+                            //     failed = true;
+                            // }
 
                         }
 
-                        if (!(failed)){
+
                         Novanix::system::printk(VGA_COLOR_WHITE,stringify(Novanix::common::String::strlen(password_saved)),1);
-                        Novanix::system::printk(VGA_COLOR_WHITE,stringify(sizeof(password_saved)),1);
+
+                        // Novanix::system::printk(VGA_COLOR_WHITE,stringify(Novanix::common::String::strlen(password_saved)),1);
+                        // Novanix::system::printk(VGA_COLOR_WHITE,stringify(sizeof(password_saved)),1);
                         password_saved[n++] = '\0';
                         Novanix::system::printk(VGA_WHITE,"Your password is:",0);
                         Novanix::system::printk(VGA_WHITE,password_saved,1);
                         user_password = password_saved;
-                        }
+
                         delete i_pass;
                         delete count_on;
+                        if (Novanix::common::String::strlen(password_saved) < USER_NOVANIX){
+                            user_password = DEFAULT_PASSWORD;
+                            
+                        }
                         
                     }
                     ELIF (cmd_cmp(full_cmd,"shutdown") == 0){
