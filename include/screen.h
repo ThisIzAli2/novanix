@@ -1,10 +1,12 @@
 #ifndef _HEISEN_SCREEN_H
 #define _HEISEN_SCREEN_H
 
-void InitScreen();
-void PutPixel(int X,int Y,int RGB);
-void PutRect(int X,int Y,int Width,int Height,int RGB);
-void PutLine(int X1, int Y1, int X2, int Y2, int RGB);
+#include <typing.hpp>
+
+VOID InitScreen();
+VOID PutPixel(INTEGER X,INTEGER Y,INTEGER RGB);
+VOID PutRect(INTEGER X,INTEGER Y,INTEGER Width,INTEGER Height,INTEGER RGB);
+VOID PutLine(INTEGER X1, INTEGER Y1, INTEGER X2, INTEGER Y2, INTEGER RGB);
 
 
 #endif // _HEISEN_SCREEN_H
