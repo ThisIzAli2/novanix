@@ -29,6 +29,7 @@
 #include <alinix/asm/fcntl.h>
 #include <alinix/asm/bitops.h>
 #include <alinix/kernel.h>
+#include <typing.hpp>
 
 #define UINT_MAX	(~0U)
 
@@ -41,15 +42,15 @@ struct watchdog_governor;
 struct watchdog_ops {
 	struct module *owner;
 	/* mandatory operations */
-	int (*start)(struct watchdog_device *);
+	INTEGER (*start)(struct watchdog_device *);
 	/* optional operations */
-	int (*stop)(struct watchdog_device *);
-	int (*ping)(struct watchdog_device *);
-	unsigned int (*status)(struct watchdog_device *);
-	int (*set_timeout)(struct watchdog_device *, unsigned int);
-	int (*set_pretimeout)(struct watchdog_device *, unsigned int);
-	unsigned int (*get_timeleft)(struct watchdog_device *);
-	int (*restart)(struct watchdog_device *, unsigned long, void *);
+	INTEGER (*stop)(struct watchdog_device *);
+	INTEGER (*ping)(struct watchdog_device *);
+	unsigned INTEGER (*status)(struct watchdog_device *);
+	INTEGER (*set_timeout)(struct watchdog_device *, unsigned INTEGER);
+	INTEGER (*set_pretimeout)(struct watchdog_device *, unsigned int);
+	unsigned INTEGER (*get_timeleft)(struct watchdog_device *);
+	INTEGER (*restart)(struct watchdog_device *, unsigned long, VOID *);
 	long (*ioctl)(struct watchdog_device *, unsigned int, unsigned long);
 };
 
