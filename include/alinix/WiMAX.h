@@ -31,6 +31,7 @@
  * 	- Kernel WIMAX header file implemented.
 */
 
+#include <typing.hpp>
 #include <alinix/types.h>
 
 enum {
@@ -219,10 +220,10 @@ struct wimax_device{
     enum wimax_rf_state rfState;
 };
 
-void wimax_rfkill(struct wimax_device *dev, enum wimax_rf_state state);
-void wimax_reset(struct wimax_device *dev);
+VOID wimax_rfkill(struct wimax_device *dev, enum wimax_rf_state state);
+VOID wimax_reset(struct wimax_device *dev);
 enum wimax_st wimax_state_get(struct wimax_device *dev);
-void wimax_state_change(struct wimax_device *dev, enum wimax_st new_state);
+VOID wimax_state_change(struct wimax_device *dev, enum wimax_st new_state);
 
 
 #endif /*__ALINIX_KERNEL_WI_MAX_H*/
