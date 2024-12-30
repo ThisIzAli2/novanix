@@ -132,7 +132,7 @@ __always_inline VOID cmdline() {
                         for (INTEGER i_pass = 13; full_cmd[i_pass] != '\0' && n < sizeof(password_saved) - 1; ++i_pass) {
                             password_saved[n++] = full_cmd[i_pass];
                             ++(*count_on);
-                            if (Novanix::common::String::strlen(password_saved) < USER_NOVANIX && !(cmd_cmp(password_saved,"") == 0)){
+                            if (Novanix::common::String::strlen(password_saved) < USER_NOVANIX && !(cmd_cmp(password_saved,"") == 0) && !(Novanix::common::String::strlen(password_saved) == 0) ){
                                 Novanix::system::printk(VGA_COLOR_WHITE,"Password is to short, should be greater than 8 characters",1);
                                 user_password = DEFAULT_PASSWORD;
                                 failed = true;
@@ -141,6 +141,7 @@ __always_inline VOID cmdline() {
                         }
 
                         if (!(failed)){
+                        // Novanix::system::printk(VGA_COLOR_WHITE,stringify(Novanix::common::String::strlen(password_saved)),0);
                         password_saved[n++] = '\0';
                         Novanix::system::printk(VGA_WHITE,"Your password is:",0);
                         Novanix::system::printk(VGA_WHITE,password_saved,1);
