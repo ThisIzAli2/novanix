@@ -1,5 +1,6 @@
 #include <system/listings/directorylisting.h>
 #include <system/system.h>
+#include <typing.hpp>
 
 using namespace Novanix;
 using namespace Novanix::common;
@@ -12,7 +13,7 @@ List<Novanix::VFSEntry>* currentDirectoryList = 0;
 DirectoryListing::DirectoryListing()
 : ListingController() { }
 
-int DirectoryListing::BeginListing(Thread* thread, uint32_t pathPtr)
+INTEGER DirectoryListing::BeginListing(Thread* thread, uint32_t pathPtr)
 {
     char* path = (char*)pathPtr;
     if(!System::vfs->DirectoryExists(path))
@@ -30,7 +31,7 @@ int DirectoryListing::BeginListing(Thread* thread, uint32_t pathPtr)
     currentDirectoryList = System::vfs->DirectoryList(path);
     return currentDirectoryList->size();
 }
-int DirectoryListing::GetEntry(Thread* thread, int entry, uint32_t bufPtr)
+INTEGER DirectoryListing::GetEntry(Thread* thread, INTEGER entry, uint32_t bufPtr)
 {
     char* buf = (char*)bufPtr;
     if(currentReqThread != thread)
@@ -50,7 +51,7 @@ int DirectoryListing::GetEntry(Thread* thread, int entry, uint32_t bufPtr)
     // End of items
     return 0;
 }
-void DirectoryListing::EndListing(Thread* thread)
+VOID DirectoryListing::EndListing(Thread* thread)
 {
     if(currentReqThread != thread || currentReqThread == 0)
     {
