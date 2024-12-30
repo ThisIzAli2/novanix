@@ -128,7 +128,7 @@ __always_inline VOID cmdline() {
                         INTEGER *count_on = new INTEGER;
                         char password_saved[50] = {0};
                         INTEGER n = 0;
-                        for (int i_pass = 13; full_cmd[i_pass] != '\0' && n < sizeof(password_saved) - 1; ++i_pass) {
+                        for (INTEGER i_pass = 13; full_cmd[i_pass] != '\0' && n < sizeof(password_saved) - 1; ++i_pass) {
                             password_saved[n++] = full_cmd[i_pass];
                             ++(*count_on);
 
