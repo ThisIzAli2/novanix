@@ -134,12 +134,12 @@ __always_inline VOID cmdline() {
                     }
                     ELIF (full_cmd[0] == 's' and full_cmd[1] == 'u' and full_cmd[2] == 'd' and full_cmd[3] == 'o' and full_cmd[4] == '-' and full_cmd[5] == 's' and full_cmd[6] == 'u'){
                         char enter_password[PASSWORD_BUFFER_SIZE];
-                        int counter = 0;
+                        INTEGER counter = 0;
                         char passwrd[50] = {0}; // Initialize to zero
-                        int n = 0;
+                        INTEGER n = 0;
 
                         // Extract password from full_cmd starting at index 8
-                        for (int x = 8; full_cmd[x] != '\0'; ++x) {
+                        for (INTEGER x = 8; full_cmd[x] != '\0'; ++x) {
                             passwrd[n++] = full_cmd[x];
                             counter++;
                         }
