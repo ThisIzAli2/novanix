@@ -27,6 +27,7 @@
 
 
 #include <alinix/types.h>
+#include <typing.hpp>
 
 // void* BootPageDirectory;
 enum PAGE_ENTRY_SIZE
@@ -96,11 +97,11 @@ struct PageDirectory
 }   __attribute__((packed));
 
 // Invalidate TLB Entries
-static inline void invlpg(void* addr)
+static inline VOID invlpg(VOID* addr)
 {
     asm volatile("invlpg (%0)" ::"r" (addr) : "memory");
 }
 
-void* GetPageForAddress(uint32_t virtualAddress, bool shouldCreate, bool readWrite, bool userPages);
+VOID* GetPageForAddress(uint32_t virtualAddress, BOOL shouldCreate, BOOL readWrite, BOOL userPages);
 
 #endif /*__ALINIX_KERNEL_VIRTUAL_MEMORY_H*/
