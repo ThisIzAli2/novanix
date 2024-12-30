@@ -6,7 +6,7 @@ using namespace Novanix;
 using namespace Novanix::common;
 using namespace Novanix::system;
 
-FIFOStream::FIFOStream(int capacity)
+FIFOStream::FIFOStream(INTEGER capacity)
 {
     this->buffer = new char[capacity * sizeof(char)];
     this->buffer_end = (char*)this->buffer + capacity * sizeof(char);
