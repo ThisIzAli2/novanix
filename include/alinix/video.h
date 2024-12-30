@@ -25,28 +25,28 @@
 #define __ALINIX_KERNEL_VIDEO_H
 
 #include <alinix/mlboot.h>
-
+#include <typing.hpp>
 #include <alinix/types.h>
 
-extern void int32(uint8_t intnum, regs16_t *regs);
+extern VOID int32(uint8_t intnum, regs16_t *regs);
 
-void video_init(int h, int w);
-void printk(char *buffer, ...);
-void printk_string(char *buffer);
-void check();
-void scroll();
-void clear();
-void vbe_init(multiboot_info_t *info);
-void refresh_screen();
-void draw_pixel(int x, int y, uint32_t color);
-void draw_rect(int x, int y, int w, int h, uint32_t color);
-void draw_string(int x, int y, char *string);
-void draw_char(int x, int y, char *font_char);
+VOID video_init(int h, int w);
+VOID printk(char *buffer, ...);
+VOID printk_string(char *buffer);
+VOID check();
+VOID scroll();
+VOID clear();
+VOID vbe_init(multiboot_info_t *info);
+VOID refresh_screen();
+VOID draw_pixel(INTEGER x, INTEGER y, uint32_t color);
+VOID draw_rect(INTEGER x, INTEGER y, INTEGER w, INTEGER h, uint32_t color);
+VOID draw_string(INTEGER x, INTEGER y, char *string);
+VOID draw_char(INTEGER x, INTEGER y, char *font_char);
 
 
 struct video_mem{
-    int height;
-    int width;
+    INTEGER height;
+    INTEGER width;
     uint16_t *ram;
 };
 
