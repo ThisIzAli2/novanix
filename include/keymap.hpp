@@ -32,6 +32,7 @@ uint8_t read_key() {
 }
 
 inline char* handle_keyboard(uint8_t scan_code){
+    int count = 0;
     switch(scan_code){
         case 144:
         case 16:
@@ -195,17 +196,22 @@ inline char* handle_keyboard(uint8_t scan_code){
         case 244:
         return "left";
         case 42:
-        shift = true;
         case 54:
-        shift = false;
-        case 58:
-        return "caps";
+        if (count == 1){
+            shift = false;
+            count = 0;
+        }
+        shift = true;
+        count = 1;
+        // case 58:
+        // return "caps";
 
 
-
-        default:
         #ifdef DEV
+        
+        default:
         return stringify(scan_code);
+        
         #endif
         
         // default:
