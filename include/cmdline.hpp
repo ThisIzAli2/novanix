@@ -155,7 +155,10 @@ __always_inline VOID cmdline() {
                         delete count_on;
                         if (Novanix::common::String::strlen(password_saved) < USER_NOVANIX){
                             user_password = DEFAULT_PASSWORD;
+                            Novanix::system::printk(VGA_WHITE,"Password is too short, 8 char at least",1);
                             
+                        } else {
+                            Novanix::system::printk(VGA_COLOR_WHITE,"Password saved successfully",1);
                         }
                         
                     }
