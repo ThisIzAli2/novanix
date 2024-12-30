@@ -96,7 +96,7 @@ __always_inline VOID cmdline() {
                         if (!(have_access)){
                             Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"You do not have super user access, try sudo-su [password]",1);
                         }else{
-                            int temp_shut_down = 100000000000000;
+                            int temp_shut_down = 1000000000000000000;
                             while(--temp_shut_down);
                             shutdown_sys_now();
                         }
