@@ -116,12 +116,12 @@ unsigned INTEGER* acpiGetRSDPtr(VOID)
 
 
 // checks for a given header and validates checksum
-int acpiCheckHeader(unsigned int* ptr, char* sig)
+int acpiCheckHeader(unsigned INTEGER* ptr, char* sig)
 {
     if(MemoryOperations::memcmp(ptr, sig, 4) == 0)
     {
         char* checkPtr = (char*)ptr;
-        int len = *(ptr + 1);
+        INTEGER len = *(ptr + 1);
         char check = 0;
         while (0 < len--)
         {
@@ -134,20 +134,20 @@ int acpiCheckHeader(unsigned int* ptr, char* sig)
     return -1;
 }
 
-int acpiEnable(void)
+INTEGER acpiEnable(VOID)
 {
     // check if acpi is enabled
-    if ((inportw((unsigned int) PM1a_CNT) & SCI_EN) == 0 )
+    if ((inportw((unsigned INTEGER) PM1a_CNT) & SCI_EN) == 0 )
     {
         // check if acpi can be enabled
         if (SMI_CMD != 0 && ACPI_ENABLE != 0)
         {
-            outportb((unsigned int)SMI_CMD, ACPI_ENABLE); // send acpi enable command
+            outportb((unsigned INTEGER)SMI_CMD, ACPI_ENABLE); // send acpi enable command
             // give 3 seconds time to enable acpi
-            int i;
+            INTEGER i;
             for (i = 0; i < 300; i++)
             {
-                if ((inportw((unsigned int)PM1a_CNT) & SCI_EN) == 1)
+                if ((inportw((unsigned INTEGER)PM1a_CNT) & SCI_EN) == 1)
                     break;
                 
                 System::pit->Sleep(10);
@@ -155,7 +155,7 @@ int acpiEnable(void)
             if (PM1b_CNT != 0)
                 for (; i < 300; i++ )
                 {
-                    if ((inportw((unsigned int) PM1b_CNT) & SCI_EN) == 1)
+                    if ((inportw((unsigned INTEGER) PM1b_CNT) & SCI_EN) == 1)
                         break;
                     
                     System::pit->Sleep(10);
@@ -197,31 +197,31 @@ int acpiEnable(void)
 //
 // (Pkglength bit 6-7 encode additional PkgLength bytes [shouldn't be the case here])
 //
-int initAcpi(void)
+INTEGER initAcpi(VOID)
 {
-    unsigned int* ptr = acpiGetRSDPtr();
+    unsigned INTEGER* ptr = acpiGetRSDPtr();
 
     // check if address is correct  ( if acpi is available on this pc )
     if (ptr != 0 && acpiCheckHeader(ptr, "RSDT") == 0)
     {
         // the RSDT contains an unknown number of pointers to acpi tables
-        int entrys = *(ptr + 1);
+        INTEGER entrys = *(ptr + 1);
         entrys = (entrys-36) / 4;
         ptr += 36/4;   // skip header information
 
         while (0<entrys--)
         {
             // check if the desired table is reached
-            if (acpiCheckHeader((unsigned int*)*ptr, "FACP") == 0)
+            if (acpiCheckHeader((unsigned INTEGER*)*ptr, "FACP") == 0)
             {
                 entrys = -2;
                 struct FACP* facp = (struct FACP*)*ptr;
                 
-                if (acpiCheckHeader((unsigned int*)facp->DSDT, "DSDT") == 0)
+                if (acpiCheckHeader((unsigned INTEGER*)facp->DSDT, "DSDT") == 0)
                 {
                     // search the \_S5 package in the DSDT
                     char *S5Addr = (char*)facp->DSDT + 36; // skip header
-                    int dsdtLength = *(facp->DSDT+1) - 36;
+                    INTEGER dsdtLength = *(facp->DSDT+1) - 36;
                     while (0 < dsdtLength--)
                     {
                         if (MemoryOperations::memcmp(S5Addr, "_S5_", 4) == 0)
@@ -280,7 +280,7 @@ int initAcpi(void)
     return -1;
 }
 
-void Power::Initialize()
+VOID Power::Initialize()
 {
     //TODO: Find a better way to access physical ACPI memory
     Exceptions::EnablePagefaultAutoFix();
@@ -288,7 +288,7 @@ void Power::Initialize()
     Exceptions::DisablePagefaultAutoFix();
 }
 
-void Power::Poweroff()
+VOID Power::Poweroff()
 {
     if(System::apm->Enabled) {
         Log(Info, "Shutdown via APM");
@@ -309,12 +309,12 @@ void Power::Poweroff()
     Log(Info, "Sending Shutdown to ACPI");
 
     // send the shutdown command
-    outportw((unsigned int)PM1a_CNT, SLP_TYPa | SLP_EN );
+    outportw((unsigned INTEGER)PM1a_CNT, SLP_TYPa | SLP_EN );
     if (PM1b_CNT != 0)
-        outportw((unsigned int)PM1b_CNT, SLP_TYPb | SLP_EN );
+        outportw((unsigned INTEGER)PM1b_CNT, SLP_TYPb | SLP_EN );
 
     Log(Error, "ACPI poweroff failed, rebooting instead");
-    for(int i = 5; i >= 0; i--)
+    for(INTEGER i = 5; i >= 0; i--)
     {
         Log(Info, "%d", i);
         System::pit->Sleep(1000);
@@ -322,7 +322,7 @@ void Power::Poweroff()
     Power::Reboot();
 }
 
-void Power::Reboot()
+VOID Power::Reboot()
 {
     InterruptDescriptorTable::DisableInterrupts();
 
