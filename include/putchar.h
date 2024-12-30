@@ -4,19 +4,20 @@
 #include <common/types.h>
 #include <core/port.h>
 #include <system/log.h>
+#include <typing.hpp>
 
 #define VGA_ADDRESS 0xB8000
 #define SCREEN_WIDTH 80
 #define SCREEN_HEIGHT 25
 
 // Current cursor position
-static int cursor_x = 0;
-static int cursor_y = 0;
+static INTEGER cursor_x = 0;
+static INTEGER cursor_y = 0;
 
-void inline scroll_screen();
+VOID inline scroll_screen();
 
 // Function to update the hardware cursor
-void update_cursor(int x, int y) {
+VOID update_cursor(INTEGER x, INTEGER y) {
     Novanix::common::uint16_t position = y * SCREEN_WIDTH + x;
 
     outb(0x3D4, 0x0F);
@@ -26,7 +27,7 @@ void update_cursor(int x, int y) {
 }
 
 // Function to write a character at a specific position on the screen
-void putchar(char c) {
+VOID putchar(char c) {
     volatile Novanix::common::uint16_t *vga_buffer = (Novanix::common::uint16_t *)VGA_ADDRESS;
 
     // Handle special characters
@@ -58,28 +59,28 @@ void putchar(char c) {
 }
 
 // Function to scroll the screen up by one line
-void inline scroll_screen() {
+VOID __always_inline scroll_screen() {
     volatile Novanix::common::uint16_t *vga_buffer = (Novanix::common::uint16_t *)VGA_ADDRESS;
 
     // Copy each line to the line above
-    for (int y = 1; y < SCREEN_HEIGHT; y++) {
-        for (int x = 0; x < SCREEN_WIDTH; x++) {
+    for (INTEGER y = 1; y < SCREEN_HEIGHT; y++) {
+        for (INTEGER x = 0; x < SCREEN_WIDTH; x++) {
             vga_buffer[(y - 1) * SCREEN_WIDTH + x] = vga_buffer[y * SCREEN_WIDTH + x];
         }
     }
 
     // Clear the last line
-    for (int x = 0; x < SCREEN_WIDTH; x++) {
+    for (INTEGER x = 0; x < SCREEN_WIDTH; x++) {
         vga_buffer[(SCREEN_HEIGHT - 1) * SCREEN_WIDTH + x] = (Novanix::common::uint16_t)' ' | (0x07 << 8); // Space with attribute
     }
 }
 
 
-void inline move_cursor_back() {
+VOID inline move_cursor_back() {
     // Directly move the cursor back by interacting with the VGA buffer or console control functions.
     // Example for VGA text mode:
     outb(0x3D4, 14);  // High byte of cursor position
-    int pos = (Novanix::core::inportb(0x3D5) << 8);
+    INTEGER pos = (Novanix::core::inportb(0x3D5) << 8);
     outb(0x3D4, 15);  // Low byte of cursor position
     pos |= Novanix::core::inportb(0x3D5);
     if (pos > 0) pos--;  // Move cursor back
@@ -89,7 +90,7 @@ void inline move_cursor_back() {
     outb(0x3D5, pos & 0xFF);
 }
 
-void clear_last_char() {
+VOID clear_last_char() {
     move_cursor_back();
     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, " ", 0);
     move_cursor_back();
