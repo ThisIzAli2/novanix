@@ -86,7 +86,11 @@ __always_inline VOID cmdline() {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, HELP_MENU,1);
                     }
                     ELIF (cmd_cmp(full_cmd,"shutdown-now") == 0){
+                        if (!(have_access)){
+                            Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"You do not have super user access, try sudo-su [password]",1);
+                        }else{
                         shutdown_sys_now();
+                        }
                     }
                     ELIF(cmd_cmp(full_cmd,"pwd") == 0){
                         fs_manager->printCurrentDir();
