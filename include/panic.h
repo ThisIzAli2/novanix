@@ -19,7 +19,9 @@
 #ifndef PANIC_H
 #define PANIC_H
 
+#include <typing.hpp>
 
-void panic();
+
+VOID panic();
 
 #endif
