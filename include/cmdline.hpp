@@ -139,20 +139,17 @@ __always_inline VOID cmdline() {
                         INTEGER *counter = new INTEGER;
                         char *pass = new char[PASSWORD_BUFFER_SIZE];
                         
-                        for (*x = 9;full_cmd[*x] != '\0';++(*x)){
+                        for (*x = 8;full_cmd[*x] != '\0';++(*x)){
                             ++(*counter);
                             *enter_password = full_cmd[*x];
                             *pass = *enter_password;
                             // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,enter_password,1);
-                            Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,enter_password,0);
+                            // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,pass,0);
 
                         }
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"\n",0);
-                    // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,enter_password,1);
-                    // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,pass,1);
-                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,enter_password,1);
-                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,user_password,1);
-                    if (cmd_cmp(user_password,enter_password) == 0){
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,enter_password,0);
+                    if (cmd_cmp(user_password,pass) == 0){
                                 Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Granted!",1);
                             }
                         delete[] enter_password;
