@@ -77,7 +77,7 @@ __always_inline VOID cmdline() {
                 // Check if Enter key is pressed
                 if (key[0] == '\n') {
                     // Copy cmd to full_cmd when Enter is pressed
-                    for (int k = 0; k < index; ++k) {
+                    for (INTEGER k = 0; k < index; ++k) {
                         full_cmd[k] = cmd[k];
                     }
                     full_cmd[index] = '\0';  // Null-terminate the full_cmd string
@@ -100,7 +100,7 @@ __always_inline VOID cmdline() {
                         if (!(have_access)){
                             Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"You do not have super user access, try sudo-su [password]",1);
                         }else{
-                            int temp_shut_down = 1000000000000000000;
+                            INTEGER temp_shut_down = 1000000000000000000;
                             while(--temp_shut_down);
                             shutdown_sys_now();
                         }
@@ -129,7 +129,7 @@ __always_inline VOID cmdline() {
                         INTEGER *i_pass = new INTEGER;
                         INTEGER *count_on = new INTEGER;
                         char password_saved[50] = {0};
-                        bool failed = false;
+                        BOOL failed = false;
                         INTEGER n = 0;
                         for (INTEGER i_pass = 13; full_cmd[i_pass] != '\0' && n < sizeof(password_saved) - 1; ++i_pass) {
                             password_saved[n++] = full_cmd[i_pass];
