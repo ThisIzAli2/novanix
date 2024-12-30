@@ -1,8 +1,10 @@
 #ifndef __LIB_MATH_H
 #define __LIB_MATH_H
 
-int inline power(int base, int exponent) {
-    int result = 1;
+#include <typing.hpp>
+
+INTEGER inline power(INTEGER base, INTEGER exponent) {
+    INTEGER result = 1;
 
     // If exponent is negative, handle it (for simplicity, we'll just return 0 here)
     if (exponent < 0) {
@@ -10,7 +12,7 @@ int inline power(int base, int exponent) {
     }
 
     // Multiply base by itself exponent times
-    for (int i = 0; i < exponent; i++) {
+    for (INTEGER i = 0; i < exponent; i++) {
         result *= base;
     }
 
