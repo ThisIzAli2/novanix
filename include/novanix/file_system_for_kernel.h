@@ -19,7 +19,7 @@ char* current_directory = "/home";
 class FileSystem {
 public:
     const char* currDir = "home";
-    char dirs[1000];
+    char dirs[1000] = {0};
     int count = 0;
 private:
     char currentDirectory[CURRENT_DIR_BUFFER_SIZE] = "home";
@@ -55,8 +55,7 @@ public:
         return;
     }
 
-    bool mkdir(const char name) {
-        dirs[count++] = name;
+    void mkdir(const char name) {
     }
 
     bool rmdir(const char* name) {
