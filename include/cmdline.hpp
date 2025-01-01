@@ -107,7 +107,7 @@ __always_inline VOID cmdline() {
                     }
                     ELIF(cmd_cmp(full_cmd,"pwd") == 0){
                         fs_manager->printCurrentDir();
-                        fs_manager->mkdir('dir');
+                        fs_manager->mkdir("dir");
                     }
                     
                     ELIF(full_cmd[0] == 'e' && full_cmd[1] == 'c' && full_cmd[2] == 'h' && full_cmd[3] == 'o'){

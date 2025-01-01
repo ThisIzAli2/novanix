@@ -5,11 +5,13 @@
 #include <common/string.h>
 #include <system/log.h>
 #include <system/bootconsole.h>
+#include <stringify.h>
 
 using namespace Novanix::system;
 #define MAX_SUBDIRECTORIES 128
 
-
+#define MAX_DIRS 100  // Maximum number of directories
+#define MAX_NAME_LEN 256  // Maximum length of directory names
 
 #define CURRENT_DIR_BUFFER_SIZE 256
 
@@ -19,8 +21,10 @@ char* current_directory = "/home";
 class FileSystem {
 public:
     const char* currDir = "home";
+    int dirCount = 0;  // Counter for directories
     char dirs[1000] = {0};
     INTEGER count = 0;
+    char *dirArray[MAX_DIRS];  // Array to store directory names
 private:
     char currentDirectory[CURRENT_DIR_BUFFER_SIZE] = "home";
 
@@ -55,7 +59,46 @@ public:
         return;
     }
 
-    void mkdir(const char name) {
+    void mkdir(const char *name) {
+        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"A",1);
+            if (dirCount >= MAX_DIRS) {
+        Novanix::system::printk(
+            Novanix::system::VGA_COLOR_WHITE,
+            "Error: Maximum directory count reached.\n",
+            1
+        );
+        return;
+    }
+
+    // Allocate memory for the new directory name using the kernel heap
+    dirArray[dirCount] = static_cast<char*>(
+        Novanix::system::KernelHeap::malloc(
+            Novanix::system::VGA_COLOR_WHITE, 
+            reinterpret_cast<unsigned int*>(MAX_NAME_LEN)
+        )
+    );
+
+    if (dirArray[dirCount] == nullptr) {
+        Novanix::system::printk(
+            Novanix::system::VGA_COLOR_WHITE,
+            "Error: Memory allocation failed.\n",
+            1
+        );
+        return;
+    }
+
+    // Copy the directory name to the array
+    Novanix::common::String::strncpy(dirArray[dirCount], name, MAX_NAME_LEN - 1);
+    dirArray[dirCount][MAX_NAME_LEN - 1] = '\0';  // Null-terminate the string
+
+    dirCount++;
+
+    // Print confirmation message
+    Novanix::system::printk(
+        Novanix::system::VGA_COLOR_WHITE,
+        "Directory added successfully.\n",
+        1
+    );
     }
 
     bool rmdir(const char* name) {
