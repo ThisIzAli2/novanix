@@ -21,7 +21,7 @@ char* current_directory = "/home";
 class FileSystem {
 public:
     const char* currDir = "home";
-    int dirCount = 0;  // Counter for directories
+    INTEGER dirCount = 0;  // Counter for directories
     char dirs[1000] = {0};
     INTEGER count = 0;
     char listing[5][50];
@@ -33,7 +33,7 @@ private:
     struct Directory {
         const char* name;
         Directory* subdirectories;
-        int subdirectoryCount;
+        INTEGER subdirectoryCount;
         Directory* parent;
     } root;
 
@@ -61,7 +61,7 @@ public:
         return;
     }
 
-    char* mkdir(const char *name, char* dirs[], int *count) {
+    char* mkdir(const char *name, char* dirs[], INTEGER *count) {
     // Check if we can add more directories
     if (*count >= MAX_DIRS) {
         return nullptr;  // No space left to add more directories
@@ -71,13 +71,13 @@ public:
     static char dir_name[256];  // Static array to store the directory name (fixed size)
 
     // Calculate the length of the directory name
-    int len = 0;
+    INTEGER len = 0;
     while (name[len] != '\0') {
         len++;
     }
 
     // Copy the name into the static array
-    for (int i = 0; i < len; i++) {
+    for (INTEGER i = 0; i < len; i++) {
         dir_name[i] = name[i];
     }
     dir_name[len] = '\0';  // Null-terminate the string
@@ -111,7 +111,7 @@ public:
 
         Directory* newSubdirectories = new Directory[currentDir->subdirectoryCount - 1];
         int index = 0;
-        for (int i = 0; i < currentDir->subdirectoryCount; i++) {
+        for (INTEGER i = 0; i < currentDir->subdirectoryCount; i++) {
             if (&currentDir->subdirectories[i] != dirToRemove) {
                 newSubdirectories[index++] = currentDir->subdirectories[i];
             }
