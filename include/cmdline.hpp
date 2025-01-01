@@ -108,7 +108,7 @@ __always_inline VOID cmdline() {
                         }
                     }
                     ELIF(cmd_cmp(full_cmd,"pwd") == 0){
-                        int count = 0;
+                        INTEGER count = 0;
                         fs_manager->printCurrentDir();
                         Novanix::system::printk(VGA_WHITE,fs_manager->mkdir("dir",dirs,&count),1);
                     }
