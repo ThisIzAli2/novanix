@@ -7,8 +7,11 @@
 #include <system/bootconsole.h>
 #include <stringify.h>
 
+
+
 using namespace Novanix::system;
 #define MAX_SUBDIRECTORIES 128
+static char dir_name[256];  // Static array to store the directory name (fixed size)
 
 #define MAX_DIRS 100  // Maximum number of directories
 #define MAX_NAME_LEN 256  // Maximum length of directory names
@@ -76,7 +79,6 @@ public:
 }
 
     // Allocate memory for the directory name manually (using a static array for simplicity)
-    static char dir_name[256];  // Static array to store the directory name (fixed size)
 
     // Calculate the length of the directory name
     INTEGER len = 0;
