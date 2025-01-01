@@ -89,7 +89,8 @@ public:
     (*count)++;
 
     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Created dir",1);
-
+    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,name,1);
+    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"\n",1);
     return dir_name;
     }
 

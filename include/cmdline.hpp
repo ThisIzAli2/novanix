@@ -128,8 +128,8 @@ __always_inline VOID cmdline() {
                             
                         }
 
-                        Novanix::system::printk(VGA_COLOR_WHITE, "\n", 0);
-                        Novanix::system::printk(VGA_COLOR_WHITE, to_print, 0);
+                        // Novanix::system::printk(VGA_COLOR_WHITE, "\n", 0);
+                        // Novanix::system::printk(VGA_COLOR_WHITE, to_print, 0);
                         fs_manager->mkdir(to_print, dirs, &count);
                         // Clean up dynamically allocated memory
                         delete i_for_mkdir;
