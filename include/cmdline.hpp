@@ -15,6 +15,8 @@
 
 char* dirs[MAX_DIRS];
 
+INTEGER counter = 0;
+
 
 #define VGA_WHITE VGA_COLOR_WHITE
     
@@ -108,9 +110,19 @@ __always_inline VOID cmdline() {
                         }
                     }
                     ELIF(cmd_cmp(full_cmd,"pwd") == 0){
-                        INTEGER count = 0;
                         fs_manager->printCurrentDir();
-                        Novanix::system::printk(VGA_WHITE,fs_manager->mkdir("dir",dirs,&count),1);
+                    }
+                    ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
+                        INTEGER *i_for_mkdir = new INTEGER;
+                        INTEGER *counter_k = new INTEGER;
+                        char* to_print = new char[1024];
+                        *counter_k = 0;
+                        for (*i_for_mkdir = 6;full_cmd[*i_for_mkdir] != '\0';++(*i_for_mkdir)){
+                            ++(*counter_k);
+                            *to_print = full_cmd[*i_for_mkdir];
+                            fs_manager->mkdir(to_print,dirs,&count);
+                            Novanix::system::printk(VGA_COLOR_WHITE,to_print,0);
+                        }
                     }
                     
                     ELIF(full_cmd[0] == 'e' && full_cmd[1] == 'c' && full_cmd[2] == 'h' && full_cmd[3] == 'o'){
