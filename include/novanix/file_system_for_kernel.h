@@ -24,6 +24,8 @@ public:
     int dirCount = 0;  // Counter for directories
     char dirs[1000] = {0};
     INTEGER count = 0;
+    char listing[5][50];
+    char* ls = new char[1024];
     char *dirArray[MAX_DIRS];  // Array to store directory names
 private:
     char currentDirectory[CURRENT_DIR_BUFFER_SIZE] = "home";
@@ -59,46 +61,25 @@ public:
         return;
     }
 
-    auto mkdir(const char *name) {
-        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"A",1);
-            if (dirCount >= MAX_DIRS) {
-        Novanix::system::printk(
-            Novanix::system::VGA_COLOR_WHITE,
-            "Error: Maximum directory count reached.\n",
-            1
-        );
-        return ;
+    char* mkdir(const char *name) {
+    int len = 0;
+    while (name[len] != '\0') {
+        len++;
     }
 
-    // Allocate memory for the new directory name using the kernel heap
-    dirArray[dirCount] = static_cast<char*>(
-        Novanix::system::KernelHeap::malloc(
-            Novanix::system::VGA_COLOR_WHITE, 
-            reinterpret_cast<unsigned int*>(MAX_NAME_LEN)
-        )
-    );
+    // Allocate memory for the directory name manually (using a simple array)
+    // Note: You would normally use malloc or sbrk here, but since we're not using any libraries,
+    // we simulate memory allocation with a fixed-size array (in real code, this won't work well)
+    static char dir_name[256];  // Static array for the directory name (fixed size)
 
-    if (dirArray[dirCount] == nullptr) {
-        Novanix::system::printk(
-            Novanix::system::VGA_COLOR_WHITE,
-            "Error: Memory allocation failed.\n",
-            1
-        );
-        return;
+    // Copy the name into the "allocated" memory manually
+    for (int i = 0; i < len; i++) {
+        dir_name[i] = name[i];
     }
+    dir_name[len] = '\0';  // Null-terminate the string
 
-    // Copy the directory name to the array
-    Novanix::common::String::strncpy(dirArray[dirCount], name, MAX_NAME_LEN - 1);
-    dirArray[dirCount][MAX_NAME_LEN - 1] = '\0';  // Null-terminate the string
-
-    dirCount++;
-
-    // Print confirmation message
-    Novanix::system::printk(
-        Novanix::system::VGA_COLOR_WHITE,
-        "Directory added successfully.\n",
-        1
-    );
+    // Return the directory name (this simulates "saving" the directory name)
+    return dir_name;
     }
 
     bool rmdir(const char* name) {
