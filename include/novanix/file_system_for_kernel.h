@@ -12,7 +12,7 @@
 
 using namespace Novanix::system;
 #define MAX_SUBDIRECTORIES 128
-static char dir_name[256];  // Static array to store the directory name (fixed size)
+static char dir_name[256] = {0};  // Static array to store the directory name (fixed size)
 
 #define MAX_DIRS 100  // Maximum number of directories
 #define MAX_NAME_LEN 256  // Maximum length of directory names
@@ -67,9 +67,9 @@ public:
 
     char* mkdir(const char *name, char* dirs[], INTEGER *count) {
     // Check if we can add more directories
-    // if (*count >= MAX_DIRS) {
-    //     return nullptr;  // No space left to add more directories
-    // }
+    if (*count >= MAX_DIRS) {
+        return nullptr;  // No space left to add more directories
+    }
 
     if (contains(dir_name,name) == 1){
         return nullptr;
