@@ -66,6 +66,14 @@ public:
     if (*count >= MAX_DIRS) {
         return nullptr;  // No space left to add more directories
     }
+    for (INTEGER i = 0; i < *count; i++) {
+    if (Novanix::common::String::strcmp(dirs[i], name) == 0) {  // Compare strings
+        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "Directory already exists: ", 1);
+        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, name, 1);
+        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "\n", 1);
+        return nullptr;  // Directory already exists
+    }
+}
 
     // Allocate memory for the directory name manually (using a static array for simplicity)
     static char dir_name[256];  // Static array to store the directory name (fixed size)

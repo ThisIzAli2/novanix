@@ -130,7 +130,10 @@ __always_inline VOID cmdline() {
 
                         // Novanix::system::printk(VGA_COLOR_WHITE, "\n", 0);
                         // Novanix::system::printk(VGA_COLOR_WHITE, to_print, 0);
-                        fs_manager->mkdir(to_print, dirs, &count);
+                        char* dir = fs_manager->mkdir(to_print, dirs, &count);
+                        if (dir == nullptr){
+                            Novanix::system::printk(VGA_COLOR_RED, "Directory already exists",1);
+                        }
                         // Clean up dynamically allocated memory
                         delete i_for_mkdir;
                         delete counter_k;
