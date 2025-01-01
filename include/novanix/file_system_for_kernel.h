@@ -88,6 +88,8 @@ public:
     // Increment the count of directories
     (*count)++;
 
+    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Created dir",1);
+
     return dir_name;
     }
 
