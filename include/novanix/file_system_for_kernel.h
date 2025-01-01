@@ -32,7 +32,7 @@ private:
     } root;
 
     Directory* findDirectory(Directory* dir, const char* name) {
-        for (int i = 0; i < dir->subdirectoryCount; i++) {
+        for (INTEGER i = 0; i < dir->subdirectoryCount; i++) {
             if (Novanix::common::String::strcmp(dir->subdirectories[i].name, name) == 0) {
                 return &dir->subdirectories[i];
             }
