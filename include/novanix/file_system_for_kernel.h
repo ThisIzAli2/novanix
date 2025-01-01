@@ -20,7 +20,7 @@ class FileSystem {
 public:
     const char* currDir = "home";
     char dirs[1000] = {0};
-    int count = 0;
+    INTEGER count = 0;
 private:
     char currentDirectory[CURRENT_DIR_BUFFER_SIZE] = "home";
 
