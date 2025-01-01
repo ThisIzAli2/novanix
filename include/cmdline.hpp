@@ -13,6 +13,8 @@
 #include <novanix/user.h>
 #include <novanix/access.h>
 
+char* dirs[MAX_DIRS];
+
 
 #define VGA_WHITE VGA_COLOR_WHITE
     
@@ -106,8 +108,9 @@ __always_inline VOID cmdline() {
                         }
                     }
                     ELIF(cmd_cmp(full_cmd,"pwd") == 0){
+                        int count = 0;
                         fs_manager->printCurrentDir();
-                        Novanix::system::printk(VGA_WHITE,fs_manager->mkdir("dir"),1);
+                        Novanix::system::printk(VGA_WHITE,fs_manager->mkdir("dir",dirs,&count),1);
                     }
                     
                     ELIF(full_cmd[0] == 'e' && full_cmd[1] == 'c' && full_cmd[2] == 'h' && full_cmd[3] == 'o'){

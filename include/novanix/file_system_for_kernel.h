@@ -61,24 +61,33 @@ public:
         return;
     }
 
-    char* mkdir(const char *name) {
+    char* mkdir(const char *name, char* dirs[], int *count) {
+    // Check if we can add more directories
+    if (*count >= MAX_DIRS) {
+        return nullptr;  // No space left to add more directories
+    }
+
+    // Allocate memory for the directory name manually (using a static array for simplicity)
+    static char dir_name[256];  // Static array to store the directory name (fixed size)
+
+    // Calculate the length of the directory name
     int len = 0;
     while (name[len] != '\0') {
         len++;
     }
 
-    // Allocate memory for the directory name manually (using a simple array)
-    // Note: You would normally use malloc or sbrk here, but since we're not using any libraries,
-    // we simulate memory allocation with a fixed-size array (in real code, this won't work well)
-    static char dir_name[256];  // Static array for the directory name (fixed size)
-
-    // Copy the name into the "allocated" memory manually
+    // Copy the name into the static array
     for (int i = 0; i < len; i++) {
         dir_name[i] = name[i];
     }
     dir_name[len] = '\0';  // Null-terminate the string
 
-    // Return the directory name (this simulates "saving" the directory name)
+    // Store the directory name in the dirs array
+    dirs[*count] = dir_name;
+
+    // Increment the count of directories
+    (*count)++;
+
     return dir_name;
     }
 
