@@ -59,7 +59,7 @@ public:
         return;
     }
 
-    void mkdir(const char *name) {
+    auto mkdir(const char *name) {
         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"A",1);
             if (dirCount >= MAX_DIRS) {
         Novanix::system::printk(
@@ -67,7 +67,7 @@ public:
             "Error: Maximum directory count reached.\n",
             1
         );
-        return;
+        return ;
     }
 
     // Allocate memory for the new directory name using the kernel heap
