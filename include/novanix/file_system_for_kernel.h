@@ -6,6 +6,7 @@
 #include <system/log.h>
 #include <system/bootconsole.h>
 #include <stringify.h>
+#include <novanix/strops.hpp>
 
 
 
@@ -66,17 +67,13 @@ public:
 
     char* mkdir(const char *name, char* dirs[], INTEGER *count) {
     // Check if we can add more directories
-    if (*count >= MAX_DIRS) {
-        return nullptr;  // No space left to add more directories
+    // if (*count >= MAX_DIRS) {
+    //     return nullptr;  // No space left to add more directories
+    // }
+
+    if (contains(dir_name,name) == 1){
+        return nullptr;
     }
-    for (INTEGER i = 0; i < *count; i++) {
-    if (Novanix::common::String::strcmp(dirs[i], name) == 0) {  // Compare strings
-        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "Directory already exists: ", 1);
-        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, name, 1);
-        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "\n", 1);
-        return nullptr;  // Directory already exists
-    }
-}
 
     // Allocate memory for the directory name manually (using a static array for simplicity)
 
