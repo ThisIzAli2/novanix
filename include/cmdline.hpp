@@ -159,6 +159,7 @@ __always_inline VOID cmdline() {
                         }
                         if ((contains(dir_name,256,to_print) == 0)){
                             Novanix::system::printk(VGA_COLOR_RED, "Directory not found",1);
+                            current_directory = "/home";
                         }else {
                             current_directory = to_print;
                         }
