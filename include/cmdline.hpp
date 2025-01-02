@@ -61,6 +61,8 @@ INTEGER __always_inline cmd_cmp(const char* str1, const char* str2) {
     return *str1 - *str2;
 }
 
+#define str_cmp cmd_cmp
+
 __always_inline VOID cmdline() {
     char* key = new char[2];  // Single character input
     INTEGER index = 0;
@@ -178,16 +180,18 @@ __always_inline VOID cmdline() {
                             to_print[*counter_k] = '\0';
 
                         }
-                        if (cmd_cmp("home",to_print) == 0 || cmd_cmp("/home",to_print) == 0){
-                            printk(VGA_WHITE,"Cannot create a dir with that name",1);
-                        }else{
-                            if ((contains(dir_name,256,to_print) == 0)){
+
+                        if ((contains(dir_name,256,to_print) == 0)){
                                 Novanix::system::printk(VGA_COLOR_RED, "Directory not found",1);
                                 current_directory = "/home";
                             }else {
+                                if (str_cmp(to_print,"home") == 0 or str_cmp(to_print,"/home") == 0){
+                                    Novanix::system::printk(VGA_COLOR_RED,"Dir with that name cannot be created",1);
+                                }else{
                                 current_directory = to_print;
+                                }
                             }
-                        }
+                        
 
                         
                         // Clean up dynamically allocated memory
