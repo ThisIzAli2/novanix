@@ -157,14 +157,13 @@ __always_inline VOID cmdline() {
                             to_print[*counter_k] = '\0';
 
                         }
-                        if (!(contains(dir_name,256,to_print) == 1)){
+                        if ((contains(dir_name,256,to_print) == 0)){
                             Novanix::system::printk(VGA_COLOR_RED, "Directory not found",1);
-                        }ELIF(contains(dir_name,256,to_print) == 1){
-                        current_directory = to_print;
-                        Novanix::system::printk(VGA_COLOR_WHITE, current_directory, 0);
-                        } else{
+                        } else {
+                            current_directory = to_print;
+                            }
 
-                        }
+                        
                         // Clean up dynamically allocated memory
                         delete i_for_cd;
                         delete counter_k;
