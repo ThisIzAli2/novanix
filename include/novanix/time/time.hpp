@@ -8,6 +8,8 @@
 #include <typing.hpp>
 #include <core/port.h>
 
+// https://wiki.osdev.org/RTC
+
 static inline Novanix::common::uint64_t read_tsc(VOID) {
     Novanix::common::uint32_t low, high;
     __asm__ volatile("rdtsc" : "=a"(low), "=d"(high));
