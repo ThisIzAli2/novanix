@@ -144,6 +144,26 @@ __always_inline VOID cmdline() {
                     ELIF(cmd_cmp(full_cmd,"time") == 0){
                         display_time();
                     }
+                    ELIF(full_cmd[0] == 'c' && full_cmd[1] == 'd'){
+                        INTEGER *i_for_cd = new INTEGER;
+                        INTEGER *counter_k = new INTEGER;
+                        char* to_print = new char[1024]; // Allocate memory for the string
+                        *counter_k = 0;
+                        // Initialize the to_print buffer to an empty string
+                        to_print[0] = '\0';
+                        for (*i_for_cd = 3; full_cmd[*i_for_cd] != '\0';++(*i_for_cd)){
+                            to_print[*counter_k] = full_cmd[*i_for_cd];
+                            ++(*counter_k);
+                            to_print[*counter_k] = '\0';
+
+                        }
+                        if (!(contains(dir_name,256,to_print) == 0)){
+                            Novanix::system::printk(VGA_COLOR_RED, "Directory not found",1);
+                        }
+                        current_directory = to_print;
+                        Novanix::system::printk(VGA_COLOR_WHITE, current_directory, 0);
+
+                    }
                     
                     ELIF(full_cmd[0] == 'e' && full_cmd[1] == 'c' && full_cmd[2] == 'h' && full_cmd[3] == 'o'){
                         INTEGER *i_for_echo_cmd = new INTEGER;
