@@ -163,6 +163,11 @@ __always_inline VOID cmdline() {
                         current_directory = to_print;
                         Novanix::system::printk(VGA_COLOR_WHITE, current_directory, 0);
                         }
+                        // Clean up dynamically allocated memory
+                        delete i_for_cd;
+                        delete counter_k;
+                        delete[] to_print;
+                        
 
                     }
                     
