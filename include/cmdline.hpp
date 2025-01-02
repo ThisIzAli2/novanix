@@ -21,7 +21,7 @@ INTEGER counter = 0;
 
 #define VGA_WHITE VGA_COLOR_WHITE
     
-#define PRINT_PROMPT Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, ">", 0);
+#define PRINT_PROMPT Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "%s>", 0,current_directory);
 
 
 
@@ -167,7 +167,7 @@ __always_inline VOID cmdline() {
                         delete i_for_cd;
                         delete counter_k;
                         delete[] to_print;
-                        
+
 
                     }
                     
@@ -260,7 +260,7 @@ __always_inline VOID cmdline() {
                     }  else {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Entered command does not exists",1);
                     }
-                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,">", 0);
+                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"%s>", 0,current_directory);
 
                     // Reset the cmd and full_cmd arrays
                     Novanix::common::MemoryOperations::memset(cmd, 0, 128);  // Clear cmd array
