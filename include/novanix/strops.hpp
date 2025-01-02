@@ -3,8 +3,8 @@
 
 #include <typing.hpp>
 
-INTEGER __always_inline contains(const char *array, int array_size, const char *substring) {
-    int i, j;
+INTEGER __always_inline contains(const char *array, INTEGER array_size, const char *substring) {
+    INTEGER i, j;
 
     // Iterate through the array
     for (i = 0; i <= array_size - 1; i++) {
