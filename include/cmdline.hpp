@@ -178,11 +178,15 @@ __always_inline VOID cmdline() {
                             to_print[*counter_k] = '\0';
 
                         }
-                        if ((contains(dir_name,256,to_print) == 0)){
-                            Novanix::system::printk(VGA_COLOR_RED, "Directory not found",1);
-                            current_directory = "/home";
-                        }else {
-                            current_directory = to_print;
+                        if (cmd_cmp("home",to_print) == 0 || cmd_cmp("/home",to_print) == 0){
+                            printk(VGA_WHITE,"Cannot create a dir with that name",1);
+                        }else{
+                            if ((contains(dir_name,256,to_print) == 0)){
+                                Novanix::system::printk(VGA_COLOR_RED, "Directory not found",1);
+                                current_directory = "/home";
+                            }else {
+                                current_directory = to_print;
+                            }
                         }
 
                         

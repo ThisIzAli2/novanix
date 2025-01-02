@@ -219,6 +219,8 @@ inline char* handle_keyboard(uint8_t scan_code){
             return "_";
             }
         return "    ";
+        case 53:
+        return "/";
         case 23:
         return "i";
         case 151:
