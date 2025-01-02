@@ -159,9 +159,11 @@ __always_inline VOID cmdline() {
                         }
                         if (!(contains(dir_name,256,to_print) == 1)){
                             Novanix::system::printk(VGA_COLOR_RED, "Directory not found",1);
-                        }else{
+                        }ELIF(contains(dir_name,256,to_print) == 1){
                         current_directory = to_print;
                         Novanix::system::printk(VGA_COLOR_WHITE, current_directory, 0);
+                        } else{
+
                         }
                         // Clean up dynamically allocated memory
                         delete i_for_cd;
