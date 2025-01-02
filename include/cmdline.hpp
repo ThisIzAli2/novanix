@@ -17,7 +17,9 @@
 */
 
 
-#pragma once
+#ifndef __CMD_LINE_NOVANIX_KERNEL_HPP
+#define __CMD_LINE_NOVANIX_KERNEL_HPP
+
 
 #include <keymap.hpp>
 #include <system/log.h>
@@ -308,3 +310,6 @@ __always_inline VOID cmdline() {
     delete[] cmd;
     delete[] full_cmd;
 }
+
+
+#endif /*__CMD_LINE_NOVANIX_KERNEL_HPP*/ 
