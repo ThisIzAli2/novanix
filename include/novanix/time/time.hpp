@@ -5,14 +5,15 @@
 #include <typing.hpp>
 #include <system/log.h>
 #include <novanix/ops.h>
+#include <typing.hpp>
 
-static inline Novanix::common::uint64_t read_tsc(void) {
+static inline Novanix::common::uint64_t read_tsc(VOID) {
     Novanix::common::uint32_t low, high;
     __asm__ volatile("rdtsc" : "=a"(low), "=d"(high));
     return ((Novanix::common::uint64_t)high << 32) | low;
 }
 
-void display_time(void) {
+VOID display_time(VOID) {
     Novanix::common::uint64_t tsc = read_tsc();
     
     Novanix::common::uint64_t time_in_seconds = __udivdi3(1000000000,tsc);  // Assuming 1 GHz clock for simplicity
