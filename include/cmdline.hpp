@@ -12,6 +12,7 @@
 #include <novanix/dir.h>
 #include <novanix/user.h>
 #include <novanix/access.h>
+#include <novanix/time/time.hpp>
 
 char* dirs[MAX_DIRS];
 
@@ -138,6 +139,10 @@ __always_inline VOID cmdline() {
                         delete i_for_mkdir;
                         delete counter_k;
                         delete[] to_print;
+                    }
+
+                    ELIF(cmd_cmp(full_cmd,"time") == 0){
+                        display_time();
                     }
                     
                     ELIF(full_cmd[0] == 'e' && full_cmd[1] == 'c' && full_cmd[2] == 'h' && full_cmd[3] == 'o'){
