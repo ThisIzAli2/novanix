@@ -3,21 +3,23 @@
 
 #include <typing.hpp>
 
-INTEGER __always_inline contains(const char *haystack, const char *needle) {
+INTEGER __always_inline contains(const char *array, int array_size, const char *substring) {
     int i, j;
 
-    for (i = 0; haystack[i] != '\0'; i++) {
-        // Check if the substring matches
-        for (j = 0; needle[j] != '\0'; j++) {
-            if (haystack[i + j] == '\0' || haystack[i + j] != needle[j]) {
-                break;
+    // Iterate through the array
+    for (i = 0; i <= array_size - 1; i++) {
+        // Check if the substring matches starting at index i
+        for (j = 0; substring[j] != '\0'; j++) {
+            if (i + j >= array_size || array[i + j] != substring[j]) {
+                break; // Mismatch found
             }
         }
-        // If the entire substring matches
-        if (needle[j] == '\0') {
-            return 1; // Found
+
+        // If we completed the substring comparison, it's a match
+        if (substring[j] == '\0') {
+            return 1; // Substring exists
         }
     }
 
-    return 0; // Not found
+    return 0; // Substring does not exist
 }

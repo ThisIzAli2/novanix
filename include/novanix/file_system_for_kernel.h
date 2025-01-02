@@ -71,7 +71,7 @@ public:
         return nullptr;  // No space left to add more directories
     }
 
-    if (contains(dir_name,name) == 1){
+    if (contains(dir_name,256,name) == 1){
         return nullptr;
     }
 
