@@ -13,14 +13,58 @@
 #include <novanix/user.h>
 #include <novanix/access.h>
 #include <novanix/time/time.hpp>
+#include <alinix/types.h>
 
 
-namespace Novanix{
-    namespace fs{
-        enum class Permission {
+namespace Novanix {
+namespace fs {
+
+    // File permissions
+    enum class Permission {
         READ = 1,
         WRITE = 2,
         EXECUTE = 4
     };
-    }
-}
+
+    class File {
+    private:
+        char* filename;  // Name of the file
+        uint32_t file_size;  // Size of the file
+        uint8_t* file_data;  // Pointer to the file's data
+        uint32_t cursor_position;  // Current position of cursor (for reading/writing)
+
+    public:
+        // Constructor: initializes a file with the given name
+        File(const char* name);
+
+        // Destructor: releases any resources allocated for the file
+        ~File();
+
+        // Opens the file
+        bool open(Permission permissions);
+
+        // Reads from the file into the given buffer
+        ssize_t read(char* buffer, size_t size);
+
+        // Writes to the file from the given buffer
+        ssize_t write(const char* buffer, size_t size);
+
+        // Closes the file
+        void close();
+
+        // Gets the file's size
+        uint32_t get_size() const;
+
+        // Moves the cursor position within the file (used for seek operations)
+        void seek(uint32_t position);
+
+        // Checks if the file is open
+        bool is_open() const;
+
+        // Creates a new file (in memory for simulation purposes)
+        static File* create(const char* name);
+    };
+
+}  // namespace fs
+}  // namespace Novanix
+
