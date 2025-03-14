@@ -34,6 +34,7 @@
 #include <novanix/user.h>
 #include <novanix/access.h>
 #include <novanix/time/time.hpp>
+#include <common/listfiles.hpp>
 
 char* dirs[MAX_DIRS];
 
@@ -135,6 +136,9 @@ __always_inline VOID cmdline() {
                     }
                     ELIF(cmd_cmp(full_cmd,"pwd") == 0){
                         fs_manager->printCurrentDir();
+                    }
+                    ELIF(cmd_cmp(full_cmd,"createfile") == 0){
+                        create_file("F",2);
                     }
                     ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
                         INTEGER *i_for_mkdir = new INTEGER;
