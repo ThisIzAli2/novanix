@@ -6,7 +6,7 @@
 #include <typing.hpp>
 #include <types.h>
 #include <common/init.hpp>
-
+#include <common/devlinkedlist.hpp>
 
 class Retain{
 
@@ -33,7 +33,6 @@ class Retain{
                 Novanix::system::printk(VGA_COLOR_WHITE,stringify(size),1);
                 Novanix::system::printk(VGA_COLOR_WHITE," and content: ",1);
                 Novanix::system::printk(VGA_COLOR_WHITE,content,1);
-
             }
                 }
     

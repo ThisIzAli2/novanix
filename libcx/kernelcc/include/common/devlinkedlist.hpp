@@ -1,0 +1,47 @@
+#ifndef __DEV_LINKED_LIST_HPP
+#define __DEV_LINKED_LIST_HPP
+
+#include <common/init.hpp>
+
+template <typename T>
+class SimpleList {
+public:
+    T* data;         // Array to store data of type T
+    int capacity;    // Total capacity of the list
+    int size;        // Current size of the list
+
+    // Constructor to initialize the list with a specific capacity
+    SimpleList(int cap) : capacity(cap), size(0) {
+        data = new T[capacity]; // Allocate memory for the array of type T
+    }
+
+    // Function to add a new element to the list
+    void append(T value) {
+        if (size < capacity) {
+            data[size] = value;
+            size++;
+        } else {
+            Novanix::system::printk(VGA_COLOR_WHITE, "List is full!", 1);
+        }
+    }
+
+    // Function to display the elements of the list
+    void display() {
+        if (size == 0) {
+            Novanix::system::printk(VGA_COLOR_WHITE, "List is empty", 1);
+            return;
+        }
+
+        for (int i = 0; i < size; i++) {
+            // Printing each element (use the appropriate display function if needed)
+            Novanix::system::printk(VGA_COLOR_WHITE, stringify(data[i]).c_str(), 1);
+        }
+    }
+
+    // Destructor to free allocated memory
+    ~SimpleList() {
+        delete[] data;
+    }
+};
+
+#endif
