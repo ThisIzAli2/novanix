@@ -36,7 +36,6 @@
 #include <novanix/time/time.hpp>
 #include <common/listfiles.hpp>
 
-Retain file = create_file("wrgrwg",3,"wrgwrg");
 
 char* dirs[MAX_DIRS];
 
@@ -139,8 +138,9 @@ __always_inline VOID cmdline() {
                     ELIF(cmd_cmp(full_cmd,"pwd") == 0){
                         fs_manager->printCurrentDir();
                     }
-                    ELIF(cmd_cmp(full_cmd,"createfile") == 0){
-                        file = create_file("F",2,"Welcome to Novanix!");
+                    ELIF(cmd_cmp(full_cmd,"initfile") == 0){
+                        Retain file = Retain("new_file.txt", 1024, "This is the content to save.");
+                        file = create_file("welcome.txt",2,"Welcome to Novanix!");
                     }
                     ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
                         INTEGER *i_for_mkdir = new INTEGER;
