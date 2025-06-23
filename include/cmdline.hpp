@@ -139,7 +139,7 @@ __always_inline VOID cmdline() {
                         fs_manager->printCurrentDir();
                     }
                     ELIF (cmd_cmp(full_cmd,"tasks-show") == 0){
-                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"tasks are running...",1);
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"System related tasks are fully running...",1);
                     }
                     ELIF(cmd_cmp(full_cmd,"initfile") == 0){
                         Retain file = Retain("new_file.txt", 1024, "This is the content to save.");
