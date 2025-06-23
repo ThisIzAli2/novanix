@@ -138,6 +138,9 @@ __always_inline VOID cmdline() {
                     ELIF(cmd_cmp(full_cmd,"pwd") == 0){
                         fs_manager->printCurrentDir();
                     }
+                    ELIF (cmd_cmp(full_cmd,"tasks-show") == 0){
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"tasks are running...",1);
+                    }
                     ELIF(cmd_cmp(full_cmd,"initfile") == 0){
                         Retain file = Retain("new_file.txt", 1024, "This is the content to save.");
                         file = create_file("welcome.txt",2,"Welcome to Novanix!");
