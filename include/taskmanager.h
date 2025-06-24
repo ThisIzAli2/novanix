@@ -2,6 +2,8 @@
 #define __NOVANIX_TASK_MANAGER_H_
 
 
+#define FILE_MANAGER_TASK "file Manager"
+
 
 
 
