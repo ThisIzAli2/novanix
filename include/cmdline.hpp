@@ -48,6 +48,7 @@ INTEGER counter = 0;
 
 
 
+
 INTEGER __always_inline cmd_cmp(const char* str1, const char* str2) {
     // Compare each character of both strings
     while (*str1 != '\0' && *str2 != '\0') {
@@ -65,6 +66,11 @@ INTEGER __always_inline cmd_cmp(const char* str1, const char* str2) {
 
 #define str_cmp cmd_cmp
 
+__always_inline INTEGER handle(const char* str){
+    if (cmd_cmp(str,"get")){
+        return 0001;
+    }
+}
 __always_inline VOID cmdline() {
     char* key = new char[2];  // Single character input
     INTEGER index = 0;
@@ -318,6 +324,12 @@ __always_inline VOID cmdline() {
                     ELIF (cmd_cmp(full_cmd, "Welcome to Nova!") == 0){
                     
                     }  else {
+                        INTEGER res = handle(full_cmd);
+                        switch(res){
+                            case 0001:
+                                Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"\n Use shutdown commands to exit the kernel.\n",0);
+        
+                        }
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Entered command does not exists",1);
                     }
                     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"%s>", 0,current_directory);
