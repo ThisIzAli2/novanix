@@ -27,6 +27,7 @@
 #include <common/string.h>
 #include <help.hpp>
 #include <typing.hpp>
+#include <network/oldcomm.hpp>
 #include <shutdownsys.h>
 #include <buffer.h>
 #include <putchar.h>
@@ -196,6 +197,9 @@ __always_inline VOID cmdline() {
 
                     ELIF(cmd_cmp(full_cmd,"time") == 0){
                         display_time();
+                    }
+                    ELIF (cmd_cmp(full_cmd, "comm-send") == 0 || cmd_cmp(full_cmd, "comm-recv") == 0) {
+                        comm_command_handler(full_cmd);
                     }
                     ELIF(full_cmd[0] == 'c' && full_cmd[1] == 'd'){
                         INTEGER *i_for_cd = new INTEGER;
