@@ -9,6 +9,7 @@
 #define BULLET  "\x07\n"
 #define INVERSE_BULLET 	"\x08\n"
 #define MALE_SIGN 	"\x0B\n"
+#define FEMALE_SIGN 	"\x0C\n"
 
 
 
