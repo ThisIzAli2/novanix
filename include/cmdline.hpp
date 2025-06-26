@@ -76,6 +76,10 @@ __always_inline INTEGER handle(const char* str){
     }
 
 }
+
+/**
+ * Handle the command line in the kernel
+ */
 __always_inline VOID cmdline() {
     char* key = new char[2];  // Single character input
     INTEGER index = 0;
