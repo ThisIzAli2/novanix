@@ -159,7 +159,8 @@ __always_inline VOID cmdline() {
                             ++(*counter_for_file);
                             to_print[*counter_for_file] = '\0';
                         }
-                        create_file(to_print);
+                        create_file(to_print,"Sample");
+                        read_file(to_print);
                     }
 
                     ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
