@@ -1,85 +1,83 @@
 #ifndef __OLD_COMM_NOVANIX_HPP
 #define __OLD_COMM_NOVANIX_HPP
 
-// Simulated virtual communication line (1 = idle high, 0 = low)
-volatile int virtual_line = 1;
+#include <common/init.hpp>
+#include <charstr.hpp>
+// Emulated line to simulate transmission
+int comm_line = 1;
 
-// Bit timing in milliseconds
-#define BIT_DURATION_MS 100
-// Forward declarations - you must implement or link these in your kernel
-extern void printk(const char* fmt, ...);
-extern void putchar(char c);
-extern void msleep(int ms);
-extern void start_kernel_thread(void (*func)(void*), void* arg);
-
-// Send one bit on the virtual line and wait BIT_DURATION_MS
-inline void send_bit(int bit) {
-    virtual_line = (bit != 0) ? 1 : 0;
-    msleep(BIT_DURATION_MS);
+// Simple wait loop for timing (CPU stall)
+void delay_cycles(int count) {
+    while (count-- > 0) {
+        __asm__ __volatile__("nop");
+    }
 }
 
-// Send a full byte: 1 start bit (0), 8 data bits (LSB first), 1 stop bit (1)
-void send_byte(char b) {
-    send_bit(0); // start bit
-    for (int i = 0; i < 8; i++) {
-        send_bit((b >> i) & 1);
-    }
-    send_bit(1); // stop bit
-    msleep(BIT_DURATION_MS);
+// Send one bit
+void comm_send_bit(int bit) {
+    comm_line = (bit != 0) ? 1 : 0;
+    delay_cycles(1000000);  // Adjust for timing
 }
 
-// Receive one byte by waiting for start bit and sampling bits at BIT_DURATION_MS intervals
-char receive_byte() {
-    // Wait for start bit (line goes low)
-    while (virtual_line != 0) {
-        msleep(1);
+// Read one bit
+int comm_read_bit() {
+    delay_cycles(1000000);  // Wait before reading
+    return comm_line;
+}
+
+// Send byte: 1 start bit, 8 data bits, 1 stop bit
+void comm_send_byte(char ch) {
+    comm_send_bit(0);  // Start bit
+
+    for (int i = 0; i < 8; ++i) {
+        comm_send_bit((ch >> i) & 1);
     }
-    msleep(BIT_DURATION_MS / 2); // Wait half bit time for stable sampling
+
+    comm_send_bit(1);  // Stop bit
+    delay_cycles(1000000);  // Extra stop time
+}
+
+// Read byte: wait for start bit and read data
+char comm_read_byte() {
+    while (comm_line != 0);  // Wait for start bit
+
+    delay_cycles(500000);  // Align to center of bit
 
     char result = 0;
-    for (int i = 0; i < 8; i++) {
-        msleep(BIT_DURATION_MS);
-        if (virtual_line != 0)
-            result |= (1 << i);
+    for (int i = 0; i < 8; ++i) {
+        result |= (comm_read_bit() << i);
     }
-    msleep(BIT_DURATION_MS); // Wait for stop bit
+
+    comm_read_bit();  // Read stop bit
     return result;
 }
 
-// Send a null-terminated string byte by byte
-void send_string(const char* str) {
-    for (; *str != 0; str++) {
-        send_byte(*str);
+// Send string over line
+void comm_send_string(const char* str) {
+    for (int i = 0; str[i] != '\0'; ++i) {
+        comm_send_byte(str[i]);
     }
 }
 
-// Thread function: receives bytes and prints them
-void receiver_thread(void* arg) {
-    (void)arg;
-    printk("[OldComm] Receiver started...\n");
-    while (true) {
-        char c = receive_byte();
-        putchar(c);
-        if (c == '\n') {
-            printk("\n");
-        }
+// Receive and print string
+void comm_receive_n_print(int count) {
+    for (int i = 0; i < count; ++i) {
+        char c = comm_read_byte();
+        char output[2] = {c, '\0'};
+        Novanix::system::printk(Novanix::system::VGA_COLOR_GREEN, output, 0);
     }
 }
 
-// Thread function: sends a fixed string message
-void sender_thread(void* arg) {
-    const char* msg = (const char*)arg;
-    printk("[OldComm] Sender started...\n");
-    msleep(500); // slight delay before sending
-    send_string(msg);
-    printk("[OldComm] Sender finished sending message.\n");
-}
-
-// Initialize old communication by launching sender and receiver threads
-inline void oldcomm_init() {
-    static const char message[] = "Hello from Novanix oldcomm!\n";
-    start_kernel_thread(receiver_thread, 0);
-    start_kernel_thread(sender_thread, (void*)message);
+// Manually called in cmdline with "comm-send" or "comm-recv"
+void comm_command_handler(const char* full_cmd) {
+    if (cmd_cmp(full_cmd, "comm-send") == 0) {
+        comm_send_string("Hello from Novanix!\n");
+        Novanix::system::printk(Novanix::system::VGA_COLOR_CYAN, "[Sent old-style message]\n", 1);
+    } else if (cmd_cmp(full_cmd, "comm-recv") == 0) {
+        Novanix::system::printk(Novanix::system::VGA_COLOR_CYAN, "[Waiting for message...]\n", 1);
+        comm_receive_n_print(20);  // Adjust character count
+        Novanix::system::printk(Novanix::system::VGA_COLOR_CYAN, "\n[End of message]\n", 1);
+    }
 }
 
 #endif // __OLD_COMM_NOVANIX_HPP
