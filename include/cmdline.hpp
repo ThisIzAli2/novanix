@@ -325,7 +325,7 @@ __always_inline VOID cmdline() {
                     ELIF (cmd_cmp(full_cmd, "Welcome to Nova!") == 0){
                     
                     }  else {
-                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Entered command does not exists",1);
+                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Command not found",1);
                     }
                     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"%s>", 0,current_directory);
 
