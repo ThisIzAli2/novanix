@@ -159,7 +159,7 @@ __always_inline VOID cmdline() {
                             ++(*counter_for_file);
                             to_print[*counter_for_file] = '\0';
                         }
-                        create_file(to_print,"Sample");
+                        create_file(to_print,"");
                         read_file(to_print);
                     }
 
@@ -309,7 +309,7 @@ __always_inline VOID cmdline() {
                             Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "Wrong password", 1);
                         }
                     }
-                    ELIF (cmd_cmp(full_cmd, "") == 0){
+                    ELIF (cmd_cmp(full_cmd, "Welcome to Nova!") == 0){
                     
                     }  else {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Entered command does not exists",1);
