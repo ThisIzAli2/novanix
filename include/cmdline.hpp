@@ -35,7 +35,7 @@
 #include <novanix/access.h>
 #include <novanix/time/time.hpp>
 #include <common/listfiles.hpp>
-
+#include <filehandle.h>
 
 char* dirs[MAX_DIRS];
 
@@ -145,6 +145,23 @@ __always_inline VOID cmdline() {
                         Retain file = Retain("new_file.txt", 1024, "This is the content to save.");
                         file = create_file("welcome.txt",2,"Welcome to Novanix!");
                     }
+
+                    ELIF (full_cmd[0] == 'i' && full_cmd[1] == 'n' && full_cmd[2] == 'i' && full_cmd[3] == 't' && full_cmd[4] == 'f' && full_cmd[5] == 'i' && full_cmd[6] == 'l' && full_cmd[7] == 'e' ){
+                        INTEGER *i_for_file = new INTEGER;
+                        INTEGER *counter_for_file = new INTEGER;
+                        char* to_print = new char[1024];
+                        *counter_for_file = 0;
+
+                        to_print[0] = '\0';
+
+                        for (*i_for_file = 9; full_cmd[*i_for_file] != '\0'; ++(*i_for_file)){
+                            to_print[*counter_for_file] = full_cmd[*i_for_file];
+                            ++(*counter_for_file);
+                            to_print[*counter_for_file] = '\0';
+                        }
+                        create_file(to_print);
+                    }
+
                     ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
                         INTEGER *i_for_mkdir = new INTEGER;
                         INTEGER *counter_k = new INTEGER;
