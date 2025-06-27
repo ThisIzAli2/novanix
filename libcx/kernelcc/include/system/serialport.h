@@ -1,3 +1,6 @@
+/**
+ * @file serialport.h
+ */
 #ifndef __Novanix__SYSTEM__SERIALPORT_H
 #define __Novanix__SYSTEM__SERIALPORT_H
 
