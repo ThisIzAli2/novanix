@@ -1,3 +1,6 @@
+/**
+ * @brief fat.h
+ */
 #ifndef __Novanix__SYSTEM__VFS__FAT32_H
 #define __Novanix__SYSTEM__VFS__FAT32_H
 
