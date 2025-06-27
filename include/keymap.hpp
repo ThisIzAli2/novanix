@@ -16,11 +16,18 @@ INTEGER count = 0;
 // Function to read a byte from the keyboard data port
 
 // Inline assembly function to read from I/O port
+
+/**
+ * @brief
+ * An assembly function that defines inb
+ */
 inline uint8_t inb(uint16_t port) {
     uint8_t result;
     asm volatile ("inb %1, %0" : "=a"(result) : "dN"(port));
     return result;
 }
+
+
 
 uint8_t read_key() {
     uint8_t scan_code;
