@@ -26,6 +26,9 @@ uint8_t read_cmos(uint8_t reg) {
     return inb(CMOS_DATA);
 }
 
+/**
+ * @brief A function that gets time
+ */
 void get_time(uint8_t* hour, uint8_t* min, uint8_t* sec) {
     uint8_t h, m, s, status_b;
 
