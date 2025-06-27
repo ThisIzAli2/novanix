@@ -25,6 +25,9 @@ bool strings_equal(const char* a, const char* b, int max_len) {
     return true;
 }
 
+/**
+ * @brief Function to copy a string 
+ */
 void string_copy(char* dest, const char* src, int max_len) {
     int i = 0;
     for (; i < max_len - 1 && src[i] != '\0'; i++) {
