@@ -1,3 +1,7 @@
+/**
+ * @file bootconsole.h
+ */
+
 #ifndef __Novanix__SYSTEM__BOOTCONSOLE_H
 #define __Novanix__SYSTEM__BOOTCONSOLE_H
 
