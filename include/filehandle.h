@@ -37,6 +37,10 @@ void string_copy(char* dest, const char* src, int max_len) {
 }
 
 // Create a file with content
+
+/**
+ * @brief Function used to create a file
+ */
 __always_inline VOID create_file(const char name[FILE_NAME_MAX], const char content[CONTENT_MAX]) {
     // Validate file name
     int name_len = 0;
