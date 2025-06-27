@@ -1,3 +1,6 @@
+/**
+ * @brief virtualfilesystem.h
+ */
 #ifndef __Novanix__SYSTEM__VFS__VIRTUALFILESYSTEM_H
 #define __Novanix__SYSTEM__VFS__VIRTUALFILESYSTEM_H
 
