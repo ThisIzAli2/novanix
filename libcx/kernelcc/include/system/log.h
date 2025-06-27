@@ -10,7 +10,10 @@ namespace Novanix
     namespace system
     {
         #define LOG_SHOW_MS 1
-
+        
+        /**
+         * @brief Log level on the system and its importance level
+         */
         enum LogLevel
         {
             Info,
