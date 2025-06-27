@@ -1,3 +1,6 @@
+/**
+ * @file interruptmanager.h
+ */
 #ifndef __Novanix__SYSTEM__INTERRUPTMANAGER_H
 #define __Novanix__SYSTEM__INTERRUPTMANAGER_H
 
