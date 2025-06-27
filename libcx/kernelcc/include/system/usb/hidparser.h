@@ -1,3 +1,6 @@
+/**
+ * @file hidparser.h
+ */
 #ifndef __Novanix__SYSTEM__USB__HIDPARSER_H
 #define __Novanix__SYSTEM__USB__HIDPARSER_H
 
