@@ -49,9 +49,13 @@ void get_time(uint8_t* hour, uint8_t* min, uint8_t* sec) {
 VOID __always_inline display_clock() {
     uint8_t h, m, s;
     get_time(&h, &m, &s);
-    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,stringify(h),1);
-    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,stringify(m),1);
-    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,stringify(s),1);
+    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,stringify(h),0);
+    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,":",0);
+    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,stringify(m),0);
+    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,":",0);
+    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,stringify(s),0);
+    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"\n",0);
+
 }
 
 
