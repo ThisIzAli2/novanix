@@ -49,6 +49,10 @@ void get_time(uint8_t* hour, uint8_t* min, uint8_t* sec) {
     *sec = s;
 }
 
+
+/**
+ * @brief Function used to display clock
+ */
 VOID __always_inline display_clock() {
     uint8_t h, m, s;
     get_time(&h, &m, &s);
