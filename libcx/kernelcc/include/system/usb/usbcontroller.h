@@ -1,3 +1,6 @@
+/**
+ * @file usbcontroller.h
+ */
 #ifndef __Novanix__SYSTEM__USB__USBCONTROLLER_H
 #define __Novanix__SYSTEM__USB__USBCONTROLLER_H
 
