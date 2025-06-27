@@ -1,3 +1,6 @@
+/**
+ * @file VM86Monitor.h
+ */
 #ifndef __Novanix__SYSTEM__VIRTUAL_8086__VM86MONITOR_H
 #define __Novanix__SYSTEM__VIRTUAL_8086__VM86MONITOR_H
 
