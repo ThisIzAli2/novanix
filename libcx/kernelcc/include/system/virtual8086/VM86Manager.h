@@ -1,3 +1,6 @@
+/**
+ * @brief VM86Manager.h
+ */
 #ifndef __Novanix__SYSTEM__VIRTUAL_8086__VM86MANAGER_H
 #define __Novanix__SYSTEM__VIRTUAL_8086__VM86MANAGER_H
 
