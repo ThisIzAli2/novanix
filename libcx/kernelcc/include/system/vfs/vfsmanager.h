@@ -1,3 +1,6 @@
+/**
+ * @brief vfsmanager.h
+ */
 #ifndef __Novanix__SYSTEM__VFS__VFSMANAGER_H
 #define __Novanix__SYSTEM__VFS__VFSMANAGER_H
 
