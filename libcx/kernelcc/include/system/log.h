@@ -1,3 +1,6 @@
+/**
+ * @brief log.h
+ */
 #ifndef __Novanix__SYSTEM__LOG_H
 #define __Novanix__SYSTEM__LOG_H
 
