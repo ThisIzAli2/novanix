@@ -56,6 +56,11 @@ INTEGER counter = 0;
 
 #define str_cmp cmd_cmp
 
+
+/**
+ * @brief 
+ * An unused function that handles the other cases of the command line interface
+ */
 __always_inline INTEGER handle(const char* str){
     if (cmd_cmp(str,"get")){
         return 0001;
