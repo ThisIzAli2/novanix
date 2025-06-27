@@ -28,7 +28,9 @@ inline uint8_t inb(uint16_t port) {
 }
 
 
-
+/**
+ * @brief Scans the keyboard when a key is pressed
+ */
 uint8_t read_key() {
     uint8_t scan_code;
 
