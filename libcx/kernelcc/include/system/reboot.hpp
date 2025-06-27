@@ -1,3 +1,6 @@
+/**
+ * @file reboot.hpp
+ */
 #ifndef __ALINIX_KERNEL_LIBCX_REBOOT_HPP_INCLUDED
 #define __ALINIX_KERNEL_LIBCX_REBOOT_HPP_INCLUDED
 
