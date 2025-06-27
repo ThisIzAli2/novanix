@@ -1,3 +1,6 @@
+/**
+ * @file debugger.h
+ */
 #ifndef __Novanix__SYSTEM__DEBUGGER_H
 #define __Novanix__SYSTEM__DEBUGGER_H
 
