@@ -1,3 +1,7 @@
+/**
+ * @file initrd.h
+ */
+
 #ifndef __Novanix__SYSTEM__INITRD_H
 #define __Novanix__SYSTEM__INITRD_H
 
