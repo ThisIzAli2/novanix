@@ -37,6 +37,7 @@
 #include <novanix/time/time.hpp>
 #include <common/listfiles.hpp>
 #include <filehandle.h>
+#include <timer.h>
 #include <charstr.hpp>
 
 char* dirs[MAX_DIRS];
@@ -141,6 +142,9 @@ __always_inline VOID cmdline() {
                     }
                     ELIF(cmd_cmp(full_cmd,"pwd") == 0){
                         fs_manager->printCurrentDir();
+                    }
+                    ELIF (cmd_cmp(full_cmd,"time") == 0){
+                        display_clock();
                     }
                     ELIF (cmd_cmp(full_cmd,"tasks-show") == 0){
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"System related tasks are fully running...",1);
