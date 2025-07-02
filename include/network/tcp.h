@@ -2,7 +2,9 @@
 #define __NOVA_TCP_H
 
 
-#include <common/init.hpp>
+#include <common/types.h>
+
+using namespace Novanix::common;
 
 struct tcp_header {
     uint16_t src_port;

@@ -3,7 +3,11 @@
 
 
 
-#include <common/init.hpp>
+
+#include <common/types.h>
+
+using namespace Novanix::common;
+
 
 struct udp_header {
     uint16_t src_port;

@@ -2,7 +2,11 @@
 #define __ipv4_h
 
 
-#include <common/init.hpp>
+
+#include <common/types.h>
+
+using namespace Novanix::common;
+
 
 
 struct ipv4_header {
