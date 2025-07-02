@@ -1,6 +1,10 @@
 #ifndef Novanix__COMMON__TYPES_H
 #define Novanix__COMMON__TYPES_H
 
+#ifndef VOID
+#define VOID void 
+#endif
+
 namespace Novanix
 {
     namespace common
