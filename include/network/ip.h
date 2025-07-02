@@ -2,7 +2,9 @@
 #define __NOVA_KERNEL_IP_H
 
 
-#include <common/init.hpp>
+#include <common/types.h>
+
+using namespace Novanix::common;
 
 #define IP_PROTOCOL_UDP 17
 #define IP_PROTOCOL_TCP 6

@@ -1,7 +1,9 @@
 #ifndef __NOVA_KERNEL_NET_H
 #define __NOVA_KERNEL_NET_H
 
-#include <common/init.hpp>
+#include <common/types.h>
+
+using namespace Novanix::common;
 
 #define ETH_TYPE_IPV4 0x0800
 

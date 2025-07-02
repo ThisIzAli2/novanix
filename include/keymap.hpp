@@ -6,6 +6,7 @@
 #include <stringify.h>
 #include <system/log.h>
 #include <typing.hpp>
+#include <common/init.hpp>
 
 BOOL shift = false;
 INTEGER count = 0;
