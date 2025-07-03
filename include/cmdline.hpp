@@ -105,7 +105,7 @@ __always_inline VOID cmdline() {
         if (key != nullptr) {
             if (index < 127) {
 
-                
+                // This might vary
                 if (keycode == 142 || keycode == 14){
                     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "\b \b", 0);  // Move cursor back and clear the character
                     if (index > 0) {
