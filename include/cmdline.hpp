@@ -43,6 +43,7 @@
 #include <network/tcp.h>
 #include <network/udp.h>
 #include <common/gaming.h>
+#include <drivers/sound.h>
 
 char* dirs[MAX_DIRS];
 
@@ -170,6 +171,11 @@ __always_inline VOID cmdline() {
                     }
                     ELIF (cmd_cmp(full_cmd,"gameplay") == 0){
                         Novanix::system::printk(VGA_COLOR_WHITE,LETTER,1);
+                    }
+                    ELIF (cmd_cmp(full_cmd,"sound") == 0){
+                        play_beep(1000); // Play 1kHz tone
+                       
+                        stop_beep();     // Stop the sound
                     }
                     ELIF(cmd_cmp(full_cmd,"initfile") == 0){
                         Retain file = Retain("new_file.txt", 1024, "This is the content to save.");

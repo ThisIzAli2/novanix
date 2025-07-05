@@ -27,6 +27,7 @@
 #include <typing.hpp>
 //TODO: Might want to remove init.hpp from including
 #include <common/init.hpp>
+#include <drivers/ports.h>
 
 BOOL shift = false;
 INTEGER count = 0;
@@ -42,11 +43,11 @@ INTEGER count = 0;
  * @brief
  * An assembly function that defines inb
  */
-inline uint8_t inb(uint16_t port) {
-    uint8_t result;
-    asm volatile ("inb %1, %0" : "=a"(result) : "dN"(port));
-    return result;
-}
+// inline uint8_t inb(uint16_t port) {
+//     uint8_t result;
+//     asm volatile ("inb %1, %0" : "=a"(result) : "dN"(port));
+//     return result;
+// }
 
 
 /**

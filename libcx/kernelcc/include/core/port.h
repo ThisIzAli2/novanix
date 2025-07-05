@@ -71,7 +71,13 @@ namespace Novanix
     }
 }
 
+#ifndef outb
 #define outb Novanix::core::outportb
+#endif 
+
+#ifndef inb
+#define inb Novanix::core::inportb
+#endif
 
 
 #endif
