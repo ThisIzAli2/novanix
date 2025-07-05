@@ -23,7 +23,7 @@
 #define TEXTURE_FOR ""
 #define LETTER "\xC9"
 #define CLUBS "\x05"
-
+#define SPADES "\x06"
 
 
 #endif /*__GAMING_H*/
