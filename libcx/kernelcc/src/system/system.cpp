@@ -301,7 +301,7 @@ void System::Panic()
         printk(vga_color::VGA_COLOR_GREEN,"Starting the keyboard",1);
         // readKeyboardInput();
         printk(VGA_COLOR_WHITE,"Press any key to continue...",1);
-        Log(Error,"Failed to boot kernel GUI, switching to CUI...");
+        Log(Error,"Loading to CUI...");
         cmdline();
         // setup_interrupts_and_keyboard();
         printk(vga_color::VGA_COLOR_GREEN,"Started the keyboard",1);
