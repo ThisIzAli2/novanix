@@ -13,7 +13,7 @@ typedef struct {
     int size;
     int cursor;
     int used;
-};
+} File;
 
 
 
