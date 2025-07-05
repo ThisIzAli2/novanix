@@ -174,7 +174,7 @@ __always_inline VOID cmdline() {
                         Novanix::system::printk(VGA_COLOR_WHITE,LETTER,1);
                     }
                     ELIF (cmd_cmp(full_cmd,"sound") == 0){
-                        play_beep(); // Play 1kHz tone
+                        play_beep(1000); // Play 1kHz tone
                        
                         stop_beep();     // Stop the sound
                     }
