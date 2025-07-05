@@ -10,16 +10,19 @@ using namespace Novanix::common;
 
 
 
-inline void play_beep(uint32_t freq) {
-    uint16_t div = 1193180 / freq;
 
-    outb(0x43, 0xB6);             // PIT command port
-    outb(0x42, div & 0xFF);       // Channel 2 - low byte
-    outb(0x42, div >> 8);         // Channel 2 - high byte
+inline void play_beep() {
+    uint32_t freq = 1000; // Frequency in Hz
+
+    uint16_t div = 1193180 / freq; // PIT input frequency is 1193180 Hz
+
+    outb(0x43, 0xB6);             // Command byte
+    outb(0x42, div & 0xFF);       // Low byte
+    outb(0x42, div >> 8);         // High byte
 
     uint8_t tmp = inb(0x61);
-    if ((tmp & 3) != 3) {
-        outb(0x61, tmp | 3);      // Enable speaker by setting bits 0 and 1
+    if (tmp != (tmp | 3)) {
+        outb(0x61, tmp | 3);      // Enable speaker
     }
 }
 
