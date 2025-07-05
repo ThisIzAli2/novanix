@@ -26,4 +26,5 @@
 #define SPADES "\x06"
 
 
+
 #endif /*__GAMING_H*/
