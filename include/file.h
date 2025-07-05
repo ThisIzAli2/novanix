@@ -15,6 +15,15 @@ typedef struct {
     int used;
 } File;
 
+int open(const char* filename, int flags);
+int read(int fd, char* buf, int size);
+int write(int fd, const char* buf, int size);
+int close(int fd);
+void init_filesystem();
+
+#define O_RDONLY 0x01
+#define O_WRONLY 0x02
+#define O_CREAT  0x04
 
 
 
