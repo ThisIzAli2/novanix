@@ -20,6 +20,10 @@
 #define __GAMING_H
 
 
-#define TEXTURE ""
+#define TEXTURE_FOR ""
+#define LETTER "\xC9"
+#define CLUBS "\x05"
+
+
 
 #endif /*__GAMING_H*/
