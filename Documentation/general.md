@@ -1,0 +1,1 @@
+This directory contains the documentation and the help needed for this project 
