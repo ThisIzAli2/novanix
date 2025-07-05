@@ -35,7 +35,7 @@ static INTEGER cursor_y = 0;
 VOID inline scroll_screen();
 
 // Function to update the hardware cursor
-VOID update_cursor(INTEGER x, INTEGER y) {
+VOID inline update_cursor(INTEGER x, INTEGER y) {
     Novanix::common::uint16_t position = y * SCREEN_WIDTH + x;
 
     outb(0x3D4, 0x0F);
@@ -45,7 +45,7 @@ VOID update_cursor(INTEGER x, INTEGER y) {
 }
 
 // Function to write a character at a specific position on the screen
-VOID putchar(char c) {
+VOID inline putchar(char c) {
     volatile Novanix::common::uint16_t *vga_buffer = (Novanix::common::uint16_t *)VGA_ADDRESS;
 
     // Handle special characters
@@ -108,7 +108,7 @@ VOID inline move_cursor_back() {
     outb(0x3D5, pos & 0xFF);
 }
 
-VOID clear_last_char() {
+VOID inline clear_last_char() {
     move_cursor_back();
     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, " ", 0);
     move_cursor_back();

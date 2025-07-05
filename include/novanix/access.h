@@ -20,6 +20,6 @@
 #define __ACCESS_H
 
 
-bool have_access = false;
+static bool have_access = false;
 
 #endif

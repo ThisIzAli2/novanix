@@ -34,7 +34,7 @@ static inline Novanix::common::uint64_t read_tsc(VOID) {
     return ((Novanix::common::uint64_t)high << 32) | low;
 }
 
-VOID display_time(VOID) {
+VOID inline display_time(VOID) {
     Novanix::common::uint64_t tsc = read_tsc();
     
     Novanix::common::uint64_t time_in_seconds = __udivdi3(1000000000,tsc);  // Assuming 1 GHz clock for simplicity
@@ -45,14 +45,14 @@ VOID display_time(VOID) {
 
 #define CURRENT_YEAR        2025                          // Change this each year!
 
-int century_register = 0x00;                                // Set by ACPI table parsing code if possible
+static int century_register = 0x00;                                // Set by ACPI table parsing code if possible
 
-unsigned char second;
-unsigned char minute;
-unsigned char hour;
-unsigned char day;
-unsigned char month;
-unsigned int year;
+static unsigned char second;
+static unsigned char minute;
+static unsigned char hour;
+static unsigned char day;
+static unsigned char month;
+static unsigned int year;
 
 
 enum {
@@ -60,17 +60,17 @@ enum {
       cmos_data    = 0x71
 };
 
-int get_update_in_progress_flag() {
+int inline get_update_in_progress_flag() {
       Novanix::core::outportb(cmos_address, 0x0A);
       return (Novanix::core::inportb(cmos_data) & 0x80);
 }
 
-unsigned char get_RTC_register(int reg) {
+unsigned char inline get_RTC_register(int reg) {
       Novanix::core::outportb(cmos_address, reg);
       return Novanix::core::inportb(cmos_data);
 }
 
-void read_rtc() {
+void inline read_rtc() {
       unsigned char century;
       unsigned char last_second;
       unsigned char last_minute;

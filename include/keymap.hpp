@@ -29,8 +29,8 @@
 #include <common/init.hpp>
 #include <drivers/ports.h>
 
-BOOL shift = false;
-INTEGER count = 0;
+static BOOL shift = false;
+static INTEGER count = 0;
 
 
 
@@ -38,7 +38,7 @@ INTEGER count = 0;
 /**
  * @brief Scans the keyboard when a key is pressed
  */
-uint8_t read_key() {
+uint8_t inline read_key() {
     uint8_t scan_code;
 
     // Wait until the keyboard controller is ready to send data
@@ -285,7 +285,7 @@ inline char* handle_keyboard(uint8_t scan_code){
 }
 
 // Interrupt handler for keyboard interrupt (IRQ1)
-extern "C" VOID keyboard_interrupt_handler() {
+extern "C" VOID  inline keyboard_interrupt_handler() {
     uint8_t key = read_key();
 
     // Process the key here (e.g., store it, display it, etc.)

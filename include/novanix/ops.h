@@ -3,7 +3,7 @@
 
 #include <common/types.h>
 
-Novanix::common::uint64_t  __udivdi3(Novanix::common::uint64_t  dividend, Novanix::common::uint64_t  divisor) {
+Novanix::common::uint64_t  inline __udivdi3(Novanix::common::uint64_t  dividend, Novanix::common::uint64_t  divisor) {
     Novanix::common::uint64_t  quotient = 0;
     Novanix::common::uint64_t  remainder = 0;
     

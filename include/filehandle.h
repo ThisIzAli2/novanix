@@ -36,7 +36,7 @@ struct FileEntry {
 // In-memory file system
 static FileEntry file_table[MAX_FILES];
 
-bool strings_equal(const char* a, const char* b, int max_len) {
+bool inline strings_equal(const char* a, const char* b, int max_len) {
     for (int i = 0; i < max_len; i++) {
         if (a[i] != b[i]) return false;
         if (a[i] == '\0') return true;
@@ -47,7 +47,7 @@ bool strings_equal(const char* a, const char* b, int max_len) {
 /**
  * @brief Function to copy a string 
  */
-void string_copy(char* dest, const char* src, int max_len) {
+inline void string_copy(char* dest, const char* src, int max_len) {
     int i = 0;
     for (; i < max_len - 1 && src[i] != '\0'; i++) {
         dest[i] = src[i];

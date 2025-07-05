@@ -22,6 +22,6 @@
 #include <novanix/file_system_for_kernel.h>
 #include <typing.hpp>
 
-FileSystem* fs_manager;
+static FileSystem* fs_manager;
 
 #endif

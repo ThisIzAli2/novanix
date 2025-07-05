@@ -57,10 +57,10 @@ class Retain{
 };  
 
 
-Retain create_file(const char* file_name,INTEGER size,const char* content){
+Retain inline create_file(const char* file_name,INTEGER size,const char* content){
     Retain file(file_name,size,content);
     file.retention(file_name,size,content);
-    RET file;
+    return file;
 }
 
 

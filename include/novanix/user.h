@@ -10,8 +10,8 @@
 
 #define DEFAULT_PASSWORD "admin"
 
-char user_name[USER_NAME_BUFFER] = "admin";
-char *user_password = "admin";
+static char user_name[USER_NAME_BUFFER] = "admin";
+static char *user_password = "admin";
 
 
 

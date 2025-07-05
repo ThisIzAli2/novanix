@@ -19,7 +19,7 @@ static char dir_name[256] = {0};  // Static array to store the directory name (f
 
 #define CURRENT_DIR_BUFFER_SIZE 256
 
-char* current_directory = "/home";
+static char* current_directory = "/home";
 
 
 class FileSystem {
