@@ -6,4 +6,6 @@
 "          (__)\\       )\\/\\\n" \
 "              ||----w |\n" \
 "              ||     ||\n"
+
+
 #endif /* __NOVANIX_KERNEL_FUN_H*/

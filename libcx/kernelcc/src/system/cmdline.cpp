@@ -19,6 +19,7 @@
 
 #include <cmdline.hpp>
 #include <network/firewall/blocklist.h>
+#include <command/fun.h>
 
 char* dirs[MAX_DIRS];
 
@@ -157,6 +158,10 @@ VOID cmdline() {
                     ELIF(cmd_cmp(full_cmd,"initfile") == 0){
                         Retain file = Retain("new_file.txt", 1024, "This is the content to save.");
                         file = create_file("welcome.txt",2,"Welcome to Novanix!");
+                    }
+
+                    ELIF (cmd_cmp(full_cmd,"cowsay") == 0){
+                        Novanix::system::printk(VGA_COLOR_WHITE,COW_STRING,1);
                     }
 
                     ELIF (full_cmd[0] == 'i' && full_cmd[1] == 'n' && full_cmd[2] == 'i' && full_cmd[3] == 't' && full_cmd[4] == 'f' && full_cmd[5] == 'i' && full_cmd[6] == 'l' && full_cmd[7] == 'e' ){
