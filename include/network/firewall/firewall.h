@@ -19,6 +19,13 @@
 #ifndef __NOVANIX_KERNEL_FIRE_WALL_H
 #define __NOVANIX_KERNEL_FIRE_WALL_H
 
+#include <common/init.hpp>
+
+struct firewall
+{
+    const char* src_ip;
+    const char* dst_ip; 
+};
 
 
 
