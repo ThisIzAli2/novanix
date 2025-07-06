@@ -140,7 +140,13 @@ VOID cmdline() {
                         clear_screen();
                     }
                     ELIF (cmd_cmp(full_cmd,"halt") == 0){
-                        asm volatile("hlt");
+                        if (!have_access){
+                            goto again;
+                        } else{
+                            asm volatile ("hlt");
+                        }
+                        again:
+                            Novanix::system::printk(VGA_COLOR_WHITE,"You do not have sudo access, try again.",1);
                     }
                     ELIF (cmd_cmp(full_cmd,"net-udp") == 0){
                         //! Not ready to use yet
