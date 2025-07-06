@@ -21,7 +21,6 @@ void free_node(Node* node) {
 }
 
 // Head of the firewall block list
-static Node* firewall_list = 0;
 
 // Append an IP to the list
 int firewall_append(ip_t ip) {

@@ -24,10 +24,15 @@
 
 typedef unsigned int ip_t;
 
+
+
 typedef struct Node{
     ip_t ip;
     struct Node *next;
 } Node; 
+
+static Node* firewall_list = 0;
+
 
 static Node node_pool[MAX_FIREWALL_IPS];
 static int node_used[MAX_FIREWALL_IPS]; // 0=free,1=used
