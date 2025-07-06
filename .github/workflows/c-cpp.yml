@@ -18,7 +18,7 @@ jobs:
       run: |
         brew update
         brew install qemu
-        brew tap nativeos/i686-elf-toolchain
+        brew tap homebrew/cross
         brew install i686-elf-gcc
 
     - name: Make Install (libcx)
@@ -30,5 +30,4 @@ jobs:
       run: |
         cd libcx
         make check
-
 
