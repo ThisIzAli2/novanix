@@ -146,7 +146,7 @@ VOID cmdline() {
                             asm volatile ("hlt");
                         }
                         again:
-                            Novanix::system::printk(VGA_COLOR_WHITE,"You do not have sudo access, try again.",1);
+                            Novanix::system::printk(VGA_COLOR_RED,"You do not have sudo access, try again.",1);
                     }
                     ELIF (cmd_cmp(full_cmd,"net-udp") == 0){
                         //! Not ready to use yet
