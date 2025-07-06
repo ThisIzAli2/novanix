@@ -20,11 +20,16 @@
 #define __NOVANIX_KERNEL_BLOCK_LIST_H
 
 
+#define MAX_FIREWALL_IPS 100
+
 typedef unsigned int ip_t;
 
 typedef struct Node{
     ip_t ip;
     struct Node *next;
 } Node; 
+
+static Node node_pool[MAX_FIREWALL_IPS];
+static int node_used[MAX_FIREWALL_IPS]; // 0=free,1=used
 
 #endif /*__NOVANIX_KERNEL_BLOCK_LIST_H*/
