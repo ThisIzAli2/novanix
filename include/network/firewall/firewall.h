@@ -1,0 +1,7 @@
+#ifndef __NOVANIX_KERNEL_FIRE_WALL_H
+#define __NOVANIX_KERNEL_FIRE_WALL_H
+
+
+
+
+#endif /*__NOVANIX_KERNEL_FIRE_WALL_H*/
