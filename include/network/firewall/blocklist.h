@@ -32,4 +32,9 @@ typedef struct Node{
 static Node node_pool[MAX_FIREWALL_IPS];
 static int node_used[MAX_FIREWALL_IPS]; // 0=free,1=used
 
+
+Node* allocate_node();
+
+
+
 #endif /*__NOVANIX_KERNEL_BLOCK_LIST_H*/
