@@ -22,7 +22,7 @@
 
 #define MAX_FIREWALL_IPS 100
 
-typedef unsigned int ip_t;
+typedef const char* ip_t;
 
 typedef struct Node{
     ip_t ip;
