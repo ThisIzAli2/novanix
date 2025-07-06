@@ -161,6 +161,8 @@ VOID cmdline() {
                     }
 
                     ELIF (cmd_cmp(full_cmd,"cowsay") == 0){
+                        Novanix::system::printk(VGA_COLOR_WHITE,"\n",1);
+                        Novanix::system::printk(VGA_COLOR_WHITE,"I love Nova!",1);
                         Novanix::system::printk(VGA_COLOR_WHITE,COW_STRING,1);
                     }
 
