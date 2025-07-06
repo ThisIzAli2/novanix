@@ -20,4 +20,11 @@
 #define __NOVANIX_KERNEL_BLOCK_LIST_H
 
 
+typedef unsigned int ip_t;
+
+typedef struct Node{
+    ip_t ip;
+    struct Node *next;
+} Node; 
+
 #endif /*__NOVANIX_KERNEL_BLOCK_LIST_H*/
