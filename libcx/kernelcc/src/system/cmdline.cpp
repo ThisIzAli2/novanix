@@ -52,7 +52,7 @@ __always_inline INTEGER handle(const char* str){
 
 }
 /**
- * Handle the command line in the kernel
+ * Handle the command line in the kernel, does the command control of the CUI
  */
 VOID cmdline() {
     char* key = new char[2];  // Single character input
