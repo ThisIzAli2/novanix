@@ -14,12 +14,19 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install QEMU and i686-elf-gcc
+    - name: Install QEMU
       run: |
         brew update
         brew install qemu
-        brew tap homebrew/cross
-        brew install i686-elf-gcc
+
+    - name: Install i686-elf-gcc manually
+      run: |
+        wget https://github.com/lordmilko/i686-elf-toolchain/releases/download/v1.0.0/i686-elf-macos.tar.gz
+        tar -xzf i686-elf-macos.tar.gz
+        sudo mv i686-elf /usr/local/i686-elf
+        echo 'export PATH="/usr/local/i686-elf/bin:$PATH"' >> ~/.zprofile
+        export PATH="/usr/local/i686-elf/bin:$PATH"
+        i686-elf-gcc --version
 
     - name: Make Install (libcx)
       run: |
