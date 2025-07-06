@@ -22,7 +22,7 @@
 
 #define MAX_FIREWALL_IPS 100
 
-typedef const char* ip_t;
+typedef unsigned int ip_t;
 
 typedef struct Node{
     ip_t ip;
@@ -41,6 +41,8 @@ int firewall_append(ip_t ip);
 
 int firewall_remove(ip_t ip);
 int firewall_check(ip_t ip);
+
+int search_for_ip(ip_t ip);
 
 
 #endif /*__NOVANIX_KERNEL_BLOCK_LIST_H*/

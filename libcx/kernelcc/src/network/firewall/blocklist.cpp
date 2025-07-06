@@ -75,3 +75,15 @@ int firewall_check(ip_t ip) {
     }
     return 0;
 }
+
+int search_for_ip(ip_t ip){
+    Node* current = firewall_list;
+    while (current != 0){
+        if (current->ip == ip){
+            return 1;
+        } else{
+            return 0;
+        }
+    }
+    return 0;
+}
