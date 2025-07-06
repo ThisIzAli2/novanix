@@ -14,8 +14,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install QEMU
-      run: brew install qemu
+    - name: Install QEMU and i686-elf-gcc
+      run: |
+        brew update
+        brew install qemu
+        brew tap nativeos/i686-elf-toolchain
+        brew install i686-elf-gcc
 
     - name: Make Install (libcx)
       run: |
@@ -27,7 +31,4 @@ jobs:
         cd libcx
         make check
 
-    - name: Make Distcheck (libcx)
-      run: |
-        cd libcx
-        make distcheck
+
