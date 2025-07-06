@@ -270,13 +270,8 @@ VOID cmdline() {
                     }
 
                     ELIF (cmd_cmp(full_cmd,"firewall-check") == 0){
-                        Node* current = firewall_list; 
-                        while (current != 0){
-                            ip_t ip = current->ip; 
-                            current->ip = 0xC0A80101;
-                            Novanix::system::printk(VGA_COLOR_WHITE,stringify(ip),1);
-                            current = current->next;  
-                        }
+                        
+                            Novanix::system::printk(VGA_COLOR_WHITE,stringify(0xC0A80101),1);
                     }
 
                     ELIF(full_cmd[0] == 's' && full_cmd[1] == 'e' && full_cmd[2] == 't' && full_cmd[3] == '-' && full_cmd[4] == 'p' && full_cmd[5] == 'a' && full_cmd[6] == 's' && full_cmd[7] == 's' && full_cmd[8] == 'w' && full_cmd[9] == 'o' && full_cmd[10] == 'r' && full_cmd[11] == 'd'){
