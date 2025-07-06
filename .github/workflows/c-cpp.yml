@@ -1,0 +1,33 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install QEMU
+      run: brew install qemu
+
+    - name: Make Install (libcx)
+      run: |
+        cd libcx
+        make install
+
+    - name: Make Check (libcx)
+      run: |
+        cd libcx
+        make check
+
+    - name: Make Distcheck (libcx)
+      run: |
+        cd libcx
+        make distcheck
