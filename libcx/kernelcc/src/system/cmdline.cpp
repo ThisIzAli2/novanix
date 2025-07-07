@@ -223,6 +223,10 @@ VOID cmdline() {
                     ELIF(cmd_cmp(full_cmd,"time") == 0){
                         display_time();
                     }
+                    ELIF(cmd_cmp(full_cmd,"uname") == 0){
+                        Novanix::system::printk(VGA_COLOR_WHITE,"NovaOs",1);
+                        
+                    }
                     ELIF (cmd_cmp(full_cmd,"motd") == 0){
                         Novanix::system::printk(VGA_COLOR_WHITE,MESSAGE_OF_THE_DAY,1);
                     }
