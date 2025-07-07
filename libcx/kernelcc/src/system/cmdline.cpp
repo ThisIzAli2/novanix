@@ -174,6 +174,15 @@ VOID cmdline() {
                         Novanix::system::printk(VGA_COLOR_WHITE,"I love Nova!",1);
                         Novanix::system::printk(VGA_COLOR_WHITE,COW_STRING,1);
                     }
+                    ELIF (cmd_cmp(full_cmd,"cal") == 0){
+                            printk(VGA_COLOR_WHITE,"     July 2025\n",1);
+                            printk(VGA_COLOR_WHITE,"Su Mo Tu We Th Fr Sa\n",1);
+                            printk(VGA_COLOR_WHITE,"       1  2  3  4  5\n",1);
+                            printk(VGA_COLOR_WHITE," 6  7  8  9 10 11 12\n",1);
+                            printk(VGA_COLOR_WHITE,"13 14 15 16 17 18 19\n",1);
+                            printk(VGA_COLOR_WHITE,"20 21 22 23 24 25 26\n",1);
+                            printk(VGA_COLOR_WHITE,"27 28 29 30 31\n",1);
+                    }
 
                     ELIF (full_cmd[0] == 'i' && full_cmd[1] == 'n' && full_cmd[2] == 'i' && full_cmd[3] == 't' && full_cmd[4] == 'f' && full_cmd[5] == 'i' && full_cmd[6] == 'l' && full_cmd[7] == 'e' ){
                         INTEGER *i_for_file = new INTEGER;
