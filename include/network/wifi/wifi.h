@@ -1,13 +1,12 @@
 #ifndef __NOVANIX_KERNEL_WIFI_H
 #define __NOVANIX_KERNEL_WIFI_H
 
-
 #include <common/init.hpp>
 
+// === VGA Printing for Kernel ===
 #ifndef kprint
 #define kprint Novanix::system::printk
 #endif
-
 
 void print_mac(uint8_t *mac) {
     char hex[] = "0123456789ABCDEF";
@@ -16,10 +15,10 @@ void print_mac(uint8_t *mac) {
         out[0] = hex[(mac[i] >> 4) & 0xF];
         out[1] = hex[mac[i] & 0xF];
         out[2] = 0;
-        kprint(VGA_COLOR_WHITE,out,0);
-        if (i != 5) kprint(VGA_COLOR_WHITE,":",0);
+        kprint(VGA_COLOR_WHITE, out, 0);
+        if (i != 5) kprint(VGA_COLOR_WHITE, ":", 0);
     }
-    kprint(VGA_COLOR_WHITE,"\n",1);
+    kprint(VGA_COLOR_WHITE, "\n", 1);
 }
 
 #define MAX_APS 32
@@ -34,33 +33,76 @@ access_point_t found_aps[MAX_APS];
 int ap_count = 0;
 uint8_t frame_buffer[FRAME_BUFFER_SIZE];
 
-// Simulate reading a frame from hardware (fake beacon frame)
-int read_frame_from_hardware(uint8_t *buffer) {
-    static int called = 0;
-    if (called++) return 0;
+// ===========================
+// === PCI + Wi-Fi Access ===
+// ===========================
 
-    uint8_t fake_beacon[] = {
-        0x80, 0x00,                         // Frame Control (beacon)
-        0x00, 0x00,                         // Duration
-        0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // Destination (broadcast)
-        0xDE, 0xAD, 0xBE, 0xEF, 0xAA, 0xBB, // Source
-        0xDE, 0xAD, 0xBE, 0xEF, 0xAA, 0xBB, // BSSID (AP MAC)
-        0x00, 0x00,                         // Sequence
-        // Fixed Params (timestamp, interval, capabilities)
-        0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-        0x64, 0x00,
-        0x11, 0x04,
-        // Tagged Parameters
-        0x00, 0x06,                         // Tag: SSID, length 6
-        'N', 'O', 'V', 'A', 'O', 'S'
-    };
+#define PCI_CONFIG_ADDRESS 0xCF8
+#define PCI_CONFIG_DATA    0xCFC
 
-    int len = sizeof(fake_beacon);
-    for (int i = 0; i < len; i++) {
-        buffer[i] = fake_beacon[i];
-    }
-    return len;
+static inline void outl(uint16_t port, uint32_t val) {
+    asm volatile ("outl %0, %1" : : "a"(val), "Nd"(port));
 }
+static inline uint32_t inl(uint16_t port) {
+    uint32_t ret;
+    asm volatile ("inl %1, %0" : "=a"(ret) : "Nd"(port));
+    return ret;
+}
+
+uint32_t pci_config_read(uint8_t bus, uint8_t slot, uint8_t func, uint8_t offset) {
+    uint32_t address =
+        ((uint32_t)bus << 16) | ((uint32_t)slot << 11) |
+        ((uint32_t)func << 8) | (offset & 0xfc) | ((uint32_t)0x80000000);
+    outl(PCI_CONFIG_ADDRESS, address);
+    return inl(PCI_CONFIG_DATA);
+}
+
+uint32_t get_mmio_base(uint8_t bus, uint8_t slot, uint8_t func) {
+    return pci_config_read(bus, slot, func, 0x10) & ~0xF;
+}
+
+// ===========================
+// === Frame Reader (Real) ===
+// ===========================
+int read_frame_from_hardware(uint8_t *buffer) {
+    // Replace below with real implementation for your chipset
+    // This scaffolds access to PCI-based NIC MMIO
+
+    // Example: Looking for Intel Wi-Fi 3945ABG (Vendor 0x8086, Device 0x4222)
+    for (uint8_t bus = 0; bus < 256; bus++) {
+        for (uint8_t slot = 0; slot < 32; slot++) {
+            uint32_t vendor_device = pci_config_read(bus, slot, 0, 0x00);
+            uint16_t vendor = vendor_device & 0xFFFF;
+            uint16_t device = (vendor_device >> 16) & 0xFFFF;
+
+            if (vendor == 0x8086) {
+                kprint(VGA_COLOR_WHITE, "Intel device found\n", 1);
+
+                uint32_t mmio_base = get_mmio_base(bus, slot, 0);
+                kprint(VGA_COLOR_WHITE, "MMIO base: ", 0);
+                // print as hex here if you wish
+
+                volatile uint8_t* mmio = (volatile uint8_t*) mmio_base;
+
+                // === Placeholder ===
+                // Here you would:
+                // 1. Initialize the card
+                // 2. Set monitor mode
+                // 3. Poll RX ring buffer
+                // 4. Copy frame into `buffer`
+
+                // Until implemented:
+                return 0;
+            }
+        }
+    }
+
+    return 0;
+}
+
+// ===========================
+// === Wi-Fi Scanner Logic ===
+// ===========================
 
 void scan_wifi_mac_addresses() {
     for (int i = 0; i < 1000; i++) {
@@ -94,7 +136,7 @@ void scan_wifi_mac_addresses() {
                 for (int b = 0; b < 6; b++)
                     found_aps[ap_count].mac[b] = bssid[b];
 
-                // Parse SSID tag (starts at offset 36 + 1 = 37)
+                // Parse SSID tag
                 uint8_t ssid_len = frame_buffer[37];
                 if (ssid_len > 31) ssid_len = 31;
                 for (int s = 0; s < ssid_len; s++)
@@ -106,21 +148,21 @@ void scan_wifi_mac_addresses() {
         }
     }
 
-    kprint(VGA_COLOR_WHITE,"Access Points Found:\n",1);
+    kprint(VGA_COLOR_WHITE, "Access Points Found:\n", 1);
     for (int i = 0; i < ap_count; i++) {
-        kprint(VGA_COLOR_WHITE,"SSID: ",0);
-        kprint(VGA_COLOR_WHITE,found_aps[i].ssid,0);
-        kprint(VGA_COLOR_WHITE," | MAC: ",0);
+        kprint(VGA_COLOR_WHITE, "SSID: ", 0);
+        kprint(VGA_COLOR_WHITE, found_aps[i].ssid, 0);
+        kprint(VGA_COLOR_WHITE, " | MAC: ", 0);
         print_mac(found_aps[i].mac);
     }
 }
 
-// Kernel main entry
+// ===========================
+// === Kernel Entry Point ====
+// ===========================
 void kernel_main() {
-    kprint(VGA_COLOR_WHITE,"Starting WiFi scan...\n",1);
+    kprint(VGA_COLOR_WHITE, "Starting WiFi scan...\n", 1);
     scan_wifi_mac_addresses();
 }
 
-
-
-#endif /*__NOVANIX_KERNEL_WIFI_H*/
+#endif /* __NOVANIX_KERNEL_WIFI_H */
