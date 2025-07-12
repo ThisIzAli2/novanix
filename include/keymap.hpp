@@ -50,6 +50,9 @@ uint8_t inline read_key() {
     return scan_code;
 }
 
+/**
+ * @brief A function that handles keyboard functions 
+ */
 inline char* handle_keyboard(uint8_t scan_code){
     
     switch(scan_code){
