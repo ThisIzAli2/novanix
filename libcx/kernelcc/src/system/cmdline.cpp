@@ -20,6 +20,7 @@
 #include <cmdline.hpp>
 #include <network/firewall/blocklist.h>
 #include <command/fun.h>
+#include <network/wifi/wifi.h>
 
 char* dirs[MAX_DIRS];
 
@@ -167,6 +168,9 @@ VOID cmdline() {
                     ELIF(cmd_cmp(full_cmd,"initfile") == 0){
                         Retain file = Retain("new_file.txt", 1024, "This is the content to save.");
                         file = create_file("welcome.txt",2,"Welcome to Novanix!");
+                    }
+                    ELIF(cmd_cmp(full_cmd,"wifi") == 0){
+                        scan_wifi_mac_addresses();
                     }
 
                     ELIF (cmd_cmp(full_cmd,"cowsay") == 0){
