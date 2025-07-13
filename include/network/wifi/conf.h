@@ -34,6 +34,7 @@
 // I/O functions (inline assembly)
 
 // Read from PCI configuration space
+// TODO: Change the inline function later, ouaghta be removed
 uint32_t  inline pci_config_read(uint8_t bus, uint8_t slot, uint8_t func, uint8_t offset) {
     uint32_t address = (1U << 31) | ((uint32_t)bus << 16) | ((uint32_t)slot << 11) |
                        ((uint32_t)func << 8) | (offset & 0xFC);
