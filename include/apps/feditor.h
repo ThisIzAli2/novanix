@@ -26,13 +26,13 @@
 
 
 void inline draw_editor(){
-    INTEGER keycode = read_key();
     char* key_editor = new char[2];
     int index = 0;
-    key_editor = handle_keyboard(keycode);
     char* text = new char[BUFFER_CONSTANT];
 
     do {
+        INTEGER keycode = read_key();
+        key_editor = handle_keyboard(keycode);
         if (key_editor == "-1"){
             continue;
     }
