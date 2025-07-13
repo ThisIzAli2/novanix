@@ -22,6 +22,7 @@
 #include <command/fun.h>
 #include <network/wifi/wifi.h>
 #include <network/wifi/conf.h>
+#include <version.hpp>
 
 char* dirs[MAX_DIRS];
 
@@ -154,6 +155,9 @@ VOID cmdline() {
                         //! Not ready to use yet
                         Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"UDP function not ready yet",1);
                         udp_receive(19216811,19216811,(uint8_t*)3,19);
+                    }
+                    ELIF(cmd_cmp(full_cmd,"version") == 0){
+                        printk(VGA_WHITE,KERNEL_VERSION,1);
                     }
                     ELIF (cmd_cmp(full_cmd,"tasks-show") == 0){
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"System related tasks are fully running...",1);
