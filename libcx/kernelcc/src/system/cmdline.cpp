@@ -24,6 +24,8 @@
 #include <network/wifi/conf.h>
 #include <version.hpp>
 #include <network/drivers/e1000_driver.h>
+#include <apps/feditor.h>
+
 
 char* dirs[MAX_DIRS];
 
@@ -240,6 +242,9 @@ VOID cmdline() {
 
                     ELIF(cmd_cmp(full_cmd,"time") == 0){
                         display_time();
+                    }
+                    ELIF (cmd_cmp(full_cmd,"hawk") == 0){
+                        draw_editor();
                     }
                     ELIF(cmd_cmp(full_cmd,"uname") == 0){
                         Novanix::system::printk(VGA_COLOR_WHITE,"NovaOs",1);

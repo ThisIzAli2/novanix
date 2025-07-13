@@ -18,20 +18,9 @@
 */
 
 #include <apps/feditor.h>
-#include <common/init.hpp>
-
+#include <typing.hpp>
+#include <keymap.hpp>
+// ! 
 
 using namespace Novanix::system;
 
-void draw_editor(){
-    INTEGER keycode = read_key();
-    char* key_editor = new char[2];
-    key_editor = handle_keyboard(keycode);
-
-    do {
-            if (key_editor == "-1"){
-        continue;
-    }
-    } while (read_key() != 0);
-
-}

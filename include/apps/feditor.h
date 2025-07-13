@@ -21,17 +21,26 @@
 #define __NOVANIX_FEDITOR_H
 
 
-#define MAX_LINES 100
-#define MAX_LINE_LEN 128
 
-char text_buffer[MAX_LINES][MAX_LINE_LEN];
-int num_lines = 0;
-
-int cursor_x = 0;
-int cursor_y = 0;
+#include <common/init.hpp>
 
 
-void draw_editor();
+void inline draw_editor(){
+    INTEGER keycode = read_key();
+    char* key_editor = new char[2];
+    int index = 0;
+    key_editor = handle_keyboard(keycode);
+    char* text = new char[BUFFER_CONSTANT];
+
+    do {
+        if (key_editor == "-1"){
+            continue;
+    }
+    printk(Novanix::system::VGA_COLOR_WHITE, key_editor, 0);
+
+    } while (read_key() != 0);
+
+}
 void  insert_char(char c);
 void backspace();
 void save_file(const char* filename);
