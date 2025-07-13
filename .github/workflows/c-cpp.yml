@@ -21,7 +21,6 @@ jobs:
 
     - name: Install Xcode Command Line Tools
       run: |
-        # This installs Xcode CLI tools if missing
         xcode-select --install || echo "Xcode CLI tools already installed"
 
     - name: Build binutils
@@ -40,11 +39,9 @@ jobs:
         mkdir -p build-binutils
         cd build-binutils
 
-        ../binutils-2.40/configure --target=$TARGET --prefix="$PREFIX" --with-sysroot --disable-nls --disable-werror
+        ../binutils-2.40/configure --target=$TARGET --prefix="$PREFIX" --with-sysroot --disable-nls --disable-werror --disable-doc
 
-        # Build without parallel jobs for clearer errors
         make > build-binutils.log 2>&1 || (tail -50 build-binutils.log && exit 1)
-
         make install
 
     - name: Build gcc
@@ -64,9 +61,7 @@ jobs:
 
         ../gcc-13.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --enable-languages=c --without-headers
 
-        # Build only all-gcc without parallel jobs
         make all-gcc > build-gcc.log 2>&1 || (tail -50 build-gcc.log && exit 1)
-
         make install-gcc
 
     - name: Verify i686-elf-gcc
