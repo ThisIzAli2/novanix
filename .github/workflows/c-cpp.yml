@@ -2,9 +2,9 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [main]
+    branches: [ "main" ]
   pull_request:
-    branches: [main]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -16,42 +16,51 @@ jobs:
       PATH: ${{ github.workspace }}/opt/cross/bin:${{ env.PATH }}
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout Repository
+      uses: actions/checkout@v4
 
-    - name: Install dependencies
+    - name: Install Dependencies
       run: |
         brew update
         brew install gmp mpfr libmpc isl zlib qemu wget
 
-    - name: Build binutils
+    - name: Build i686-elf GCC from Source
       run: |
+        mkdir -p $PREFIX
         mkdir -p $HOME/src
         cd $HOME/src
+
+        # === Binutils ===
         wget https://ftp.gnu.org/gnu/binutils/binutils-2.40.tar.gz
-        tar -xzf binutils-2.40.tar.gz
-        mkdir build-binutils && cd build-binutils
+        tar -xf binutils-2.40.tar.gz
+        mkdir -p build-binutils
+        cd build-binutils
         ../binutils-2.40/configure --target=$TARGET --prefix=$PREFIX --with-sysroot --disable-nls --disable-werror
         make -j$(sysctl -n hw.ncpu)
         make install
+        cd ..
 
-    - name: Build GCC
-      run: |
-        cd $HOME/src
+        # === GCC ===
         wget https://ftp.gnu.org/gnu/gcc/gcc-13.2.0/gcc-13.2.0.tar.gz
-        tar -xzf gcc-13.2.0.tar.gz
+        tar -xf gcc-13.2.0.tar.gz
         cd gcc-13.2.0
         ./contrib/download_prerequisites
         cd ..
-        mkdir -p build-gcc && cd build-gcc
+        mkdir -p build-gcc
+        cd build-gcc
         ../gcc-13.2.0/configure --target=$TARGET --prefix=$PREFIX --disable-nls --enable-languages=c --without-headers
         make -j$(sysctl -n hw.ncpu) all-gcc
         make install-gcc
 
-    - name: Verify compiler
-      run: |
-        i686-elf-gcc --version
+    - name: Verify i686-elf-gcc
+      run: i686-elf-gcc --version
 
-    - name: Build and install libcx
+    - name: Make Install (libcx)
       run: |
         cd libcx
         make install
+
+    - name: Make Check (libcx)
+      run: |
+        cd libcx
+        make check
