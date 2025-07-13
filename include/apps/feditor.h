@@ -29,6 +29,7 @@ void inline draw_editor(){
     char* key_editor = new char[2];
     int index = 0;
     char* text = new char[BUFFER_CONSTANT];
+    char* full_prompt = new char[128];
 
     do {
         INTEGER keycode = read_key();
@@ -36,12 +37,20 @@ void inline draw_editor(){
         if (key_editor == "-1"){
             continue;
     }
+
     printk(Novanix::system::VGA_COLOR_WHITE, key_editor, 0);
+
+    if (key_editor[0] == '\n'){
+        for (int k = 0; k < index; ++k){
+            full_prompt[k] = text[k];
+        }
+    }
 
     } while (read_key() != 0);
 
     delete[] key_editor;
     delete[] text;
+    delete[] full_prompt;
 
 }
 void  insert_char(char c);
