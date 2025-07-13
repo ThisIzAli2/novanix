@@ -99,7 +99,6 @@ void e1000_init(){
         uint16_t device = (id >> 16) & 0xFFFF;
 
         if (vendor == 0x8086 && device == 0x100E) {
-            // ✅ This is your Intel 82540EM
             kprint(VGA_COLOR_WHITE, "Intel 82540EM found at bus=", 0);
             print_hex(bus); kprint(VGA_COLOR_WHITE, " slot=", 0); print_hex(slot); kprint(VGA_COLOR_WHITE, "\n", 1);
 
