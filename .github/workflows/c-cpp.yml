@@ -9,19 +9,23 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
 
     - name: Install Dependencies
       run: |
-        brew update
-        brew install gmp mpfr libmpc isl zlib qemu wget texinfo
-
-    - name: Install Xcode Command Line Tools
-      run: |
-        xcode-select --install || echo "Xcode CLI tools already installed"
+        sudo apt-get update
+        sudo apt-get install -y \
+          build-essential \
+          bison \
+          flex \
+          libgmp3-dev \
+          libmpc-dev \
+          libmpfr-dev \
+          texinfo \
+          wget
 
     - name: Build binutils
       run: |
@@ -39,18 +43,15 @@ jobs:
         mkdir -p build-binutils
         cd build-binutils
 
-        ../binutils-2.40/configure \
-          --target=$TARGET \
-          --prefix="$PREFIX" \
-          --with-sysroot \
-          --disable-nls \
-          --disable-werror
-
-        make > build-binutils.log 2>&1 || (tail -50 build-binutils.log && exit 1)
+        ../binutils-2.40/configure --target=$TARGET --prefix="$PREFIX" --with-sysroot --disable-nls --disable-werror
+        make
         make install
 
     - name: Build gcc
       run: |
+        export PREFIX="$HOME/opt/cross"
+        export TARGET=i686-elf
+        export PATH="$PREFIX/bin:$PATH"
         cd $HOME/src
 
         wget https://ftp.gnu.org/gnu/gcc/gcc-13.2.0/gcc-13.2.0.tar.gz
@@ -58,20 +59,13 @@ jobs:
 
         cd gcc-13.2.0
         ./contrib/download_prerequisites
-
         cd ..
 
         mkdir -p build-gcc
         cd build-gcc
 
-        ../gcc-13.2.0/configure \
-          --target=$TARGET \
-          --prefix="$PREFIX" \
-          --disable-nls \
-          --enable-languages=c \
-          --without-headers
-
-        make all-gcc > build-gcc.log 2>&1 || (tail -50 build-gcc.log && exit 1)
+        ../gcc-13.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --enable-languages=c --without-headers
+        make all-gcc
         make install-gcc
 
     - name: Verify i686-elf-gcc
