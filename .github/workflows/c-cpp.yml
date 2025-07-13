@@ -19,7 +19,12 @@ jobs:
         brew update
         brew install gmp mpfr libmpc isl zlib qemu wget
 
-    - name: Build i686-elf GCC from source
+    - name: Install Xcode Command Line Tools
+      run: |
+        # This installs Xcode CLI tools if missing
+        xcode-select --install || echo "Xcode CLI tools already installed"
+
+    - name: Build binutils
       run: |
         mkdir -p $HOME/opt/cross
         export PREFIX="$HOME/opt/cross"
@@ -29,30 +34,39 @@ jobs:
         mkdir -p $HOME/src
         cd $HOME/src
 
-        # Download binutils
         wget https://ftp.gnu.org/gnu/binutils/binutils-2.40.tar.gz
         tar -xzf binutils-2.40.tar.gz
 
         mkdir -p build-binutils
         cd build-binutils
+
         ../binutils-2.40/configure --target=$TARGET --prefix="$PREFIX" --with-sysroot --disable-nls --disable-werror
-        make -j$(sysctl -n hw.ncpu)
+
+        # Build without parallel jobs for clearer errors
+        make > build-binutils.log 2>&1 || (tail -50 build-binutils.log && exit 1)
+
         make install
 
-        cd ..
+    - name: Build gcc
+      run: |
+        cd $HOME/src
 
-        # Download gcc
         wget https://ftp.gnu.org/gnu/gcc/gcc-13.2.0/gcc-13.2.0.tar.gz
         tar -xzf gcc-13.2.0.tar.gz
 
         cd gcc-13.2.0
         ./contrib/download_prerequisites
+
         cd ..
 
         mkdir -p build-gcc
         cd build-gcc
+
         ../gcc-13.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --enable-languages=c --without-headers
-        make -j$(sysctl -n hw.ncpu) all-gcc
+
+        # Build only all-gcc without parallel jobs
+        make all-gcc > build-gcc.log 2>&1 || (tail -50 build-gcc.log && exit 1)
+
         make install-gcc
 
     - name: Verify i686-elf-gcc
