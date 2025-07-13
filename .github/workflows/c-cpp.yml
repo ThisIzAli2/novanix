@@ -102,7 +102,7 @@ jobs:
 
     - name: Make Install (libcx)
       run: |
-        export PATH="$HOME/opt/cross/bin:$PATH"
+        # export PATH="$HOME/opt/cross/bin:$PATH"
         cd libcx
         make install
 
