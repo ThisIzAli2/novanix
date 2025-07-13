@@ -17,7 +17,7 @@ jobs:
     - name: Install Dependencies
       run: |
         brew update
-        brew install gmp mpfr libmpc isl zlib qemu wget
+        brew install gmp mpfr libmpc isl zlib qemu wget texinfo
 
     - name: Install Xcode Command Line Tools
       run: |
@@ -39,7 +39,12 @@ jobs:
         mkdir -p build-binutils
         cd build-binutils
 
-        ../binutils-2.40/configure --target=$TARGET --prefix="$PREFIX" --with-sysroot --disable-nls --disable-werror --disable-doc
+        ../binutils-2.40/configure \
+          --target=$TARGET \
+          --prefix="$PREFIX" \
+          --with-sysroot \
+          --disable-nls \
+          --disable-werror
 
         make > build-binutils.log 2>&1 || (tail -50 build-binutils.log && exit 1)
         make install
@@ -59,7 +64,12 @@ jobs:
         mkdir -p build-gcc
         cd build-gcc
 
-        ../gcc-13.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --enable-languages=c --without-headers
+        ../gcc-13.2.0/configure \
+          --target=$TARGET \
+          --prefix="$PREFIX" \
+          --disable-nls \
+          --enable-languages=c \
+          --without-headers
 
         make all-gcc > build-gcc.log 2>&1 || (tail -50 build-gcc.log && exit 1)
         make install-gcc
