@@ -40,6 +40,9 @@ void inline draw_editor(){
 
     } while (read_key() != 0);
 
+    delete[] key_editor;
+    delete[] text;
+
 }
 void  insert_char(char c);
 void backspace();
