@@ -20,6 +20,6 @@
 #define __VERSION_HPP
 
 
-#define KERNEL_VERSION "       0.0.1"
+#define KERNEL_VERSION "       0.01"
 
 #endif
