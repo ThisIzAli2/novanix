@@ -48,6 +48,7 @@
 // PCI access
 
 // MMIO access
+static volatile uint32_t* mmio_base;
 
 
 

@@ -18,7 +18,6 @@
 */
 #include <network/drivers/e1000_driver.h>
 
-volatile uint32_t* mmio_base;
 
 static inline void mmio_write(uint32_t offset, uint32_t value) {
     *((volatile uint32_t *)((uintptr_t)mmio_base + offset)) = value;
