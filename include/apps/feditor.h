@@ -12,4 +12,11 @@ int cursor_x = 0;
 int cursor_y = 0;
 
 
+void draw_editor();
+void  insert_char(char c);
+void backspace();
+void save_file(const char* filename);
+void editor(const char* filename);
+
+
 #endif /*__NOVANIX_FEDITOR_H*/
