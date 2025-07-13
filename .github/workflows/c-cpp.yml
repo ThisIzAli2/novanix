@@ -8,59 +8,66 @@ on:
 
 jobs:
   build:
+
     runs-on: macos-latest
 
-    env:
-      PREFIX: ${{ github.workspace }}/opt/cross
-      TARGET: i686-elf
-      PATH: ${{ github.workspace }}/opt/cross/bin:${{ env.PATH }}
-
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
     - name: Install Dependencies
       run: |
         brew update
         brew install gmp mpfr libmpc isl zlib qemu wget
 
-    - name: Build i686-elf GCC from Source
+    - name: Build i686-elf GCC from source
       run: |
-        mkdir -p $PREFIX
+        mkdir -p $HOME/opt/cross
+        export PREFIX="$HOME/opt/cross"
+        export TARGET=i686-elf
+        export PATH="$PREFIX/bin:$PATH"
+
         mkdir -p $HOME/src
         cd $HOME/src
 
-        # === Binutils ===
+        # Download binutils
         wget https://ftp.gnu.org/gnu/binutils/binutils-2.40.tar.gz
-        tar -xf binutils-2.40.tar.gz
+        tar -xzf binutils-2.40.tar.gz
+
         mkdir -p build-binutils
         cd build-binutils
-        ../binutils-2.40/configure --target=$TARGET --prefix=$PREFIX --with-sysroot --disable-nls --disable-werror
+        ../binutils-2.40/configure --target=$TARGET --prefix="$PREFIX" --with-sysroot --disable-nls --disable-werror
         make -j$(sysctl -n hw.ncpu)
         make install
+
         cd ..
 
-        # === GCC ===
+        # Download gcc
         wget https://ftp.gnu.org/gnu/gcc/gcc-13.2.0/gcc-13.2.0.tar.gz
-        tar -xf gcc-13.2.0.tar.gz
+        tar -xzf gcc-13.2.0.tar.gz
+
         cd gcc-13.2.0
         ./contrib/download_prerequisites
         cd ..
+
         mkdir -p build-gcc
         cd build-gcc
-        ../gcc-13.2.0/configure --target=$TARGET --prefix=$PREFIX --disable-nls --enable-languages=c --without-headers
+        ../gcc-13.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --enable-languages=c --without-headers
         make -j$(sysctl -n hw.ncpu) all-gcc
         make install-gcc
 
     - name: Verify i686-elf-gcc
-      run: i686-elf-gcc --version
+      run: |
+        export PATH="$HOME/opt/cross/bin:$PATH"
+        i686-elf-gcc --version
 
     - name: Make Install (libcx)
       run: |
+        export PATH="$HOME/opt/cross/bin:$PATH"
         cd libcx
         make install
 
     - name: Make Check (libcx)
       run: |
+        export PATH="$HOME/opt/cross/bin:$PATH"
         cd libcx
         make check
