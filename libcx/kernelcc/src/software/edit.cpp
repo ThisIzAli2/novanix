@@ -28,8 +28,10 @@ char* draw_editor(){
     char* text = new char[BUFFER_CONSTANT];
     char* full_prompt = new char[128];
 
-    do {
-        INTEGER keycode = read_key();
+
+
+    while (read_key() != 0){
+                INTEGER keycode = read_key();
         key_editor = handle_keyboard(keycode);
         if (key_editor == "-1"){
             continue;
@@ -41,14 +43,10 @@ char* draw_editor(){
         for (int k = 0; k < index; ++k){
             full_prompt[k] = text[k];
         }
+        goto end;
     }
-
-    } while (read_key() != 0);
-
-    delete[] key_editor;
-    delete[] text;
-    delete[] full_prompt;
-
+    }
+    end:
     return full_prompt;
 
 }
