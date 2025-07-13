@@ -410,12 +410,12 @@ VOID cmdline() {
                     i++;
                 }
             } else {
+                // free the buffer 
                 Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"\nThe entered prompt is too long.\n",0);
                 Novanix::common::MemoryOperations::memset(full_cmd,0,sizeof(full_cmd));
                 Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"\n",0);
                 PRINT_PROMPT
                 index = 0;
-                // free the buffer 
             }
         }
     } while (read_key() != 0);  // Loop until a key is pressed
