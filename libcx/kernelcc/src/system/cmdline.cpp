@@ -23,6 +23,7 @@
 #include <network/wifi/wifi.h>
 #include <network/wifi/conf.h>
 #include <version.hpp>
+#include <network/drivers/e1000_driver.h>
 
 char* dirs[MAX_DIRS];
 

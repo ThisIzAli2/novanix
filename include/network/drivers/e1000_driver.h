@@ -1,7 +1,26 @@
+/**
+ * @author Ali Mirmohammad
+ * @file e1000_driver.h
+ ** This file is part of Novanix.
+
+**Novanix is free software: you can redistribute it and/or modify
+**it under the terms of the GNU Affero General Public License as published by
+**the Free Software Foundation, either version 3 of the License, or
+**(at your option) any later version.
+
+**Novanix is distributed in the hope that it will be useful,
+**but WITHOUT ANY WARRANTY; without even the implied warranty of
+**MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+**GNU Affero General Public License for more details.
+
+**You should have received a copy of the GNU Affero General Public License
+**along with Novanix. If not, see <https://www.gnu.org/licenses/>.
+*/
 #ifndef __E1000_DRIVER_H
 #define __E1000_DRIVER_H
 
 #include <common/init.hpp>
+#include <network/wifi/conf.h>
 
 
 
@@ -27,22 +46,11 @@
 #define ETH_FRAME_SIZE 1518
 
 // PCI access
-uint32_t pci_config_read(uint8_t bus, uint8_t slot, uint8_t func, uint8_t offset) {
-    uint32_t address = (1U << 31) | ((bus << 16) | (slot << 11) |
-                                     (func << 8) | (offset & 0xFC));
-    outl(0xCF8, address);
-    return inl(0xCFC);
-}
 
 // MMIO access
-volatile uint32_t* mmio_base;
 
-static inline void mmio_write(uint32_t offset, uint32_t value) {
-    *((volatile uint32_t *)((uintptr_t)mmio_base + offset)) = value;
-}
-static inline uint32_t mmio_read(uint32_t offset) {
-    return *((volatile uint32_t *)((uintptr_t)mmio_base + offset));
-}
+
+
 
 // Descriptor structs
 typedef struct {
