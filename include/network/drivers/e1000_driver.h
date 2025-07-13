@@ -87,4 +87,14 @@ void e1000_send_packet(uint8_t* data, uint16_t len);
 // Receive packets (basic polling)
 int e1000_poll_receive(uint8_t* out_buf);
 
+void e1000_init();
+
+uint32_t inline get_mmio_base(uint8_t bus, uint8_t slot, uint8_t func) {
+    // Read BAR0 (offset 0x10) from PCI config space
+    uint32_t bar0 = pci_config_read(bus, slot, func, 0x10);
+
+    // Mask off the lower bits (last 4) used for flags
+    return bar0 & ~0xF;
+}
+
 #endif /*__E1000_DRIVER_H*/

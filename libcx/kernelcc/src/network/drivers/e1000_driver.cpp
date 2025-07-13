@@ -90,3 +90,22 @@ int e1000_poll_receive(uint8_t* out_buf) {
 
     return len;
 }
+
+void e1000_init(){
+    for (uint8_t bus = 0; bus < 256; bus++) {
+    for (uint8_t slot = 0; slot < 32; slot++) {
+        uint32_t id = pci_config_read(bus, slot, 0, 0x00);
+        uint16_t vendor = id & 0xFFFF;
+        uint16_t device = (id >> 16) & 0xFFFF;
+
+        if (vendor == 0x8086 && device == 0x100E) {
+            // ✅ This is your Intel 82540EM
+            kprint(VGA_COLOR_WHITE, "Intel 82540EM found at bus=", 0);
+            print_hex(bus); kprint(VGA_COLOR_WHITE, " slot=", 0); print_hex(slot); kprint(VGA_COLOR_WHITE, "\n", 1);
+
+            uint32_t mmio_base = get_mmio_base(bus, slot, 0);
+            e1000_init(mmio_base);  // 👈 Now you can call the driver
+        }
+    }
+}
+}

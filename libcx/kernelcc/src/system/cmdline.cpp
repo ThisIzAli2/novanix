@@ -361,6 +361,9 @@ VOID cmdline() {
                     ELIF (cmd_cmp(full_cmd,"shutdown") == 0){
                         Novanix::system::printk(VGA_WHITE,"Use shutdown-[option]",1);
                     }
+                    ELIF(cmd_cmp(full_cmd,"ethernet") == 0){
+                        e1000_init();
+                    }
                     ELIF (full_cmd[0] == 's' and full_cmd[1] == 'u' and full_cmd[2] == 'd' and full_cmd[3] == 'o' and full_cmd[4] == '-' and full_cmd[5] == 's' and full_cmd[6] == 'u'){
                         char enter_password[PASSWORD_BUFFER_SIZE];
                         INTEGER counter = 0;
