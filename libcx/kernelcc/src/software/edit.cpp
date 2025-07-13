@@ -1,6 +1,6 @@
 /**
  * @author Ali Mirmohammad
- * @file feditor.h
+ * @file editor.cpp
  ** This file is part of Novanix.
 
 **Novanix is free software: you can redistribute it and/or modify
@@ -17,15 +17,12 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#ifndef __NOVANIX_FEDITOR_H
-#define __NOVANIX_FEDITOR_H
 
 
+#include <software/edit.h>
 
-#include <common/init.hpp>
-
-
-void inline draw_editor(){
+using namespace Novanix::system;
+char* draw_editor(){
     char* key_editor = new char[2];
     int index = 0;
     char* text = new char[BUFFER_CONSTANT];
@@ -52,11 +49,6 @@ void inline draw_editor(){
     delete[] text;
     delete[] full_prompt;
 
+    return full_prompt;
+
 }
-void  insert_char(char c);
-void backspace();
-void save_file(const char* filename);
-void editor(const char* filename);
-
-
-#endif /*__NOVANIX_FEDITOR_H*/

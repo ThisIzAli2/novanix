@@ -16,7 +16,7 @@
 **You should have received a copy of the GNU Affero General Public License
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
-
+#include <software/edit.h>
 #include <cmdline.hpp>
 #include <network/firewall/blocklist.h>
 #include <command/fun.h>
@@ -24,7 +24,6 @@
 #include <network/wifi/conf.h>
 #include <version.hpp>
 #include <network/drivers/e1000_driver.h>
-#include <apps/feditor.h>
 
 
 char* dirs[MAX_DIRS];

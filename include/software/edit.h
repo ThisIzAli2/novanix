@@ -1,6 +1,6 @@
 /**
  * @author Ali Mirmohammad
- * @file editor.cpp
+ * @file feditor.h
  ** This file is part of Novanix.
 
 **Novanix is free software: you can redistribute it and/or modify
@@ -17,10 +17,14 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include <apps/feditor.h>
-#include <typing.hpp>
-#include <keymap.hpp>
-// ! 
+#ifndef __NOVANIX_FEDITOR_H
+#define __NOVANIX_FEDITOR_H
 
-using namespace Novanix::system;
 
+#include <common/init.hpp>
+
+char* draw_editor();
+
+
+
+#endif /*__NOVANIX_FEDITOR_H*/
