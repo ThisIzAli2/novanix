@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: C/C++ Cross Compiler CI
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # use Linux for better compatibility
 
     steps:
     - uses: actions/checkout@v4
@@ -25,7 +25,8 @@ jobs:
           libmpc-dev \
           libmpfr-dev \
           texinfo \
-          wget
+          wget \
+          libisl-dev
 
     - name: Build binutils
       run: |
@@ -43,11 +44,17 @@ jobs:
         mkdir -p build-binutils
         cd build-binutils
 
-        ../binutils-2.40/configure --target=$TARGET --prefix="$PREFIX" --with-sysroot --disable-nls --disable-werror
+        ../binutils-2.40/configure \
+          --target=$TARGET \
+          --prefix="$PREFIX" \
+          --with-sysroot \
+          --disable-nls \
+          --disable-werror
+
         make
         make install
 
-    - name: Build gcc
+    - name: Build gcc (with C and C++)
       run: |
         export PREFIX="$HOME/opt/cross"
         export TARGET=i686-elf
@@ -64,14 +71,34 @@ jobs:
         mkdir -p build-gcc
         cd build-gcc
 
-        ../gcc-13.2.0/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --enable-languages=c --without-headers
-        make all-gcc
-        make install-gcc
+        ../gcc-13.2.0/configure \
+          --target=$TARGET \
+          --prefix="$PREFIX" \
+          --disable-nls \
+          --enable-languages=c,c++ \
+          --without-headers
 
-    - name: Verify i686-elf-gcc
+        make all-gcc
+        make all-target-libgcc
+        make install-gcc
+        make install-target-libgcc
+
+    - name: Verify i686-elf-g++ exists
       run: |
         export PATH="$HOME/opt/cross/bin:$PATH"
-        i686-elf-gcc --version
+        i686-elf-g++ --version
+
+    - name: Build Kernel
+      run: |
+        export PATH="$HOME/opt/cross/bin:$PATH"
+        mkdir -p kernelcc/obj/common
+        i686-elf-g++ -m32 -g -D NovanixKERNEL \
+          -I kernelcc/include \
+          -Wall -fno-omit-frame-pointer -fno-use-cxa-atexit -nostdlib -fno-builtin \
+          -fno-exceptions -fno-rtti -fno-leading-underscore -Wno-write-strings \
+          -fpermissive -Wno-unknown-pragmas \
+          -I ../include -I ../arch/alpha/include \
+          -c -o kernelcc/obj/common/random.o kernelcc/src/common/random.cpp
 
     - name: Make Install (libcx)
       run: |
