@@ -21,6 +21,7 @@
 #include <network/firewall/blocklist.h>
 #include <command/fun.h>
 #include <network/wifi/wifi.h>
+#include <network/wifi/conf.h>
 
 char* dirs[MAX_DIRS];
 
@@ -170,7 +171,7 @@ VOID cmdline() {
                         file = create_file("welcome.txt",2,"Welcome to Novanix!");
                     }
                     ELIF(cmd_cmp(full_cmd,"wifi") == 0){
-                        scan_wifi_mac_addresses();
+                        // scan_wifi_mac_addresses();
                     }
 
                     ELIF (cmd_cmp(full_cmd,"cowsay") == 0){
@@ -298,6 +299,9 @@ VOID cmdline() {
                     }
                     ELIF (cmd_cmp(full_cmd,"chess") == 0){
                         Novanix::system::printk(VGA_WHITE,"\xE2\x99\x94\n",1);
+                    }
+                    ELIF (cmd_cmp(full_cmd,"pci") == 0){
+                        scan_pci_devices();
                     }
 
                     ELIF(cmd_cmp(full_cmd,"firewall") == 0){
