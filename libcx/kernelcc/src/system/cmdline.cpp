@@ -30,7 +30,6 @@ char* dirs[MAX_DIRS];
 INTEGER counter = 0;
 
 
-#define VGA_WHITE VGA_COLOR_WHITE
     
 #define PRINT_PROMPT Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "%s>", 0,current_directory);
 

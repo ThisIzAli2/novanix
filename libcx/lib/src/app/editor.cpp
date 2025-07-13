@@ -21,3 +21,8 @@
 #include <common/init.hpp>
 
 
+using namespace Novanix::system;
+
+void draw_editor(){
+    
+}

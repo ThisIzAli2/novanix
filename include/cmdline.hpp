@@ -51,5 +51,8 @@
 VOID cmdline();
 
 
+#ifndef VGA_WHITE
+#define VGA_WHITE VGA_COLOR_WHITE
+#endif 
 
 #endif /*__CMD_LINE_NOVANIX_KERNEL_HPP*/ 
