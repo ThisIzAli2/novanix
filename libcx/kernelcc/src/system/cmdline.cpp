@@ -158,29 +158,36 @@ VOID cmdline() {
                         again:
                             Novanix::system::printk(VGA_COLOR_RED,"You do not have sudo access, try again.",1);
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"net-udp") == 0){
                         //! Not ready to use yet
                         Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"UDP function not ready yet",1);
                         udp_receive(19216811,19216811,(uint8_t*)3,19);
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"version") == 0){
                         printk(VGA_WHITE,KERNEL_VERSION,1);
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"tasks-show") == 0){
                         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"System related tasks are fully running...",1);
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"gameplay") == 0){
                         Novanix::system::printk(VGA_COLOR_WHITE,LETTER,1);
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"sound") == 0){
                         play_beep(1000); // Play 1kHz tone
                        
                         stop_beep();     // Stop the sound
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"initfile") == 0){
                         Retain file = Retain("new_file.txt", 1024, "This is the content to save.");
                         file = create_file("welcome.txt",2,"Welcome to Novanix!");
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"wifi") == 0){
                         // scan_wifi_mac_addresses();
                     }
