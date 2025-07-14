@@ -96,5 +96,5 @@ char* generate_random_string(uint32_t len) {
 }
 
 void create_file_function(char* data){
-    __create_file(generate_random_string(7),data,sizeof(data));
+    __create_file(generate_random_string(7),data,String::strlen(data)+1);
 }
