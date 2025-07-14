@@ -285,6 +285,7 @@ VOID cmdline() {
                     ELIF (cmd_cmp(full_cmd, "comm-send") == 0 || cmd_cmp(full_cmd, "comm-recv") == 0) {
                         comm_command_handler(full_cmd);
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'c' && full_cmd[1] == 'd'){
                         INTEGER *i_for_cd = new INTEGER;
                         INTEGER *counter_k = new INTEGER;
