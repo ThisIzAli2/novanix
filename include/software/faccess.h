@@ -19,5 +19,7 @@
 #ifndef __NOVANIX_KERNEL_F_ACCESS_H
 #define __NOVANIX_KERNEL_F_ACCESS_H
 
+void read_file(char* file_name);
+
 
 #endif /*__NOVANIX_KERNEL_F_ACCESS_H*/
