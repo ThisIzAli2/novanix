@@ -146,6 +146,7 @@ VOID cmdline() {
                         Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"TCP function not ready yet",1);
                         tcp_receive(19216811,19216811,(uint8_t*)3,19);
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"clear") == 0){
                         clear_screen();
                     }
