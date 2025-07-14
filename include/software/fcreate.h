@@ -23,6 +23,6 @@
 #include <common/init.hpp>
 
 
-void create_file(const char* name,char* data,int size);
+void create_file(char* name,char* data,int size);
 
 #endif /*__FCREATE_NOVANIX_H*/

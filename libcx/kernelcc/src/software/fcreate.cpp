@@ -19,3 +19,13 @@
 
 
 #include <software/fcreate.h>
+#include <software/help/ops.h>
+
+using namespace Novanix::common;
+
+void create_file(char* name,char* data,int size){
+    static char binary_output[1024];
+    if (size > 0){
+        MemoryOperations::memset(name,string_to_binary(data),size);
+    }
+}
