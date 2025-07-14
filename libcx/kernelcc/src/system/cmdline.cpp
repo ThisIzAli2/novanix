@@ -341,6 +341,7 @@ VOID cmdline() {
                     ELIF (cmd_cmp(full_cmd,"chess") == 0){
                         Novanix::system::printk(VGA_WHITE,"\xE2\x99\x94\n",1);
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"pci") == 0){
                         scan_pci_devices();
                     }
