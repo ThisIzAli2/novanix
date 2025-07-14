@@ -26,7 +26,7 @@
 using namespace Novanix::common;
 using namespace Novanix::system;
 
-static uint32_t seed = 123456789;
+static uint32_t seed = 1;
 char buffer[16 + 1];
 
 
@@ -58,29 +58,24 @@ static inline uint32_t rand_next() {
     return seed;
 }
 
-// Generate a random string with a maximum size of 4
-char* generate_random_string(uint32_t len) {
-    static char buffer[5]; // max 4 chars + null terminator
-
-    if (len > 4) {
-        len = 4;
-    }
-
+// Always generate exactly 4-character random string
+char* generate_random_string() {
+    static char buffer[5]; // 4 chars + null terminator
     static const char charset[] =
-        "ABCD"
-        "abcde"
-        "0123";
-
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz"
+        "0123456789";
+    
     uint32_t charset_size = sizeof(charset) - 1;
 
-    for (uint32_t i = 0; i < len; i++) {
+    for (uint32_t i = 0; i < 4; i++) {
         buffer[i] = charset[rand_next() % charset_size];
     }
 
-    buffer[len] = '\0';
+    buffer[4] = '\0';
     return buffer;
 }
 
 void create_file_function(char* data){
-    __create_file(generate_random_string(4),data,String::strlen(data)+1);
+    __create_file(generate_random_string(),data,String::strlen(data)+1);
 }
