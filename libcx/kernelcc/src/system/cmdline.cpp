@@ -272,6 +272,7 @@ VOID cmdline() {
                     ELIF (cmd_cmp(full_cmd,"hawk") == 0){
                         create_file_function(draw_editor());
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"uname") == 0){
                         Novanix::system::printk(VGA_COLOR_WHITE,"NovaOs",1);
                         
