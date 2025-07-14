@@ -24,7 +24,7 @@
 #include <fs/fs.h>
 
 file_t __create_file(char* name,char* data,int size);
-void create_file_function();
+void create_file_function(char* data);
 
 
 #endif /*__FCREATE_NOVANIX_H*/

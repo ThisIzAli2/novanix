@@ -62,6 +62,9 @@ file_t __create_file(char* name,char* data,int size){
         file.size = size;
     }
     printk(VGA_COLOR_WHITE,"File created!",1);
+    printk(VGA_COLOR_WHITE,file.name,1);
+    printk(VGA_COLOR_WHITE,file.data,1);
+    printk(VGA_COLOR_WHITE,stringify(file.size),1);
     return file;
 }
 
@@ -86,7 +89,6 @@ char* generate_random_string(uint32_t len) {
     return buffer;
 }
 
-void create_file_function(){
-    char* data = draw_editor();
+void create_file_function(char* data){
     __create_file(generate_random_string(4),data,sizeof(data));
 }

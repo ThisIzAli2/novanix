@@ -20,33 +20,42 @@
 
 
 #include <software/edit.h>
+#include <common/init.hpp>
+
+using namespace Novanix::common;
 
 using namespace Novanix::system;
-char* draw_editor(){
+char* draw_editor() {
     char* key_editor = new char[2];
     int index = 0;
     char* text = new char[BUFFER_CONSTANT];
     char* full_prompt = new char[128];
 
-
-
-    while (read_key() != 0){
-                INTEGER keycode = read_key();
+    while (read_key() != 0) {
+        INTEGER keycode = read_key();
         key_editor = handle_keyboard(keycode);
-        if (key_editor == "-1"){
-            continue;
-    }
 
-    printk(Novanix::system::VGA_COLOR_WHITE, key_editor, 0);
 
-    if (key_editor[0] == '\n'){
-        for (int k = 0; k < index; ++k){
-            full_prompt[k] = text[k];
+        // Proper string comparison
+
+        // Print the key to screen
+        printk(Novanix::system::VGA_COLOR_WHITE, key_editor, 0);
+
+        // Store the key in text buffer
+        if (index < BUFFER_CONSTANT - 1 && key_editor[0] != '\n') {
+            text[index++] = key_editor[0];
+            text[index] = '\0';  // Always null-terminate
         }
-        goto end;
-    }
-    }
-    end:
-    return full_prompt;
 
+        // If Enter is pressed
+        if (key_editor[0] == '\n') {
+            for (int k = 0; k < index; ++k) {
+                full_prompt[k] = text[k];
+            }
+            full_prompt[index] = '\0';
+            goto exit;            
+        }
+    }
+    exit:
+    return full_prompt;
 }
