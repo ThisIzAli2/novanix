@@ -345,7 +345,7 @@ VOID cmdline() {
                     ELIF (cmd_cmp(full_cmd,"pci") == 0){
                         scan_pci_devices();
                     }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"firewall") == 0){
                         firewall_append(0xC0A80101);
                         
