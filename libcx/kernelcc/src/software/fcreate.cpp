@@ -27,7 +27,6 @@ using namespace Novanix::common;
 using namespace Novanix::system;
 
 static uint32_t seed = 1;
-char buffer[16 + 1];
 
 
 
