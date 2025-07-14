@@ -19,7 +19,12 @@
 #ifndef __NOVANIX_KERNEL_F_ACCESS_H
 #define __NOVANIX_KERNEL_F_ACCESS_H
 
+#include <software/fcreate.h>
+
+#define COUNT_FILES(files)  sizeof(files) / file_t
+
 void read_file(char* file_name);
+file_t* find_file_by_name(file_t* files, int file_count, const char* target_name);
 
 
 #endif /*__NOVANIX_KERNEL_F_ACCESS_H*/

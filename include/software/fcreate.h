@@ -24,7 +24,7 @@
 #include <fs/fs.h>
 
 
-#define MAX_FILES 10
+#define MAX_FILES 30
 static file_t files[MAX_FILES];
 
 file_t __create_file(char* name,char* data,int size);
