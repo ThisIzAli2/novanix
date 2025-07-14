@@ -316,7 +316,7 @@ VOID cmdline() {
 
 
                     }
-                    
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'e' && full_cmd[1] == 'c' && full_cmd[2] == 'h' && full_cmd[3] == 'o'){
                         INTEGER *i_for_echo_cmd = new INTEGER;
                         INTEGER *count = new INTEGER;
@@ -332,6 +332,8 @@ VOID cmdline() {
                         delete i_for_echo_cmd;
                         delete count;
                         delete[] to_print;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
                     }
                     ELIF(cmd_cmp(full_cmd,"heart") == 0){
                         Novanix::system::printk(VGA_WHITE,"\x03\n",1);
