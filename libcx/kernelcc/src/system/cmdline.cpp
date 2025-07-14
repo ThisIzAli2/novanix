@@ -355,7 +355,7 @@ VOID cmdline() {
                         
                             Novanix::system::printk(VGA_COLOR_WHITE,stringify(0xC0A80101),1);
                     }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 's' && full_cmd[1] == 'e' && full_cmd[2] == 't' && full_cmd[3] == '-' && full_cmd[4] == 'p' && full_cmd[5] == 'a' && full_cmd[6] == 's' && full_cmd[7] == 's' && full_cmd[8] == 'w' && full_cmd[9] == 'o' && full_cmd[10] == 'r' && full_cmd[11] == 'd'){
                         INTEGER *i_pass = new INTEGER;
                         INTEGER *count_on = new INTEGER;
