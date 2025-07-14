@@ -350,7 +350,7 @@ VOID cmdline() {
                         firewall_append(0xC0A80101);
                         
                     }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"firewall-check") == 0){
                         
                             Novanix::system::printk(VGA_COLOR_WHITE,stringify(0xC0A80101),1);
