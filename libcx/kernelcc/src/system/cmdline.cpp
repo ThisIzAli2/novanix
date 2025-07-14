@@ -57,6 +57,9 @@ __always_inline INTEGER handle(const char* str){
     }
 
 }
+#ifdef DEV
+#undef DEV
+#endif
 /**
  * Handle the command line in the kernel, does the command control of the CUI
  */

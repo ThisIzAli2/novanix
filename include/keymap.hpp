@@ -267,7 +267,7 @@ inline char* handle_keyboard(uint8_t scan_code){
         shift = true;
         count = 1;
         }
-        return "-1";
+        // return "-1";
         // case 58:
         // return "caps";
 
@@ -280,7 +280,7 @@ inline char* handle_keyboard(uint8_t scan_code){
 
         #else  
 
-        return "-1";
+        return "";
         
         #endif
         
