@@ -149,6 +149,7 @@ VOID cmdline() {
                     ELIF (cmd_cmp(full_cmd,"clear") == 0){
                         clear_screen();
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"halt") == 0){
                         if (!have_access){
                             goto again;
