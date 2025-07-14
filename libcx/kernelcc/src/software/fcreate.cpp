@@ -26,6 +26,32 @@
 using namespace Novanix::common;
 using namespace Novanix::system;
 
+static uint32_t seed = 123456789;
+char buffer[16 + 1];
+
+uint32_t inline rand_next() {
+    seed = (1103515245 * seed + 12345) & 0x7fffffff;
+    return seed;
+}
+
+// Generates a random string of length `len`
+// `out` must point to a buffer at least `len+1` bytes large
+void inline generate_random_string(char* out, uint32_t len) {
+    static const char charset[] =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz"
+        "0123456789";
+
+    uint32_t charset_size = sizeof(charset) - 1;
+
+    for (uint32_t i = 0; i < len; i++) {
+        uint32_t rand_val = rand_next();
+        out[i] = charset[rand_val % charset_size];
+    }
+    out[len] = '\0'; // Null-terminate
+    
+}
+
 file_t __create_file(char* name,char* data,int size){
     file_t file;
     static char binary_output[1024];
@@ -39,7 +65,28 @@ file_t __create_file(char* name,char* data,int size){
     return file;
 }
 
+char* generate_random_string(uint32_t len) {
+    static char buffer[256]; // max length 255 chars + null terminator
+    if (len >= sizeof(buffer)) {
+        len = sizeof(buffer) - 1;
+    }
+
+    static const char charset[] =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz"
+        "0123456789";
+
+    uint32_t charset_size = sizeof(charset) - 1;
+
+    for (uint32_t i = 0; i < len; i++) {
+        uint32_t rand_val = rand_next();
+        buffer[i] = charset[rand_val % charset_size];
+    }
+    buffer[len] = '\0';
+    return buffer;
+}
+
 void create_file_function(){
     char* data = draw_editor();
-    __create_file("name.txt",data,sizeof(data));
+    __create_file(generate_random_string(4),data,sizeof(data));
 }
