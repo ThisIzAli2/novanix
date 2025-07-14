@@ -83,9 +83,6 @@ VOID cmdline() {
         key = handle_keyboard(keycode);  // Get the key pressed
         
         //! Correct Here
-        if (key == "-1"){
-            continue;
-        }
         
         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, key, 0);
 
