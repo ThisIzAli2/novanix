@@ -268,6 +268,7 @@ VOID cmdline() {
                     ELIF(cmd_cmp(full_cmd,"time") == 0){
                         display_time();
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"hawk") == 0){
                         create_file_function(draw_editor());
                     }
