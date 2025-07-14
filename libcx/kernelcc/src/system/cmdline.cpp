@@ -135,12 +135,15 @@ VOID cmdline() {
                             shutdown_sys_now();
                         }
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"pwd") == 0){
                         fs_manager->printCurrentDir();
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"time") == 0){
                         display_clock();
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"net-tcp") == 0){
                         //! Not ready to use yet
                         Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"TCP function not ready yet",1);
