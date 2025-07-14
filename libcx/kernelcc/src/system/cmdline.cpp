@@ -24,6 +24,7 @@
 #include <network/wifi/conf.h>
 #include <version.hpp>
 #include <network/drivers/e1000_driver.h>
+#include <software/fcreate.h>
 
 
 char* dirs[MAX_DIRS];
@@ -244,6 +245,7 @@ VOID cmdline() {
                     }
                     ELIF (cmd_cmp(full_cmd,"hawk") == 0){
                         draw_editor();
+                        create_file_function();
                     }
                     ELIF(cmd_cmp(full_cmd,"uname") == 0){
                         Novanix::system::printk(VGA_COLOR_WHITE,"NovaOs",1);

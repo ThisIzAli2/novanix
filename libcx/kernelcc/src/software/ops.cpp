@@ -17,7 +17,7 @@ void char_to_binary(uint8_t c, char* buffer) {
 }
 
 // Example function to convert an entire string to binary
-uint32_t string_to_binary_int(const char* str) {
+uint32_t string_to_binary(const char* str) {
     uint32_t result = 0;
     for (int i = 0; i < 4 && str[i] != '\0'; ++i) {
         result <<= 8;                  // Make room for next 8 bits
@@ -26,7 +26,7 @@ uint32_t string_to_binary_int(const char* str) {
     return result;
 }
 
-char binary_to_char(const char* bin) {
+char  binary_to_char(const char* bin) {
     char result = 0;
     for (int i = 0; i < 8; ++i) {
         result <<= 1;

@@ -20,12 +20,26 @@
 
 #include <software/fcreate.h>
 #include <software/help/ops.h>
+#include <fs/fs.h>
+#include <software/edit.h>
 
 using namespace Novanix::common;
+using namespace Novanix::system;
 
-void create_file(char* name,char* data,int size){
+file_t __create_file(char* name,char* data,int size){
+    file_t file;
     static char binary_output[1024];
     if (size > 0){
         MemoryOperations::memset(name,string_to_binary(data),size);
+        file.name = name;
+        file.data = data;
+        file.size = size;
     }
+    printk(VGA_COLOR_WHITE,"File created!",1);
+    return file;
+}
+
+void create_file_function(){
+    char* data = draw_editor();
+    __create_file("name.txt",data,sizeof(data));
 }
