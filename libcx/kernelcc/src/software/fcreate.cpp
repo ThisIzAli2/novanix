@@ -30,25 +30,27 @@ static uint32_t seed = 1;
 
 
 
-file_t __create_file(char* name,char* data,int size){
+file_t __create_file(char* name, char* data, int size) {
     file_t file;
-    static char binary_output[1024];
     static INTEGER i = 0;
-    if (size > 0){
-        MemoryOperations::memset(name,string_to_binary(data),size);
+
+    if (size > 0) {
         file.name = name;
         file.data = data;
         file.size = size;
+
+        files[i].name = file.name;
+        files[i].data = file.data;
+        files[i].size = file.size;
+
+        printk(VGA_COLOR_WHITE, "File created!", 1);
+        printk(VGA_COLOR_WHITE, files[i].name, 1);
+        printk(VGA_COLOR_WHITE, files[i].data, 1);
+        printk(VGA_COLOR_WHITE, stringify(files[i].size), 1);
+
+        i++;
     }
-    files[i].name = file.name;
-    files[i].data = file.data;
-    files[i].size = file.size;
-    printk(VGA_COLOR_WHITE,"File created!",1);
-    printk(VGA_COLOR_WHITE,files[i].name,1);
-    printk(VGA_COLOR_WHITE,files[i].data,1);
-    // printk(VGA_COLOR_WHITE,stringify(i),1);
-    printk(VGA_COLOR_WHITE,stringify(files[i].size),1);
-    i++;
+
     return file;
 }
 
