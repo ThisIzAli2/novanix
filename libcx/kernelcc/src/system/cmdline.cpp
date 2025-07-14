@@ -333,7 +333,6 @@ VOID cmdline() {
                         delete count;
                         delete[] to_print;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
                     }
                     ELIF(cmd_cmp(full_cmd,"heart") == 0){
                         Novanix::system::printk(VGA_WHITE,"\x03\n",1);
