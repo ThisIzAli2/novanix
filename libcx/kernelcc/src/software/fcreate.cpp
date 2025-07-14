@@ -65,7 +65,6 @@ static inline uint32_t rand_next() {
 char* generate_random_string() {
     static char buffer[5]; // 4 chars + null terminator
     static const char charset[] =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         "abcdefghijklmnopqrstuvwxyz"
         "0123456789";
     
