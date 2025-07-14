@@ -428,6 +428,7 @@ VOID cmdline() {
                         } else {
                             Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "Wrong password", 1);
                         }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     }
                     ELIF (cmd_cmp(full_cmd, "Welcome to Nova!") == 0){
                     
