@@ -25,6 +25,7 @@
 #include <version.hpp>
 #include <network/drivers/e1000_driver.h>
 #include <software/fcreate.h>
+#include <software/faccess.h>
 
 
 char* dirs[MAX_DIRS];
@@ -215,7 +216,22 @@ VOID cmdline() {
                         create_file(to_print,"");
                         read_file(to_print);
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ELIF (full_cmd[0] == 'c' && full_cmd[1] == 'a' && full_cmd[2] == 'w' && full_cmd[3] == 'k'){
+                        INTEGER *i_for_hawk = new INTEGER;
+                        INTEGER *counter_k = new INTEGER;
+                        char* to_print = new char[1024];
+                        *counter_k = 0;
+                        to_print[0] = '\0';
 
+                        for (*i_for_hawk = 5;full_cmd[*i_for_hawk] != '\0'; ++(*i_for_hawk)){
+                            to_print[*counter_k] = full_cmd[*i_for_hawk];
+                            ++(*counter_k);
+                            to_print[*counter_k] = '\0'; 
+                        }
+                        read_file(to_print);
+                    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
                         INTEGER *i_for_mkdir = new INTEGER;
                         INTEGER *counter_k = new INTEGER;
