@@ -55,16 +55,22 @@ void inline generate_random_string(char* out, uint32_t len) {
 file_t __create_file(char* name,char* data,int size){
     file_t file;
     static char binary_output[1024];
+    static INTEGER i = 0;
     if (size > 0){
         MemoryOperations::memset(name,string_to_binary(data),size);
         file.name = name;
         file.data = data;
         file.size = size;
     }
+    files[i].name = file.name;
+    files[i].data = file.data;
+    files[i].size = file.size;
     printk(VGA_COLOR_WHITE,"File created!",1);
-    printk(VGA_COLOR_WHITE,file.name,1);
-    printk(VGA_COLOR_WHITE,file.data,1);
-    printk(VGA_COLOR_WHITE,stringify(file.size),1);
+    printk(VGA_COLOR_WHITE,files[i].name,1);
+    printk(VGA_COLOR_WHITE,files[i].data,1);
+    // printk(VGA_COLOR_WHITE,stringify(i),1);
+    printk(VGA_COLOR_WHITE,stringify(files[i].size),1);
+    i++;
     return file;
 }
 
@@ -90,5 +96,5 @@ char* generate_random_string(uint32_t len) {
 }
 
 void create_file_function(char* data){
-    __create_file(generate_random_string(4),data,sizeof(data));
+    __create_file(generate_random_string(7),data,sizeof(data));
 }

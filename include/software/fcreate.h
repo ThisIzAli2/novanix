@@ -23,6 +23,10 @@
 #include <common/init.hpp>
 #include <fs/fs.h>
 
+
+#define MAX_FILES 10
+static file_t files[MAX_FILES];
+
 file_t __create_file(char* name,char* data,int size);
 void create_file_function(char* data);
 
