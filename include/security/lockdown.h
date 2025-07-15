@@ -4,6 +4,8 @@
 
 #include <common/init.hpp>
 
+#define HALT_COMMAND asm volatile ("hlt")
+
 enum LOCKDOWN_REASON{
     CORRUPT = 0,
 };
