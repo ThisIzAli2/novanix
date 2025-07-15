@@ -80,7 +80,7 @@ VOID cmdline() {
 
         key = handle_keyboard(keycode);  // Get the key pressed
         
-        counter_terminal++;
+        ++counter_terminal;
         //! For test
         // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, stringify(counter_terminal), 0);
         
