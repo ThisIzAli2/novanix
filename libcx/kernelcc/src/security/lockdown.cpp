@@ -19,7 +19,9 @@
 */
 #include <security/lockdown.h>
 
-
+/**
+ * @brief Put the system into the lockdown.
+ */
 VOID put_system_lockdown(enum LOCKDOWN_REASON reason){
     switch (reason){
         case ROOT_ACCESS_FAILED:
