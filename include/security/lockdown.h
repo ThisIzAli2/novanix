@@ -34,4 +34,6 @@ static enum LOCKDOWN_REASON lockdown_reason;
 
 VOID put_system_lockdown(enum LOCKDOWN_REASON reason);
 
+
+
 #endif /*__NOVANIX_KERNEL_LOCKDOWN_H*/
