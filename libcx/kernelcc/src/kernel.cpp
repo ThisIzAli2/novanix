@@ -1,5 +1,6 @@
 /**
  * @file kernel.cpp
+ * @author Ali Mirmohammad
  * 
  ** This file is part of Novanix.
 
