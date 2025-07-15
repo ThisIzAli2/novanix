@@ -1,0 +1,1 @@
+This part is not used in any of this project, as was just copied because of dependencies. This directory is about to be removed.
