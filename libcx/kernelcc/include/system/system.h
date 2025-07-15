@@ -137,7 +137,7 @@ namespace Novanix
             #endif
 
             static void Start();
-            static void Panic();
+            static void Init();
         };
     }
 } 

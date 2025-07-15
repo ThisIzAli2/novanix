@@ -22,7 +22,7 @@ uint32_t Exceptions::DivideByZero(uint32_t esp)
     BootConsole::WriteLine();
 
     Exceptions::ShowStacktrace(esp);
-    System::Panic();
+    System::Init();
     return esp; // We don't get here
 }
 uint32_t Exceptions::GeneralProtectionFault(uint32_t esp)
@@ -48,7 +48,7 @@ uint32_t Exceptions::GeneralProtectionFault(uint32_t esp)
     BootConsole::WriteLine();
 
     Exceptions::ShowStacktrace(esp);
-    System::Panic();
+    System::Init();
     return esp; // We don't get here
 }
 uint32_t Exceptions::PageFault(uint32_t esp)
@@ -110,7 +110,7 @@ uint32_t Exceptions::PageFault(uint32_t esp)
     BootConsole::WriteLine();
 
     Exceptions::ShowStacktrace(esp);
-    System::Panic();
+    System::Init();
     return esp; // We don't get here
 }
 
@@ -135,7 +135,7 @@ uint32_t Exceptions::FloatingPointException(uint32_t esp)
     BootConsole::WriteLine();
 
     Exceptions::ShowStacktrace(esp);
-    System::Panic();
+    System::Init();
     return esp; // We don't get here
 }
 uint32_t Exceptions::StackSegmentFault(uint32_t esp)
@@ -158,7 +158,7 @@ uint32_t Exceptions::StackSegmentFault(uint32_t esp)
     BootConsole::WriteLine();
 
     Exceptions::ShowStacktrace(esp);
-    System::Panic();
+    System::Init();
     return esp; // We don't get here
 }
 
@@ -184,7 +184,7 @@ uint32_t Exceptions::HandleException(uint32_t number, uint32_t esp)
                 BootConsole::Write("Unhandled exception: "); BootConsole::WriteLine(Convert::IntToString(number));
                 BootConsole::WriteLine("Halting System");
                 BootConsole::Write("Instruction Pointer: 0x"); Print::printfHex32(((CPUState*)esp)->EIP); BootConsole::WriteLine();
-                System::Panic();
+                System::Init();
             }
     }
     return esp;

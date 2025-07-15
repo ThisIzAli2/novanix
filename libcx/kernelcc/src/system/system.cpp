@@ -289,7 +289,7 @@ VOID System::Start()
 /**
  * @brief This is actually supposed to be the main function.
  */
-void System::Panic()
+void System::Init()
 {
     Log(Error, "-------------------------------");
     Log(Error, "--------- Kernel Halted -------");

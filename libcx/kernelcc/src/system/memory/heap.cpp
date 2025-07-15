@@ -36,7 +36,7 @@ VOID KernelHeap::Initialize(uint32_t start, uint32_t end)
     Log(Info, "KernelHeap: Initializing (Size of MemoryHeader = %d)", sizeof(MemoryHeader));
     if (start % PAGE_SIZE != 0 || end % PAGE_SIZE != 0) {
         Log(Error, "KernelHeap: Start or End is not page aligned");
-        System::Panic();
+        System::Init();
     }
 
     // Update static variables
@@ -81,7 +81,7 @@ VOID* KernelHeap::InternalAllocate(uint32_t size)
     // Check for error
     if(freeBlock == 0) {
         Log(Error, "KernelHeap: Out of Heap space!. This should never happen!");
-        System::Panic();
+        System::Init();
         heapMutex.Unlock(); // Not really required but perhaps panic function will return in the future
         return 0;
     }
@@ -127,7 +127,7 @@ VOID KernelHeap::free(VOID* ptr)
     if(block->magic != MEMORY_HEADER_MAGIC || !block->allocated) {
         Log(Error, "KernelHeap: Block is not allocated or magic is not correct");
         Log(Error, "Block = %x Alloc = %d Size = %d", (uint32_t)block, block->allocated, block->size);
-        System::Panic();
+        System::Init();
     }
     
     // Block is not allocated anymore

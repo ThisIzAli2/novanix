@@ -103,7 +103,7 @@ void IdleThread()
             #if ENABLE_MEMORY_CHECKS
             if(KernelHeap::CheckForErrors() == true) {
                 Log(Error, "Memory is not intact anymore, halting system!");
-                System::Panic();
+                System::Init();
             }
             #endif
 
@@ -260,7 +260,7 @@ extern "C" void kernelMain(const multiboot_info_t* mbi, unsigned int multiboot_m
         // Just start running the idle thread so we at least detect device changes
         System::scheduler->ForceSwitch();
     }
-    System::Panic();
+    System::Init();
 
     // Check if kernel is run from HardDisk
     // If not than ask the user if they would like to run the installer
@@ -298,7 +298,7 @@ extern "C" void kernelMain(const multiboot_info_t* mbi, unsigned int multiboot_m
     {
         if(System::gfxDevice->SelectBestVideoMode() == false) {
             Log(Error, "Could not set a video mode, halting system");
-            System::Panic();
+            System::Init();
         }
 
         Log(Info, "Switched to graphics mode, phys=%x", System::gfxDevice->framebufferPhys);
@@ -311,5 +311,5 @@ extern "C" void kernelMain(const multiboot_info_t* mbi, unsigned int multiboot_m
     }
     
     Log(Error, "Could not load process init.bin, halting system");
-    System::Panic();
+    System::Init();
 }
