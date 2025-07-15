@@ -97,7 +97,7 @@ VOID cmdline() {
 
                 // Check if Enter key is pressed
                 if (key[0] == '\n') {
-                    counter_terminal = 5;
+                    counter_terminal = 6;
                     // Copy cmd to full_cmd when Enter is pressed
                     for (INTEGER k = 0; k < index; ++k) {
                         full_cmd[k] = cmd[k];
