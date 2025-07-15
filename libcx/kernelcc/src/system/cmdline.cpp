@@ -28,6 +28,7 @@
 #include <software/faccess.h>
 #include <graphics/graphics.h>
 #include <security/sudo.h>
+#include <security/lockdown.h>
 
 char* dirs[MAX_DIRS];
 
@@ -429,9 +430,18 @@ VOID cmdline() {
                             Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "SUDO access Granted!", 1);
                             have_access = true;
                         } else {
+
+                            if (counts_failed_sudo < 5){
+                                goto fail;
+                            } else{
+                                lockdown_reason = ROOT_ACCESS_FAILED;
+                                put_system_lockdown(lockdown_reason);
+                            }
+                            fail:
                             counts_failed_sudo++;
                             Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "Wrong password", 1);
                             Novanix::system::printk(Novanix::system::VGA_COLOR_RED, "Kernel will go into lockdown if you try to brute force the sudo access.", 1);
+                            
                         }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     }
