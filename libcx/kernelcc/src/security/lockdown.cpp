@@ -20,6 +20,6 @@
 #include <security/lockdown.h>
 
 
-VOID put_system_lockdown(){
+VOID put_system_lockdown(enum LOCKDOWN_REASON reason){
     
 }
