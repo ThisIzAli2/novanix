@@ -37,6 +37,10 @@ void inline clear_screen() {
     }
 }
 
+
+
+
+
 void inline backspace_func(int row, int *column_ptr) {
     unsigned char* video_memory = (unsigned char*) VGA_ADDRESS;
 

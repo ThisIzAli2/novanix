@@ -26,6 +26,8 @@
 
 #define VGA_ADDRESS 0xB8000
 #define SCREEN_WIDTH 80
+#define VGA_COMMAND_PORT 0x3D4
+#define VGA_DATA_PORT 0x3D5
 #define SCREEN_HEIGHT 25
 
 // Current cursor position
@@ -94,20 +96,37 @@ VOID __always_inline scroll_screen() {
 }
 
 
-VOID inline move_cursor_back() {
-    // Directly move the cursor back by interacting with the VGA buffer or console control functions.
-    // Example for VGA text mode:
-    outb(0x3D4, 14);  // High byte of cursor position
-    INTEGER pos = (Novanix::core::inportb(0x3D5) << 8);
-    outb(0x3D4, 15);  // Low byte of cursor position
-    pos |= Novanix::core::inportb(0x3D5);
-    if (pos > 0) pos--;  // Move cursor back
-    outb(0x3D4, 14);
-    outb(0x3D5, (pos >> 8) & 0xFF);
-    outb(0x3D4, 15);
-    outb(0x3D5, pos & 0xFF);
+uint16_t inline get_cursor_position() {
+    uint16_t pos = 0;
+    // Tell VGA we want to read the high byte of cursor position
+    outb(VGA_COMMAND_PORT, 14);
+    pos = inb(VGA_DATA_PORT) << 8;  // high byte
+    // Tell VGA we want to read the low byte of cursor position
+    outb(VGA_COMMAND_PORT, 15);
+    pos |= inb(VGA_DATA_PORT);      // low byte
+    return pos;
 }
 
+
+
+// Function to set cursor position (offset in characters)
+void inline set_cursor_position(uint16_t pos) {
+    // Send the high byte
+    outb(VGA_COMMAND_PORT, 14);
+    outb(VGA_DATA_PORT, (pos >> 8) & 0xFF);
+    // Send the low byte
+    outb(VGA_COMMAND_PORT, 15);
+    outb(VGA_DATA_PORT, pos & 0xFF);
+}
+
+// Move cursor back by one character
+void inline move_cursor_back() {
+    uint16_t pos = get_cursor_position();
+    if (pos > 0) {
+        pos--;
+        set_cursor_position(pos);
+    }
+}
 VOID inline clear_last_char() {
     move_cursor_back();
     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, " ", 0);

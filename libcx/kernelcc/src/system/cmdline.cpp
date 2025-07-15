@@ -86,7 +86,7 @@ VOID cmdline() {
         // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, stringify(counter_terminal), 0);
         
         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, key, 0);
-
+        // move_cursor_back();
         if (key != nullptr) {
             if (index < 127) {
 
