@@ -285,6 +285,10 @@ VOID System::Start()
     System::ProcStandardOut = new StandardOutSteam();
     Log(Info, "System Initialized");
 }
+
+/**
+ * @brief This is actually supposed to be the main function.
+ */
 void System::Panic()
 {
     Log(Error, "-------------------------------");
