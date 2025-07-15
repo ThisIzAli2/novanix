@@ -91,14 +91,7 @@ VOID cmdline() {
 
                 // This might vary
                 if (keycode == 142 || keycode == 14){
-                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "\b \b", 0);  // Move cursor back and clear the character
-                    if (index > 0) {
-
-                        // index--;  // Decrement index to remove the last character from the buffer
-                    // cmd[--index] = '\0';  // Null-terminate the string
-                    // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "\b \b", 0);  // Move cursor back and clear the character
-
-                }
+                    backspace_func();
                 }
 
                 // Check if Enter key is pressed

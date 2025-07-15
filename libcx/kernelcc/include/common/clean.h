@@ -24,9 +24,20 @@
 #define VGA_ROWS 25
 #define WHITE_ON_BLACK 0x0F
 
+#define BACK_COLUMNS 1
+#define BACK_ROWS 3
+
 void inline clear_screen() {
     unsigned char* video_memory = (unsigned char*) VGA_ADDRESS;
     for (int i = 0; i < VGA_COLUMNS * VGA_ROWS; i++) {
+        video_memory[i * 2] = ' ';               // Blank character
+        video_memory[i * 2 + 1] = WHITE_ON_BLACK; // Attribute
+    }
+}
+
+void inline backspace_func(){
+    unsigned char* video_memory = (unsigned char*) VGA_ADDRESS;
+    for (int i = 0; i < BACK_COLUMNS * BACK_ROWS; i++) {
         video_memory[i * 2] = ' ';               // Blank character
         video_memory[i * 2 + 1] = WHITE_ON_BLACK; // Attribute
     }

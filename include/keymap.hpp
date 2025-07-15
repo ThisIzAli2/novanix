@@ -28,6 +28,7 @@
 //TODO: Might want to remove init.hpp from including
 #include <common/init.hpp>
 #include <drivers/ports.h>
+#include <common/clean.h>
 
 static BOOL shift = false;
 static INTEGER count = 0;
@@ -255,7 +256,8 @@ inline char* handle_keyboard(uint8_t scan_code){
         return "p";
         case 14:
         case 142:
-        return "\b";
+        backspace_func();
+        return "";
         case 244:
         return "left";
         case 42:
