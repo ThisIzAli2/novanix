@@ -76,7 +76,6 @@ VOID cmdline() {
     // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, stringify(counter_terminal), 0);
     do {
         // Read the key and handle the input
-        // read_key();
         INTEGER keycode = read_key();  // Store the result of read_key()
 
         key = handle_keyboard(keycode);  // Get the key pressed
