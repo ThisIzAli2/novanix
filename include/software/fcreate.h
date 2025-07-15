@@ -24,11 +24,16 @@
 #include <fs/fs.h>
 
 
+#define DEFAULT_FILE_SIZE 4
+
 #define MAX_FILES 30
 static file_t files[MAX_FILES];
 
 file_t __create_file(char* name,char* data,int size);
 void create_file_function(char* data);
+file_t __create_empty_file(char* name);
+
+VOID create_empty_file(char* name);
 
 
 #endif /*__FCREATE_NOVANIX_H*/
