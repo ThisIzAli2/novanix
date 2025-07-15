@@ -100,7 +100,6 @@ VOID cmdline() {
                     full_cmd[index] = '\0';  // Null-terminate the full_cmd string
 
                     // Print the full command entered
-                    // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, stringify((int)key), 0);
 
                     // Compare full_cmd with "help"
                     if (cmd_cmp(full_cmd, "help") == 0) {
@@ -379,8 +378,6 @@ VOID cmdline() {
 
                         Novanix::system::printk(VGA_COLOR_WHITE,stringify(Novanix::common::String::strlen(password_saved)),1);
 
-                        // Novanix::system::printk(VGA_COLOR_WHITE,stringify(Novanix::common::String::strlen(password_saved)),1);
-                        // Novanix::system::printk(VGA_COLOR_WHITE,stringify(sizeof(password_saved)),1);
                         password_saved[n++] = '\0';
                         Novanix::system::printk(VGA_WHITE,"Your password is:",0);
                         Novanix::system::printk(VGA_WHITE,password_saved,1);
@@ -422,7 +419,6 @@ VOID cmdline() {
                         // Simulate password entry and comparison
                         // Assume `enter_password` is filled with user input from some mechanism
                         // Replace the following line with actual input logic
-                        // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, passwrd, 1);
 
                         if (cmd_cmp(user_password, passwrd) == 0) {
                             Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "SUDO access Granted!", 1);
