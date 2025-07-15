@@ -27,7 +27,7 @@
 #include <software/fcreate.h>
 #include <software/faccess.h>
 #include <graphics/graphics.h>
-
+#include <security/sudo.h>
 
 char* dirs[MAX_DIRS];
 
@@ -429,6 +429,7 @@ VOID cmdline() {
                             Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "SUDO access Granted!", 1);
                             have_access = true;
                         } else {
+                            counts_failed_sudo++;
                             Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "Wrong password", 1);
                         }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
