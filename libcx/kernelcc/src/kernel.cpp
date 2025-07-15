@@ -1,6 +1,7 @@
 /**
  * @file kernel.cpp
- ** This file is part of AliNix.
+ * 
+ ** This file is part of Novanix.
 
 **AliNix is free software: you can redistribute it and/or modify
 **it under the terms of the GNU Affero General Public License as published by
