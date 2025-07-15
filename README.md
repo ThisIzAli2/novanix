@@ -20,6 +20,9 @@
 ---
 
 
+## Note
+Some of the codes of this project are not used and are about to be removed.
+
 ## Screenshots
 ![alt text](<etc/photos/Screenshot 2025-07-05 at 10.11.10 PM.png>)
 ![alt text](<etc/Screenshot 2025-07-14 at 2.42.55 PM.png>)
