@@ -35,5 +35,5 @@ void gui() {
 
     draw_text(60, 60, "Welcome to Nova GUI!", 15); // White text
 
-    while (1); // Freeze here to keep GUI showing
+    // while (1); // Freeze here to keep GUI showing
 }
