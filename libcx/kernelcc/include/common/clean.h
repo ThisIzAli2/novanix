@@ -37,10 +37,14 @@ void inline clear_screen() {
 
 void inline backspace_func(){
     unsigned char* video_memory = (unsigned char*) VGA_ADDRESS;
-    for (int i = 0; i < BACK_COLUMNS * BACK_ROWS; i++) {
-        video_memory[i * 2] = ' ';               // Blank character
-        video_memory[i * 2 + 1] = WHITE_ON_BLACK; // Attribute
-    }
+    // Position of the last character cell
+
+    int row = 24;
+    int column = 0;
+
+    int offset = (row * 80 + column) * 2;
+    video_memory[offset] = ' ';                  // ASCII space
+    video_memory[offset + 1] = WHITE_ON_BLACK;   // Attribute
 }
 
 #endif
