@@ -431,6 +431,7 @@ VOID cmdline() {
                         } else {
                             counts_failed_sudo++;
                             Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "Wrong password", 1);
+                            Novanix::system::printk(Novanix::system::VGA_COLOR_RED, "Kernel will go into lockdown if you try to brute force the sudo access.", 1);
                         }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     }
