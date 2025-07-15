@@ -38,8 +38,7 @@ INTEGER counter = 0;
 
 
 
-
-
+int counter_terminal;
 
 #define str_cmp cmd_cmp
 
@@ -74,7 +73,7 @@ VOID cmdline() {
     
     // Print the prompt
     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, ">", 0);
-
+    // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, stringify(counter_terminal), 0);
     do {
         // Read the key and handle the input
         // read_key();
@@ -82,7 +81,9 @@ VOID cmdline() {
 
         key = handle_keyboard(keycode);  // Get the key pressed
         
-        //! Correct Here
+        counter_terminal++;
+        //! For test
+        // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, stringify(counter_terminal), 0);
         
         Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, key, 0);
 
@@ -90,12 +91,13 @@ VOID cmdline() {
             if (index < 127) {
 
                 // This might vary
-                if (keycode == 142 || keycode == 14){
-                    backspace_func();
-                }
+                // if (keycode == 142 || keycode == 14){
+                //     backspace_func(24,counter_terminal);
+                // }
 
                 // Check if Enter key is pressed
                 if (key[0] == '\n') {
+                    counter_terminal = 5;
                     // Copy cmd to full_cmd when Enter is pressed
                     for (INTEGER k = 0; k < index; ++k) {
                         full_cmd[k] = cmd[k];

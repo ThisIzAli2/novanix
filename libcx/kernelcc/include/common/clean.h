@@ -27,6 +27,8 @@
 #define BACK_COLUMNS 1
 #define BACK_ROWS 3
 
+#include <cmdline.hpp>
+
 void inline clear_screen() {
     unsigned char* video_memory = (unsigned char*) VGA_ADDRESS;
     for (int i = 0; i < VGA_COLUMNS * VGA_ROWS; i++) {
@@ -35,16 +37,17 @@ void inline clear_screen() {
     }
 }
 
-void inline backspace_func(){
+void inline backspace_func(int row, int column) {
     unsigned char* video_memory = (unsigned char*) VGA_ADDRESS;
-    // Position of the last character cell
 
-    int row = 24;
-    int column = 0;
-
+    // Calculate offset in video memory: each cell = 2 bytes (char + attr)
     int offset = (row * 80 + column) * 2;
-    video_memory[offset] = ' ';                  // ASCII space
-    video_memory[offset + 1] = WHITE_ON_BLACK;   // Attribute
+
+    // Set the character byte to 0 (ASCII NUL, usually invisible)
+    video_memory[offset] = 0;
+
+    // Set attribute byte to black on black (invisible)
+    video_memory[offset + 1] = 0x00;
 }
 
 #endif

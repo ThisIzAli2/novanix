@@ -50,6 +50,8 @@
 
 VOID cmdline();
 
+extern int counter_terminal;
+
 
 #ifndef VGA_WHITE
 #define VGA_WHITE VGA_COLOR_WHITE

@@ -256,7 +256,7 @@ inline char* handle_keyboard(uint8_t scan_code){
         return "p";
         case 14:
         case 142:
-        backspace_func();
+        backspace_func(24,counter_terminal);
         return "";
         case 244:
         return "left";
