@@ -1,0 +1,1 @@
+This directory is the main directory module of the Novanix kernel and Operating system
