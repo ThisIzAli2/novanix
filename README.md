@@ -21,7 +21,7 @@
 
 
 ## Note
-Some of the codes of this project are not used and are about to be removed.
+Some of the codes of this project are not used and are about to be removed. Those parts were copied but are not used, mainly because of dependency. 
 
 ## Screenshots
 ![alt text](<etc/photos/Screenshot 2025-07-05 at 10.11.10 PM.png>)
