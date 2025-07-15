@@ -90,10 +90,6 @@ VOID cmdline() {
         if (key != nullptr) {
             if (index < 127) {
 
-                // This might vary
-                // if (keycode == 142 || keycode == 14){
-                //     backspace_func(24,counter_terminal);
-                // }
 
                 // Check if Enter key is pressed
                 if (key[0] == '\n') {
