@@ -31,7 +31,7 @@
 
 VOID __keep_inline clear_screen() {
     unsigned char* video_memory = (unsigned char*) VGA_ADDRESS;
-    for (int i = 0; i < VGA_COLUMNS * VGA_ROWS; i++) {
+    for (INTEGER i = 0; i < VGA_COLUMNS * VGA_ROWS; i++) {
         video_memory[i * 2] = ' ';               // Blank character
         video_memory[i * 2 + 1] = WHITE_ON_BLACK; // Attribute
     }
