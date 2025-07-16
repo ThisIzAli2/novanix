@@ -255,6 +255,7 @@ VOID cmdline() {
 
                         for (*i_for_file = 6; full_cmd[*i_for_file] != '\0'; ++(*i_for_file)){
                             to_save[*counter_k] = full_cmd[*i_for_file];
+                            ++(*counter_k);
                             to_save[*counter_k] = '\0';
                         }
                         create_empty_file(to_save);
