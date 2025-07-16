@@ -17,7 +17,8 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef __NOVANIX_KERNEL_KEYMAP_HPP
+#define __NOVANIX_KERNEL_KEYMAP_HPP
 
 #define KEYBOARD_DATA_PORT 0x60
 #define KEYBOARD_STATUS_PORT 0x64
@@ -304,3 +305,6 @@ extern "C" VOID  inline keyboard_interrupt_handler() {
     // Acknowledge the interrupt (this is typically done by sending a signal to the PIC)
     // send_eoi(IRQ1);
 }
+
+
+#endif /*__NOVANIX_KERNEL_KEYMAP_HPP*/
