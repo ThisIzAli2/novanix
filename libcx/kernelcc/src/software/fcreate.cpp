@@ -79,6 +79,9 @@ char* generate_random_string() {
     return buffer;
 }
 
+/**
+ * @brief a function that creates a file, gives the data as an input.
+ */
 void create_file_function(char* data){
     __create_file(generate_random_string(),data,String::strlen(data)+1);
 }
