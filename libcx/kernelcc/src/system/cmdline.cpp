@@ -27,6 +27,7 @@
  * shutdown-now : Show down the system instantly.
  * halt : Halt the kernel, if there was a series threat.
  * cal : Show the calendar.
+ * time: Show the system time.
  */
 
 #include <software/edit.h>
