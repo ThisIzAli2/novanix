@@ -28,6 +28,7 @@
  * halt : Halt the kernel, if there was a series threat.
  * cal : Show the calendar.
  * time: Show the system time.
+ * hawk : The operating system's text editor.
  */
 
 #include <software/edit.h>
