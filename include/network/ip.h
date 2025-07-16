@@ -41,7 +41,7 @@ struct ipv4_header {
     uint8_t payload[];
 };
 
-void ip_receive(uint8_t* data, uint16_t size);
+VOID ip_receive(uint8_t* data, uint16_t size);
 void ip_send(uint32_t dest_ip, uint8_t protocol, void* payload, uint16_t size);
 
 
