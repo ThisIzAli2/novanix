@@ -17,6 +17,11 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 
+
+/**
+ * There are functions for handling keyboard defined here.
+ */
+
 #ifndef __NOVANIX_KERNEL_KEYMAP_HPP
 #define __NOVANIX_KERNEL_KEYMAP_HPP
 
