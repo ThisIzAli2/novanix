@@ -43,6 +43,8 @@
  * CRITICAL_DRIVER_FAILURE : 	A kernel driver crashed or caused corruption.
  * PAGE_TABLE_CORRUPTION : 	Page tables were modified by unauthorized process.
  * KERNEL_CODE_MODIFIED : 	Kernel instruction page changed in memory (could be self-modifying code).
+ * EXCESSIVE_PRIVILEGE_ESCALATION : Multiple failed attempts to elevate privileges.
+ * 
  */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
