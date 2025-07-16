@@ -40,20 +40,4 @@ void inline clear_screen() {
 
 
 
-
-void inline backspace_func(int row, int *column_ptr) {
-    unsigned char* video_memory = (unsigned char*) VGA_ADDRESS;
-
-    if (*column_ptr <= 0)
-        return; // prevent underflow
-
-    // Move cursor back one position
-    (*column_ptr)--;
-
-    int offset = (row * 80 + *column_ptr) * 2;
-
-    // Erase the character by writing ASCII 0 + black-on-black attribute
-    video_memory[offset] = 0;
-    video_memory[offset + 1] = 0x00;
-}
 #endif
