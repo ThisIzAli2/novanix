@@ -39,7 +39,7 @@
 #define __keep_inline inline
 #endif //__keep_inline
 
-static __keep_inline void outl(uint16_t port, uint32_t val) {
+static __keep_inline VOID outl(uint16_t port, uint32_t val) {
     asm volatile("outl %0, %1" : : "a"(val), "Nd"(port));
 }
 static __keep_inline uint32_t inl(uint16_t port) {
