@@ -40,6 +40,8 @@
  * STACK_OVERFLOW_DETECTED : Stack smashing detected (via canaries or overflow checks).
  * INVALID_USER_PRIVILEGE : 	User process tried to execute a kernel-level instruction.
  * DMA_ATTACK_DETECTED : DMA-capable device tried to access sensitive memory.
+ * CRITICAL_DRIVER_FAILURE : 	A kernel driver crashed or caused corruption.
+ * 
  */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
