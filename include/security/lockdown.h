@@ -35,6 +35,7 @@
  * IO_PORT_ACCESS_VIOLATION : Unauthorized process accessed a hardware I/O port.
  * KERNEL_IMAGE_TAMPERED : 	Kernel's code segment has been modified after boot.
  * UNSIGNED_MODULE_LOADED : 	Module loaded into kernel was not verified or signed.
+ * DEBUGGER_ATTACHED : 	A debugging tool has hooked into the kernel.
  * 
  */
 enum LOCKDOWN_REASON{
