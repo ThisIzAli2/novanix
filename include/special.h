@@ -29,6 +29,7 @@
 #ifndef __NOVANIX_KERNEL_SPECIAL_H
 #define __NOVANIX_KERNEL_SPECIAL_H
 
+#define INTEGRAL_SIGN "∫"
 
 
 
