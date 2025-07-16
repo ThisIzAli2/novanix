@@ -36,6 +36,8 @@
 
 void put_pixel(int x, int y, uint8_t color);
 
+void draw_circle(int xc, int yc, int radius, uint8_t color);
+
 
 
 #endif /*__NOVANIX_KERNEL_CIRCLE_H*/
