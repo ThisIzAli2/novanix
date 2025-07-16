@@ -39,6 +39,7 @@
  * UNAUTHORIZED_SYSCALL : 	A syscall was called from an unexpected ring or address.
  * STACK_OVERFLOW_DETECTED : Stack smashing detected (via canaries or overflow checks).
  * INVALID_USER_PRIVILEGE : 	User process tried to execute a kernel-level instruction.
+ * DMA_ATTACK_DETECTED : DMA-capable device tried to access sensitive memory.
  */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
