@@ -30,6 +30,7 @@
  * Main Lockdown reasons.
  * Undeclared: We don't know yet.
  * ROOT_ACCESS_FAILED : There has been an attempt to brute force to sudo password.
+ * ROOTKIT_DETECTED : There has been a rootkit in ther kernel files or system.
  */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
