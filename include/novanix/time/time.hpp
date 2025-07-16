@@ -16,7 +16,8 @@
 **You should have received a copy of the GNU Affero General Public License
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
-#pragma once
+#ifndef __NOVANIX_KERNEL_TIME_HPP
+#define __NOVANIX_KERNEL_TIME_HPP
 
 
 #include <common/types.h>
@@ -149,3 +150,5 @@ void inline read_rtc() {
             if(year < CURRENT_YEAR) year += 100;
       }
 }
+
+#endif /*__NOVANIX_KERNEL_TIME_HPP*/
