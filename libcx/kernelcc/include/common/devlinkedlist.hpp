@@ -25,7 +25,7 @@ template <typename T>
 class SimpleList {
 public:
     T* data;         // Array to store data of type T
-    int capacity;    // Total capacity of the list
+    INTEGER capacity;    // Total capacity of the list
     int size;        // Current size of the list
 
     // Constructor to initialize the list with a specific capacity
