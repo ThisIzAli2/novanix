@@ -16,6 +16,14 @@
 **You should have received a copy of the GNU Affero General Public License
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
+
+
+
+/**
+ * This is the main file for the command line interface (CLI), where all the commands for the operating system are defined here.
+ * 
+ */
+
 #include <software/edit.h>
 #include <cmdline.hpp>
 #include <network/firewall/blocklist.h>
