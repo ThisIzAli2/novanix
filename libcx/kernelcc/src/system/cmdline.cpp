@@ -25,6 +25,7 @@
  * Here are some important commands of the system:
  * sudo-su [password] : Write the password to access sudo.
  * shutdown-now : Show down the system instantly.
+ * halt : Halt the kernel, if there was a series threat.
  */
 
 #include <software/edit.h>
