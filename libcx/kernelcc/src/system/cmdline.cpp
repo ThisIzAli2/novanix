@@ -24,6 +24,7 @@
  * 
  * Here are some important commands of the system:
  * sudo-su [password] : Write the password to access sudo.
+ * shutdown-now : Show down the system instantly.
  */
 
 #include <software/edit.h>
