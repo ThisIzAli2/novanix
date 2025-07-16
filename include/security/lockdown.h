@@ -48,7 +48,7 @@
  * WATCHDOG_TIMEOUT	:Kernel did not respond to watchdog timer — possible hang.
  * INVALID_INTERRUPT_VECTOR	: A bogus interrupt handler or vector called.
  * MALICIOUS_PACKET_RECEIVED : Network stack detected a crafted exploit packet.
- * 
+ * READ_FROM_KERNEL_ONLY_MEMORY	: User process tried to read protected kernel-only memory.
  */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
