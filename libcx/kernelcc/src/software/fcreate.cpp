@@ -28,14 +28,14 @@ using namespace Novanix::system;
 
 static uint32_t seed = 1;
 
-
+static INTEGER i_file;
 
 /**
  * @brief A function that creates a file for the system
  */
 file_t __create_file(char* name, char* data, int size) {
     file_t file;
-    static INTEGER i_file = 0;
+    i_file = 0;
 
     if (size > 0) {
         file.name = name;
@@ -94,8 +94,8 @@ file_t __create_empty_file(char* name){
 
 VOID create_empty_file(char* name){
     file_t file = __create_empty_file(name);
-    files[20].name = file.name;
-    files[20].data = file.data;
-    files[20].size = file.size;
+    files[i_file].name = file.name;
+    files[i_file].data = file.data;
+    files[i_file].size = file.size;
     
 }
