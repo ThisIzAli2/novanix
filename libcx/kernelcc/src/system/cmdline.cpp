@@ -23,7 +23,7 @@
  * This is the main file for the command line interface (CLI), where all the commands for the operating system are defined here.
  * 
  * Here are some important commands of the system:
- * 
+ * sudo-su [password] : Write the password to access sudo.
  */
 
 #include <software/edit.h>
