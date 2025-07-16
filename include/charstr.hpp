@@ -17,7 +17,8 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef __NOVANIX_KERNEL_CHARSTR_HPP
+#define __NOVANIX_KERNEL_CHARSTR_HPP
 
 #include <common/init.hpp>
 
@@ -39,3 +40,5 @@ INTEGER __always_inline cmd_cmp(const char* str1, const char* str2) {
     // Otherwise, return the difference between the null terminator of one string and the other string's character
     return *str1 - *str2;
 }
+
+#endif /*__NOVANIX_KERNEL_CHARSTR_HPP*/
