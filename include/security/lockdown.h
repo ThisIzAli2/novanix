@@ -49,6 +49,7 @@
  * INVALID_INTERRUPT_VECTOR	: A bogus interrupt handler or vector called.
  * MALICIOUS_PACKET_RECEIVED : Network stack detected a crafted exploit packet.
  * READ_FROM_KERNEL_ONLY_MEMORY	: User process tried to read protected kernel-only memory.
+ * HASH_MISMATCH_BOOT : Kernel image checksum/signature did not match at boot.
  */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
