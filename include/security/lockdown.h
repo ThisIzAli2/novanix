@@ -25,6 +25,11 @@
 
 #define HALT_COMMAND asm volatile ("hlt")
 
+
+/**
+ * Main Lockdown reasons.
+ * Undeclared: We don't know.
+ */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
     ROOT_ACCESS_FAILED =1,
