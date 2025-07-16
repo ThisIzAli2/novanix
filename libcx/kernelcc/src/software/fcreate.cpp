@@ -89,6 +89,7 @@ file_t __create_empty_file(char* name){
     file.name = name;
     file.data = "";
     file.size = DEFAULT_FILE_SIZE; 
+    return file;
 }
 
 VOID create_empty_file(char* name){
