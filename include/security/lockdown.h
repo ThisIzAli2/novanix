@@ -32,6 +32,8 @@
  * Undeclared: We don't know yet.
  * ROOT_ACCESS_FAILED : There has been an attempt to brute force to sudo password.
  * ROOTKIT_DETECTED : There has been a rootkit in ther kernel files or system.
+ * IO_PORT_ACCESS_VIOLATION : Unauthorized process accessed a hardware I/O port.
+ * 
  */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
