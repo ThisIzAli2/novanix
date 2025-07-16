@@ -31,6 +31,7 @@ namespace Novanix
         class MemoryOperations
         {
         public:
+            // Memory operations 
             static void* memmove(void* dstptr, const void* srcptr, uint32_t size);
             static int memcmp(const void* aptr, const void* bptr, uint32_t size);
             static void* memset(void* bufptr, char value, uint32_t size);
