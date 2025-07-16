@@ -29,7 +29,7 @@
 
 #include <cmdline.hpp>
 
-VOID __keep_inline clear_screen() {
+VOID inline clear_screen() {
     unsigned char* video_memory = (unsigned char*) VGA_ADDRESS;
     for (INTEGER i = 0; i < VGA_COLUMNS * VGA_ROWS; i++) {
         video_memory[i * 2] = ' ';               // Blank character

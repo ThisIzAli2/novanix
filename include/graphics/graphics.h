@@ -16,7 +16,6 @@ void put_pixel(int x, int y, unsigned char color);
 void draw_rect(int x, int y, int width, int height, unsigned char color);
 
 // Clear the screen with a color
-void clear_screen(unsigned char color);
 
 // Draw basic text at (x, y). You must implement a font or use BIOS font
 void draw_text(int x, int y, const char* text, unsigned char color);
