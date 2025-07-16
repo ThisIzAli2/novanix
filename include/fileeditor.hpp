@@ -17,7 +17,8 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef __NOVANIX_KERNEL_FILE_EDITOR_H
+#define __NOVANIX_KERNEL_FILE_EDITOR_H
 
 #include <keymap.hpp>
 #include <system/log.h>
@@ -87,3 +88,5 @@ namespace fs {
 }  // namespace fs
 }  // namespace Novanix
 
+
+#endif /*__NOVANIX_KERNEL_FILE_EDITOR_H*/
