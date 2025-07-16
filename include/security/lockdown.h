@@ -28,7 +28,7 @@
 
 /**
  * Main Lockdown reasons.
- * Undeclared: We don't know.
+ * Undeclared: We don't know yet.
  */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
