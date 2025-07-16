@@ -263,8 +263,8 @@ VOID cmdline() {
                         printk(VGA_WHITE,"File created!",1);
 
 
-                        delete i_for_file;
-                        delete counter_k;
+                        delete[] i_for_file;
+                        delete[] counter_k;
                         delete[] to_save;
                     }
 
