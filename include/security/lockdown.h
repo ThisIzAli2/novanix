@@ -47,7 +47,6 @@
  * HARDWARE_FAULT : ECC memory errors, CPU bugs, or hardware sensor faults.
  * WATCHDOG_TIMEOUT	:Kernel did not respond to watchdog timer — possible hang.
  * INVALID_INTERRUPT_VECTOR	: A bogus interrupt handler or vector called.
-
  */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
