@@ -37,7 +37,8 @@
  * UNSIGNED_MODULE_LOADED : 	Module loaded into kernel was not verified or signed.
  * DEBUGGER_ATTACHED : 	A debugging tool has hooked into the kernel.
  * UNAUTHORIZED_SYSCALL : 	A syscall was called from an unexpected ring or address.
- * 
+ * STACK_OVERFLOW_DETECTED : Stack smashing detected (via canaries or overflow checks).
+ * INVALID_USER_PRIVILEGE : 	User process tried to execute a kernel-level instruction.
  */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
