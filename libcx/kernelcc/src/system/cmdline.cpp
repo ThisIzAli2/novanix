@@ -244,6 +244,29 @@ VOID cmdline() {
                         delete[] to_print;
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                    ELIF (full_cmd[0] = 't' && full_cmd[1] == 'o' && full_cmd[2] == 'u' && full_cmd[3] == 'c' && full_cmd[4] == 'h'){
+                        INTEGER *i_for_file = new INTEGER;
+                        INTEGER *counter_k = new INTEGER;
+                        char* to_save = new char[1024]; // Allocate memory for the string
+                        *counter_k = 0;
+
+                        to_save[0] = '\0';
+
+                        for (*i_for_file = 6; full_cmd[*i_for_file] != '\0'; ++(*i_for_file)){
+                            to_save[*counter_k] = full_cmd[*i_for_file];
+                            to_save[*counter_k] = 0;
+                        }
+                        create_empty_file(to_save);
+                        printk(VGA_WHITE,"File created!",1);
+
+
+                        delete i_for_file;
+                        delete counter_k;
+                        delete[] to_save;
+                    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
                         INTEGER *i_for_mkdir = new INTEGER;
                         INTEGER *counter_k = new INTEGER;
