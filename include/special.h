@@ -17,8 +17,19 @@
 **You should have received a copy of the GNU Affero General Public License
 **along with AliNix. If not, see <https://www.gnu.org/licenses/>.
 */
+
+
+
+
+
+
+/**
+ * A file which there are special chars macros defined in it. 
+ */
 #ifndef __NOVANIX_KERNEL_SPECIAL_H
 #define __NOVANIX_KERNEL_SPECIAL_H
+
+
 
 
 
