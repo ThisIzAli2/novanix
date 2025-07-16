@@ -26,6 +26,7 @@
  * sudo-su [password] : Write the password to access sudo.
  * shutdown-now : Show down the system instantly.
  * halt : Halt the kernel, if there was a series threat.
+ * cal : Show the calendar.
  */
 
 #include <software/edit.h>
