@@ -37,7 +37,7 @@ struct tcp_header {
     uint8_t payload[];
 };
 
-void tcp_receive(uint32_t src_ip, uint32_t dest_ip, uint8_t* data, uint16_t len);
+VOID tcp_receive(uint32_t src_ip, uint32_t dest_ip, uint8_t* data, uint16_t len);
 void tcp_send_syn(uint32_t dest_ip, uint16_t src_port, uint16_t dest_port);
 
 #endif 
