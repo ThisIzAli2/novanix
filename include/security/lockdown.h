@@ -26,7 +26,6 @@
 #define HALT_COMMAND asm volatile ("hlt")
 
 
-//TODO: Complete here
 /**
  * Main Lockdown reasons.
  * Undeclared: We don't know yet.
