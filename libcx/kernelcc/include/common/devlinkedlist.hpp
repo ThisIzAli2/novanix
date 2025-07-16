@@ -44,13 +44,13 @@ public:
     }
 
     // Function to display the elements of the list
-    void display() {
+    VOID display() {
         if (size == 0) {
             Novanix::system::printk(VGA_COLOR_WHITE, "List is empty", 1);
             return;
         }
 
-        for (int i = 0; i < size; i++) {
+        for (INTEGER i = 0; i < size; i++) {
             // Printing each element (use the appropriate display function if needed)
             Novanix::system::printk(VGA_COLOR_WHITE, stringify(data[i]).c_str(), 1);
         }
