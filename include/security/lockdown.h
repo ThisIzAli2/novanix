@@ -36,6 +36,7 @@
  * KERNEL_IMAGE_TAMPERED : 	Kernel's code segment has been modified after boot.
  * UNSIGNED_MODULE_LOADED : 	Module loaded into kernel was not verified or signed.
  * DEBUGGER_ATTACHED : 	A debugging tool has hooked into the kernel.
+ * UNAUTHORIZED_SYSCALL : 	A syscall was called from an unexpected ring or address.
  * 
  */
 enum LOCKDOWN_REASON{
