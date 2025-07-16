@@ -16,10 +16,14 @@
 **You should have received a copy of the GNU Affero General Public License
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
-#pragma once
+
+#ifndef __NOVANIX_KERNEL_SPACE_HPP
+#define __NOVANIX_KERNEL_SPACE_HPP
 
 
 // TODO: Move it to other file
 
 
 #define TAB_SPACE "     "
+
+#endif /*__NOVANIX_KERNEL_SPACE_HPP*/
