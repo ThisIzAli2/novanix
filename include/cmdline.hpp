@@ -18,8 +18,18 @@
 */
 
 
+
+
+
+/**
+ * Command line functions delcared here.
+ */
+
 #ifndef __CMD_LINE_NOVANIX_KERNEL_HPP
 #define __CMD_LINE_NOVANIX_KERNEL_HPP
+
+
+
 
 
 #include <keymap.hpp>
@@ -46,6 +56,7 @@
 #include <common/gaming.h>
 #include <drivers/sound.h>
 #include <common/clean.h>
+
 
 
 VOID cmdline();
