@@ -30,7 +30,7 @@
 #define __NOVANIX_KERNEL_SPECIAL_H
 
 #define INTEGRAL_SIGN "∫"
-
+#define RADICAL_SIGN "√"
 
 
 
