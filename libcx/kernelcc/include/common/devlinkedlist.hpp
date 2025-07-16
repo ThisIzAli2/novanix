@@ -26,15 +26,15 @@ class SimpleList {
 public:
     T* data;         // Array to store data of type T
     INTEGER capacity;    // Total capacity of the list
-    int size;        // Current size of the list
+    INTEGER size;        // Current size of the list
 
     // Constructor to initialize the list with a specific capacity
-    SimpleList(int cap) : capacity(cap), size(0) {
+    SimpleList(INTEGER cap) : capacity(cap), size(0) {
         data = new T[capacity]; // Allocate memory for the array of type T
     }
 
     // Function to add a new element to the list
-    void append(T value) {
+    VOID append(T value) {
         if (size < capacity) {
             data[size] = value;
             size++;
