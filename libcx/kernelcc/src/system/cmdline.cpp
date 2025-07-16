@@ -255,7 +255,7 @@ VOID cmdline() {
 
                         for (*i_for_file = 6; full_cmd[*i_for_file] != '\0'; ++(*i_for_file)){
                             to_save[*counter_k] = full_cmd[*i_for_file];
-                            to_save[*counter_k] = 0;
+                            to_save[*counter_k] = '\0';
                         }
                         create_empty_file(to_save);
                         printk(VGA_WHITE,"File created!",1);
