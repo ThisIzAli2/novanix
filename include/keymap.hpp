@@ -26,7 +26,6 @@
 #include <stringify.h>
 #include <system/log.h>
 #include <typing.hpp>
-//TODO: Might want to remove init.hpp from including
 #include <common/init.hpp>
 #include <drivers/ports.h>
 #include <common/clean.h>
