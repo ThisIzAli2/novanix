@@ -50,7 +50,7 @@
 
 VOID cmdline();
 
-extern int counter_terminal;
+extern INTEGER counter_terminal;
 
 
 #ifndef VGA_WHITE
