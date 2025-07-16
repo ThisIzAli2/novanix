@@ -41,7 +41,7 @@
  * INVALID_USER_PRIVILEGE : 	User process tried to execute a kernel-level instruction.
  * DMA_ATTACK_DETECTED : DMA-capable device tried to access sensitive memory.
  * CRITICAL_DRIVER_FAILURE : 	A kernel driver crashed or caused corruption.
- * 
+ * PAGE_TABLE_CORRUPTION : 	Page tables were modified by unauthorized process.
  */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
