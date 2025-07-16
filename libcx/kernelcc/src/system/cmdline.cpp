@@ -246,7 +246,7 @@ VOID cmdline() {
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                    ELIF (full_cmd[0] = 't' && full_cmd[1] == 'o' && full_cmd[2] == 'u' && full_cmd[3] == 'c' && full_cmd[4] == 'h'){
+                    ELIF (full_cmd[0] == 't' and full_cmd[1] == 'o' and full_cmd[2] == 'u' and full_cmd[3] == 'c' and full_cmd[4] == 'h'){
                         INTEGER *i_for_file = new INTEGER;
                         INTEGER *counter_k = new INTEGER;
                         char* to_save = new char[1024]; // Allocate memory for the string
@@ -263,8 +263,8 @@ VOID cmdline() {
                         printk(VGA_WHITE,"File created!",1);
 
 
-                        delete[] i_for_file;
-                        delete[] counter_k;
+                        delete i_for_file;
+                        delete counter_k;
                         delete[] to_save;
                     }
 
@@ -295,14 +295,12 @@ VOID cmdline() {
                         delete i_for_mkdir;
                         delete counter_k;
                         delete[] to_print;
+                    }  ELIF(cmd_cmp(full_cmd,"hawk") == 0){
+                        create_file_function(draw_editor());
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"time") == 0){
                         display_time();
-                    }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    ELIF (cmd_cmp(full_cmd,"hawk") == 0){
-                        create_file_function(draw_editor());
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"uname") == 0){
