@@ -29,6 +29,7 @@
 /**
  * Main Lockdown reasons.
  * Undeclared: We don't know yet.
+ * ROOT_ACCESS_FAILED : There has been an attempt to brute force to sudo password.
  */
 enum LOCKDOWN_REASON{
     UNDECLARED = 0,
