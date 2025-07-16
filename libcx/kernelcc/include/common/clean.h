@@ -29,6 +29,11 @@
 
 #include <cmdline.hpp>
 
+
+/**
+ * Function to clear the screen.
+ * Note: DO NOT USE __keep_inline.
+ */
 VOID inline clear_screen() {
     unsigned char* video_memory = (unsigned char*) VGA_ADDRESS;
     for (INTEGER i = 0; i < VGA_COLUMNS * VGA_ROWS; i++) {
