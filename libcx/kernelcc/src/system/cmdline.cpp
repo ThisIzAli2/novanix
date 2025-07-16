@@ -30,6 +30,7 @@
 #include <security/sudo.h>
 #include <security/lockdown.h>
 #include <math/circle.h>
+#include <special.h>
 
 char* dirs[MAX_DIRS];
 
@@ -163,6 +164,9 @@ VOID cmdline() {
                         //! Not ready to use yet
                         Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"UDP function not ready yet",1);
                         udp_receive(19216811,19216811,(uint8_t*)3,19);
+                    }
+                    ELIF (cmd_cmp(full_cmd,"intg") == 0){
+                        printk(VGA_WHITE,INTEGRAL_SIGN,1);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"version") == 0){
