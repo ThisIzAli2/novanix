@@ -20,4 +20,21 @@
 #ifndef __NOVANIX_KERNEL_CIRCLE_H
 #define __NOVANIX_KERNEL_CIRCLE_H
 
+#include <common/init.hpp>
+
+#ifndef VGA_WIDTH
+#define VGA_WIDTH 320
+#endif // VGA_WIDTH
+
+#ifndef VGA_HEIGHT
+#define VGA_HEIGHT 200
+#endif // VGA_HEIGHT
+
+#ifndef VGA_ADDRESS
+#define VGA_ADDRESS 0xA0000
+#endif // VGA_ADDRESS
+
+
+
+
 #endif /*__NOVANIX_KERNEL_CIRCLE_H*/
