@@ -25,7 +25,7 @@
 VOID put_system_lockdown(enum LOCKDOWN_REASON reason){
     switch (reason){
         case ROOT_ACCESS_FAILED:
-            printk(VGA_COLOR_RED,"You have tried too many wrong passwords for the sudo access. The kernel is going to be put in the lockdown.",1);
+            printk(VGA_COLOR_RED,"You have tried too many wrong passwords for the sudo access. The kernel is going to be put in the lockdown. Please restart your system, if you believe this is a mistake.",1);
             HALT_COMMAND;
     }
 }
