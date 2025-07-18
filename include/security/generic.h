@@ -20,4 +20,11 @@
 #define __NOVANIX_KERNEL_SECURITY_GENERIC_H
 
 
+
+
+inline int memory_alter_try(){
+    return 1;
+}
+
+
 #endif /*ifndef__NOVANIX_KERNEL_SECURITY_GENERIC_H*/
