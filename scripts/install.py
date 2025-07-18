@@ -14,7 +14,8 @@ def main():
     subprocess.run(["cd","libcx"],check=True)
     subprocess.run(["make", "clean"], check=False)
 
-    subprocess.run(["make", "install"], check=True)
+    os.system("make install")
+    # subprocess.run(["make", "install"], capture_output=True,text=True)
 
 
 if __name__ == "__main__":
