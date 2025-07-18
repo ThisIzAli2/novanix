@@ -17,7 +17,7 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 #include <security/memaccess.h>
-#include <access.h>
+#include <novanix/access.h>
 
 
 /**
