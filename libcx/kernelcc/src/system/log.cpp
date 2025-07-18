@@ -81,7 +81,10 @@ VOID Novanix::system::Print(const char* data, uint32_t length) {
 }
 
 
-
+/**
+ * This function is the main function of the printing in the entire kernel.
+ * @param next: This is used to automatically insert \n at the end of the string.
+ */
 VOID Novanix::system::printk(enum vga_color color, const char* __restrict__ format,int next, ...) {
     uint8_t prevColor = BootConsole::ForegroundColor;
 
