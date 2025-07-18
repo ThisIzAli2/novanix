@@ -30,4 +30,6 @@
 
 #include <common/init.hpp>
 
+VOID reset_super_access();
+
 #endif /*__NOVANIX_KERNEL_MEM_ACCESS_H*/
