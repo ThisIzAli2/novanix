@@ -1,20 +1,21 @@
 import os
 import sys
-import subprocess
-
 
 def getdir():
-    retVal = os.getcwd()
-    return retVal
+    return os.getcwd()
 
 def main():
+    # Go up one directory
     os.chdir("..")
-    subprocess.run(["cd","libcx"],check=True)
-    subprocess.run(["make", "clean"], check=False)
+    
+    # Now change into libcx
+    os.chdir("libcx")
 
+    # Run 'make clean'
+    os.system("make clean")
+
+    # Run 'make install'
     os.system("make install")
-    # subprocess.run(["make", "install"], capture_output=True,text=True)
-
 
 if __name__ == "__main__":
     main()
