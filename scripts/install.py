@@ -8,8 +8,6 @@ def getdir():
     return retVal
 
 def main():
-    dr = getdir()
-    print(dr)
     os.chdir("..")
     subprocess.run(["cd","libcx"],check=True)
     subprocess.run(["make", "clean"], check=False)
