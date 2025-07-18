@@ -19,3 +19,14 @@
 #include <security/memaccess.h>
 #include <access.h>
 
+
+/**
+ * Reset the super user access, if there was a try to access and destroy the memory.
+ */
+VOID reset_super_access(){
+    if (have_access){
+        have_access = false;
+    } else{
+        return;
+    }
+}
