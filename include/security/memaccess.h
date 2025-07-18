@@ -28,6 +28,6 @@
 #include <security/generic.h>
 
 
-
+#include <common/init.hpp>
 
 #endif /*__NOVANIX_KERNEL_MEM_ACCESS_H*/
