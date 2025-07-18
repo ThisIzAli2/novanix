@@ -24,5 +24,8 @@
  * This file is for protecting the memory from being access arbitrary.
  */
 
+#include <common/init.hpp>
+
+
 
 #endif /*__NOVANIX_KERNEL_MEM_ACCESS_H*/
