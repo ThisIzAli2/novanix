@@ -46,6 +46,7 @@
 #include <security/lockdown.h>
 #include <math/circle.h>
 #include <special.h>
+#include <security/memaccess.h>
 
 char* dirs[MAX_DIRS];
 
@@ -479,6 +480,7 @@ VOID cmdline() {
                                 goto fail;
                             } else{
                                 lockdown_reason = ROOT_ACCESS_FAILED;
+                                reset_super_access();
                                 put_system_lockdown(lockdown_reason);
                             }
                             fail:
