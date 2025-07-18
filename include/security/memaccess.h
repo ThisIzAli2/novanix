@@ -25,10 +25,9 @@
  */
 
 #include <common/init.hpp>
+#include <security/generic.h>
 
-inline int memory_alter_try(){
-    return 1;
-}
+
 
 
 #endif /*__NOVANIX_KERNEL_MEM_ACCESS_H*/
