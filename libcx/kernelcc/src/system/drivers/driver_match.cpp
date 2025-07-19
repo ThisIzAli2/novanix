@@ -74,5 +74,7 @@ int match_driver(int found){
             printk(VGA_WHITE,"	AMD Inc. driver found",1);
         case ATI_VENDOR_ID:
             printk(VGA_WHITE,"		ATI Technologies  driver found",1);
+        case SANDISK_VENDOR_ID:
+            printk(VGA_WHITE,"	SanDisk Corporation driver found",1);
     }
 }
