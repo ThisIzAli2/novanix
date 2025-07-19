@@ -49,6 +49,14 @@
 #define MEDIATEK_MT7610U 0x7610
 #define MEDIATEK_MT7601U 0x7601
 
+/**
+ * Realtek vendors
+ */
+
+#define REALTEK_RTL8723BE 0xB723
+#define REALTEK_RTL8192CE 0x8178
+#define REALTEK_RTL8821AE 0x8821
+
 
 /**
  * The following vendors are defined for the networks vendors.
