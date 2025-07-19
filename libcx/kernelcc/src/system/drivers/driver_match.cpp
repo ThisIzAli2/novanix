@@ -23,52 +23,52 @@
 int match_driver(int found){
     switch(found){
         case INTEL_AC_7260:
-            printk(VGA_WHITE,"You have Intel Dual Band Wireless-AC 7260 driver installed",1);
+            printk(VGA_WHITE,"You have Intel Dual Band Wireless-AC 7260 driver Found",1);
         case INTEL_WIRELESS_8260:
-            printk(VGA_WHITE,"You have driver installed",1);
+            printk(VGA_WHITE,"You have driver Found",1);
         case INTEL_AX200:
-            printk(VGA_WHITE,"You have 	Intel Wi-Fi 6 AX200  driver installed",1);
+            printk(VGA_WHITE,"You have 	Intel Wi-Fi 6 AX200  driver Found",1);
         case QUALCOMM_ATH9K:
-            printk(VGA_WHITE,"You have Qualcomm 	Atheros AR928X Wireless Network Adapter  driver installed",1);
+            printk(VGA_WHITE,"You have Qualcomm 	Atheros AR928X Wireless Network Adapter  driver Found",1);
         case QUALCOMM_ATH10K:
-            printk(VGA_WHITE,"You have Qualcomm 	Qualcomm Atheros QCA988x   driver installed",1);
+            printk(VGA_WHITE,"You have Qualcomm 	Qualcomm Atheros QCA988x   driver Found",1);
         case QUALCOMM_QCA9377:
-            printk(VGA_WHITE,"You have Qualcomm 		Qualcomm Atheros QCA9377    driver installed",1);
+            printk(VGA_WHITE,"You have Qualcomm 		Qualcomm Atheros QCA9377    driver Found",1);
         case BROADCOM_BCM4311:
-            printk(VGA_WHITE,"You have Qualcomm Broadcom BCM4311    driver installed",1);
+            printk(VGA_WHITE,"You have Qualcomm Broadcom BCM4311    driver Found",1);
         case BROADCOM_BCM4322:
-            printk(VGA_WHITE,"You have Qualcomm 	Broadcom BCM4322    driver installed",1);
+            printk(VGA_WHITE,"You have Qualcomm 	Broadcom BCM4322    driver Found",1);
         case BROADCOM_BCM4352:
-            printk(VGA_WHITE,"You have Qualcomm 		Broadcom BCM4352    driver installed",1);
+            printk(VGA_WHITE,"You have Qualcomm 		Broadcom BCM4352    driver Found",1);
         case MEDIATEK_MT7610U:
-            printk(VGA_WHITE,"You have Qualcomm MediaTek MT7610U   driver installed",1);
+            printk(VGA_WHITE,"You have Qualcomm MediaTek MT7610U   driver Found",1);
         case MEDIATEK_MT7601U:
-            printk(VGA_WHITE,"You have Qualcomm 	MediaTek MT7601U   driver installed",1);
+            printk(VGA_WHITE,"You have Qualcomm 	MediaTek MT7601U   driver Found",1);
         case REALTEK_RTL8723BE:
-            printk(VGA_WHITE,"You have  RTL8723BE PCIe Wireless Adapter  driver installed",1);
+            printk(VGA_WHITE,"You have  RTL8723BE PCIe Wireless Adapter  driver Found",1);
         case REALTEK_RTL8192CE:
-            printk(VGA_WHITE,"You have RTL8192CE Wireless Adapter driver installed",1);
+            printk(VGA_WHITE,"You have RTL8192CE Wireless Adapter driver Found",1);
         case REALTEK_RTL8821AE:
-            printk(VGA_WHITE,"You have 	Realtek RTL8821AE  driver installed",1);
+            printk(VGA_WHITE,"You have 	Realtek RTL8821AE  driver Found",1);
         case MARVELL_88W8897:
-            printk(VGA_WHITE,"You have 	Marvell Avastar 88W8897  driver installed",1);
+            printk(VGA_WHITE,"You have 	Marvell Avastar 88W8897  driver Found",1);
         case INTEL_VENDOR_ID:
-            printk(VGA_WHITE,"You have 	Common for both wired (Ethernet) and wireless devices driver installed",1);
+            printk(VGA_WHITE,"You have 	Common for both wired (Ethernet) and wireless devices driver Found",1);
         case QUALCOMM_VENDOR_ID:
-            printk(VGA_WHITE,"You have 	Acquired Atheros driver installed",1);
+            printk(VGA_WHITE,"You have 	Acquired Atheros driver Found",1);
         case BROADCOM_VENDOR_ID:
-            printk(VGA_WHITE,"Broadcom Inc.	NIC card installed",1);
+            printk(VGA_WHITE,"Broadcom Inc.	NIC card Found",1);
         case REALTEK_VENDOR_ID:
-            printk(VGA_WHITE,"Realtek Semiconductor Corp. driver installed.",1);
+            printk(VGA_WHITE,"Realtek Semiconductor Corp. driver Found.",1);
         case MEDIATEK_VENDOR_ID:
-            printk(VGA_WHITE,"MediaTek Inc. driver installed",1);
+            printk(VGA_WHITE,"MediaTek Inc. driver Found",1);
         case RALINK_VENDOR_ID:
-            printk(VGA_WHITE,"Ralink Technology Corp.	driver installed",1);
+            printk(VGA_WHITE,"Ralink Technology Corp.	driver Found",1);
         case MARVELL_VENDOR_ID:
-            printk(VGA_WHITE,"	Marvell Technology Group driver installed",1);
+            printk(VGA_WHITE,"	Marvell Technology Group driver Found",1);
         case CISCO_VENDOR_ID:
-            printk(VGA_WHITE,"Cisco Systems, Inc.	driver installed",1);
+            printk(VGA_WHITE,"Cisco Systems, Inc.	driver Found",1);
         case NVIDIA_NETWORK_VENDOR:
-            printk(VGA_WHITE,"Nvidia network Ethernet driver installed",1);
+            printk(VGA_WHITE,"Nvidia network Ethernet driver Found",1);
     }
 }
