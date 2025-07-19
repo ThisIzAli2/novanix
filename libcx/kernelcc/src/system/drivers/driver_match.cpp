@@ -54,6 +54,8 @@ int match_driver(int found){
             printk(VGA_WHITE,"You have 	Marvell Avastar 88W8897  driver installed",1);
         case INTEL_VENDOR_ID:
             printk(VGA_WHITE,"You have 	Common for both wired (Ethernet) and wireless devices driver installed",1);
+        case QUALCOMM_VENDOR_ID:
+            printk(VGA_WHITE,"You have 	Acquired Atheros driver installed",1);
         
     }
 }
