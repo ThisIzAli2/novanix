@@ -17,7 +17,18 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 #include <network/wifi/scan.h>
+#include <common/init.hpp>
+#include <network/wifi/conf.h>
 
-unsigned int pci_read_config_dword(unsigned char bus, unsigned char device,unsigned char function, unsigned char offset){
 
+unsigned int pci_read_config_dword(unsigned char bus, unsigned char device,
+                                   unsigned char function, unsigned char offset) {
+    unsigned int address = (1 << 31)              |
+                           ((bus & 0xFF) << 16)    |
+                           ((device & 0x1F) << 11) |
+                           ((function & 0x07) << 8)|
+                           (offset & 0xFC);
+
+    outl(PCI_CONFIG_ADDRESS, address);
+    return inl(PCI_CONFIG_DATA);
 }
