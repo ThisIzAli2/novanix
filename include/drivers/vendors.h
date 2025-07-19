@@ -42,6 +42,13 @@
 #define BROADCOM_BCM4322 0x4322
 #define BROADCOM_BCM4352 0x43B1
 
+/**
+ * MediaTek driver vendors
+ */
+
+#define MEDIATEK_MT7610U 0x7610
+#define MEDIATEK_MT7601U 0x7601
+
 
 /**
  * The following vendors are defined for the networks vendors.
