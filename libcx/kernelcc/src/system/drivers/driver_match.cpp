@@ -19,11 +19,9 @@
 
 #include <drivers/driver_match.h>
 
-int match_driver(int found,int target){
-    if (found == target){
-        return 1;
-    } else{
-        return 0;
+int match_driver(int found){
+    switch(found){
+
     }
 }
 
