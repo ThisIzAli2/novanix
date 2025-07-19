@@ -20,5 +20,8 @@
 #ifndef __NOVANIX_KERNEL_DRIVERS_DRIVER_MATCH_H
 #define __NOVANIX_KERNEL_DRIVERS_DRIVER_MATCH_H
 
+#include <drivers/vendors.h>
+
+int match_driver(int found,int target);
 
 #endif /*__NOVANIX_KERNEL_DRIVERS_DRIVER_MATCH_H*/
