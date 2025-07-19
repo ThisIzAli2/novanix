@@ -20,5 +20,21 @@
 #define __NOVANIX_KERNEL_DRIVERS_VENDORS_H
 
 
+/**
+ * The following vendors are defined for the networks vendors.
+ */
+
+ #define INTEL_VENDOR_ID         0x8086
+#define QUALCOMM_VENDOR_ID      0x168C   // Atheros
+#define BROADCOM_VENDOR_ID      0x14E4
+#define REALTEK_VENDOR_ID       0x10EC
+#define MEDIATEK_VENDOR_ID      0x14C3
+#define RALINK_VENDOR_ID        0x1814   // Now part of MediaTek
+#define MARVELL_VENDOR_ID       0x11AB
+#define CISCO_VENDOR_ID         0x1137
+#define MEDIATEK_RALINK_ID      0x1814   // Ralink rebadged
+#define NVIDIA_NETWORK_VENDOR   0x10DE
+
+
 
 #endif /*__NOVANIX_KERNEL_DRIVERS_VENDORS_H*/
