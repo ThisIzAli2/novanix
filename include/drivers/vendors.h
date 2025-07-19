@@ -55,5 +55,19 @@
 #define SEAGATE_VENDOR_ID       0x1BB1
 #define ADAPTEC_VENDOR_ID       0x9005
 
+/**
+ * The following vendors are for the motherboard and chipsets.
+ */
+
+#define AMD_VENDOR_ID           0x1022
+#define VIA_VENDOR_ID           0x1106
+#define SIS_VENDOR_ID           0x1039
+#define NVIDIA_VENDOR_ID        0x10DE   // Yes, also chipset
+#define ALI_VENDOR_ID           0x10B9
+#define IBM_VENDOR_ID           0x1014
+#define HP_VENDOR_ID            0x103C
+#define DELL_VENDOR_ID          0x1028
+
+
 
 #endif /*__NOVANIX_KERNEL_DRIVERS_VENDORS_H*/
