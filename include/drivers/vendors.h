@@ -38,6 +38,8 @@
  * Broadcom vendors
  */
 
+#define BROADCOM_BCM4311 0x4311
+
 /**
  * The following vendors are defined for the networks vendors.
  */
