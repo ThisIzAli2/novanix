@@ -68,6 +68,17 @@
 #define HP_VENDOR_ID            0x103C
 #define DELL_VENDOR_ID          0x1028
 
+/**
+ * The bellow vendors are for USB 
+ */
+
+#define NEC_VENDOR_ID           0x1033
+#define RENESAS_VENDOR_ID       0x1912
+#define ASMEDIA_VENDOR_ID       0x1B21
+#define TEXAS_INSTRUMENTS_ID    0x104C
+#define LOGITECH_VENDOR_ID      0x046D
+#define APPLE_VENDOR_ID         0x05AC
+
 
 
 #endif /*__NOVANIX_KERNEL_DRIVERS_VENDORS_H*/
