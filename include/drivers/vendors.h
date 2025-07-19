@@ -24,7 +24,7 @@
  * The following vendors are defined for the networks vendors.
  */
 
- #define INTEL_VENDOR_ID         0x8086
+#define INTEL_VENDOR_ID         0x8086
 #define QUALCOMM_VENDOR_ID      0x168C   // Atheros
 #define BROADCOM_VENDOR_ID      0x14E4
 #define REALTEK_VENDOR_ID       0x10EC
