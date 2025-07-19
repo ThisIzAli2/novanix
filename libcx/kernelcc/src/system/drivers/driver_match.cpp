@@ -50,6 +50,8 @@ int match_driver(int found){
             printk(VGA_WHITE,"You have RTL8192CE Wireless Adapter driver installed",1);
         case REALTEK_RTL8821AE:
             printk(VGA_WHITE,"You have 	Realtek RTL8821AE  driver installed",1);
+        case MARVELL_88W8897:
+            printk(VGA_WHITE,"You have 	Marvell Avastar 88W8897  driver installed",1);
         
     }
 }
