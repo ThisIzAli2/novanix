@@ -62,7 +62,7 @@ typedef enum {
     DRIVER_GENERIC_NETWORK
 } pci_driver_type;
 
-int match_driver(int found);
+void match_driver(int found);
 
 
 #endif /*__NOVANIX_KERNEL_DRIVERS_DRIVER_MATCH_H*/
