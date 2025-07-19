@@ -66,5 +66,7 @@ int match_driver(int found){
             printk(VGA_WHITE,"Ralink Technology Corp.	driver installed",1);
         case MARVELL_VENDOR_ID:
             printk(VGA_WHITE,"	Marvell Technology Group driver installed",1);
+        case CISCO_VENDOR_ID:
+            printk(VGA_WHITE,"Cisco Systems, Inc.	driver installed",1);
     }
 }
