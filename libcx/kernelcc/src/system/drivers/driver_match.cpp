@@ -62,5 +62,7 @@ int match_driver(int found){
             printk(VGA_WHITE,"Realtek Semiconductor Corp. driver installed.",1);
         case MEDIATEK_VENDOR_ID:
             printk(VGA_WHITE,"MediaTek Inc. driver installed",1);
+        case RALINK_VENDOR_ID:
+            printk(VGA_WHITE,"Ralink Technology Corp.	driver installed",1);
     }
 }
