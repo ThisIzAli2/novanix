@@ -59,6 +59,14 @@
 
 
 /**
+ * Marvel driver vendors 
+ */
+
+#define MARVELL_88W8897 0x2B38
+
+
+
+/**
  * The following vendors are defined for the networks vendors.
  */
 
