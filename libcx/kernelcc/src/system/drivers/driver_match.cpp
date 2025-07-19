@@ -36,6 +36,8 @@ int match_driver(int found){
             printk(VGA_WHITE,"You have Qualcomm 		Qualcomm Atheros QCA9377    driver installed",1);
         case BROADCOM_BCM4311:
             printk(VGA_WHITE,"You have Qualcomm Broadcom BCM4311    driver installed",1);
+        case BROADCOM_BCM4322:
+            printk(VGA_WHITE,"You have Qualcomm 	Broadcom BCM4322    driver installed",1);
         
     }
 }
