@@ -40,6 +40,10 @@ int match_driver(int found){
             printk(VGA_WHITE,"You have Qualcomm 	Broadcom BCM4322    driver installed",1);
         case BROADCOM_BCM4352:
             printk(VGA_WHITE,"You have Qualcomm 		Broadcom BCM4352    driver installed",1);
+        case MEDIATEK_MT7610U:
+            printk(VGA_WHITE,"You have Qualcomm MediaTek MT7610U   driver installed",1);
+        case MEDIATEK_MT7601U:
+            printk(VGA_WHITE,"You have Qualcomm 	MediaTek MT7601U   driver installed",1);
         
     }
 }
