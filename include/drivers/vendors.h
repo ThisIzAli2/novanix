@@ -26,13 +26,17 @@
 
 
 /**
- * 🟣 Qualcomm Atheros 
+ *  Qualcomm Atheros 
  */
 
 
 #define QUALCOMM_ATH9K 0x0030
 #define QUALCOMM_ATH10K 0x003E
 #define QUALCOMM_QCA9377 0x0042
+
+/**
+ * Broadcom vendors
+ */
 
 /**
  * The following vendors are defined for the networks vendors.
