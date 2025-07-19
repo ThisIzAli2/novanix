@@ -80,5 +80,7 @@ int match_driver(int found){
             printk(VGA_WHITE,"	Samsung Electronics driver found",1);
         case KINGSTON_VENDOR_ID:
             printk(VGA_WHITE,"		Kingston Technology driver found",1);
+        case WESTERN_DIGITAL_ID:
+            printk(VGA_WHITE,"		Western Digital Corp driver found",1);
     }
 }
