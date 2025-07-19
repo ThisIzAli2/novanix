@@ -20,6 +20,7 @@
 #define __NOVANIX_KERNEL_CONF_H
 
 #include <common/init.hpp>
+#include <drivers/driver_match.h>
 
 // === VGA Printing for Kernel ===
 #ifndef kprint
