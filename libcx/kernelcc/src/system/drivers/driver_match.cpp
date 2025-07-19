@@ -60,5 +60,7 @@ int match_driver(int found){
             printk(VGA_WHITE,"Broadcom Inc.	NIC card installed",1);
         case REALTEK_VENDOR_ID:
             printk(VGA_WHITE,"Realtek Semiconductor Corp. driver installed.",1);
+        case MEDIATEK_VENDOR_ID:
+            printk(VGA_WHITE,"MediaTek Inc. driver installed",1);
     }
 }
