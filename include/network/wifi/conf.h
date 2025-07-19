@@ -69,6 +69,8 @@ inline void scan_pci_devices() {
                 kprint(VGA_COLOR_WHITE, " Device=0x", 0);
                 print_hex(device);
                 kprint(VGA_COLOR_WHITE, "\n", 1);
+
+                match_driver(vendor);
             }
         }
             break;
