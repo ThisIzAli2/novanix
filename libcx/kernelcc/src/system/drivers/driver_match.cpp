@@ -52,6 +52,8 @@ int match_driver(int found){
             printk(VGA_WHITE,"You have 	Realtek RTL8821AE  driver installed",1);
         case MARVELL_88W8897:
             printk(VGA_WHITE,"You have 	Marvell Avastar 88W8897  driver installed",1);
+        case INTEL_VENDOR_ID:
+            printk(VGA_WHITE,"You have 	Common for both wired (Ethernet) and wireless devices driver installed",1);
         
     }
 }
