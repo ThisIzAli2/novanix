@@ -39,6 +39,9 @@
  */
 
 #define BROADCOM_BCM4311 0x4311
+#define BROADCOM_BCM4322 0x4322
+#define BROADCOM_BCM4352 0x43B1
+
 
 /**
  * The following vendors are defined for the networks vendors.
