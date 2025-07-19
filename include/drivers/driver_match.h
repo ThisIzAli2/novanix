@@ -22,6 +22,46 @@
 
 #include <drivers/vendors.h>
 
+typedef enum {
+    DRIVER_UNKNOWN = 0,
+
+    // Intel
+    DRIVER_INTEL_WIFI,
+    DRIVER_INTEL_E1000,
+    DRIVER_INTEL_IGB,
+    DRIVER_INTEL_IWLWIFI,  // Newer Wi-Fi stack
+
+    // Qualcomm / Atheros
+    DRIVER_ATHEROS_WIFI,
+    DRIVER_QCA_WIFI,
+
+    // Broadcom
+    DRIVER_BRCM_WIFI,
+    DRIVER_BRCM_43XX,
+
+    // Realtek
+    DRIVER_RTL8139,
+    DRIVER_RTL8168,
+    DRIVER_RTL8821CE,
+    DRIVER_RTL_WIFI_GENERIC,
+
+    // MediaTek / Ralink
+    DRIVER_MEDIATEK_WIFI,
+    DRIVER_RALINK_RT2800,
+
+    // Marvell
+    DRIVER_MARVELL_YUKON,
+
+    // NVIDIA (Network, rarely Wi-Fi)
+    DRIVER_NVIDIA_NFORCE,
+
+    // VIA
+    DRIVER_VIA_RHINE,
+
+    // Fallback
+    DRIVER_GENERIC_NETWORK
+} pci_driver_type;
+
 int match_driver(int found,int target);
 
 #endif /*__NOVANIX_KERNEL_DRIVERS_DRIVER_MATCH_H*/
