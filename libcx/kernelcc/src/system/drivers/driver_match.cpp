@@ -32,6 +32,8 @@ int match_driver(int found){
             printk(VGA_WHITE,"You have Qualcomm 	Atheros AR928X Wireless Network Adapter  driver installed",1);
         case QUALCOMM_ATH10K:
             printk(VGA_WHITE,"You have Qualcomm 	Qualcomm Atheros QCA988x   driver installed",1);
+        case QUALCOMM_QCA9377:
+            printk(VGA_WHITE,"You have Qualcomm 		Qualcomm Atheros QCA9377    driver installed",1);
         
     }
 }
