@@ -17,3 +17,8 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 
+#ifndef __NOVANIX_KERNEL_DRIVERS_DRIVER_MATCH_H
+#define __NOVANIX_KERNEL_DRIVERS_DRIVER_MATCH_H
+
+
+#endif /*__NOVANIX_KERNEL_DRIVERS_DRIVER_MATCH_H*/
