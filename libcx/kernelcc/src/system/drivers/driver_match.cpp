@@ -29,8 +29,8 @@ int match_driver(int found){
         case INTEL_AX200:
             printk(VGA_WHITE,"You have 	Intel Wi-Fi 6 AX200  driver installed",1);
         case QUALCOMM_ATH9K:
-            printk(VGA_WHITE,"You have Qualcomm Atheros QCA9377  driver installed",1);
-            
+            printk(VGA_WHITE,"You have Qualcomm 	Atheros AR928X Wireless Network Adapter  driver installed",1);
+        
     }
 }
 
