@@ -35,6 +35,14 @@
 #define MEDIATEK_RALINK_ID      0x1814   // Ralink rebadged
 #define NVIDIA_NETWORK_VENDOR   0x10DE
 
+/**
+ * The following vendors are for graphics
+ */
+
+#define NVIDIA_VENDOR_ID        0x10DE
+#define AMD_VENDOR_ID           0x1002
+#define ATI_VENDOR_ID           0x1002   // (legacy AMD)
+#define INTEL_GPU_VENDOR_ID     0x8086   // Shared with Intel CPUs
 
 
 
