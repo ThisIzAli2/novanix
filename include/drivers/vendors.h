@@ -20,6 +20,9 @@
 #define __NOVANIX_KERNEL_DRIVERS_VENDORS_H
 
 
+#define INTEL_AC_7260 0x08B1
+#define INTEL_WIRELESS_8260 0x24F3
+
 /**
  * The following vendors are defined for the networks vendors.
  */
