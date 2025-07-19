@@ -44,6 +44,16 @@
 #define ATI_VENDOR_ID           0x1002   // (legacy AMD)
 #define INTEL_GPU_VENDOR_ID     0x8086   // Shared with Intel CPUs
 
+/**
+ * Thw following vendors are for Storage 
+ */
+
+#define SANDISK_VENDOR_ID       0x15B7
+#define SAMSUNG_VENDOR_ID       0x144D
+#define KINGSTON_VENDOR_ID      0x2646
+#define WESTERN_DIGITAL_ID      0x1058
+#define SEAGATE_VENDOR_ID       0x1BB1
+#define ADAPTEC_VENDOR_ID       0x9005
 
 
 #endif /*__NOVANIX_KERNEL_DRIVERS_VENDORS_H*/
