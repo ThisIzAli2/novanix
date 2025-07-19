@@ -79,6 +79,14 @@
 #define LOGITECH_VENDOR_ID      0x046D
 #define APPLE_VENDOR_ID         0x05AC
 
+/**
+ * The below vendors are for wireless communication
+ */
+
+#define MEDIATEK_VENDOR_ID      0x14C3
+#define FOXCONN_VENDOR_ID       0x105B
+#define DELL_WIFI_VENDOR_ID     0x1028
+#define HP_WIFI_VENDOR_ID       0x103C
 
 
 #endif /*__NOVANIX_KERNEL_DRIVERS_VENDORS_H*/
