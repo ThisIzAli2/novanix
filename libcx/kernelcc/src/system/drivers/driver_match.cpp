@@ -70,5 +70,7 @@ int match_driver(int found){
             printk(VGA_WHITE,"Cisco Systems, Inc.	driver Found",1);
         case NVIDIA_NETWORK_VENDOR:
             printk(VGA_WHITE,"Nvidia network Ethernet driver Found",1);
+        case AMD_VENDOR_ID:
+            printk(VGA_WHITE,"	AMD Inc. driver found",1);
     }
 }
