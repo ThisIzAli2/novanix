@@ -70,7 +70,6 @@ inline void scan_pci_devices() {
                 print_hex(device);
                 kprint(VGA_COLOR_WHITE, "\n", 1);
 
-                match_driver(vendor);
             }
         }
             break;
