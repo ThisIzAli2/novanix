@@ -29,31 +29,31 @@ VOID match_driver(int found){
         case INTEL_AX200:
             printk(VGA_WHITE," 	Intel Wi-Fi 6 AX200  driver Found",1);
         case QUALCOMM_ATH9K:
-            printk(VGA_WHITE,"You have Qualcomm 	Atheros AR928X Wireless Network Adapter  driver Found",1);
+            printk(VGA_WHITE,"You have Qualcomm Atheros AR928X Wireless Network Adapter  driver Found",1);
         case QUALCOMM_ATH10K:
-            printk(VGA_WHITE,"You have Qualcomm 	Qualcomm Atheros QCA988x   driver Found",1);
+            printk(VGA_WHITE,"You have Qualcomm Qualcomm Atheros QCA988x driver Found",1);
         case QUALCOMM_QCA9377:
-            printk(VGA_WHITE,"You have Qualcomm 		Qualcomm Atheros QCA9377    driver Found",1);
+            printk(VGA_WHITE,"You have Qualcomm Qualcomm Atheros QCA9377 driver Found",1);
         case BROADCOM_BCM4311:
-            printk(VGA_WHITE,"You have Qualcomm Broadcom BCM4311    driver Found",1);
+            printk(VGA_WHITE,"You have Qualcomm Broadcom BCM4311 driver Found",1);
         case BROADCOM_BCM4322:
-            printk(VGA_WHITE,"You have Qualcomm 	Broadcom BCM4322    driver Found",1);
+            printk(VGA_WHITE,"You have Qualcomm Broadcom BCM4322 driver Found",1);
         case BROADCOM_BCM4352:
-            printk(VGA_WHITE,"You have Qualcomm 		Broadcom BCM4352    driver Found",1);
+            printk(VGA_WHITE,"You have Qualcomm Broadcom BCM4352 driver Found",1);
         case MEDIATEK_MT7610U:
-            printk(VGA_WHITE,"You have Qualcomm MediaTek MT7610U   driver Found",1);
+            printk(VGA_WHITE,"You have Qualcomm MediaTek MT7610U driver Found",1);
         case MEDIATEK_MT7601U:
-            printk(VGA_WHITE,"You have Qualcomm 	MediaTek MT7601U   driver Found",1);
+            printk(VGA_WHITE,"You have Qualcomm MediaTek MT7601U driver Found",1);
         case REALTEK_RTL8723BE:
             printk(VGA_WHITE,"You have  RTL8723BE PCIe Wireless Adapter  driver Found",1);
         case REALTEK_RTL8192CE:
             printk(VGA_WHITE,"You have RTL8192CE Wireless Adapter driver Found",1);
         case REALTEK_RTL8821AE:
-            printk(VGA_WHITE,"You have 	Realtek RTL8821AE  driver Found",1);
+            printk(VGA_WHITE,"You have Realtek RTL8821AE  driver Found",1);
         case MARVELL_88W8897:
-            printk(VGA_WHITE,"You have 	Marvell Avastar 88W8897  driver Found",1);
+            printk(VGA_WHITE,"You have Marvell Avastar 88W8897 driver Found",1);
         case INTEL_VENDOR_ID:
-            printk(VGA_WHITE,"You have 	Common for both wired (Ethernet) and wireless devices driver Found",1);
+            printk(VGA_WHITE,"You have Common for both wired (Ethernet) and wireless devices driver Found",1);
         case QUALCOMM_VENDOR_ID:
             printk(VGA_WHITE,"You have 	Acquired Atheros driver Found",1);
         case BROADCOM_VENDOR_ID:
@@ -71,21 +71,21 @@ VOID match_driver(int found){
         case NVIDIA_NETWORK_VENDOR:
             printk(VGA_WHITE,"Nvidia network Ethernet driver Found",1);
         case AMD_VENDOR_ID:
-            printk(VGA_WHITE,"	AMD Inc. driver found",1);
+            printk(VGA_WHITE,"AMD Inc. driver found",1);
         case ATI_VENDOR_ID:
-            printk(VGA_WHITE,"		ATI Technologies  driver found",1);
+            printk(VGA_WHITE,"ATI Technologies  driver found",1);
         case SANDISK_VENDOR_ID:
-            printk(VGA_WHITE,"	SanDisk Corporation driver found",1);
+            printk(VGA_WHITE,"SanDisk Corporation driver found",1);
         case SAMSUNG_VENDOR_ID:
-            printk(VGA_WHITE,"	Samsung Electronics driver found",1);
+            printk(VGA_WHITE,"Samsung Electronics driver found",1);
         case KINGSTON_VENDOR_ID:
-            printk(VGA_WHITE,"		Kingston Technology driver found",1);
+            printk(VGA_WHITE,"Kingston Technology driver found",1);
         case WESTERN_DIGITAL_ID:
-            printk(VGA_WHITE,"		Western Digital Corp driver found",1);
+            printk(VGA_WHITE,"Western Digital Corp driver found",1);
         case SEAGATE_VENDOR_ID:
-            printk(VGA_WHITE,"		Seagate Technology driver found",1);
+            printk(VGA_WHITE,"Seagate Technology driver found",1);
         case ADAPTEC_VENDOR_ID:
-            printk(VGA_WHITE,"			Adaptec Inc. (RAID/SCSI controllers) driver found",1);           
+            printk(VGA_WHITE,"Adaptec Inc. (RAID/SCSI controllers) driver found",1);           
         default:
             return;     
     }
