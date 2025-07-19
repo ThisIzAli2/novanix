@@ -19,5 +19,8 @@
 #ifndef __NOVANIX_KERNEL_SCAN_H
 #define __NOVANIX_KERNEL_SCAN_H
 
+
+unsigned int pci_read_config_dword(unsigned char bus, unsigned char device,unsigned char function, unsigned char offset);
+
 #endif /*__NOVANIX_KERNEL_SCAN_H*/
 
