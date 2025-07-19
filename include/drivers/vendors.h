@@ -22,6 +22,7 @@
 
 #define INTEL_AC_7260 0x08B1
 #define INTEL_WIRELESS_8260 0x24F3
+#define INTEL_AX200	0x2723	
 
 /**
  * The following vendors are defined for the networks vendors.

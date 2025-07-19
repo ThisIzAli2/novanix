@@ -26,6 +26,8 @@ int match_driver(int found){
             printk(VGA_WHITE,"You have Intel Dual Band Wireless-AC 7260 driver installed",1);
         case INTEL_WIRELESS_8260:
             printk(VGA_WHITE,"You have driver installed",1);
+        case INTEL_AX200:
+            printk(VGA_WHITE,"You have 	Intel Wi-Fi 6 AX200  driver installed",1);
     }
 }
 
