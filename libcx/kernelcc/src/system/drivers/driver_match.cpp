@@ -84,5 +84,7 @@ int match_driver(int found){
             printk(VGA_WHITE,"		Western Digital Corp driver found",1);
         case SEAGATE_VENDOR_ID:
             printk(VGA_WHITE,"		Seagate Technology driver found",1);
+        case ADAPTEC_VENDOR_ID:
+            printk(VGA_WHITE,"			Adaptec Inc. (RAID/SCSI controllers) driver found",1);
     }
 }
