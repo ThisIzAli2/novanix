@@ -45,7 +45,9 @@ int match_driver(int found){
         case MEDIATEK_MT7601U:
             printk(VGA_WHITE,"You have Qualcomm 	MediaTek MT7601U   driver installed",1);
         case REALTEK_RTL8723BE:
-            printk(VGA_WHITE,"You have Qualcomm Realtek RTL8723BE PCIe Wireless Adapter  driver installed",1);
+            printk(VGA_WHITE,"You have  RTL8723BE PCIe Wireless Adapter  driver installed",1);
+        case REALTEK_RTL8192CE:
+            printk(VGA_WHITE,"You have RTL8192CE Wireless Adapter driver installed",1);
         
     }
 }
