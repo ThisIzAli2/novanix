@@ -27,7 +27,7 @@ int match_driver(int found){
         case INTEL_WIRELESS_8260:
             printk(VGA_WHITE,"You have driver Found",1);
         case INTEL_AX200:
-            printk(VGA_WHITE,"You have 	Intel Wi-Fi 6 AX200  driver Found",1);
+            printk(VGA_WHITE," 	Intel Wi-Fi 6 AX200  driver Found",1);
         case QUALCOMM_ATH9K:
             printk(VGA_WHITE,"You have Qualcomm 	Atheros AR928X Wireless Network Adapter  driver Found",1);
         case QUALCOMM_ATH10K:
