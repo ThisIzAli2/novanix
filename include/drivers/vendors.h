@@ -24,6 +24,16 @@
 #define INTEL_WIRELESS_8260 0x24F3
 #define INTEL_AX200	0x2723	
 
+
+/**
+ * 🟣 Qualcomm Atheros 
+ */
+
+
+#define QUALCOMM_ATH9K 0x0030
+#define QUALCOMM_ATH10K 0x003E
+#define QUALCOMM_QCA9377 QUALCOMM_QCA9377
+
 /**
  * The following vendors are defined for the networks vendors.
  */
