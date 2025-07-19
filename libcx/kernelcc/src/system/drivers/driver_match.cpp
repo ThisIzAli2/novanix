@@ -17,5 +17,14 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 
+#include <drivers/driver_match.h>
+
+int match_driver(int found,int target){
+    if (found == target){
+        return 1;
+    } else{
+        return 0;
+    }
+}
 
 #include <drivers/driver_match.h>
