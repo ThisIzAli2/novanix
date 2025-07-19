@@ -87,6 +87,6 @@ VOID match_driver(int found){
         case ADAPTEC_VENDOR_ID:
             printk(VGA_WHITE,"			Adaptec Inc. (RAID/SCSI controllers) driver found",1);           
         default:
-            printk(VGA_WHITE,"			No driver found!",1);           
+            return;     
     }
 }
