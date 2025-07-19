@@ -135,4 +135,11 @@
 #define HP_WIFI_VENDOR_ID       0x103C
 
 
+/**
+ * Rest of the vendors
+ */
+
+#define ETHERNET_DRIVER_VENDOR 0x100E
+
+
 #endif /*__NOVANIX_KERNEL_DRIVERS_VENDORS_H*/
