@@ -19,6 +19,10 @@
 */
 #include <security/lockdown.h>
 
+
+/**
+ * This file manages the lockdown mechanism for the kernel.
+ */
 /**
  * @brief Put the system into the lockdown.
  */
