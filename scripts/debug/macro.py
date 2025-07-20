@@ -5,6 +5,13 @@ This file is a part of Novanix project
 """
 
 import os
+import argparse
+
+class Cmd:
+    @staticmethod
+    def parse():
+        parser = argparse.ArgumentParser(description="macro debugger")
+        
 
 def contains(path):
     try:
