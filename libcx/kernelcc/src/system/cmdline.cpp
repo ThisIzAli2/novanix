@@ -417,12 +417,6 @@ VOID cmdline() {
                         for (INTEGER i_pass = 13; full_cmd[i_pass] != '\0' && n < sizeof(password_saved) - 1; ++i_pass) {
                             password_saved[n++] = full_cmd[i_pass];
                             ++(*count_on);
-                            // if (Novanix::common::String::strlen(password_saved) < USER_NOVANIX){
-                            //     Novanix::system::printk(VGA_COLOR_WHITE,"Password is too short, should be greater than 8 characters",1);
-                            //     Novanix::system::printk(VGA_COLOR_WHITE,password_saved,1);
-                            //     user_password = DEFAULT_PASSWORD;
-                            //     failed = true;
-                            // }
 
                         }
 
