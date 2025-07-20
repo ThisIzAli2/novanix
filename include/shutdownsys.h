@@ -15,7 +15,9 @@
 
 **You should have received a copy of the GNU Affero General Public License
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
-*/#ifndef __NOVANIX_KERNEL_SHUT_DOWN_SYS_H
+*/
+
+#ifndef __NOVANIX_KERNEL_SHUT_DOWN_SYS_H
 #define __NOVANIX_KERNEL_SHUT_DOWN_SYS_H
 
 #include <common/types.h>
