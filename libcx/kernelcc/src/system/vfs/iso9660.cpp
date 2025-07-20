@@ -1,4 +1,3 @@
-//TODO: There is probably a bit of a memory leak here, fix this in the future
 /**
  * @author Ali Mirmohammad
  * @file iso9660.cpp
@@ -18,6 +17,8 @@
 **You should have received a copy of the GNU Affero General Public License
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
+//TODO: There is probably a bit of a memory leak here, fix this in the future
+
 #include <system/vfs/iso9660.h>
 
 #include <system/memory/heap.h>
