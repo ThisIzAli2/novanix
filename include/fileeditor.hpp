@@ -70,13 +70,13 @@ namespace fs {
         ssize_t write(const char* buffer, size_t size);
 
         // Closes the file
-        void close();
+        VOID close();
 
         // Gets the file's size
         uint32_t get_size() const;
 
         // Moves the cursor position within the file (used for seek operations)
-        void seek(uint32_t position);
+        VOID seek(uint32_t position);
 
         // Checks if the file is open
         bool is_open() const;
