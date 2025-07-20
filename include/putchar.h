@@ -120,7 +120,7 @@ void inline set_cursor_position(uint16_t pos) {
 }
 
 // Move cursor back by one character
-void inline move_cursor_back() {
+VOID inline move_cursor_back() {
     uint16_t pos = get_cursor_position();
     if (pos > 0) {
         pos--;
