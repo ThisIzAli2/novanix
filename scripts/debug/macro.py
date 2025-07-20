@@ -11,6 +11,8 @@ class Cmd:
     @staticmethod
     def parse():
         parser = argparse.ArgumentParser(description="macro debugger")
+        Debug = parser.add_argument_group("Debugging")
+
         
 
 def contains(path):
