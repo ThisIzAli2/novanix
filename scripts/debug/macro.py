@@ -11,7 +11,7 @@ def contains(path):
         with open(path, 'r',encoding='utf-8',errors='ignore') as f:
             for line in f:
                 if line.strip().startswith("#define"):
-                    return True
+                    yield True
                 else:
                     return False
     except Exception as exc:
