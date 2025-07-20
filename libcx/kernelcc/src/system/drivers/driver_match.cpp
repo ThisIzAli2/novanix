@@ -20,6 +20,10 @@
 #include <drivers/driver_match.h>
 #include <common/init.hpp>
 
+
+/**
+ * Match the driver type that is found.
+ */
 VOID match_driver(int found){
     switch(found){
         case INTEL_AC_7260:
