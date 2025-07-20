@@ -24,7 +24,7 @@
 /**
  * Match the driver type that is found.
  */
-VOID match_driver(int found){
+VOID match_driver(INTEGER found){
     switch(found){
         case INTEL_AC_7260:
             printk(VGA_WHITE,"You have Intel Dual Band Wireless-AC 7260 driver Found",1);
