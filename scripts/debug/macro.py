@@ -1,3 +1,9 @@
+"""
+Author : Ali Mirmohammad
+
+This file is a part of Novanix project
+"""
+
 import os
 
 def contains(path):
