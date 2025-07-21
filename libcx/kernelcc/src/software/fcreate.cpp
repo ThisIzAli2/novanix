@@ -29,7 +29,7 @@ using namespace Novanix::system;
 
 static uint32_t seed = 1;
 
-static INTEGER i_file;
+
 
 /**
  * @brief A function that creates a file for the system

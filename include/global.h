@@ -8,5 +8,6 @@
  * NOTE: JUST DEFINE THE GLOBAL VARIABLES AS "extern"
  */
 extern file_t files[MAX_FILES];
+extern INTEGER i_file;
 
 #endif /*__NOVANIX_KERNEL_GLOBAL_H*/

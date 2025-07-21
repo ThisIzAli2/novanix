@@ -1,3 +1,6 @@
+/**
+ * @file global.cpp
+ */
 #include <global.h>
 
 /**
