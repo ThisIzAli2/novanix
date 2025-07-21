@@ -21,16 +21,8 @@
 
 VOID cat_file(char* file){
     char* data;
-    for (INTEGER i = 0; i < 10;i++){
-        if (String::strcmp(files[i].name,file) == 0){
-            // data = files[i].data;
-            printk(VGA_WHITE,data,1);
-            goto ret;
-        } else{
-            goto ret;
-        }
-    }
-    printk(VGA_WHITE,"File not found",1);
+    data = files[0].data;
+    printk(VGA_WHITE,data,1);
     ret:
     return;
 }
