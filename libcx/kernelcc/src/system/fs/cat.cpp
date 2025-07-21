@@ -17,3 +17,9 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 #include <fs/cat.h>
+
+
+VOID cat_file(file_t file){
+    char* data = file.data;
+    printk(VGA_WHITE,data,1);
+}
