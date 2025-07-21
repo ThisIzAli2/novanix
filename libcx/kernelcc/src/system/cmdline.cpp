@@ -287,7 +287,14 @@ VOID cmdline() {
                         delete counter_k;
                         delete[] to_save;
                     }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ELIF(full_cmd[0] == 'c' && full_cmd[1] == 'a' && full_cmd[2] == 't'){
+                        INTEGER *i_for_cat = new INTEGER;
+                        INTEGER *counter_k = new INTEGER;
+                        char* to_print = new char[1024];
+                        *counter_k = 0;
+                        
+                    }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
                         INTEGER *i_for_mkdir = new INTEGER;
