@@ -1,13 +1,13 @@
-# 🌌 Nova OS
+# 🌌 Nox OS/kernel
 
 
-**Nova OS (Novanix)** is a simple operating system built from scratch, featuring a modular kernel with a command-line interface. Designed for learning, experimentation, and expansion, Nova is lightweight, fast, and a great starting point for systems developers and OS enthusiasts.
+**Nox OS (Noxnix)** is a simple operating system built from scratch, featuring a modular kernel with a command-line interface. Designed for learning, experimentation, and expansion, Nox is lightweight, fast, and a great starting point for systems developers and OS enthusiasts.
 
 ---
 
 ## ✨ Features
 
-- ✅ Custom command-line shell (NovaCLI)
+- ✅ Custom command-line shell (NoxCLI)
 - ✅ Lightweight monolithic kernel
 - ✅ Built-in memory management
 - ✅ Basic I/O driver system
@@ -28,7 +28,7 @@ Some of the codes of this project are not used and are about to be removed. Thos
 ![alt text](<etc/Screenshot 2025-07-14 at 2.42.55 PM.png>)
 ## 🚀 Installation
 
-Clone the repository and install `libcx`, which contains Nova’s standard library:
+Clone the repository and install `libcx`, which contains Nox’s standard library:
 
 ```bash
 cd libcx
