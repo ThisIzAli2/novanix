@@ -20,5 +20,5 @@
 
 
 VOID cat_file(char* file){
-    printk(VGA_WHITE,files[i_file].data,1);
+    printk(VGA_WHITE,files[0].data,1);
 }
