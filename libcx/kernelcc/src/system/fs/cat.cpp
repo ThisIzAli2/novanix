@@ -19,6 +19,15 @@
 #include <fs/cat.h>
 
 
-VOID cat_file(char* file){
-    printk(VGA_WHITE,files[0].data,1);
+VOID cat_file(char* file) {
+    for (INTEGER i = 0; i < MAX_FILES; i++) {
+        if (files[i].name == nullptr) continue; // skip empty entries
+
+        if (String::strcmp(files[i].name, file) == 0) {
+            printk(VGA_WHITE, files[i].data, 1);
+            return;
+        }
+    }
+
+    printk(VGA_WHITE, "File not found", 1);
 }
