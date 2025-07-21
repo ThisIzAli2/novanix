@@ -58,7 +58,7 @@ INTEGER counter = 0;
 
 
 
-int counter_terminal;
+INTEGER counter_terminal;
 
 #define str_cmp cmd_cmp
 
