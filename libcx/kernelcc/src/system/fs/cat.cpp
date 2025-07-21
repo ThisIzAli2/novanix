@@ -21,7 +21,7 @@
 
 VOID cat_file(char* file){
     char* data;
-    for (int i = 0; i < MAX_FILES;i++){
+    for (INTEGER i = 0; i < MAX_FILES;i++){
         if (String::strcmp(files[i].name,file)){
             data = files[i].data;
         } else{
