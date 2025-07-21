@@ -30,7 +30,6 @@ VOID cat_file(char* file){
             goto ret;
         }
     }
-    again:
     printk(VGA_WHITE,"File not found",1);
     ret:
     return;
