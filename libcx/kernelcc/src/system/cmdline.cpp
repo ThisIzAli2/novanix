@@ -293,7 +293,7 @@ VOID cmdline() {
                         INTEGER *counter_k = new INTEGER;
                         char* to_print = new char[1024];
                         *counter_k = 0;
-                        
+                        to_print[0] = '\0';
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
