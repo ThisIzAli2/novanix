@@ -20,9 +20,5 @@
 
 
 VOID cat_file(char* file){
-    for (INTEGER i = 0;i < i_file; i++){
-        if (String::strcmp(files[i_file].data,file)){
-            printk(VGA_WHITE,files[i_file].data,1);
-        }
-    }
+    printk(VGA_WHITE,files[i_file].data,1);
 }
