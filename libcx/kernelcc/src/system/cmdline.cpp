@@ -47,6 +47,7 @@
 #include <math/circle.h>
 #include <special.h>
 #include <security/memaccess.h>
+#include <fs/cat.h>
 
 char* dirs[MAX_DIRS];
 
