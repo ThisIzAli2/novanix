@@ -64,7 +64,7 @@ VOID cmdline();
 extern INTEGER counter_terminal;
 
 
-// Defined for convinience 
+// Defined for convenience 
 #ifndef VGA_WHITE
 #define VGA_WHITE VGA_COLOR_WHITE
 #endif 
