@@ -294,6 +294,11 @@ VOID cmdline() {
                         char* to_print = new char[1024];
                         *counter_k = 0;
                         to_print[0] = '\0';
+
+                        for (*i_for_cat = 4; full_cmd[*i_for_cat] != '\0';++(*i_for_cat)){
+                            to_print[*counter_k] = full_cmd[*i_for_cat];
+                            
+                        }
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
