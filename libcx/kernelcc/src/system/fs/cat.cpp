@@ -19,7 +19,12 @@
 #include <fs/cat.h>
 
 
-VOID cat_file(file_t file){
-    char* data = file.data;
+VOID cat_file(char* file){
+    char* data;
+    for (int i = 0; i < MAX_FILES;i++){
+        if (String::strcmp(files[i].name,file)){
+            data = files[i].data;
+        }
+    }
     printk(VGA_WHITE,data,1);
 }

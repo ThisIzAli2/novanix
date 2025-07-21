@@ -26,7 +26,8 @@
 #include <software/fcreate.h>
 
 
-VOID cat_file(file_t file);
+
+VOID cat_file(char* file);
 
 
 #endif /*__NOVANIX_KERNEL_CAT_H*/
