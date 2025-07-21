@@ -4,6 +4,9 @@
 #include <common/init.hpp>
 #include <software/faccess.h>
 
+/**
+ * NOTE: JUST DEFINE THE GLOBAL VARIABLES AS "extern"
+ */
 extern file_t files[MAX_FILES];
 
 #endif /*__NOVANIX_KERNEL_GLOBAL_H*/
