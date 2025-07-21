@@ -22,7 +22,7 @@
 VOID cat_file(char* file){
     char* data;
     for (INTEGER i = 0; i < 10;i++){
-        if (String::strcmp(files[i].name,file)){
+        if (String::strcmp(files[i].name,file) == 0){
             data = files[i].data;
         printk(VGA_WHITE,data,1);
         } else{
