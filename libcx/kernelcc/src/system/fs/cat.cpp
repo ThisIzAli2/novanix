@@ -21,5 +21,5 @@
 
 VOID cat_file(char* file){
     char* data;
-    files[0];
+    printk(VGA_WHITE,files[0].data,1);
 }
