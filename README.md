@@ -1,7 +1,7 @@
 # 🌌 Nox OS/kernel
 
 
-**Nox OS (Noxnix)** is a simple operating system built from scratch, featuring a modular kernel with a command-line interface. Designed for learning, experimentation, and expansion, Nox is lightweight, fast, and a great starting point for systems developers and OS enthusiasts.
+**Nox OS (Novanix kernel)** is a simple operating system built from scratch, featuring a modular kernel with a command-line interface. Designed for learning, experimentation, and expansion, Nox is lightweight, fast, and a great starting point for systems developers and OS enthusiasts.
 
 ---
 
