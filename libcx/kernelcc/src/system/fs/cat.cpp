@@ -24,11 +24,11 @@ VOID cat_file(char* file){
     for (INTEGER i = 0; i < 10;i++){
         if (String::strcmp(files[i].name,file)){
             data = files[i].data;
+        printk(VGA_WHITE,data,1);
         } else{
             goto ret;
         }
     }
-    printk(VGA_WHITE,data,1);
     again:
     printk(VGA_WHITE,"File not found",1);
     ret:
