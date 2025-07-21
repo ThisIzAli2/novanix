@@ -20,4 +20,13 @@
 #define __NOVANIX_KERNEL_CAT_H
 
 
+
+#include <common/init.hpp>
+#include <software/faccess.h>
+#include <software/fcreate.h>
+
+
+VOID cat_file(file_t file);
+
+
 #endif /*__NOVANIX_KERNEL_CAT_H*/
