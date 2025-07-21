@@ -18,6 +18,7 @@
 */
 #include <fs/cat.h>
 
+extern file_t files;
 
 VOID cat_file(char* file){
     printk(VGA_WHITE,files[0].data,1);
