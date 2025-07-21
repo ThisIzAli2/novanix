@@ -20,7 +20,6 @@
 
 
 VOID cat_file(char* file){
-    printk(VGA_WHITE,files[0].data,1);
-    ret:
-    return;
+    char* data;
+    files[0];
 }
