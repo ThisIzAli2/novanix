@@ -29,6 +29,7 @@
  * cal : Show the calendar.
  * time: Show the system time.
  * hawk : The operating system's text editor.
+ * cat : Read a file's content.
  */
 
 #include <software/edit.h>
