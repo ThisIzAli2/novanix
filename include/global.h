@@ -23,7 +23,7 @@
 #include <software/faccess.h>
 
 /**
- * NOTE: JUST DEFINE THE GLOBAL VARIABLES AS "extern"
+ * NOTE: JUST DEFINE THE GLOBAL VARIABLES AS "extern", be careful here
  */
 extern file_t files[MAX_FILES];
 extern INTEGER i_file;
