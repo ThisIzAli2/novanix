@@ -21,6 +21,7 @@
 #include <software/fcreate.h>
 #include <software/help/ops.h>
 #include <fs/fs.h>
+#include <global.h>
 #include <software/edit.h>
 
 using namespace Novanix::common;

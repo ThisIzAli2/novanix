@@ -22,12 +22,12 @@
 
 #include <common/init.hpp>
 #include <fs/fs.h>
+#include <global.h>
 
 
 #define DEFAULT_FILE_SIZE 4
 
 #define MAX_FILES 1000
-file_t files[MAX_FILES];
 
 file_t __create_file(char* name,char* data,int size);
 void create_file_function(char* data);
