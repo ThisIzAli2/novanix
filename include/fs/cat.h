@@ -1,0 +1,5 @@
+#ifndef __NOVANIX_KERNEL_CAT_H
+#define __NOVANIX_KERNEL_CAT_H
+
+
+#endif /*__NOVANIX_KERNEL_CAT_H*/
