@@ -302,6 +302,9 @@ VOID cmdline() {
                         }
 
                         cat_file(to_print);
+                        delete i_for_cat;
+                        delete counter_k;
+                        delete[] to_print;
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
