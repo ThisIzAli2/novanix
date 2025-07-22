@@ -24,10 +24,6 @@
 #define DELAY_CONSTANT_GAME 1000000000000
 
 class Snake{
-    public:
-        Snake();
-        ~Snake();
-
     private:
         volatile INTEGER countdown;
         VOID delay_time(){
