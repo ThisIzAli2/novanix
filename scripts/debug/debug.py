@@ -36,7 +36,7 @@ def contains_macro(path):
         with open(path, 'r',encoding='utf-8',errors='ignore') as f:
             for line in f:
                 if line.strip().startswith("#define"):
-                    yield True
+                    yield True #! Must use yield here.
                 else:
                     return False
     except Exception as exc:
