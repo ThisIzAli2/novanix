@@ -23,8 +23,8 @@
 
 #define COUNT_FILES(files)  sizeof(files) / sizeof(file_t)
 
-void read_file(char* file_name);
-file_t* find_file_by_name(file_t* files, int file_count, const char* target_name);
+VOID read_file(char* file_name);
+file_t* find_file_by_name(file_t* files, INTEGER file_count, const char* target_name);
 
 
 #endif /*__NOVANIX_KERNEL_F_ACCESS_H*/
