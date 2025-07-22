@@ -36,7 +36,7 @@
 
 // Read from PCI configuration space
 // TODO: Change the inline function later, ouaghta be removed
-uint32_t  inline pci_config_read(uint8_t bus, uint8_t slot, uint8_t func, uint8_t offset) {
+uint32_t  __always_inline pci_config_read(uint8_t bus, uint8_t slot, uint8_t func, uint8_t offset) {
     uint32_t address = (1U << 31) | ((uint32_t)bus << 16) | ((uint32_t)slot << 11) |
                        ((uint32_t)func << 8) | (offset & 0xFC);
     outl(PCI_CONFIG_ADDRESS, address);
@@ -44,9 +44,9 @@ uint32_t  inline pci_config_read(uint8_t bus, uint8_t slot, uint8_t func, uint8_
 }
 
 // Print hex number (simple version)
-void inline print_hex(uint32_t val) {
+VOID __always_inline print_hex(uint32_t val) {
     char hex[] = "0123456789ABCDEF";
-    for (int i = 28; i >= 0; i -= 4) {
+    for (INTEGER i = 28; i >= 0; i -= 4) {
         char c = hex[(val >> i) & 0xF];
         char str[2] = {c, 0};
         kprint(VGA_COLOR_WHITE, str, 0);
@@ -54,7 +54,7 @@ void inline print_hex(uint32_t val) {
 }
 
 // Main PCI scan function
-inline void scan_pci_devices() {
+__always_inline VOID scan_pci_devices() {
     kprint(VGA_COLOR_WHITE, "Scanning PCI devices...\n", 1);
 
     for (uint8_t bus = 0; bus < 256; bus++) {
