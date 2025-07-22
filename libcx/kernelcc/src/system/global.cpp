@@ -23,3 +23,4 @@
  */
 file_t files[MAX_FILES];
 INTEGER i_file;
+Snake snake;

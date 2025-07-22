@@ -1,6 +1,6 @@
 /**
  * @author Ali Mirmohammad
- * @file global.h
+ * @file gaming.h
  ** This file is part of Novanix.
 
 **Novanix is free software: you can redistribute it and/or modify
@@ -16,18 +16,12 @@
 **You should have received a copy of the GNU Affero General Public License
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
-#ifndef __NOVANIX_KERNEL_GLOBAL_H
-#define __NOVANIX_KERNEL_GLOBAL_H
 
-#include <common/init.hpp>
-#include <software/faccess.h>
+#ifndef __NOVANIX_KERNEL_GAMING_H
+#define __NOVANIX_KERNEL_GAMING_H
+
 #include <game/gaming_generic.hpp>
+#include <global.h>
 
-/**
- * NOTE: JUST DEFINE THE GLOBAL VARIABLES AS "extern", be careful here
- */
-extern file_t files[MAX_FILES];
-extern INTEGER i_file;
-extern Snake snake;
 
-#endif /*__NOVANIX_KERNEL_GLOBAL_H*/
+#endif /*__NOVANIX_KERNEL_GAMING_H*/
