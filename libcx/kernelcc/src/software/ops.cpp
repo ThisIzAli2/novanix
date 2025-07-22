@@ -46,7 +46,7 @@ uint32_t string_to_binary(const char* str) {
 
 char  binary_to_char(const char* bin) {
     char result = 0;
-    for (int i = 0; i < 8; ++i) {
+    for (INTEGER i = 0; i < 8; ++i) {
         result <<= 1;
         if (bin[i] == '1') {
             result |= 1;
