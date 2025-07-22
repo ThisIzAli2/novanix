@@ -27,7 +27,7 @@ uint32_t strlen_kernel(const char* str) {
 }
 
 // Converts a character to binary and stores it in a buffer (e.g., "01000001")
-void char_to_binary(uint8_t c, char* buffer) {
+VOID char_to_binary(uint8_t c, char* buffer) {
     for (int i = 7; i >= 0; --i) {
         buffer[7 - i] = (c & (1 << i)) ? '1' : '0';
     }
@@ -57,7 +57,7 @@ char  binary_to_char(const char* bin) {
 
 // Converts a binary string like "01001000 01100101" to a normal string like "He"
 // Assumes input is space-separated binary and output is pre-allocated
-void binary_to_string(const char* binary_input, char* output) {
+VOID binary_to_string(const char* binary_input, char* output) {
     uint32_t in_index = 0;
     uint32_t out_index = 0;
     char byte_str[9]; // 8 bits + null terminator
