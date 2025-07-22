@@ -34,7 +34,7 @@ static uint32_t seed = 1;
 /**
  * @brief A function that creates a file for the system
  */
-file_t __create_file(char* name, char* data, int size) {
+file_t __create_file(char* name, char* data, INTEGER size) {
     file_t file;
     i_file = 0;
 
