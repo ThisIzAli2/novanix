@@ -46,6 +46,9 @@ def contains_macro(path):
         print(exc)
 
 def has_docs(path):
+    """
+    Simply check to see if any docs missing.
+    """
     try:
         with open(path, 'r',encoding='utf-8',errors='ignore') as f:
             for line in f:
