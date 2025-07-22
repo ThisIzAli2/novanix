@@ -24,4 +24,4 @@
 file_t files[MAX_FILES];
 INTEGER i_file;
 Snake snake;
-extern INTEGER counts_failed_sudo = 0;
+INTEGER counts_failed_sudo = 0;
