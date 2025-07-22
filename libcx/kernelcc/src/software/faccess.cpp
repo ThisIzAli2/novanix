@@ -22,7 +22,7 @@
 
 using namespace Novanix::common;
 
-file_t* find_file_by_name(file_t* files, int file_count, const char* target_name) {
+file_t* find_file_by_name(file_t* files, INTEGER file_count, const char* target_name) {
     for (int i = 0; i < file_count; i++) {
         if (String::strcmp(files[i].name, target_name) == 0) {
             return &files[i];
