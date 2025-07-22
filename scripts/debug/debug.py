@@ -20,6 +20,9 @@ class Cmd:
 
 
 def extract_command():
+    """
+    Do not use this function yet!
+    """
     args = Cmd.parse()
     macro_have = args.macro_have
     doc_have = args.doc_have
