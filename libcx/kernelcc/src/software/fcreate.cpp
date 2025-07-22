@@ -48,8 +48,9 @@ file_t __create_file(char* name, char* data, int size) {
         files[i_file].size = file.size;
 
         printk(VGA_COLOR_WHITE, "File created!", 1);
+        printk(VGA_COLOR_WHITE, "File name: ", 0);
         printk(VGA_COLOR_WHITE, files[i_file].name, 1);
-        printk(VGA_COLOR_WHITE, files[i_file].data, 1);
+        printk(VGA_COLOR_WHITE, "File size: ", 0);
         printk(VGA_COLOR_WHITE, stringify(files[i_file].size), 1);
 
         i_file++;
