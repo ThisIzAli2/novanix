@@ -29,7 +29,7 @@
 
 #define MAX_FILES 1000
 
-file_t __create_file(char* name,char* data,int size);
+file_t __create_file(char* name,char* data,INTEGER size);
 VOID create_file_function(char* data);
 file_t __create_empty_file(char* name);
 
