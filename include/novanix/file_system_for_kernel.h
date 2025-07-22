@@ -30,6 +30,7 @@
 
 using namespace Novanix::system;
 #define MAX_SUBDIRECTORIES 128
+//TODO: Make this variable obsolete, also move it to globals.h and globals.cpp to use it.
 static char dir_name[256] = {0};  // Static array to store the directory name (fixed size)
 
 #define MAX_DIRS 100  // Maximum number of directories
