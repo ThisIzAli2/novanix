@@ -49,6 +49,7 @@
 #include <special.h>
 #include <security/memaccess.h>
 #include <fs/cat.h>
+#include <game/gaming.h>
 
 char* dirs[MAX_DIRS];
 
@@ -227,6 +228,10 @@ VOID cmdline() {
                             printk(VGA_COLOR_WHITE,"13 14 15 16 17 18 19\n",1);
                             printk(VGA_COLOR_WHITE,"20 21 22 23 24 25 26\n",1);
                             printk(VGA_COLOR_WHITE,"27 28 29 30 31\n",1);
+                    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ELIF(cmd_cmp(full_cmd,"snake") == 0){
+                        snake.print_s();
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (full_cmd[0] == 'i' && full_cmd[1] == 'n' && full_cmd[2] == 'i' && full_cmd[3] == 't' && full_cmd[4] == 'f' && full_cmd[5] == 'i' && full_cmd[6] == 'l' && full_cmd[7] == 'e' ){
