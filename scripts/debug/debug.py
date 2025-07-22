@@ -29,6 +29,9 @@ def extract_command():
     )
 
 def contains_macro(path):
+    """
+    Check which files contain macros
+    """
     try:
         with open(path, 'r',encoding='utf-8',errors='ignore') as f:
             for line in f:
