@@ -15,6 +15,10 @@ class Snake{
         VOID delay_time(){
             for (countdown = 0; countdown < DELAY_CONSTANT_GAME;countdown++){}
         }
+        VOID print_stuff(){
+            printk(VGA_WHITE,"-",0);
+        }
+        
 };
 
 
