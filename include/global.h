@@ -29,5 +29,7 @@
 extern file_t files[MAX_FILES];
 extern INTEGER i_file;
 extern Snake snake;
+extern INTEGER counts_failed_sudo;
+
 
 #endif /*__NOVANIX_KERNEL_GLOBAL_H*/
