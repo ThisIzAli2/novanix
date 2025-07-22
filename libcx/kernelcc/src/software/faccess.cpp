@@ -31,7 +31,7 @@ file_t* find_file_by_name(file_t* files, INTEGER file_count, const char* target_
     return nullptr;  // Not found
 }
 
-void read_file(char* file_name){
+VOID read_file(char* file_name){
     if (find_file_by_name(files,COUNT_FILES(files),file_name) == nullptr){
         printk(VGA_COLOR_RED,"Does not exist",1);
     } else{
