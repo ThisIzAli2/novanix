@@ -45,6 +45,7 @@ class Snake{
         VOID print_s(){
             for (INTEGER i = 0;i < AWAIT_CONSTANT;i++){
                 print_stuff();
+                print_p();
             }
             CLEAN
         }
