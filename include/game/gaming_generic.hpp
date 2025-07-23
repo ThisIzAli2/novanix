@@ -29,6 +29,7 @@
 
 class Snake{
     private:
+    volatile INTEGER k;
         volatile INTEGER countdown;
         VOID delay_time(){
             for (countdown = 0; countdown < DELAY_CONSTANT_GAME;countdown++){}
@@ -44,8 +45,11 @@ class Snake{
     public:
         VOID print_s(){
             for (INTEGER i = 0;i < AWAIT_CONSTANT;i++){
+                if (k % 2 == 0){
+                    print_p();  
+                }
                 print_stuff();
-                print_p();
+                k++;
             }
             CLEAN
         }
