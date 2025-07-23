@@ -32,6 +32,7 @@ class Snake{
         VOID print_stuff(){
             delay_time();
             printk(VGA_WHITE,"-",0);
+            printk(VGA_WHITE,"",1);
         }
     public:
         VOID print_s(){
