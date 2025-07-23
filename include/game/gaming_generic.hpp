@@ -38,6 +38,9 @@ class Snake{
             DASH
             // printk(VGA_WHITE,"",1);
         }
+        VOID print_p(){
+            PRINT_PIPE
+        }
     public:
         VOID print_s(){
             for (INTEGER i = 0;i < AWAIT_CONSTANT;i++){
