@@ -22,6 +22,7 @@
 #include <common/init.hpp>
 
 #define DELAY_CONSTANT_GAME 1000000000
+#define DASH printk(VGA_WHITE,"-",0);
 
 class Snake{
     private:
@@ -31,7 +32,7 @@ class Snake{
         }
         VOID print_stuff(){
             delay_time();
-            printk(VGA_WHITE,"-",0);
+            DASH
             printk(VGA_WHITE,"",1);
         }
     public:
