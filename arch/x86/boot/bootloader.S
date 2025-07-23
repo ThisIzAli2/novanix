@@ -27,3 +27,9 @@ times 510 - ($ - $$) db 0
 
 ; Boot signature (must be 0x55, 0xAA)
 dw 0xAA55
+restart:
+    ; Reset CPU via keyboard controller (8042)
+    mov al, 0xFE
+.wait_reset:
+    out 0x64, al         ; Send reset command to keyboard controller
+    jmp .wait_reset      ; Wait forever until reset happens
