@@ -1,4 +1,3 @@
-// aarch64.s
 .global VM86CodeStart
 .global VM86CodeEnd
 .global Int86
