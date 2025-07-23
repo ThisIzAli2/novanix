@@ -24,6 +24,7 @@
 #define DELAY_CONSTANT_GAME 100000000
 #define DASH printk(VGA_WHITE,"-",0);
 #define CLEAN printk(VGA_WHITE,"",1);
+#define AWAIT_CONSTANT 19
 
 class Snake{
     private:
@@ -38,7 +39,7 @@ class Snake{
         }
     public:
         VOID print_s(){
-            for (INTEGER i = 0;i < 19;i++){
+            for (INTEGER i = 0;i < AWAIT_CONSTANT;i++){
                 print_stuff();
             }
             CLEAN
