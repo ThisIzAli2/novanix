@@ -47,9 +47,10 @@ class Snake{
             for (INTEGER i = 0;i < AWAIT_CONSTANT;i++){
                 if (k % 2 == 0){
                     print_p();  
+                } else{
+                    print_stuff();
+                    k++;
                 }
-                print_stuff();
-                k++;
             }
             CLEAN
         }
