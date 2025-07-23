@@ -21,7 +21,7 @@
 
 #include <common/init.hpp>
 
-#define DELAY_CONSTANT_GAME 1000000000
+#define DELAY_CONSTANT_GAME 100000000
 #define DASH printk(VGA_WHITE,"-",0);
 
 class Snake{
@@ -37,7 +37,9 @@ class Snake{
         }
     public:
         VOID print_s(){
-            print_stuff();
+            for (INTEGER i = 0;i < 19;i++){
+                print_stuff();
+            }
         }
         
 };
