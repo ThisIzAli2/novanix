@@ -44,12 +44,15 @@ class Snake{
         VOID print_p(){
             PRINT_PIPE
         }
+        VOID extend(){
+            String::strcat(DASH_SIGN,DASH_SIGN);
+        }
     public:
         VOID print_s(){
             for (INTEGER i = 0;i < AWAIT_CONSTANT;i++){
                 if (k % 2 == 0){
                     print_p(); 
-                    DASH 
+                    extend();
                 }
                 print_stuff();
                 k++;
