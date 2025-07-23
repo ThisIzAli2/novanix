@@ -24,7 +24,7 @@
 #define DELAY_CONSTANT_GAME 100000000
 #define DASH printk(VGA_WHITE,"-",0);
 #define CLEAN printk(VGA_WHITE,"",1);
-#define AWAIT_CONSTANT 19
+#define AWAIT_CONSTANT 30
 
 class Snake{
     private:
