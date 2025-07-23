@@ -21,7 +21,7 @@
 
 #include <common/init.hpp>
 
-#define DELAY_CONSTANT_GAME 100000000
+#define DELAY_CONSTANT_GAME 1000000000
 
 class Snake{
     private:
