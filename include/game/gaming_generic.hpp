@@ -40,7 +40,7 @@ class Snake{
         }
     public:
         VOID print_s(){
-            for (INTEGER i = 0;i < AWAIT_CONSTANT*10;i++){
+            for (INTEGER i = 0;i < AWAIT_CONSTANT*1.2;i++){
                 print_stuff();
             }
             CLEAN
