@@ -50,6 +50,7 @@
 #include <security/memaccess.h>
 #include <fs/cat.h>
 #include <game/gaming.h>
+#include <constant.h>
 
 char* dirs[MAX_DIRS];
 
@@ -237,7 +238,7 @@ VOID cmdline() {
                     ELIF (full_cmd[0] == 'i' && full_cmd[1] == 'n' && full_cmd[2] == 'i' && full_cmd[3] == 't' && full_cmd[4] == 'f' && full_cmd[5] == 'i' && full_cmd[6] == 'l' && full_cmd[7] == 'e' ){
                         INTEGER *i_for_file = new INTEGER;
                         INTEGER *counter_for_file = new INTEGER;
-                        char* to_print = new char[1024];
+                        char* to_print = new char[CHAR_CONSTANT];
                         *counter_for_file = 0;
 
                         to_print[0] = '\0';
@@ -254,7 +255,7 @@ VOID cmdline() {
                     ELIF (full_cmd[0] == 'c' && full_cmd[1] == 'a' && full_cmd[2] == 'w' && full_cmd[3] == 'k'){
                         INTEGER *i_for_hawk = new INTEGER;
                         INTEGER *counter_k = new INTEGER;
-                        char* to_print = new char[1024];
+                        char* to_print = new char[CHAR_CONSTANT];
                         *counter_k = 0;
                         to_print[0] = '\0';
 
@@ -275,7 +276,7 @@ VOID cmdline() {
                     ELIF (full_cmd[0] == 't' and full_cmd[1] == 'o' and full_cmd[2] == 'u' and full_cmd[3] == 'c' and full_cmd[4] == 'h'){
                         INTEGER *i_for_file = new INTEGER;
                         INTEGER *counter_k = new INTEGER;
-                        char* to_save = new char[1024]; // Allocate memory for the string
+                        char* to_save = new char[CHAR_CONSTANT]; // Allocate memory for the string
                         *counter_k = 0;
 
                         to_save[0] = '\0';
@@ -297,7 +298,7 @@ VOID cmdline() {
                     ELIF(full_cmd[0] == 'c' && full_cmd[1] == 'a' && full_cmd[2] == 't'){
                         INTEGER *i_for_cat = new INTEGER;
                         INTEGER *counter_k = new INTEGER;
-                        char* to_print = new char[1024];
+                        char* to_print = new char[CHAR_CONSTANT];
                         *counter_k = 0;
                         to_print[0] = '\0';
 
@@ -316,7 +317,7 @@ VOID cmdline() {
                     ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
                         INTEGER *i_for_mkdir = new INTEGER;
                         INTEGER *counter_k = new INTEGER;
-                        char* to_print = new char[1024]; // Allocate memory for the string
+                        char* to_print = new char[CHAR_CONSTANT]; // Allocate memory for the string
                         *counter_k = 0;
 
                         // Initialize the to_print buffer to an empty string
@@ -369,7 +370,7 @@ VOID cmdline() {
                     ELIF(full_cmd[0] == 'c' && full_cmd[1] == 'd'){
                         INTEGER *i_for_cd = new INTEGER;
                         INTEGER *counter_k = new INTEGER;
-                        char* to_print = new char[1024]; // Allocate memory for the string
+                        char* to_print = new char[CHAR_CONSTANT]; // Allocate memory for the string
                         *counter_k = 0;
                         // Initialize the to_print buffer to an empty string
                         to_print[0] = '\0';
@@ -401,7 +402,7 @@ VOID cmdline() {
                     ELIF(full_cmd[0] == 'e' && full_cmd[1] == 'c' && full_cmd[2] == 'h' && full_cmd[3] == 'o'){
                         INTEGER *i_for_echo_cmd = new INTEGER;
                         INTEGER *count = new INTEGER;
-                        char* to_print = new char[1024]; 
+                        char* to_print = new char[CHAR_CONSTANT]; 
                         *count = 0;
                         for (*i_for_echo_cmd = 5; full_cmd[*i_for_echo_cmd] != '\0'; ++(*i_for_echo_cmd)) {
                             ++(*count);
