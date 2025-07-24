@@ -92,6 +92,8 @@ VOID match_driver(INTEGER found){
             printk(VGA_WHITE,"Adaptec Inc. (RAID/SCSI controllers) driver found",1);   
         case ETHERNET_DRIVER_VENDOR:
             printk(VGA_WHITE,"Ethernet driver found!",1);   
+        case INTEL_82371SB_PIIX3_ISA_BRIDGE:
+            printk(VGA_WHITE,"Intel 82371SB PIIX3 ISA Bridge driver found!",1);   
             
         default:
             return;     
