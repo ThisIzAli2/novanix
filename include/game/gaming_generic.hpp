@@ -53,6 +53,8 @@ class Snake{
                 if (k % 2 == 0){
                     print_p(); 
                     // extend();
+                } else{
+                    DASH
                 }
                 print_stuff();
                 k++;
