@@ -58,6 +58,10 @@ class Snake{
         VOID extend(){
             String::strcat(DASH_SIGN,DASH_SIGN);
         }
+        VOID print_snake(){
+            PRINT_SLASH
+            PRINT_BACK_SLASH
+        }
     public:
         VOID print_s(){
             for (INTEGER i = 0;i < AWAIT_CONSTANT;i++){
