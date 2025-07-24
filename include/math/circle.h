@@ -34,9 +34,9 @@
 #define VGA_ADDRESS 0xA0000
 #endif // VGA_ADDRESS
 
-void put_pixel(int x, int y, uint8_t color);
+VOID put_pixel(INTEGER x, INTEGER y, uint8_t color);
 
-void draw_circle(int xc, int yc, int radius, uint8_t color);
+VOID draw_circle(INTEGER xc, INTEGER yc, INTEGER radius, uint8_t color);
 
 
 
