@@ -51,4 +51,6 @@ inline VOID stop_beep() {
     outb(0x61, tmp);                 // Disable speaker
 }
 
+VOID play_sound(uint32_t frequency);
+
 #endif /*__NOVANIX_KERNEL_SOUND_H*/
