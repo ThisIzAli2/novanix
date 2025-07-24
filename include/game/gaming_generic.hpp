@@ -39,6 +39,8 @@
 
 #define NEXT_LINE printk(VGA_WHITE,"",1);
 
+#define PRINT_HEAD printk(VGA_WHITE,"",1);
+
 
 class Snake{
     private:
