@@ -35,7 +35,7 @@ static __always_inline VOID cpuid(uint32_t reg, uint32_t *eax, uint32_t *ebx, ui
         : "0" (reg));
 }
 
-inline void __cpuid(uint32_t eax_in, uint32_t ecx_in, uint32_t* eax, uint32_t* ebx, uint32_t* ecx, uint32_t* edx) {
+__always_inline VOID __cpuid(uint32_t eax_in, uint32_t ecx_in, uint32_t* eax, uint32_t* ebx, uint32_t* ecx, uint32_t* edx) {
     asm volatile ("cpuid"
                   : "=a" (*eax), "=b" (*ebx), "=c" (*ecx), "=d" (*edx)
                   : "a" (eax_in), "c" (ecx_in));
