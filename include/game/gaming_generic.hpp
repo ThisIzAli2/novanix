@@ -61,7 +61,7 @@ class Snake{
         }
         VOID print_snake(){
             if (z == 2 || z == 4 || z == 8 || z == 16){
-                // NEXT_LINE
+                NEXT_LINE
             }
             PRINT_SLASH
             PRINT_BACK_SLASH
