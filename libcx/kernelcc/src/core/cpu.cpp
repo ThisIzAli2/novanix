@@ -20,6 +20,7 @@
 #include <core/cpu.h>
 #include <system/bootconsole.h>
 #include <typing.hpp>
+#include <drivers/cpu.h>
 
 using namespace Novanix;
 using namespace Novanix::core;
@@ -28,12 +29,7 @@ using namespace Novanix::system;
 
 extern "C" VOID EnableSSE();
 
-static __always_inline VOID cpuid(uint32_t reg, uint32_t *eax, uint32_t *ebx, uint32_t *ecx, uint32_t *edx)
-{
-    asm volatile("cpuid"
-        : "=a" (*eax), "=b" (*ebx), "=c" (*ecx), "=d" (*edx)
-        : "0" (reg));
-}
+
 
 VOID CPU::PrintVendor()
 {
