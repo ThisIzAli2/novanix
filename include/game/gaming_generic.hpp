@@ -67,7 +67,6 @@ class Snake{
             for (INTEGER i = 0;i < AWAIT_CONSTANT;i++){
                 if (k % 2 == 0){
                     print_snake(); 
-                    // extend();
                 } else{
                     DASH
                 }
