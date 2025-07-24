@@ -139,7 +139,7 @@ public:
         }
 
         Directory* newSubdirectories = new Directory[currentDir->subdirectoryCount - 1];
-        int index = 0;
+        INTEGER index = 0;
         for (INTEGER i = 0; i < currentDir->subdirectoryCount; i++) {
             if (&currentDir->subdirectories[i] != dirToRemove) {
                 newSubdirectories[index++] = currentDir->subdirectories[i];
