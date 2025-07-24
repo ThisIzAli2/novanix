@@ -28,6 +28,7 @@
 #define AWAIT_CONSTANT 30
 
 #define PRINT_PIPE printk(VGA_WHITE,"|",1);
+
 #define DASH_SIGN "-"
 
 #define DASH 
