@@ -46,7 +46,7 @@ inline VOID play_beep(uint32_t freq) {
 }
 
 // Stop the beep
-inline VOID stop_beep() {
+__always_inline VOID stop_beep() {
     uint8_t tmp = inb(0x61) & 0xFC;  // Clear bits 0 and 1
     outb(0x61, tmp);                 // Disable speaker
 }
