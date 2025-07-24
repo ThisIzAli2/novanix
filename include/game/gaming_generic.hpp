@@ -26,7 +26,9 @@
 #define AWAIT_CONSTANT 30
 #define PRINT_PIPE printk(VGA_WHITE,"|",1);
 #define DASH_SIGN "-"
-#define DASH printk(VGA_WHITE,DASH_SIGN,0);
+#define DASH 
+#define PRINT_SLASH printk(VGA_WHITE,"/",0);
+#define PRINT_BACK_SLASH printk(VGA_WHITE,"\\",0);
 
 
 class Snake{
