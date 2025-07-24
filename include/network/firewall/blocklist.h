@@ -35,19 +35,19 @@ static Node* firewall_list = 0;
 
 
 static Node node_pool[MAX_FIREWALL_IPS];
-static int node_used[MAX_FIREWALL_IPS]; // 0=free,1=used
+static INTEGER node_used[MAX_FIREWALL_IPS]; // 0=free,1=used
 
 
 Node* allocate_node();
 
 
-void free_node(Node* node);
-int firewall_append(ip_t ip);
+VOID free_node(Node* node);
+INTEGER firewall_append(ip_t ip);
 
-int firewall_remove(ip_t ip);
-int firewall_check(ip_t ip);
+INTEGER firewall_remove(ip_t ip);
+INTEGER firewall_check(ip_t ip);
 
-int search_for_ip(ip_t ip);
+INTEGER search_for_ip(ip_t ip);
 
 
 #endif /*__NOVANIX_KERNEL_BLOCK_LIST_H*/
