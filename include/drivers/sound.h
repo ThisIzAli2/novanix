@@ -30,7 +30,7 @@ using namespace Novanix::common;
 
 
 
-inline void play_beep(uint32_t freq) {
+inline VOID play_beep(uint32_t freq) {
     uint16_t divisor = 1193180 / freq;
 
     // Configure PIT channel 2
@@ -46,7 +46,7 @@ inline void play_beep(uint32_t freq) {
 }
 
 // Stop the beep
-inline void stop_beep() {
+inline VOID stop_beep() {
     uint8_t tmp = inb(0x61) & 0xFC;  // Clear bits 0 and 1
     outb(0x61, tmp);                 // Disable speaker
 }
