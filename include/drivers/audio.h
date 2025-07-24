@@ -20,10 +20,10 @@
  *  - Kernel audio file header for audio stuff drivers.
 */
 
-#ifndef AUDIO_H
-#define AUDIO_H
+#ifndef __NOVANIX_KERNEL_AUDIO_H
+#define __NOVANIX_KERNEL_AUDIO_H
 
 void beep();
 
 
-#endif
+#endif /*__NOVANIX_KERNEL_AUDIO_H*/
