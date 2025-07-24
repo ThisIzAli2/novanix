@@ -42,7 +42,7 @@
 
 class Snake{
     private:
-    volatile static INTEGER k;
+    volatile INTEGER k;
     volatile INTEGER countdown;
     volatile INTEGER z;
         VOID delay_time(){
@@ -61,7 +61,7 @@ class Snake{
         }
         VOID print_snake(){
             if (z == 2 || z == 4 || z == 8 || z == 16){
-                NEXT_LINE
+                // NEXT_LINE
             }
             PRINT_SLASH
             PRINT_BACK_SLASH
