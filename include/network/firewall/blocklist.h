@@ -19,6 +19,7 @@
 #ifndef __NOVANIX_KERNEL_BLOCK_LIST_H
 #define __NOVANIX_KERNEL_BLOCK_LIST_H
 
+#include <common/init.hpp>
 
 #define MAX_FIREWALL_IPS 100
 
