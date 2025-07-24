@@ -60,7 +60,7 @@ class Snake{
             String::strcat(DASH_SIGN,DASH_SIGN);
         }
         VOID print_snake(){
-            if (z == 2 || z == 4 || z == 8 || z == 16){
+            if (z == 16){
                 NEXT_LINE
             }
             PRINT_SLASH
