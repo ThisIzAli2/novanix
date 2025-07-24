@@ -80,14 +80,14 @@ static uint8_t rx_buf[NUM_RX_DESC][ETH_FRAME_SIZE];
 static uint8_t tx_buf[NUM_TX_DESC][ETH_FRAME_SIZE];
 
 // Initialize the Intel 82540EM Ethernet Controller
-void e1000_init(uint32_t mmio_addr);
+VOID e1000_init(uint32_t mmio_addr);
 // Transmit a frame (MAC level)
-void e1000_send_packet(uint8_t* data, uint16_t len);
+VOID e1000_send_packet(uint8_t* data, uint16_t len);
 
 // Receive packets (basic polling)
-int e1000_poll_receive(uint8_t* out_buf);
+INTEGER e1000_poll_receive(uint8_t* out_buf);
 
-void e1000_init();
+VOID e1000_init();
 
 uint32_t inline get_mmio_base(uint8_t bus, uint8_t slot, uint8_t func) {
     // Read BAR0 (offset 0x10) from PCI config space
