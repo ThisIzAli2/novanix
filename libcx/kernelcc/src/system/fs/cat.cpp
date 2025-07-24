@@ -19,6 +19,7 @@
 #include <fs/cat.h>
 
 /**
+ * @brief Used to utilize 'cat' command.
  * NOTE: Do not use == 0 in String::strcmp(files[i].name, file)
  */
 VOID cat_file(char* file) {
