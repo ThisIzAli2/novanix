@@ -41,6 +41,8 @@
 
 #define U_SCORE printk(VGA_WHITE,"__",1);
 
+#define SNAKE_HEAD PRINT_PIPE U_SCORE PRINT_PIPE
+
 
 class Snake{
     private:
