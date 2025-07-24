@@ -22,13 +22,21 @@
 #include <common/init.hpp>
 
 #define DELAY_CONSTANT_GAME 100000000
+
 #define CLEAN printk(VGA_WHITE,"",1);
+
 #define AWAIT_CONSTANT 30
+
 #define PRINT_PIPE printk(VGA_WHITE,"|",1);
 #define DASH_SIGN "-"
+
 #define DASH 
+
 #define PRINT_SLASH printk(VGA_WHITE,"/",0);
+
 #define PRINT_BACK_SLASH printk(VGA_WHITE,"\\",0);
+
+#define NEXT_LINE printk(VGA_WHITE,"",1);
 
 
 class Snake{
