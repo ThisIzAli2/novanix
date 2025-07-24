@@ -70,6 +70,9 @@ VOID CPU::EnableFeatures()
     } 
 }
 
+/**
+ * NOTE: Use __cpuid here, not cpuid
+ */
 VOID print_cpu_info(){
     uint32_t eax, ebx, ecx, edx;
 
