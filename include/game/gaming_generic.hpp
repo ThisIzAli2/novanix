@@ -39,7 +39,7 @@
 
 #define NEXT_LINE printk(VGA_WHITE,"",1);
 
-#define PRINT_HEAD printk(VGA_WHITE,"",1);
+#define U_SCORE printk(VGA_WHITE,"__",1);
 
 
 class Snake{
