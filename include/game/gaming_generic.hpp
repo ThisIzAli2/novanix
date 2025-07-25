@@ -80,7 +80,7 @@ class Snake{
         VOID print_s(INTEGER code){
             printk(VGA_WHITE,stringify(keycode),1);
             for (INTEGER i = 0; i < AWAIT_CONSTANT;i++){
-                keycode = read_key();
+                keycode = read_key(); // This should be in the loop.
                 if (keycode == 158 || keycode == 28){
                     NEXT_LINE
                     continue;
