@@ -38,7 +38,7 @@ char* draw_editor() {
 
     while (read_key() != 0) {
         if (index < num){
-                    INTEGER keycode = read_key();
+        INTEGER keycode = read_key();
         key_editor = handle_keyboard(keycode);
 
 
@@ -70,10 +70,10 @@ char* draw_editor() {
     clean:
     delete[] text;
     delete[] full_prompt; //? Keep it here?
-    delete[] key_editor;
+    // delete[] key_editor;//! Do not remove this
     exit:
     delete[] text;
-    delete[] key_editor;
+    // delete[] key_editor; //! Do not remove this
     delete[] full_prompt; //? Keep it here?
     return full_prompt;
 }
