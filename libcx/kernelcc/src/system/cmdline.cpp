@@ -352,7 +352,8 @@ VOID cmdline() {
                         to_print[counter_k] = '\0';
 
                         // create_file_function(draw_editor(),to_print);
-                        file_t file = __create_file(to_print,draw_editor(),String::strlen(to_print)+1);
+                        char* data = draw_editor();
+                        file_t file = __create_file(to_print,data,String::strlen(data)+1);
                         files[i_file++].data = file.data;
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
