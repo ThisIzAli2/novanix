@@ -23,6 +23,15 @@
  * Include this file whenever you want to work with keyboard.
  */
 
+ /**
+  * Sample Usage:
+  * do{
+        INTEGER keycode = read_key(); 
+        key = handle_keyboard(keycode);  // Get the key pressed
+  * } while (readkey() != 0);
+
+  */
+
 #ifndef __NOVANIX_KERNEL_KEYMAP_HPP
 #define __NOVANIX_KERNEL_KEYMAP_HPP
 
