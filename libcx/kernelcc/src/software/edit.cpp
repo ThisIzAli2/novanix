@@ -30,7 +30,7 @@ using namespace Novanix::system;
  * TODO: There is no buffer overflow protection here!
  */
 char* draw_editor() {
-    long long int num = POW2(32);
+    long long int num = POW2(15);
     char* key_editor = new char[2];
     INTEGER index = 0;
     char* text = new char[num];
