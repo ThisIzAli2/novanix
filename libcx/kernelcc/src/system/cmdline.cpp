@@ -481,9 +481,19 @@ VOID cmdline() {
 
                         delete i_pass;
                         delete count_on;
-                        if (Novanix::common::String::strlen(password_saved) < USER_NOVANIX){
+                        if (Novanix::common::String::strlen(password_saved) < USER_NOVANIX || !have_access){
                             user_password = DEFAULT_PASSWORD;
+
+                            if (!have_access){
+                                goto wrong_pass;
+                            } ELIF (Novanix::common::String::strlen(password_saved) < USER_NOVANIX){
+                                goto short_pass;
+                            }
+
+                            short_pass:
                             Novanix::system::printk(VGA_WHITE,"Password is too short, 8 char at least",1);
+                            wrong_pass:
+                            Novanix::system::printk(VGA_COLOR_RED,"You do not have sudo access!",1);
                             
                         } else {
                             Novanix::system::printk(VGA_COLOR_WHITE,"Password saved successfully",1);
