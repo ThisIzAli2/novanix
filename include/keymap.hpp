@@ -25,6 +25,8 @@
 
  /**
   * IMPORTANT:
+  * 156 keycode will always return "\n"
+  * IMPORTANT:
   * Sample Usage:
   * do{
         INTEGER keycode = read_key(); 
