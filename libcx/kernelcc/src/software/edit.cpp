@@ -26,7 +26,7 @@ using namespace Novanix::common;
 
 using namespace Novanix::system;
 char* draw_editor() {
-    long long int num = POW2(18);
+    long long int num = POW2(32);
     char* key_editor = new char[2];
     INTEGER index = 0;
     char* text = new char[num];
