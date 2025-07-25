@@ -37,6 +37,6 @@ INTEGER __always_inline motd_choice(){
 const char __always_inline* randomCharFromArray(const char* arr, unsigned int len) {
     if (len == 0) return nullptr; // safety check, return null pointer
 
-    unsigned int index = krand() % len;
+    unsigned INTEGER index = krand() % len;
     return &arr[index];  // return pointer to the character
 }
