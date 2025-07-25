@@ -19,9 +19,14 @@
 
 
 /**
+ * IMPORTANT: This keyboard driver matching is only for QEMU!
+ */
+
+/**
  * There are functions for handling keyboard defined here.
  * Include this file whenever you want to work with keyboard.
  */
+
 
  /**
   * IMPORTANT:
