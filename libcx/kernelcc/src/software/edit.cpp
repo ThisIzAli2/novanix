@@ -25,6 +25,10 @@
 using namespace Novanix::common;
 
 using namespace Novanix::system;
+
+/**
+ * TODO: There is no buffer overflow protection here!
+ */
 char* draw_editor() {
     long long int num = POW2(32);
     char* key_editor = new char[2];
