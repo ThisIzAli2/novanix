@@ -87,8 +87,8 @@ char* generate_random_string() {
 /**
  * @brief a function that creates a file, gives the data as an input.
  */
-VOID create_file_function(char* data){
-    file_t file = __create_file(generate_random_string(),data,String::strlen(data)+1);
+VOID create_file_function(char* data,char* name){
+    file_t file = __create_file(name,data,String::strlen(data)+1);
     files[i_file++].data = file.data;
 }
 
