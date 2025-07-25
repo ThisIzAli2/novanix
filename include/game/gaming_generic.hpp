@@ -78,7 +78,6 @@ class Snake{
         }
     public:
         VOID print_s(INTEGER code){
-            
             printk(VGA_WHITE,stringify(keycode),1);
             for (INTEGER i = 0; i < AWAIT_CONSTANT;i++){
                 keycode = read_key();
