@@ -63,7 +63,7 @@ static INTEGER count = 0;
 /**
  * @brief Scans the keyboard when a key is pressed
  */
-uint8_t inline read_key() {
+uint8_t __always_inline read_key() {
     uint8_t scan_code;
 
     // Wait until the keyboard controller is ready to send data
@@ -78,7 +78,7 @@ uint8_t inline read_key() {
 /**
  * @brief A function that handles keyboard functions 
  */
-inline char* handle_keyboard(uint8_t scan_code){
+__always_inline char* handle_keyboard(uint8_t scan_code){
     
     switch(scan_code){
         case 144:
