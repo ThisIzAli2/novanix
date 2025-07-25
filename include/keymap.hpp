@@ -19,6 +19,7 @@
 
 
 /**
+ * TODO: IMPLEMENT IT FOR OTHER ARCHITECTURES.
  * IMPORTANT: This keyboard driver matching is only for QEMU!
  */
 
