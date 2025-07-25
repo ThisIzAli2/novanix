@@ -20,6 +20,10 @@
 #ifndef __Novanix__SYSTEM__NEW_H
 #define __Novanix__SYSTEM__NEW_H
 
+/**
+ * This file redefines all the operators needed for the kernel.
+ */
+
 #include <stddef.h>
 #include <system/memory/heap.h>
 
