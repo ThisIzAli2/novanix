@@ -76,7 +76,7 @@ class Snake{
             z++;
         }
     public:
-        VOID print_s(){
+        VOID print_s(INTEGER code){
             for (INTEGER i = 0; i < AWAIT_CONSTANT;i++){
             if (k % 2 == 0){
                     print_snake(); 
