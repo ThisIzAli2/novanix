@@ -18,3 +18,15 @@
 */
 
 #include <common/init.hpp>
+
+static unsigned INTEGER seed = 123456789;
+
+
+__always_inline INTEGER krand(){
+    seed = seed * 1664525 + 1013904223;
+    return seed;
+}
+
+unsigned __always_inline INTEGER kRandRange(unsigned INTEGER min, unsigned INTEGER max) {
+    return min + (krand() % (max - min + 1));
+}

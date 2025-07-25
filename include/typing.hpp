@@ -23,7 +23,7 @@
 
 #define INTEGER int
 #define VOID void
-#define __always_inline inline
+#define __always_inline inline  __attribute__((always_inline))
 #define ELIF else if
 #define BOOL bool
 #define LPVOID void*
