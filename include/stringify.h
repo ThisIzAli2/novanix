@@ -23,7 +23,7 @@
 
 
 /**
- * @brief Stringify the integer 
+ * @brief Stringify the integer.
  */
 inline char*  stringify(INTEGER num){
     static char str[20];  // Make sure this is large enough to hold the result (including negative sign)
