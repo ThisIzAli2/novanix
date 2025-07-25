@@ -21,6 +21,9 @@
 #define __NOVANIX_FEDITOR_H
 
 
+#define POW2(exp) (1U << (exp))
+
+
 #include <common/init.hpp>
 
 char* draw_editor();
