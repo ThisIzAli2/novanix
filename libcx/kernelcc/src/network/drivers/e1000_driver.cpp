@@ -19,22 +19,22 @@
 #include <network/drivers/e1000_driver.h>
 
 
-static inline void mmio_write(uint32_t offset, uint32_t value) {
+static __always_inline void mmio_write(uint32_t offset, uint32_t value) {
     *((volatile uint32_t *)((uintptr_t)mmio_base + offset)) = value;
 }
-static inline uint32_t mmio_read(uint32_t offset) {
+static __always_inline uint32_t mmio_read(uint32_t offset) {
     return *((volatile uint32_t *)((uintptr_t)mmio_base + offset));
 }
 
 // Initialize the Intel 82540EM Ethernet Controller
-void e1000_init(uint32_t mmio_addr) {
+VOID e1000_init(uint32_t mmio_addr) {
     mmio_base = (volatile uint32_t*)(uintptr_t)mmio_addr;
 
     // Disable interrupts
     mmio_write(E1000_REG_IMS, 0);
 
     // Setup RX ring
-    for (int i = 0; i < NUM_RX_DESC; i++) {
+    for (INTEGER i = 0; i < NUM_RX_DESC; i++) {
         rx_desc[i].addr = (uint64_t)(uintptr_t)rx_buf[i];
         rx_desc[i].status = 0;
     }
@@ -63,7 +63,7 @@ void e1000_init(uint32_t mmio_addr) {
 }
 
 // Transmit a frame (MAC level)
-void e1000_send_packet(uint8_t* data, uint16_t len) {
+VOID e1000_send_packet(uint8_t* data, uint16_t len) {
     uint32_t tdt = mmio_read(E1000_REG_TDT);
     if (!(tx_desc[tdt].status & 0x1)) return; // Not ready
 
@@ -77,12 +77,12 @@ void e1000_send_packet(uint8_t* data, uint16_t len) {
 }
 
 // Receive packets (basic polling)
-int e1000_poll_receive(uint8_t* out_buf) {
-    static int index = 0;
+INTEGER e1000_poll_receive(uint8_t* out_buf) {
+    static INTEGER index = 0;
     if (!(rx_desc[index].status & 0x1)) return 0; // No packet
 
     uint16_t len = rx_desc[index].length;
-    for (int i = 0; i < len; i++) out_buf[i] = rx_buf[index][i];
+    for (INTEGER i = 0; i < len; i++) out_buf[i] = rx_buf[index][i];
 
     rx_desc[index].status = 0;
     mmio_write(E1000_REG_RDT, index);
@@ -91,7 +91,7 @@ int e1000_poll_receive(uint8_t* out_buf) {
     return len;
 }
 
-void e1000_init(){
+VOID e1000_init(){
     for (uint8_t bus = 0; bus < 256; bus++) {
     for (uint8_t slot = 0; slot < 32; slot++) {
         uint32_t id = pci_config_read(bus, slot, 0, 0x00);
