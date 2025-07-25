@@ -40,7 +40,9 @@ static char dir_name[256] = {0};  // Static array to store the directory name (f
 
 static char* current_directory = "/home";
 
-
+/**
+ * @brief This class is used to handle the kernel file system.
+ */
 class FileSystem {
 public:
     const char* currDir = "home";
