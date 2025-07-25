@@ -37,7 +37,8 @@ char* draw_editor() {
     char* full_prompt = new char[num];
 
     while (read_key() != 0) {
-        INTEGER keycode = read_key();
+        if (index < num){
+                    INTEGER keycode = read_key();
         key_editor = handle_keyboard(keycode);
 
 
@@ -60,7 +61,15 @@ char* draw_editor() {
             full_prompt[index] = '\0';
             goto exit;            
         }
+        }else{
+            printk(VGA_COLOR_RED,"Buffer error in file! data is large!",1);
+            goto clean;
+        }
+
     }
+    clean:
+    delete[] text;
+    delete[] full_prompt; //? Keep it here?
     exit:
     delete[] text;
     delete[] full_prompt; //? Keep it here?
