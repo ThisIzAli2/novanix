@@ -17,6 +17,11 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 
+
+#ifndef __NOVANIX_KERNEL_RANDOM__RAND_H
+#define __NOVANIX_KERNEL_RANDOM__RAND_H
+
+
 #include <common/init.hpp>
 
 static unsigned INTEGER seed = 123456789;
@@ -31,12 +36,6 @@ unsigned __always_inline INTEGER kRandRange(unsigned INTEGER min, unsigned INTEG
     return min + (krand() % (max - min + 1));
 }
 
-INTEGER __always_inline motd_choice(){
-    kRandRange(1,3);
-}
-const char __always_inline* randomCharFromArray(const char* arr, unsigned int len) {
-    if (len == 0) return nullptr; // safety check, return null pointer
 
-    unsigned INTEGER index = krand() % len;
-    return &arr[index];  // return pointer to the character
-}
+
+#endif /*__NOVANIX_KERNEL_RANDOM__RAND_H*/

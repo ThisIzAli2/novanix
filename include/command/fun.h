@@ -20,6 +20,7 @@
 #define __NOVANIX_KERNEL_FUN_H
 
 #include <common/init.hpp>
+#include <random/rand.h>
 
 #define COW_STRING \
 "  \\   ^__^\n" \
@@ -37,5 +38,10 @@
 const char* motd_arr[] = {NEWTON_QUOTE, MESSAGE_OF_THE_DAY};
 const size_t motd_arr_len = sizeof(motd_arr) / sizeof(motd_arr[0]);
 
+const __always_inline char* randomMotd() {
+    if (motd_arr_len == 0) return NULL;
+    unsigned int index = krand() % motd_arr_len;
+    return motd_arr[index];
+}
 
 #endif /* __NOVANIX_KERNEL_FUN_H*/
