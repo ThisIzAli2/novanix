@@ -20,6 +20,7 @@
 #define __NOVANIX_KERNEL_GAMING_GENERIC_HPP
 
 #include <common/init.hpp>
+#include <keymap.hpp>
 
 #define SUBTRACT_VALUE 10000
 #define ACTUAL_CONSTANT 100000000
