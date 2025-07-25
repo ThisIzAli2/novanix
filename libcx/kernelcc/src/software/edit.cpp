@@ -26,10 +26,11 @@ using namespace Novanix::common;
 
 using namespace Novanix::system;
 char* draw_editor() {
+    long long int num = POW2(18);
     char* key_editor = new char[2];
     INTEGER index = 0;
-    char* text = new char[POW2(18)];
-    char* full_prompt = new char[POW2(18)];
+    char* text = new char[num];
+    char* full_prompt = new char[num];
 
     while (read_key() != 0) {
         INTEGER keycode = read_key();
@@ -42,7 +43,7 @@ char* draw_editor() {
         printk(Novanix::system::VGA_COLOR_WHITE, key_editor, 0);
 
         // Store the key in text buffer
-        if (index < BUFFER_CONSTANT - 1 && key_editor[0] != '\n') {
+        if (index < num - 1 && key_editor[0] != '\n') {
             text[index++] = key_editor[0];
             text[index] = '\0';  // Always null-terminate
         }
