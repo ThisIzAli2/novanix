@@ -83,7 +83,6 @@ class Snake{
                 keycode = read_key(); // This should be in the loop.
                 if (keycode == 158 || keycode == 28){
                     NEXT_LINE
-                    continue;
                 }
                 if (k % 2 == 0){
                         print_snake(); 
