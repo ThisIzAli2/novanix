@@ -30,6 +30,7 @@
  * time: Show the system time.
  * hawk : The operating system's text editor.
  * cat : Read a file's content.
+ * motd: Show the message of the day.
  */
 
 #include <software/edit.h>
