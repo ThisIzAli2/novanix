@@ -49,7 +49,7 @@ char* draw_editor() {
 
         // If Enter is pressed
         if (key_editor[0] == '\n') {
-            for (int k = 0; k < index; ++k) {
+            for (INTEGER k = 0; k < index; ++k) {
                 full_prompt[k] = text[k];
             }
             full_prompt[index] = '\0';
