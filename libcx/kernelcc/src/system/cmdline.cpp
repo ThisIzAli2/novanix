@@ -31,6 +31,7 @@
  * hawk : The operating system's text editor.
  * cat : Read a file's content.
  * motd: Show the message of the day.
+ * set-password : Set the new password. //TODO: Still need to verify the previous password
  */
 
 #include <software/edit.h>
