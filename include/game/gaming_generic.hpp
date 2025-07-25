@@ -29,7 +29,7 @@
 
 #define CLEAN printk(VGA_WHITE,"",1);
 
-#define AWAIT_CONSTANT 30000
+#define AWAIT_CONSTANT 1000000000
 
 #define PRINT_PIPE printk(VGA_WHITE,"|",1);
 
