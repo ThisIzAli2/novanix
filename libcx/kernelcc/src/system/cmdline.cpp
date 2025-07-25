@@ -52,6 +52,7 @@
 #include <game/gaming.h>
 #include <constant.h>
 #include <drivers/cpu.h>
+#include <random/rand.h>
 
 char* dirs[MAX_DIRS];
 
@@ -361,7 +362,7 @@ VOID cmdline() {
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"motd") == 0){
-                        printk(VGA_COLOR_WHITE,MESSAGE_OF_THE_DAY,1);
+                        printk(VGA_COLOR_WHITE,randomCharFromArray(motd_arr,SIZE_OF_MOTD_ARRAY),1);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd, "comm-send") == 0 || cmd_cmp(full_cmd, "comm-recv") == 0) {

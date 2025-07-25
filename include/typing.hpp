@@ -28,4 +28,10 @@
 #define BOOL bool
 #define LPVOID void*
 
+
+#ifndef NULL
+#define NULL nullptr
+#endif /*NULL*/
+
+
 #endif /*__TYPING_HPP_KERNEL*/

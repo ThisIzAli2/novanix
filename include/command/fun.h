@@ -27,9 +27,14 @@
 "              ||     ||\n"
 
 
-#define NEWTON_QUOTE "If I have seen further, it is by standing on the shoulders of giants (sir Isaac Newton)"
+#define NEWTON_QUOTE 'If I have seen further, it is by standing on the shoulders of giants (sir Isaac Newton)'
 
 
-#define MESSAGE_OF_THE_DAY "Welcome to Nova OS - The future is bright!\n"
+#define MESSAGE_OF_THE_DAY 'Welcome to Nova OS - The future is bright!\n'
+
+
+const char motd_arr[] = {NEWTON_QUOTE,MESSAGE_OF_THE_DAY};
+#define SIZE_OF_MOTD_ARRAY sizeof(motd_arr) / sizeof(motd_arr[0])
+
 
 #endif /* __NOVANIX_KERNEL_FUN_H*/

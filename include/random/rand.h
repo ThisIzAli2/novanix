@@ -34,3 +34,9 @@ unsigned __always_inline INTEGER kRandRange(unsigned INTEGER min, unsigned INTEG
 INTEGER __always_inline motd_choice(){
     kRandRange(1,3);
 }
+const char __always_inline* randomCharFromArray(const char* arr, unsigned int len) {
+    if (len == 0) return nullptr; // safety check, return null pointer
+
+    unsigned int index = krand() % len;
+    return &arr[index];  // return pointer to the character
+}
