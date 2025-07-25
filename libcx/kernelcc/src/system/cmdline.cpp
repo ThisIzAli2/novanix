@@ -344,8 +344,8 @@ VOID cmdline() {
                     } 
                     ELIF(full_cmd[0] == 'h' && full_cmd[1] == 'a' && full_cmd[2] == 'w' && full_cmd[3] == 'k'){
                         char to_print[BUFFER_CONSTANT] = {0};
-                        int i_for_hawk = 5;
-                        int counter_k = 0;
+                        INTEGER i_for_hawk = 5;
+                        INTEGER counter_k = 0;
                         while (full_cmd[i_for_hawk] != '\0' && counter_k < BUFFER_CONSTANT - 1) {
                             to_print[counter_k++] = full_cmd[i_for_hawk++];
                         }
