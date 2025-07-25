@@ -104,6 +104,7 @@ inline char* handle_keyboard(uint8_t scan_code){
         return "}";
         case 186:
         case 30:
+        case 0x00:
         return "a";
         case 159:
         case 31:
