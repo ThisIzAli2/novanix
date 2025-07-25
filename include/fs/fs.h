@@ -28,7 +28,7 @@ typedef struct File{
     char* name;
     char* data;
     char* dir;
-    int size;
+    INTEGER size;
 } file_t;
 
 
