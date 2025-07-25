@@ -30,3 +30,7 @@ __always_inline INTEGER krand(){
 unsigned __always_inline INTEGER kRandRange(unsigned INTEGER min, unsigned INTEGER max) {
     return min + (krand() % (max - min + 1));
 }
+
+INTEGER __always_inline motd_choice(){
+    kRandRange(1,11);
+}
