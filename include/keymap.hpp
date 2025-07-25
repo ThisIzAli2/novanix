@@ -24,6 +24,7 @@
  */
 
  /**
+  * IMPORTANT:
   * Sample Usage:
   * do{
         INTEGER keycode = read_key(); 
