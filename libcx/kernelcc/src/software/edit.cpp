@@ -70,10 +70,10 @@ char* draw_editor() {
     clean:
     delete[] text;
     delete[] full_prompt; //? Keep it here?
-    // delete[] key_editor;//! Do not remove this
+    // delete[] key_editor;//! Do not remove this buffer
     exit:
     delete[] text;
-    // delete[] key_editor; //! Do not remove this
+    // delete[] key_editor; //! Do not remove this buffer
     delete[] full_prompt; //? Keep it here?
     return full_prompt;
 }
