@@ -488,8 +488,12 @@ VOID cmdline() {
                                 goto wrong_pass;
                             } ELIF (Novanix::common::String::strlen(password_saved) < USER_NOVANIX){
                                 goto short_pass;
+                            } else{
+                                goto fatal;
                             }
 
+                            fatal:
+                            Novanix::system::printk(VGA_COLOR_RED,"Unkown error occurred!",1);
                             short_pass:
                             Novanix::system::printk(VGA_WHITE,"Password is too short, 8 char at least",1);
                             wrong_pass:
