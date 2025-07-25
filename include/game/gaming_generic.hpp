@@ -41,7 +41,7 @@
 
 #define PRINT_BACK_SLASH printk(VGA_WHITE,"\\",0);
 
-#define NEXT_LINE printk(VGA_WHITE,"",1);
+#define NEXT_LINE printk(VGA_WHITE,"\n",1);
 
 #define U_SCORE printk(VGA_WHITE,"__",1);
 
@@ -53,6 +53,7 @@ class Snake{
     volatile INTEGER k;
     volatile INTEGER countdown;
     volatile INTEGER z;
+    INTEGER keycode;
         VOID delay_time(){
             for (countdown = 0; countdown < DELAY_CONSTANT_GAME;countdown++){}
         }
@@ -77,15 +78,22 @@ class Snake{
         }
     public:
         VOID print_s(INTEGER code){
+            
+            printk(VGA_WHITE,stringify(keycode),1);
             for (INTEGER i = 0; i < AWAIT_CONSTANT;i++){
-            if (k % 2 == 0){
-                    print_snake(); 
-                } else{
-                    DASH
+                keycode = read_key();
+                if (keycode == 158 || keycode == 28){
+                    NEXT_LINE
+                    continue;
                 }
-                print_stuff();
-                k++;
-            }
+                if (k % 2 == 0){
+                        print_snake(); 
+                    } else{
+                        DASH
+                    }
+                    print_stuff();
+                    k++;
+                }
         }
         
 };
