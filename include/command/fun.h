@@ -25,6 +25,8 @@
 "              ||     ||\n"
 
 
+#define NEWTON_QUOTE "If I have seen further, it is by standing on the shoulders of giants (sir Isaac Newton)"
+
 
 #define MESSAGE_OF_THE_DAY "Welcome to Nova OS - The future is bright!\n"
 #endif /* __NOVANIX_KERNEL_FUN_H*/
