@@ -342,6 +342,7 @@ VOID cmdline() {
                         delete counter_k;
                         delete[] to_print;
                     } 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'h' && full_cmd[1] == 'a' && full_cmd[2] == 'w' && full_cmd[3] == 'k'){
                         char to_print[BUFFER_CONSTANT] = {0};
                         INTEGER i_for_hawk = 5;
