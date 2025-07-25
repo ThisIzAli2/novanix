@@ -93,6 +93,8 @@ inline char* handle_keyboard(uint8_t scan_code){
         case 147:
         case 19:
         return "r";
+        case 52:
+        return ".";
         case 148:
         case 20:
         return "t";
@@ -301,7 +303,9 @@ inline char* handle_keyboard(uint8_t scan_code){
 
 
         default:
+        // #define DEV
         #ifdef DEV
+        
 
         return stringify(scan_code);
 
