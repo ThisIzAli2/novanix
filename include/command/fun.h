@@ -19,6 +19,8 @@
 #ifndef __NOVANIX_KERNEL_FUN_H
 #define __NOVANIX_KERNEL_FUN_H
 
+#include <common/init.hpp>
+
 #define COW_STRING \
 "  \\   ^__^\n" \
 "       \\  (oo)\\_______\n" \
@@ -27,14 +29,13 @@
 "              ||     ||\n"
 
 
-#define NEWTON_QUOTE 'If I have seen further, it is by standing on the shoulders of giants (sir Isaac Newton)'
+// Correct string macros (use double quotes)
+#define NEWTON_QUOTE "If I have seen further, it is by standing on the shoulders of giants (Sir Isaac Newton)"
+#define MESSAGE_OF_THE_DAY "Welcome to Nova OS - The future is bright!\n"
 
-
-#define MESSAGE_OF_THE_DAY 'Welcome to Nova OS - The future is bright!\n'
-
-
-const char motd_arr[] = {NEWTON_QUOTE,MESSAGE_OF_THE_DAY};
-#define SIZE_OF_MOTD_ARRAY sizeof(motd_arr) / sizeof(motd_arr[0])
+// Array of pointers to strings
+const char* motd_arr[] = {NEWTON_QUOTE, MESSAGE_OF_THE_DAY};
+const size_t motd_arr_len = sizeof(motd_arr) / sizeof(motd_arr[0]);
 
 
 #endif /* __NOVANIX_KERNEL_FUN_H*/

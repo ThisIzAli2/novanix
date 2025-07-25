@@ -33,5 +33,7 @@
 #define NULL nullptr
 #endif /*NULL*/
 
+typedef unsigned long int size_t;
+
 
 #endif /*__TYPING_HPP_KERNEL*/
