@@ -1,5 +1,6 @@
 /**
  ** This file is part of Novanix.
+ @author Ali Mirmohammad
  @file fun.h
 
 **AliNix is free software: you can redistribute it and/or modify
