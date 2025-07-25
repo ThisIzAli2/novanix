@@ -16,3 +16,5 @@
 **You should have received a copy of the GNU Affero General Public License
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
+
+#include <common/init.hpp>
