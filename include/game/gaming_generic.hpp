@@ -77,16 +77,38 @@ class Snake{
         }
     public:
         VOID print_s(){
-            for (INTEGER i = 0;i < AWAIT_CONSTANT;i++){
+        char* key = new char[2];  // Single character input
+        INTEGER index = 0;
+        char* cmd = new char[BUFFER_CONSTANT];  // Command buffer
+        INTEGER i = 0;
+        char* full_cmd = new char[BUFFER_CONSTANT];  
+        INTEGER j = 0;
+
+
+            do {
+                INTEGER keycode = read_key();  
+                key = handle_keyboard(keycode);  
+                            for (INTEGER i = 0;i < AWAIT_CONSTANT;i++){
                 if (k % 2 == 0){
                     print_snake(); 
                 } else{
                     DASH
+                    goto input;
                 }
                 print_stuff();
                 k++;
+                input:
+                if (key[0] == '\n'){
+                    // Copy cmd to full_cmd when Enter is pressed
+                    for (INTEGER k = 0; k < index; ++k) {
+                        full_cmd[k] = cmd[k];
+                    }
+                    full_cmd[index] = '\0';  // Null-terminate the full_cmd string
+
+                }
             }
             CLEAN
+            } while (read_key() != 0);
         }
         
 };
