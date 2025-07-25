@@ -23,6 +23,10 @@
 #include <core/power.h>
 #include <system/vfs/fat.h>
 
+/**
+ * NOTE: This file is no longer needed in the kernel and will be removed soon!
+ */
+
 using namespace Novanix;
 using namespace Novanix::common;
 using namespace Novanix::core;
