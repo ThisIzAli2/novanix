@@ -28,7 +28,7 @@ using namespace Novanix::system;
 char* draw_editor() {
     char* key_editor = new char[2];
     INTEGER index = 0;
-    char* text = new char[BUFFER_CONSTANT];
+    char* text = new char[POW2(18)];
     char* full_prompt = new char[POW2(18)];
 
     while (read_key() != 0) {
