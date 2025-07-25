@@ -27,7 +27,7 @@ using namespace Novanix::common;
 using namespace Novanix::system;
 
 /**
- * TODO: There is no buffer overflow protection here!
+ * TODO: There is no guaranteed buffer overflow protection here!
  */
 char* draw_editor() {
     long long int num = POW2(13);
