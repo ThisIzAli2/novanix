@@ -361,7 +361,7 @@ VOID cmdline() {
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"motd") == 0){
-                        Novanix::system::printk(VGA_COLOR_WHITE,MESSAGE_OF_THE_DAY,1);
+                        printk(VGA_COLOR_WHITE,MESSAGE_OF_THE_DAY,1);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd, "comm-send") == 0 || cmd_cmp(full_cmd, "comm-recv") == 0) {

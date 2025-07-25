@@ -32,5 +32,5 @@ unsigned __always_inline INTEGER kRandRange(unsigned INTEGER min, unsigned INTEG
 }
 
 INTEGER __always_inline motd_choice(){
-    kRandRange(1,11);
+    kRandRange(1,3);
 }
