@@ -62,5 +62,7 @@ char* draw_editor() {
         }
     }
     exit:
+    delete[] text;
+    delete[] full_prompt; //? Keep it here?
     return full_prompt;
 }
