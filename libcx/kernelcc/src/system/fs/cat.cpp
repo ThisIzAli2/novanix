@@ -24,7 +24,7 @@
  */
 VOID cat_file(char* file) {
     for (INTEGER i = 0; i < MAX_FILES; i++) {
-        if (files[i].name == nullptr) continue; // skip empty entries, This is important
+        // if (files[i].name == nullptr) continue; // skip empty entries, This is important
         if (String::strcmp(files[i].name, file)) {
             printk(VGA_WHITE, files[i].data, 1);
             return;
