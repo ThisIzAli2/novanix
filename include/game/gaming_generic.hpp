@@ -21,7 +21,7 @@
 
 #include <common/init.hpp>
 
-#define DELAY_CONSTANT_GAME 100000000
+#define DELAY_CONSTANT_GAME 100000000 - 100
 
 #define CLEAN printk(VGA_WHITE,"",1);
 
