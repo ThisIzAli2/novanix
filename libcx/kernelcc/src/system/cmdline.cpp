@@ -495,7 +495,7 @@ VOID cmdline() {
                             }
                             
                         } else {
-                            Novanix::system::printk(VGA_COLOR_WHITE,"Password saved successfully",1);
+                            Novanix::system::printk(VGA_COLOR_GREEN,"Password saved successfully",1);
                         }
                         
                     }
