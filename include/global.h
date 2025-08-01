@@ -30,6 +30,8 @@ extern file_t files[MAX_FILES];
 extern INTEGER i_file;
 extern Snake snake;
 extern INTEGER counts_failed_sudo;
+extern bool have_access;
+
 
 
 #endif /*__NOVANIX_KERNEL_GLOBAL_H*/

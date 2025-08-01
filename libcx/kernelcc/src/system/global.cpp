@@ -25,3 +25,4 @@ file_t files[MAX_FILES];
 INTEGER i_file;
 Snake snake;
 INTEGER counts_failed_sudo = 0;
+bool have_access = false;

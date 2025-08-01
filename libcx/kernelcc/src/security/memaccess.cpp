@@ -18,7 +18,7 @@
 */
 #include <security/memaccess.h>
 #include <novanix/access.h>
-
+#include <global.h>
 
 /**
  * Reset the super user access, if there was a try to access and destroy the memory.
