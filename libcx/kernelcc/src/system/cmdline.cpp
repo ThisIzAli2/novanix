@@ -489,7 +489,7 @@ VOID cmdline() {
                             if (!have_access){
                                 Novanix::system::printk(VGA_COLOR_RED,"You do not have sudo access!",1);
                             } ELIF (Novanix::common::String::strlen(password_saved) < USER_NOVANIX){
-                                Novanix::system::printk(VGA_WHITE,"Password is too short, 8 char at least",1);
+                                Novanix::system::printk(VGA_COLOR_RED,"Password is too short, 8 char at least",1);
                             } else{
                                 Novanix::system::printk(VGA_COLOR_RED,"Unkown error occurred!",1);
                             }
