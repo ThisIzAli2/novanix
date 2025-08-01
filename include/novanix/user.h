@@ -29,7 +29,6 @@
 #define DEFAULT_PASSWORD "admin"
 
 static char user_name[USER_NAME_BUFFER] = "admin";
-static char *user_password = "admin";
 
 
 
