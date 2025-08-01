@@ -475,10 +475,9 @@ VOID cmdline() {
                         }
 
 
-                        Novanix::system::printk(VGA_COLOR_WHITE,stringify(Novanix::common::String::strlen(password_saved)),1);
 
                         password_saved[n++] = '\0';
-                        Novanix::system::printk(VGA_WHITE,"Your password is:",0);
+                        Novanix::system::printk(VGA_WHITE,"Your entered password is:",0);
                         Novanix::system::printk(VGA_WHITE,password_saved,1);
                         user_password = password_saved;
 
