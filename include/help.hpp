@@ -22,6 +22,6 @@
 
 
 #define HELP_MENU " \n help         Show this help message and exit\n shutdown-now Sht down the system \n initfile [filename] Make a new file\n time: get the current time of the system\n clear : clean the terminal \n pwd : Show the current directory \n time: Show the current time for system. \n halt : halt and stop the system. \n version: Show the latest kernel version. \n tasks-show: Show the running tasks. \n cowsay : An interesting command. \n cal : show the calendar. \n hawk : Nova OS file editor. \n mkdir : Make a new directory. \n motd: Get the message of the day. \n pci : Show the pci devices. \n" 
-
+#define SUDO_HELP_MENU "\nset-password : Set and change sudo password\n sudo-su : Gain super user access\n"
 
 #endif /*__NOVANIX_KERNEL_HELP_H*/
