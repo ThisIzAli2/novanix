@@ -484,7 +484,7 @@ VOID cmdline() {
                         delete i_pass;
                         delete count_on;
                         if (Novanix::common::String::strlen(password_saved) < USER_NOVANIX || !have_access){
-                            user_password = DEFAULT_PASSWORD;
+                            // user_password = DEFAULT_PASSWORD;
 
                             if (!have_access){
                                 Novanix::system::printk(VGA_COLOR_RED,"You do not have sudo access!",1);
