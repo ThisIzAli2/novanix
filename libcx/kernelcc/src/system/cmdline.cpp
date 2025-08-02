@@ -184,17 +184,6 @@ VOID cmdline() {
                             Novanix::system::printk(VGA_COLOR_RED,"You do not have sudo access, try again.",1);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    ELIF (cmd_cmp("data",full_cmd) == 0){
-                        uint8_t my_data[512] = {0};
-
-                        const char* msg = "NovaOS password: secret123";
-                        for (int i = 0; msg[i] != '\0'; ++i)
-                            my_data[i] = msg[i];
-
-                        // Write it to disk
-                        ata_write_sector(my_data);
-                    }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"net-udp") == 0){
                         //! Not ready to use yet
                         Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"UDP function not ready yet",1);
