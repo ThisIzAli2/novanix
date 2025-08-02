@@ -25,7 +25,7 @@
 /**
  * @brief Stringify the integer.
  */
-inline char*  stringify(INTEGER num){
+__always_inline char*  stringify(INTEGER num){
     static char str[20];  // Make sure this is large enough to hold the result (including negative sign)
     INTEGER i = 0;
     BOOL isNegative = false;
