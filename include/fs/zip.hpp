@@ -34,7 +34,11 @@ class ZipFile{
             char* data;
             INTEGER number;
         }zip_t;
+        static zip_t create_zip_file(file_t file,char* data){
+            
+        }
     public:
+
 
 };
 
