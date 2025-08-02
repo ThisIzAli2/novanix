@@ -31,7 +31,9 @@ class ZipFile{
         file_t zipped_files[MAX_ZIPPED_FILES];
         typedef struct Zip{
             file_t file;
+            char* file_name;
             char* data;
+            char* file_directory;
             INTEGER number;
         }zip_t;
         static zip_t create_zip_file(file_t file,char* data){
