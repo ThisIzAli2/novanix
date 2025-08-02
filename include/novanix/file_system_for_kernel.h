@@ -81,7 +81,7 @@ public:
         root = {"/", subdirectories, 3, nullptr};
     }
 
-    void printCurrentDir() {
+    VOID printCurrentDir() {
         Novanix::system::printk(VGA_COLOR_WHITE, "%s", 1, current_directory);
         return;
     }
@@ -122,7 +122,7 @@ public:
     return dir_name;
     }
 
-    bool rmdir(const char* name) {
+    BOOL rmdir(const char* name) {
         Directory* currentDir = findDirectory(&root, currentDirectory);
         if (!currentDir) {
             Novanix::system::printk(VGA_COLOR_RED, "Error: Current directory not found.\n",1);
