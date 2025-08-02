@@ -20,4 +20,11 @@
 #ifndef __NOVANIX_KERNEL_ZIP_HPP
 #define __NOVANIX_KERNEL_ZIP_HPP
 
+#include <common/init.hpp>
+
+class ZipFile{
+    private:
+
+};
+
 #endif /*__NOVANIX_KERNEL_ZIP_HPP*/
