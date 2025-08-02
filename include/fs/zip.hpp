@@ -21,11 +21,14 @@
 #define __NOVANIX_KERNEL_ZIP_HPP
 
 #include <common/init.hpp>
+#include <fs/fs.h>
+
+#define MAX_ZIPPED_FILES 10
 
 class ZipFile{
     private:
         const char* cur_dir = current_directory;
-    
+        file_t zipped_files[MAX_ZIPPED_FILES];
     public:
         
 
