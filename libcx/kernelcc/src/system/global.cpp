@@ -27,3 +27,4 @@ Snake snake;
 INTEGER counts_failed_sudo = 0;
 bool have_access = false;
 char user_password[] = "admin";
+ZipFile zip_manager;
