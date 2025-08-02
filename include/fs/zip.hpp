@@ -34,7 +34,7 @@ class ZipFile{
             file_t file;
         }zip_t;
         zip_t ret_file[MAX_ZIPPED_FILES];
-        VOID create_zip_file(file_t file){
+        VOID __create_zip_file(file_t file){
             if (counter_zip >= 10){
                 printk(VGA_COLOR_RED,"You cannot create more zip files than 10!",1);
             }else{            ret_file[counter_zip].file = file;
@@ -42,6 +42,10 @@ class ZipFile{
         }
         }
     public:
+        zip_t create_zip_file(file_t file){
+            __create_zip_file(file);
+            return ret_file[counter_zip];
+        }
 
 
 };
