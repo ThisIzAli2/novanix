@@ -25,6 +25,9 @@
 class ZipFile{
     private:
         const char* cur_dir = current_directory;
+    
+    public:
+        
 
 };
 
