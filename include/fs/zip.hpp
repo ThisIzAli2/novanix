@@ -29,8 +29,12 @@ class ZipFile{
     private:
         const char* cur_dir = current_directory;
         file_t zipped_files[MAX_ZIPPED_FILES];
+        typedef struct Zip{
+            file_t file;
+            char* data;
+            INTEGER number;
+        }zip_t;
     public:
-        
 
 };
 
