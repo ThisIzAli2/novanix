@@ -32,6 +32,7 @@
  * cat : Read a file's content.
  * motd: Show the message of the day.
  * set-password : Set the new password. //TODO: Still need to verify the previous password
+ * sudo-reset : Reset the SUDO access.
  */
 
 #include <software/edit.h>
