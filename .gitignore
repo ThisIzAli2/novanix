@@ -16,7 +16,15 @@
 # **You should have received a copy of the GNU Affero General Public License
 # **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 # *
+
+# Compiled object files
 *.obj
+
+# Compiled binary files
 *.bin
+
+# Compiled output files
 *.o
+
+# Json files
 *.json
