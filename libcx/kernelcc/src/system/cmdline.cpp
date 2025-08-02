@@ -479,7 +479,8 @@ VOID cmdline() {
                         password_saved[n++] = '\0';
                         Novanix::system::printk(VGA_WHITE,"Your entered password is:",0);
                         Novanix::system::printk(VGA_WHITE,password_saved,1);
-                        user_password = password_saved;
+                        // user_password = password_saved;
+                        String::strcpy(user_password,password_saved);
 
                         delete i_pass;
                         delete count_on;
@@ -528,7 +529,6 @@ VOID cmdline() {
                         // Simulate password entry and comparison
                         // Assume `enter_password` is filled with user input from some mechanism
                         // Replace the following line with actual input logic
-
                         if (cmd_cmp(user_password, passwrd) == 0) {
                             Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "SUDO access Granted!", 1);
                             have_access = true;
