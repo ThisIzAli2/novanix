@@ -227,7 +227,7 @@ VOID cmdline() {
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"cal") == 0){
-                            printk(VGA_COLOR_WHITE,"     July 2025\n",1);
+                            printk(VGA_COLOR_WHITE,"     August 2025\n",1);
                             printk(VGA_COLOR_WHITE,"Su Mo Tu We Th Fr Sa\n",1);
                             printk(VGA_COLOR_WHITE,"       1  2  3  4  5\n",1);
                             printk(VGA_COLOR_WHITE," 6  7  8  9 10 11 12\n",1);
