@@ -258,6 +258,21 @@ VOID cmdline() {
                         read_file(to_print);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ELIF (full_cmd[0] == 'z' and full_cmd[1] == 'i' and full_cmd[2] == 'p'){
+                        INTEGER *i_for_zip = new INTEGER;
+                        INTEGER *counter_k = new INTEGER;
+                        char* to_print = new char[CHAR_CONSTANT];
+                        *counter_k = 0;
+                        to_print[0] = '\0';
+
+                        for (*i_for_zip = 4;full_cmd[*i_for_zip] != '\0';++(*i_for_zip)){
+                            to_print[*counter_k] = full_cmd[*i_for_zip];
+                            ++(*counter_k);
+                            to_print[*counter_k] = '\0'; 
+                        }
+
+                    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (full_cmd[0] == 'c' && full_cmd[1] == 'a' && full_cmd[2] == 'w' && full_cmd[3] == 'k'){
                         INTEGER *i_for_hawk = new INTEGER;
                         INTEGER *counter_k = new INTEGER;
