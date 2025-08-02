@@ -34,8 +34,8 @@
 #define ATA_STATUS      0x1F7
 #define ATA_WRITE_SECTORS 0x30
 
-int inline ata_wait() {
-    int timeout = 1000000; // large count for timeout
+INTEGER __always_inline ata_wait() {
+    INTEGER timeout = 1000000; // large count for timeout
 
     // Wait BSY to clear
     while ((inb(ATA_STATUS) & 0x80) && timeout--) {}
@@ -50,7 +50,7 @@ int inline ata_wait() {
 }
 
 // Write 512 bytes (1 sector) to LBA sector 1
-void inline ata_write_sector(uint8_t* data) {
+VOID __always_inline ata_write_sector(uint8_t* data) {
     // Send commands to select sector
     outb(ATA_SECTOR_COUNT, 1);       // Write 1 sector
     outb(ATA_LBA_LOW, 1);            // LBA low byte
@@ -72,9 +72,9 @@ void inline ata_write_sector(uint8_t* data) {
     ata_wait();
 }
 
-int string_to_uint8(const char *str, uint8_t *result) {
+INTEGER string_to_uint8(const char *str, uint8_t *result) {
     unsigned int value = 0;
-    int i = 0;
+    INTEGER i = 0;
 
     if (!str || !result) {
         return -1; // Null pointer error
