@@ -36,8 +36,9 @@ class ZipFile{
             char* file_directory;
             INTEGER number;
         }zip_t;
-        static zip_t create_zip_file(file_t file,char* data){
-            
+        static zip_t create_zip_file(file_t file){
+            zip_t ret_file;
+            ret_file.file_name = file.name;
         }
     public:
 
