@@ -67,6 +67,10 @@ extern INTEGER counter_terminal;
 // Defined for convenience 
 #ifndef VGA_WHITE
 #define VGA_WHITE VGA_COLOR_WHITE
-#endif 
+#endif /*VGA_WHITE*/
+
+#ifndef VGA_RED 
+#define VGA_RED VGA_COLOR_RED
+#endif /*VGA_RED*/
 
 #endif /*__CMD_LINE_NOVANIX_KERNEL_HPP*/ 
