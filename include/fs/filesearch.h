@@ -21,6 +21,9 @@
 #define __NOVANIX_KERNEL_FILE_SEARCH_FS_H
 
 #include <common/init.hpp>
+#include <fs/fs.h>
+
+file_t search_file(char* name);
 
 
 #endif /*__NOVANIX_KERNEL_FILE_SEARCH_FS_H*/
