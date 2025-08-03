@@ -65,7 +65,7 @@ INTEGER counter = 0;
 
 
     
-#define PRINT_PROMPT Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "%s>", 0,current_directory);
+#define PRINT_PROMPT Novanix::system::printk(Novanix::system::VGA_WHITE, "%s>", 0,current_directory);
 
 
 
@@ -105,8 +105,8 @@ VOID cmdline() {
     INTEGER j = 0;
     
     // Print the prompt
-    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, ">", 0);
-    // Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, stringify(counter_terminal), 0);
+    Novanix::system::printk(Novanix::system::VGA_WHITE, ">", 0);
+    // Novanix::system::printk(Novanix::system::VGA_WHITE, stringify(counter_terminal), 0);
     do {
         // Read the key and handle the input
         INTEGER keycode = read_key();  // Store the result of read_key()
@@ -115,7 +115,7 @@ VOID cmdline() {
         
         ++counter_terminal;
         
-        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, key, 0);
+        Novanix::system::printk(Novanix::system::VGA_WHITE, key, 0);
         // move_cursor_back();
         if (key != nullptr) {
             if (index < 127) {
@@ -134,7 +134,7 @@ VOID cmdline() {
 
                     // Compare full_cmd with "help"
                     if (cmd_cmp(full_cmd, "help") == 0) {
-                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, HELP_MENU,1);
+                        Novanix::system::printk(Novanix::system::VGA_WHITE, HELP_MENU,1);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"shutdown-now") == 0){
@@ -230,13 +230,13 @@ VOID cmdline() {
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"cal") == 0){
-                            printk(VGA_COLOR_WHITE,"     August 2025\n",1);
-                            printk(VGA_COLOR_WHITE,"Su Mo Tu We Th Fr Sa\n",1);
-                            printk(VGA_COLOR_WHITE,"       1  2  3  4  5\n",1);
-                            printk(VGA_COLOR_WHITE," 6  7  8  9 10 11 12\n",1);
-                            printk(VGA_COLOR_WHITE,"13 14 15 16 17 18 19\n",1);
-                            printk(VGA_COLOR_WHITE,"20 21 22 23 24 25 26\n",1);
-                            printk(VGA_COLOR_WHITE,"27 28 29 30 31\n",1);
+                            printk(VGA_WHITE,"     August 2025\n",1);
+                            printk(VGA_WHITE,"Su Mo Tu We Th Fr Sa\n",1);
+                            printk(VGA_WHITE,"       1  2  3  4  5\n",1);
+                            printk(VGA_WHITE," 6  7  8  9 10 11 12\n",1);
+                            printk(VGA_WHITE,"13 14 15 16 17 18 19\n",1);
+                            printk(VGA_WHITE,"20 21 22 23 24 25 26\n",1);
+                            printk(VGA_WHITE,"27 28 29 30 31\n",1);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"snake") == 0){
@@ -391,7 +391,7 @@ VOID cmdline() {
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"uname") == 0){
-                        Novanix::system::printk(VGA_COLOR_WHITE,"NovaOs",1);
+                        Novanix::system::printk(VGA_WHITE,"NovaOs",1);
                         
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -400,7 +400,7 @@ VOID cmdline() {
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"motd") == 0){
-                        printk(VGA_COLOR_WHITE,randomMotd(),1);
+                        printk(VGA_WHITE,randomMotd(),1);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd, "comm-send") == 0 || cmd_cmp(full_cmd, "comm-recv") == 0) {
@@ -450,10 +450,10 @@ VOID cmdline() {
                         for (*i_for_echo_cmd = 5; full_cmd[*i_for_echo_cmd] != '\0'; ++(*i_for_echo_cmd)) {
                             ++(*count);
                             *to_print = full_cmd[*i_for_echo_cmd];
-                            Novanix::system::printk(VGA_COLOR_WHITE,to_print,0);
+                            Novanix::system::printk(VGA_WHITE,to_print,0);
 
                         }
-                        Novanix::system::printk(VGA_COLOR_WHITE,"\n",0);
+                        Novanix::system::printk(VGA_WHITE,"\n",0);
                         delete i_for_echo_cmd;
                         delete count;
                         delete[] to_print;
@@ -482,7 +482,7 @@ VOID cmdline() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"firewall-check") == 0){
                         
-                            Novanix::system::printk(VGA_COLOR_WHITE,stringify(0xC0A80101),1);
+                            Novanix::system::printk(VGA_WHITE,stringify(0xC0A80101),1);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 's' && full_cmd[1] == 'e' && full_cmd[2] == 't' && full_cmd[3] == '-' && full_cmd[4] == 'p' && full_cmd[5] == 'a' && full_cmd[6] == 's' && full_cmd[7] == 's' && full_cmd[8] == 'w' && full_cmd[9] == 'o' && full_cmd[10] == 'r' && full_cmd[11] == 'd'){
@@ -553,7 +553,7 @@ VOID cmdline() {
                         // Assume `enter_password` is filled with user input from some mechanism
                         // Replace the following line with actual input logic
                         if (cmd_cmp(user_password, passwrd) == 0) {
-                            Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "SUDO access Granted!", 1);
+                            Novanix::system::printk(Novanix::system::VGA_WHITE, "SUDO access Granted!", 1);
                             have_access = true;
                         } else {
 
@@ -566,15 +566,15 @@ VOID cmdline() {
                             }
                             fail:
                             counts_failed_sudo++;
-                            Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE, "Wrong password!", 1);
+                            Novanix::system::printk(Novanix::system::VGA_WHITE, "Wrong password!", 1);
                             Novanix::system::printk(Novanix::system::VGA_COLOR_RED, "Kernel will go into lockdown if you try to brute force the sudo access.", 1);
                             
                         }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     } else {
-                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"Command not found",1);
+                        Novanix::system::printk(Novanix::system::VGA_WHITE,"Command not found",1);
                     }
-                    Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"%s>", 0,current_directory);
+                    Novanix::system::printk(Novanix::system::VGA_WHITE,"%s>", 0,current_directory);
 
                     // Reset the cmd and full_cmd arrays
                     Novanix::common::MemoryOperations::memset(cmd, 0, 128);  // Clear cmd array
