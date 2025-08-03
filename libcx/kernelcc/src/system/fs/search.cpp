@@ -33,6 +33,7 @@ file_t search_file(char* name) {
     }
 
     // Return an empty or invalid file if not found (you must define this behavior)
-    file_t not_found = {};  // Assuming file_t can be default-initialized
+    file_t not_found;  // Assuming file_t can be default-initialized
+    not_found.name = "not found!";
     return not_found;
 }

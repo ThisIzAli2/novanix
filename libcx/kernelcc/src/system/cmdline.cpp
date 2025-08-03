@@ -272,7 +272,7 @@ VOID cmdline() {
                             to_print[*counter_k] = '\0'; 
                         }
                         file_t f = search_file(to_print);
-                        printk(VGA_WHITE,"file compressed: %s",1,f);
+                        printk(VGA_WHITE,"file compressed: %s",1,f.name);
                         // TODO: Should search for the file name to get the file_t
 
                     }
