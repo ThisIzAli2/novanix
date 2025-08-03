@@ -42,7 +42,7 @@ class ZipFile{
         }
         }
     public:
-        zip_t create_zip_file(file_t file){
+        zip_t  create_zip_file(file_t file){
             __create_zip_file(file);
             return ret_file[counter_zip];
         }
