@@ -20,5 +20,7 @@
 #ifndef __NOVANIX_KERNEL_FILE_SEARCH_FS_H
 #define __NOVANIX_KERNEL_FILE_SEARCH_FS_H
 
+#include <common/init.hpp>
+
 
 #endif /*__NOVANIX_KERNEL_FILE_SEARCH_FS_H*/
