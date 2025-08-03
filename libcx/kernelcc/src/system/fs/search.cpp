@@ -18,9 +18,17 @@
 */
 
 #include <fs/filesearch.h>
+#include <common/string.h>
 #include <global.h>
 
 file_t search_file(char* name){
+    INTEGER i;
     INTEGER files_size = sizeof(files) / sizeof(files[0]);
-    
+    for (i = 0; i < files_size;i++){
+        if (not String::strcmp(name,files[i].name)){
+            continue;
+        } else{
+            return files[i];
+        }
+    }
 }
