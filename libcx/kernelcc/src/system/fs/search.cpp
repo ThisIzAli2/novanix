@@ -18,7 +18,9 @@
 */
 
 #include <fs/filesearch.h>
+#include <global.h>
 
 file_t search_file(char* name){
-
+    INTEGER files_size = sizeof(files) / sizeof(files[0]);
+    
 }
