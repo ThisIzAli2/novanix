@@ -21,14 +21,18 @@
 #include <common/string.h>
 #include <global.h>
 
-file_t search_file(char* name){
+file_t search_file(char* name) {
     INTEGER i;
     INTEGER files_size = sizeof(files) / sizeof(files[0]);
-    for (i = 0; i < files_size;i++){
-        if (not String::strcmp(name,files[i].name)){
-            continue;
-        } else{
+
+    for (i = 0; i < files_size; i++) {
+        // If names are equal (strcmp returns 0), return the file
+        if (String::strcmp(name, files[i].name) == 0) {
             return files[i];
         }
     }
+
+    // Return an empty or invalid file if not found (you must define this behavior)
+    file_t not_found = {};  // Assuming file_t can be default-initialized
+    return not_found;
 }
