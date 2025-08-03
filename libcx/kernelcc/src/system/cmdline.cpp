@@ -57,6 +57,7 @@
 #include <drivers/cpu.h>
 #include <random/rand.h>
 #include <io/io.h>
+#include <fs/filesearch.h>
 
 char* dirs[MAX_DIRS];
 
@@ -270,6 +271,7 @@ VOID cmdline() {
                             ++(*counter_k);
                             to_print[*counter_k] = '\0'; 
                         }
+                        file_t file = search_file(to_print);
                         // TODO: Should search for the file name to get the file_t
 
                     }
