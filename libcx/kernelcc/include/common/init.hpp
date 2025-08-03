@@ -49,4 +49,22 @@ static __keep_inline uint32_t inl(uint16_t port) {
 }
 
 
+
+#define IS_NOT_EMPTY_OR_SPACES(s) ({                        \
+    const char* _p = (s);                                   \
+    int _result = 0;                                        \
+    if (_p) {                                               \
+        while (*_p) {                                       \
+            if (*_p != ' ' && *_p != '\t' &&                \
+                *_p != '\n' && *_p != '\r') {               \
+                _result = 1;                                \
+                break;                                      \
+            }                                               \
+            _p++;                                           \
+        }                                                   \
+    }                                                       \
+    _result;                                                \
+})
+
+
 #endif

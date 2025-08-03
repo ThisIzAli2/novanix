@@ -572,7 +572,11 @@ VOID cmdline() {
                         }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     } else {
+                        if (IS_NOT_EMPTY_OR_SPACES(full_cmd)){
                         Novanix::system::printk(Novanix::system::VGA_WHITE,"Command not found",1);
+                        } else{
+                            ;
+                        }
                     }
                     Novanix::system::printk(Novanix::system::VGA_WHITE,"%s>", 0,current_directory);
 
