@@ -201,7 +201,7 @@ VOID cmdline() {
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"tasks-show") == 0){
-                        Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"System related tasks are fully running...",1);
+                        printk(VGA_WHITE,"System related tasks are fully running...",1);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"gameplay") == 0){
