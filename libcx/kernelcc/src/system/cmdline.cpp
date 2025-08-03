@@ -359,7 +359,7 @@ VOID cmdline() {
 
                         char* dir = fs_manager->mkdir(to_print, dirs, &count);
                         if (dir == nullptr){
-                            Novanix::system::printk(VGA_COLOR_RED, "Directory already exists",1);
+                            printk(VGA_COLOR_RED, "Directory already exists",1);
                         }
                         // Clean up dynamically allocated memory
                         delete i_for_mkdir;
