@@ -25,6 +25,10 @@
 #include <system/bootconsole.h>
 #include <stringify.h>
 #include <novanix/strops.hpp>
+#include <global.h>
+
+extern char* current_directory;
+
 
 
 
@@ -38,7 +42,6 @@ static char dir_name[256] = {0};  // Static array to store the directory name (f
 
 #define CURRENT_DIR_BUFFER_SIZE 256
 
-static char* current_directory = "/home";
 
 /**
  * @brief This class is used to handle the kernel file system.

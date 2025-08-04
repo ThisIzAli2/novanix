@@ -22,18 +22,20 @@
 #include <common/init.hpp>
 #include <software/faccess.h>
 #include <game/gaming_generic.hpp>
-#include <fs/zip.hpp>
+
+/**
+ * IMPORTANT: Do not include any other file than init.hpp
+ */
 
 /**
  * NOTE: JUST DEFINE THE GLOBAL VARIABLES AS "extern", be careful here
  */
-extern file_t files[MAX_FILES];
 extern INTEGER i_file;
 extern Snake snake;
 extern INTEGER counts_failed_sudo;
 extern bool have_access;
 extern char user_password[];
-extern ZipFile zip_manager;
+extern char* current_directory;
 
 
 

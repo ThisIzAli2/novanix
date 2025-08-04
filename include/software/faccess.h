@@ -20,6 +20,7 @@
 #define __NOVANIX_KERNEL_F_ACCESS_H
 
 #include <software/fcreate.h>
+#include <fs/fs.h>
 
 #define COUNT_FILES(files)  sizeof(files) / sizeof(file_t)
 

@@ -22,6 +22,7 @@
 
 #include <common/init.hpp>
 #include <fs/fs.h>
+#include <global.h>
 
 #define MAX_ZIPPED_FILES 10
 
@@ -49,5 +50,8 @@ class ZipFile{
 
 
 };
+
+extern ZipFile zip_manager;
+
 
 #endif /*__NOVANIX_KERNEL_ZIP_HPP*/

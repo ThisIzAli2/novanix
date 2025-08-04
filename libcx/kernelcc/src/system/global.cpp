@@ -17,6 +17,7 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 #include <global.h>
+#include <fs/zip.hpp>
 
 /**
  * IMPORTANT: Define all the global variables here after the extern definition
@@ -28,3 +29,4 @@ INTEGER counts_failed_sudo = 0;
 bool have_access = false;
 char user_password[] = "admin";
 ZipFile zip_manager;
+char* current_directory = "/home";
