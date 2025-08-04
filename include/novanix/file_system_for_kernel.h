@@ -124,41 +124,53 @@ public:
     Novanix::system::printk(Novanix::system::VGA_COLOR_WHITE,"\n",1);
     return dir_name;
     }
-
-    BOOL rmdir(const char* name) {
-        Novanix::system::printk(VGA_COLOR_GREEN, "Directory '%s' removed successfully.\n", 1,name);
-        Directory* currentDir = findDirectory(&root, currentDirectory);
-        if (!currentDir) {
-            Novanix::system::printk(VGA_COLOR_RED, "Error: Current directory not found.\n",1);
-            return false;
-        }
-
-        Directory* dirToRemove = findDirectory(currentDir, name);
-        if (!dirToRemove) {
-            Novanix::system::printk(VGA_COLOR_RED, "Error: Directory not found.\n",1);
-            return false;
-        }
-
-        if (dirToRemove->subdirectoryCount > 0) {
-            Novanix::system::printk(VGA_COLOR_RED, "Error: Directory is not empty.\n",1);
-            return false;
-        }
-
-        Directory* newSubdirectories = new Directory[currentDir->subdirectoryCount - 1];
-        INTEGER index = 0;
-        for (INTEGER i = 0; i < currentDir->subdirectoryCount; i++) {
-            if (&currentDir->subdirectories[i] != dirToRemove) {
-                newSubdirectories[index++] = currentDir->subdirectories[i];
-            }
-        }
-
-        delete[] currentDir->subdirectories;
-        currentDir->subdirectories = newSubdirectories;
-        currentDir->subdirectoryCount--;
-
-        Novanix::system::printk(VGA_COLOR_GREEN, "Directory '%s' removed successfully.\n", 1,name);
-        return true;
+BOOL rmdir(const char* name) {
+    Directory* currentDir = findDirectory(&root, currentDirectory);
+    if (!currentDir) {
+        Novanix::system::printk(VGA_COLOR_RED, "Error: Current directory not found.\n", 1);
+        return false;
     }
+
+    if (!currentDir->subdirectories || currentDir->subdirectoryCount == 0) {
+        Novanix::system::printk(VGA_COLOR_RED, "Error: No subdirectories to remove.\n", 1);
+        return false;
+    }
+
+    int removeIndex = -1;
+    for (int i = 0; i < currentDir->subdirectoryCount; i++) {
+        if (currentDir->subdirectories[i].name && String::strcmp(currentDir->subdirectories[i].name, name) == 0) {
+            if (currentDir->subdirectories[i].subdirectoryCount > 0) {
+                Novanix::system::printk(VGA_COLOR_RED, "Error: Directory is not empty.\n", 1);
+                return false;
+            }
+            removeIndex = i;
+            break;
+        }
+    }
+
+    if (removeIndex == -1) {
+        Novanix::system::printk(VGA_COLOR_RED, "Error: Directory '%s' not found.\n", 1, name);
+        return false;
+    }
+
+    int newCount = currentDir->subdirectoryCount - 1;
+    Directory* newSubdirs = (newCount > 0) ? new Directory[newCount] : nullptr;
+
+    for (int i = 0, j = 0; i < currentDir->subdirectoryCount; i++) {
+        if (i != removeIndex) {
+            newSubdirs[j++] = currentDir->subdirectories[i];
+        }
+    }
+
+    // Optional: free name/subdirectories of the removed one if dynamically allocated
+
+    delete[] currentDir->subdirectories;
+    currentDir->subdirectories = newSubdirs;
+    currentDir->subdirectoryCount = newCount;
+
+    Novanix::system::printk(VGA_COLOR_GREEN, "Directory '%s' removed successfully.\n", 1, name);
+    return true;
+}
 };
 
 #endif /*__NOVANIX_KERNEL_FILE_SYSTEM_H_NEW_*/
