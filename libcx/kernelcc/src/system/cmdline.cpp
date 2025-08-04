@@ -538,8 +538,7 @@ VOID cmdline() {
                         // user_password = password_saved;
                         String::strcpy(user_password,password_saved);
 
-                        delete i_pass;
-                        delete count_on;
+
                         if (Novanix::common::String::strlen(password_saved) < USER_NOVANIX || !have_access){
                             // user_password = DEFAULT_PASSWORD;
 
@@ -554,6 +553,8 @@ VOID cmdline() {
                         } else {
                             printk(VGA_GREEN,"Password saved successfully",1);
                         }
+                        delete i_pass;
+                        delete count_on;
                         
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
