@@ -359,8 +359,9 @@ VOID SymbolDebugger::PrintPageTables(INTEGER pid)
         
         VirtualMemoryManager::SwitchPageDirectory(proc->pageDirPhys);
     }
-
+    #ifdef DEV
     BootConsole::WriteLine("------------ Paging Dump ----------");
+    #endif
 
     PageDirectory* pageDir = (PageDirectory*)PAGE_DIRECTORY_ADDRESS;
 
