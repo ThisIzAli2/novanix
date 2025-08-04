@@ -115,7 +115,7 @@ VOID cmdline() {
         
         ++counter_terminal;
         
-        Novanix::system::printk(Novanix::system::VGA_WHITE, key, 0);
+        printk(VGA_WHITE, key, 0);
         // move_cursor_back();
         if (key != nullptr) {
             if (index < 127) {
