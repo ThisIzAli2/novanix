@@ -341,6 +341,35 @@ VOID cmdline() {
                         delete[] to_print;
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    
+                ELIF(full_cmd[0] == 'r' && full_cmd[1] == 'm' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
+                        INTEGER *i_for_mkdir = new INTEGER;
+                        INTEGER *counter_k = new INTEGER;
+                        char* to_print = new char[CHAR_CONSTANT]; // Allocate memory for the string
+                        *counter_k = 0;
+
+                        // Initialize the to_print buffer to an empty string
+                        to_print[0] = '\0';
+
+                        for (*i_for_mkdir = 6; full_cmd[*i_for_mkdir] != '\0'; ++(*i_for_mkdir)) {
+                            to_print[*counter_k] = full_cmd[*i_for_mkdir]; // Add the current character
+                            ++(*counter_k);
+                            to_print[*counter_k] = '\0'; // Null-terminate the string
+                            
+                        }
+
+                        BOOL removed = fs_manager->rmdir(to_print);
+                        // if (removed){
+                        //     printk(VGA_WHITE,"Directory %s removed successfully",1,to_print);
+                        // } else{
+                        //     printk(VGA_WHITE,"Directory %s does not exist or cannot be removed",1,to_print);
+                        // }
+                        // Clean up dynamically allocated memory
+                        delete i_for_mkdir;
+                        delete counter_k;
+                        delete[] to_print;
+                    } 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'm' && full_cmd[1] == 'k' && full_cmd[2] == 'd' && full_cmd[3] == 'i' && full_cmd[4] == 'r'){
                         INTEGER *i_for_mkdir = new INTEGER;
                         INTEGER *counter_k = new INTEGER;

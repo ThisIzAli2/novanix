@@ -126,6 +126,7 @@ public:
     }
 
     BOOL rmdir(const char* name) {
+        Novanix::system::printk(VGA_COLOR_GREEN, "Directory '%s' removed successfully.\n", 1,name);
         Directory* currentDir = findDirectory(&root, currentDirectory);
         if (!currentDir) {
             Novanix::system::printk(VGA_COLOR_RED, "Error: Current directory not found.\n",1);
