@@ -78,4 +78,8 @@ extern INTEGER counter_terminal;
 #define VGA_BLUE VGA_COLOR_BLUE
 #endif /*VGA_BLUE*/
 
+#ifndef VGA_GREEN
+#define VGA_GREEN VGA_COLOR_GREEN
+#endif /*VGA_GREEN*/
+
 #endif /*__CMD_LINE_NOVANIX_KERNEL_HPP*/ 
