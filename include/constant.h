@@ -19,6 +19,8 @@
 #ifndef __NOVANIX_KERNEL___CONSTANT_H
 #define __NOVANIX_KERNEL___CONSTANT_H
 
+
+// Define the common constants for the kernel
 #define KERNEL_BUFFER_CHAR_CONSTANT 1024
 #define CHAR_CONSTANT 1024
 
