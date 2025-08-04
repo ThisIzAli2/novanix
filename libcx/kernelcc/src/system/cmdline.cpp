@@ -134,12 +134,12 @@ VOID cmdline() {
 
                     // Compare full_cmd with "help"
                     if (cmd_cmp(full_cmd, "help") == 0) {
-                        Novanix::system::printk(Novanix::system::VGA_WHITE, HELP_MENU,1);
+                        printk(VGA_WHITE, HELP_MENU,1);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"shutdown-now") == 0){
                         if (!(have_access)){
-                            Novanix::system::printk(Novanix::system::VGA_COLOR_RED,"You do not have super user access, try sudo-su [password]",1);
+                            printk(VGA_RED,"You do not have super user access, try sudo-su [password]",1);
                         }else{
                         shutdown_sys_now();
                         }
@@ -183,7 +183,7 @@ VOID cmdline() {
                             asm volatile ("hlt");
                         }
                         again:
-                            Novanix::system::printk(VGA_COLOR_RED,"You do not have sudo access, try again.",1);
+                            printk(VGA_RED,"You do not have sudo access, try again.",1);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"net-udp") == 0){
