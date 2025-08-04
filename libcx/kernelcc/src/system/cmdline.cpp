@@ -105,7 +105,7 @@ VOID cmdline() {
     INTEGER j = 0;
     
     // Print the prompt
-    printk(VGA_WHITE, ">%s", 0,current_directory);
+    printk(VGA_WHITE, "%s>", 0,current_directory);
     // Novanix::system::printk(Novanix::system::VGA_WHITE, stringify(counter_terminal), 0);
     do {
         // Read the key and handle the input
@@ -375,11 +375,14 @@ VOID cmdline() {
                             to_print[counter_k++] = full_cmd[i_for_hawk++];
                         }
                         to_print[counter_k] = '\0';
-
-                        // create_file_function(draw_editor(),to_print);
-                        char* data = draw_editor();
-                        file_t file = __create_file(to_print,data,String::strlen(data)+1);
-                        files[i_file++].data = file.data;
+                        if (not IS_NOT_EMPTY_OR_SPACES(to_print)){
+                            printk(VGA_WHITE,"File name cannot be empty!",1);
+                        } else{
+                            // create_file_function(draw_editor(),to_print);
+                            char* data = draw_editor();
+                            file_t file = __create_file(to_print,data,String::strlen(data)+1);
+                            files[i_file++].data = file.data;
+                        }
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"time") == 0){
