@@ -204,6 +204,7 @@ VOID SymbolDebugger::Update()
 }
 VOID SymbolDebugger::HandleDebugCommand(INTEGER size)
 {
+    #ifdef DEV
     //Log(Info, "%s", messageBuffer);
     if (String::strncmp(messageBuffer, "ReqDebugUpdate", 14)) {
         // Update from kernel
@@ -245,6 +246,7 @@ VOID SymbolDebugger::HandleDebugCommand(INTEGER size)
     else {
         Log(Error, "Unknown debug command %s", messageBuffer);
     }
+    #endif
 }
 VOID SymbolDebugger::SendUpdateToHost()
 {
