@@ -105,7 +105,7 @@ VOID cmdline() {
     INTEGER j = 0;
     
     // Print the prompt
-    Novanix::system::printk(Novanix::system::VGA_WHITE, ">", 0);
+    printk(VGA_WHITE, ">%s", 0,current_directory);
     // Novanix::system::printk(Novanix::system::VGA_WHITE, stringify(counter_terminal), 0);
     do {
         // Read the key and handle the input
