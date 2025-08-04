@@ -500,8 +500,8 @@ VOID cmdline() {
 
 
                         password_saved[n++] = '\0';
-                        Novanix::system::printk(VGA_WHITE,"Your entered password is:",0);
-                        Novanix::system::printk(VGA_WHITE,password_saved,1);
+                        printk(VGA_WHITE,"Your entered password is:",0);
+                        printk(VGA_WHITE,password_saved,1);
                         // user_password = password_saved;
                         String::strcpy(user_password,password_saved);
 
