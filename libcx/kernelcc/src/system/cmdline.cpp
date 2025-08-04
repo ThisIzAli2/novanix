@@ -553,7 +553,7 @@ VOID cmdline() {
                         // Assume `enter_password` is filled with user input from some mechanism
                         // Replace the following line with actual input logic
                         if (cmd_cmp(user_password, passwrd) == 0) {
-                            Novanix::system::printk(Novanix::system::VGA_WHITE, "SUDO access Granted!", 1);
+                            printk(Novanix::system::VGA_WHITE, "SUDO access Granted!", 1);
                             have_access = true;
                         } else {
 
@@ -566,19 +566,19 @@ VOID cmdline() {
                             }
                             fail:
                             counts_failed_sudo++;
-                            Novanix::system::printk(Novanix::system::VGA_WHITE, "Wrong password!", 1);
-                            Novanix::system::printk(Novanix::system::VGA_COLOR_RED, "Kernel will go into lockdown if you try to brute force the sudo access.", 1);
+                            printk(VGA_WHITE, "Wrong password!", 1);
+                            printk(VGA_WHITE, "Kernel will go into lockdown if you try to brute force the sudo access.", 1);
                             
                         }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     } else {
                         if (IS_NOT_EMPTY_OR_SPACES(full_cmd)){
-                        Novanix::system::printk(Novanix::system::VGA_WHITE,"Command not found",1);
+                        printk(VGA_WHITE,"Command not found",1);
                         } else{
                             ;
                         }
                     }
-                    Novanix::system::printk(Novanix::system::VGA_WHITE,"%s>", 0,current_directory);
+                    printk(VGA_WHITE,"%s>", 0,current_directory);
 
                     // Reset the cmd and full_cmd arrays
                     Novanix::common::MemoryOperations::memset(cmd, 0, 128);  // Clear cmd array
