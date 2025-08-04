@@ -450,10 +450,10 @@ VOID cmdline() {
                         for (*i_for_echo_cmd = 5; full_cmd[*i_for_echo_cmd] != '\0'; ++(*i_for_echo_cmd)) {
                             ++(*count);
                             *to_print = full_cmd[*i_for_echo_cmd];
-                            Novanix::system::printk(VGA_WHITE,to_print,0);
+                            printk(VGA_WHITE,to_print,0);
 
                         }
-                        Novanix::system::printk(VGA_WHITE,"\n",0);
+                        printk(VGA_WHITE,"\n",0);
                         delete i_for_echo_cmd;
                         delete count;
                         delete[] to_print;
