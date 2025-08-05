@@ -158,7 +158,9 @@ const char* SymbolDebugger::FindSymbol(uint32_t address, uint32_t* offset)
 VOID SymbolDebugger::Stacktrace(CPUState* esp)
 {
     if(this->symbolTable.size() == 0) {
+        #ifdef DEV
         Log(Error, "Debugger symbols not loaded!");
+        #endif
         return;
     }
 
