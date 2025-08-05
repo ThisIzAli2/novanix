@@ -536,7 +536,6 @@ VOID cmdline() {
                         printk(VGA_WHITE,"Your entered password is:",0);
                         printk(VGA_WHITE,password_saved,1);
                         // user_password = password_saved;
-                        String::strcpy(user_password,password_saved);
 
 
                         if (Novanix::common::String::strlen(password_saved) < USER_NOVANIX || !have_access){
@@ -552,6 +551,7 @@ VOID cmdline() {
                             
                         } else {
                             printk(VGA_GREEN,"Password saved successfully",1);
+                            String::strcpy(user_password,password_saved);
                         }
                         delete i_pass;
                         delete count_on;
