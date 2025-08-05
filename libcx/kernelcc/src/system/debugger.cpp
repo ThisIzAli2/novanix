@@ -50,6 +50,7 @@ using namespace Novanix::core;
 
 SymbolDebugger::SymbolDebugger(char* symFile, BOOL kernel)
 {
+    #ifdef DEV
     MemoryOperations::memset(this->messageBuffer, 0, sizeof(this->messageBuffer));
     this->isKernel = kernel;
 
@@ -137,10 +138,12 @@ SymbolDebugger::SymbolDebugger(char* symFile, BOOL kernel)
             //KernelDebugger::PrintPageTables();
         }
     }
+    #endif
 #endif
 }
 const char* SymbolDebugger::FindSymbol(uint32_t address, uint32_t* offset)
 {    
+    #ifdef DEV
 	GenericSymbol_t prevItem = this->symbolTable[0];
 	for (int i = 0; i < this->symbolTable.size(); i++)
 	{
@@ -154,6 +157,7 @@ const char* SymbolDebugger::FindSymbol(uint32_t address, uint32_t* offset)
 		prevItem = this->symbolTable[i];
 	}
 	return 0;
+    #endif
 }
 VOID SymbolDebugger::Stacktrace(CPUState* esp)
 {
@@ -285,6 +289,7 @@ VOID SymbolDebugger::SendUpdateToHost()
 }
 VOID SymbolDebugger::PrintMemoryDump(uint32_t address, uint32_t size, BOOL virtMemory)
 {
+    #ifdef DEV
     //Log(Info, "KernelDebugger::PrintMemoryDump(%x, %x, %d)", address, size, virtMemory);
 
     const uint8_t maxWidth = 20;
@@ -356,9 +361,11 @@ VOID SymbolDebugger::PrintMemoryDump(uint32_t address, uint32_t size, BOOL virtM
     }
     BootConsole::WriteLine();
     BootConsole::WriteLine("-----------------------------------");
+    #endif
 }
 VOID SymbolDebugger::PrintPageTables(INTEGER pid)
 {
+    #ifdef DEV
     uint32_t prevPageDir = VirtualMemoryManager::GetPageDirectoryAddress();
     if(pid != -1) {
         Process* proc = ProcessHelper::ProcessById(pid);
@@ -406,9 +413,11 @@ VOID SymbolDebugger::PrintPageTables(INTEGER pid)
 
     if(pid != -1)
         VirtualMemoryManager::SwitchPageDirectory(prevPageDir);
+    #endif
 }
 VOID SymbolDebugger::PrintPageItem(VOID* item, BOOL table, uint16_t pdIndex, uint16_t ptIndex)
 {
+    #ifdef DEV
     static uint32_t curChainSize = 0;
     static uint32_t curChainStart = 0;
     
@@ -436,6 +445,7 @@ VOID SymbolDebugger::PrintPageItem(VOID* item, BOOL table, uint16_t pdIndex, uin
             curChainSize = addressSize;
         }
     }
+    #endif
 }
 
 
