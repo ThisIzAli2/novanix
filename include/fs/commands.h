@@ -25,7 +25,9 @@
 
 extern INTEGER i_file;
 
-
+/**
+ * ABSTRACT: print all files in dir.
+ */
 __always_inline VOID print_ls_files_in_dir() {
     BOOL found = false;
     INTEGER file_count = i_file - 1;
