@@ -74,5 +74,5 @@ __always_inline char*  stringify(INTEGER num){
 
 
 
-#endif
+#endif /*__STRINGIFY_H*/
 
