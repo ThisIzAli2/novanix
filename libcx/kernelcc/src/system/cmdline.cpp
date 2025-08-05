@@ -58,6 +58,7 @@
 #include <random/rand.h>
 #include <io/io.h>
 #include <fs/filesearch.h>
+#include <fs/commands.h>
 
 char* dirs[MAX_DIRS];
 
@@ -420,7 +421,7 @@ VOID cmdline() {
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"ls") == 0){
-                        printk(VGA_WHITE,current_directory,1);
+                        print_ls_files_in_dir();
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"uname") == 0){
