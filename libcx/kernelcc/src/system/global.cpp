@@ -23,7 +23,7 @@
  * IMPORTANT: Define all the global variables here after the extern definition
  */
 file_t files[MAX_FILES];
-INTEGER i_file;
+INTEGER i_file = 0;
 Snake snake;
 INTEGER counts_failed_sudo = 0;
 bool have_access = false;

@@ -28,17 +28,15 @@ extern INTEGER i_file;
 
 __always_inline VOID print_ls_files_in_dir() {
     BOOL found = false;
-    INTEGER file_count = i_file;
-    printk(VGA_WHITE,stringify(i_file),1);
-    printk(VGA_WHITE, files[0].name, 1);
+    INTEGER file_count = i_file - 1;
 
-    // for (INTEGER i = 0; i < file_count; i++) {
-    //         printk(VGA_WHITE, files[0].name, 1);
-    //     if (String::strcmp(current_directory, files[i_file].dir)) {
-    //         printk(VGA_WHITE, files[0].name, 1);
-    //         found = true;
-    //     }
-    // }
+    for (INTEGER i = 0; i < file_count; i++) {
+            // printk(VGA_WHITE, files[0].name, 1);
+        if (String::strcmp(current_directory, files[file_count].dir)) {
+            printk(VGA_WHITE, files[file_count].name, 1);
+            found = true;
+        }
+    }
 
     if (!found) {
         printk(VGA_WHITE, "No file found in this directory.", 1);

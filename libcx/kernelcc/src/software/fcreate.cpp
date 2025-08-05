@@ -36,7 +36,7 @@ static uint32_t seed = 1;
  */
 file_t __create_file(char* name, char* data, INTEGER size) {
     file_t file;
-    i_file = 0;
+    // i_file = 0;
 
     if (size > 0) {
         file.name = name;
@@ -57,6 +57,7 @@ file_t __create_file(char* name, char* data, INTEGER size) {
         printk(VGA_COLOR_WHITE, files[i_file].dir, 1);
 
         i_file++;
+        file_c++;
     }
 
     return file;

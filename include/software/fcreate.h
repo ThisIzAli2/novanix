@@ -36,5 +36,7 @@ file_t __create_empty_file(char* name);
 VOID create_empty_file(char* name);
 extern file_t files[MAX_FILES];
 
+static INTEGER file_c = 0;
+
 
 #endif /*__FCREATE_NOVANIX_H*/

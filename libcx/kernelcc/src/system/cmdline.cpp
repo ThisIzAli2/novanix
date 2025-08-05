@@ -413,6 +413,7 @@ VOID cmdline() {
                             char* data = draw_editor();
                             file_t file = __create_file(to_print,data,String::strlen(data)+1);
                             files[i_file++].data = file.data;
+                            i_file--;
                         }
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
