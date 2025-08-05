@@ -41,7 +41,9 @@ uint32_t Exceptions::DivideByZero(uint32_t esp)
 
     BootConsole::WriteLine();
 
+    #ifdef DEV
     Exceptions::ShowStacktrace(esp);
+    #endif
     System::Init();
     return esp; // We don't get here
 }
@@ -66,8 +68,9 @@ uint32_t Exceptions::GeneralProtectionFault(uint32_t esp)
     InterruptDescriptorTable::DisableInterrupts();
     
     BootConsole::WriteLine();
-
+    #ifdef DEV
     Exceptions::ShowStacktrace(esp);
+    #endif
     System::Init();
     return esp; // We don't get here
 }
@@ -128,8 +131,9 @@ uint32_t Exceptions::PageFault(uint32_t esp)
         return esp;
     }
     BootConsole::WriteLine();
-
+    #ifdef DEV
     Exceptions::ShowStacktrace(esp);
+    #endif
     System::Init();
     return esp; // We don't get here
 }
@@ -153,8 +157,9 @@ uint32_t Exceptions::FloatingPointException(uint32_t esp)
     InterruptDescriptorTable::DisableInterrupts();
 
     BootConsole::WriteLine();
-
+    #ifdef DEV
     Exceptions::ShowStacktrace(esp);
+    #endif
     System::Init();
     return esp; // We don't get here
 }
@@ -176,8 +181,9 @@ uint32_t Exceptions::StackSegmentFault(uint32_t esp)
 
     InterruptDescriptorTable::DisableInterrupts();
     BootConsole::WriteLine();
-
+    #ifdef DEV
     Exceptions::ShowStacktrace(esp);
+    #endif
     System::Init();
     return esp; // We don't get here
 }
