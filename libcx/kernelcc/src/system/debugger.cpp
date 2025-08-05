@@ -256,6 +256,7 @@ VOID SymbolDebugger::HandleDebugCommand(INTEGER size)
 }
 VOID SymbolDebugger::SendUpdateToHost()
 {
+    #ifdef DEV
     if(this->isKernel == false) // Only kernel debugger has acces to serial
         return;
     
@@ -280,6 +281,7 @@ VOID SymbolDebugger::SendUpdateToHost()
     Serialport::WriteStr(Convert::IntToString32(System::statistics.diskWriteOp));
 
     Serialport::WriteStr("\n");
+    #endif
 }
 VOID SymbolDebugger::PrintMemoryDump(uint32_t address, uint32_t size, BOOL virtMemory)
 {
