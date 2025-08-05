@@ -34,12 +34,12 @@
 
 
 // Convert BCD to binary if needed
-uint8_t inline bcd_to_bin(uint8_t bcd) {
+uint8_t __always_inline bcd_to_bin(uint8_t bcd) {
     return ((bcd / 16) * 10) + (bcd & 0x0F);
 }
 
 // Read a byte from CMOS
-uint8_t inline read_cmos(uint8_t reg) {
+uint8_t __always_inline read_cmos(uint8_t reg) {
     outb(CMOS_ADDRESS, reg);
     return inb(CMOS_DATA);
 }
@@ -47,7 +47,7 @@ uint8_t inline read_cmos(uint8_t reg) {
 /**
  * @brief A function that gets time
  */
-inline void get_time(uint8_t* hour, uint8_t* min, uint8_t* sec) {
+__always_inline VOID get_time(uint8_t* hour, uint8_t* min, uint8_t* sec) {
     uint8_t h, m, s, status_b;
 
     s = read_cmos(RTC_SEC);
