@@ -39,6 +39,7 @@ __always_inline VOID print_ls_files_in_dir() {
             printk(VGA_WHITE, files[i].name, 1);
             found = true;
             i++;
+            break;
         }
     }
 
