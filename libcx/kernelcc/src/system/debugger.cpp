@@ -169,11 +169,15 @@ VOID SymbolDebugger::Stacktrace(CPUState* esp)
     uint32_t offset = 0;
 
 	const char* name = FindSymbol(esp->EIP, &offset);
+    #ifdef DEV
     Log(Info, "%x [%x] %s", offset, esp->EIP, name ? name : "[Symbol not found]");
+    #endif
 	while(frame && ((uint32_t)frame & 0xFFFFF000) == page)
 	{
 		name = FindSymbol(frame->addr, &offset);
+        #ifdef DEV
         Log(Info, "%x [%x] %s", offset, frame->addr, name ? name : "[Symbol not found]");
+        #endif
 		frame = frame->next;
 	}
 }
