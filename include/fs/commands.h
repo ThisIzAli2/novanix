@@ -38,8 +38,6 @@ __always_inline VOID print_ls_files_in_dir() {
         if (String::strcmp(current_directory, files[file_count].dir)) {
             printk(VGA_WHITE, files[file_count].name, 1);
             found = true;
-            i++;
-            break;
         }
     }
 
