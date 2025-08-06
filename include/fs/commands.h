@@ -31,11 +31,9 @@ extern INTEGER i_file;
  */
 __always_inline VOID print_ls_files_in_dir() {
     BOOL found = false;
-    INTEGER file_count = i_file - 1;
 
-    for (INTEGER i = 0; i < file_count; i++) {
-        // printk(VGA_WHITE, files[0].name, 1);
-        if (String::strcmp(current_directory, files[i].dir)) {
+    for (INTEGER i = 0; i < i_file; i++) {
+        if (String::strcmp(current_directory, files[i].dir) == 0) {
             printk(VGA_WHITE, files[i].name, 1);
             found = true;
         }
