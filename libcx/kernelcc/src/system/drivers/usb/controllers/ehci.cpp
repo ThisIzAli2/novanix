@@ -612,7 +612,7 @@ bool EHCIController::ControlIn(void* targ, const int devAddress, const int packe
     uint32_t bufferPhys;
     uint8_t* bufferVirt = (uint8_t*)KernelHeap::malloc(len, &bufferPhys);  // get a physical address buffer and then copy from it later
     
-    const int last = 1 + ((len + (packetSize-1)) / packetSize);
+    const INTEGER last = 1 + ((len + (packetSize-1)) / packetSize);
     
     // Setup queue head
     queue->flags = (8<<28) | (EHCI_MPS << 16) | (0<<15) | (1<<14) | (QH_HS_EPS_HS<<12) | (ENDP_CONTROL << 8) | (0<<7) | (devAddress & 0x7F);
@@ -624,7 +624,7 @@ bool EHCIController::ControlIn(void* targ, const int devAddress, const int packe
     MakeTransferDesc(td0 + last, td0Phys + (last * sizeof(e_transferDescriptor_t)), 0, 0, 0, 0, true, 1, EHCI_TD_PID_OUT, packetSize);
 
     InsertIntoQueue(queue, queuePhys, QH_HS_TYPE_QH);
-    int ret = WaitForTransferComplete(td0, 2000, 0);
+    INTEGER ret = WaitForTransferComplete(td0, 2000, 0);
     RemoveFromQueue(queue);
 
     KernelHeap::allignedFree(queue);
@@ -646,7 +646,7 @@ bool EHCIController::ControlIn(void* targ, const int devAddress, const int packe
 bool EHCIController::BulkOut(USBEndpoint* toggleSrc, const int devAddress, const int packetSize, const int endP, void* bufPtr, const int len)
 {
     uint32_t bufPhys;
-    void* tempBuffer = KernelHeap::malloc(len, &bufPhys);
+    VOID* tempBuffer = KernelHeap::malloc(len, &bufPhys);
     MemoryOperations::memcpy(tempBuffer, bufPtr, len);
 
     uint32_t queuePhys; // Physical address of queue
