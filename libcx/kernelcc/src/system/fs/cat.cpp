@@ -32,6 +32,7 @@ VOID cat_file(char* file) {
             printk(VGA_RED,"You do not have access to this file",1);
             return;
         }
+        //! Make sure to check for the null pointer, it can lead to crash.
         // if (files[i].name == nullptr) continue; //! Do not use this. This will ignore spaces.
         if (files[i].name != nullptr && file != nullptr && String::strcmp(files[i].name, file)) {
             printk(VGA_WHITE, files[i].data, 1);
