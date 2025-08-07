@@ -40,6 +40,13 @@
 # pci-ohci
 #######################
 
+# x86_64 Compiler Flags
+G++PARAMS_64 := -m64 -g -D NovanixKERNEL -I $(INCLUDEDIRS) -Wall -fno-omit-frame-pointer -fno-use-cxa-atexit -nostdlib -fno-builtin -fno-exceptions -fno-rtti -Wno-write-strings -fpermissive -Wno-unknown-pragmas -I ../include -I ../arch/x86_64/include
+GCCPARAMS_64 := -m64 -g -D NovanixKERNEL -I $(INCLUDEDIRS) -Wall -fno-omit-frame-pointer -nostdlib -fno-builtin -Wno-unknown-pragmas -I ../include -I ../arch/x86_64/include
+ASPARAMS_64 := --64
+LDPARAMS_64 := -m elf_x86_64
+
+
 INCLUDEDIRS := kernelcc/include
 QEMUOPTIONS := -boot d -device VGA,edid=on,xres=1024,yres=768 -trace events=../qemuTrace.txt -d cpu_reset #-readconfig qemu-usb-config.cfg -drive if=none,id=stick,file=disk.img -device usb-storage,bus=ehci.0,drive=stick
 
@@ -55,6 +62,32 @@ KRNLFILES := $(shell find $(KRNLSRCDIR) -type f \( -name \*.cpp -o -name \*.s -o
 KRNLOBJS := $(patsubst %.cpp,%.o,$(patsubst %.s,%.o,$(patsubst %.asm,%.o,$(patsubst %.c,%.o,$(KRNLFILES))))) #Replace the .cpp/.s/.asm/.c extension with .o
 KRNLOBJS := $(subst $(KRNLSRCDIR),$(KRNLOBJDIR),$(KRNLOBJS)) #Replace the kernel/src part with kernel/obj
 
+# C++ source files for x86_64
+$(KRNLOBJDIR)/x86_64/%.o: $(KRNLSRCDIR)/%.cpp
+	mkdir -p $(@D)
+	x86_64-elf-g++ $(G++PARAMS_64) -c -o $@ $<
+
+# C source files for x86_64
+$(KRNLOBJDIR)/x86_64/%.o: $(KRNLSRCDIR)/%.c
+	mkdir -p $(@D)
+	x86_64-elf-gcc $(GCCPARAMS_64) -c -o $@ $<
+
+# GAS assembly for x86_64
+$(KRNLOBJDIR)/x86_64/%.o: $(KRNLSRCDIR)/%.s
+	mkdir -p $(@D)
+	x86_64-elf-as $(ASPARAMS_64) -o $@ $<
+
+# NASM assembly for x86_64
+$(KRNLOBJDIR)/x86_64/%.o: $(KRNLSRCDIR)/%.asm
+	mkdir -p $(@D)
+	nasm -f elf64 -O0 $< -o $@
+
+# Find and build object files for x86_64
+KRNLOBJS64 := $(patsubst %.cpp,%.o,$(patsubst %.s,%.o,$(patsubst %.asm,%.o,$(patsubst %.c,%.o,$(KRNLFILES)))))
+KRNLOBJS64 := $(subst $(KRNLSRCDIR),$(KRNLOBJDIR)/x86_64,$(KRNLOBJS64))
+
+Alinix64.bin: ../linker64.ld $(KRNLOBJS64)
+	x86_64-elf-ld $(LDPARAMS_64) -T $< -o $@ $(KRNLOBJS64)
 
 ####################################
 #C++ source files
@@ -169,3 +202,10 @@ runit:
 	qemu-system-x86_64 -kernel alinix.bin
 
 install: qemu runit
+
+run64: Alinix64.bin
+	qemu-system-x86_64 -kernel Alinix64.bin
+clean64:
+	rm -rf $(KRNLOBJDIR) Alinix.bin Alinix64.bin Alinix.iso
+
+install64: qemu runit run64
