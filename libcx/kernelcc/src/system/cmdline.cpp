@@ -59,6 +59,7 @@
 #include <io/io.h>
 #include <fs/filesearch.h>
 #include <fs/commands.h>
+#include <common/common.hpp>
 
 char* dirs[MAX_DIRS];
 
@@ -619,7 +620,7 @@ VOID cmdline() {
                             have_access = true;
                         } else {
 
-                            if (counts_failed_sudo < 5){
+                            if (counts_failed_sudo < MAX_USER_TRIES){
                                 goto fail;
                             } else{
                                 lockdown_reason = ROOT_ACCESS_FAILED;

@@ -20,4 +20,6 @@
 #define __NOVANIX_KERNEL_COMMON_HPP
 
 
+#define MAX_USER_TRIES 15
+
 #endif /*__NOVANIX_KERNEL_COMMON_HPP*/
