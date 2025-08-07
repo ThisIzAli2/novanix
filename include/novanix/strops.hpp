@@ -16,7 +16,8 @@
 **You should have received a copy of the GNU Affero General Public License
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
-#pragma once
+#ifndef NOVANIX_KERNEL_STROPS_H
+#define NOVANIX_KERNEL_STROPS_H
 
 
 #include <typing.hpp>
@@ -41,3 +42,5 @@ INTEGER __always_inline contains(const char *array, INTEGER array_size, const ch
 
     return 0; // Substring does not exist
 }
+
+#endif /*NOVANIX_KERNEL_STROPS_H*/
