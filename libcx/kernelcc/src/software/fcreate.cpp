@@ -23,6 +23,8 @@
 #include <fs/fs.h>
 #include <global.h>
 #include <software/edit.h>
+#include <system/memory/heap.h>
+
 
 using namespace Novanix::common;
 using namespace Novanix::system;
@@ -34,23 +36,39 @@ static uint32_t seed = 1;
 /**
  * @brief A function that creates a file for the system
  */
-file_t __create_file(char* name, char* data, INTEGER size,bool access_req) {
+file_t __create_file(char* name, char* data, INTEGER size, bool access_req) {
+    uint32_t dummy;  // Placeholder for physical address return
+
     file_t file;
-    // i_file = 0;
 
-    if (size > 0) {
-        file.name = name;
-        file.data = data;
+    // Only proceed if size > 0 and there’s room to store the file
+    if (size > 0 && i_file < MAX_FILES) {
+
+        // Allocate and copy name
+        file.name = (char*) KernelHeap::malloc(String::strlen(name) + 1, &dummy);
+        String::strcpy(file.name, name);
+
+        // Allocate and copy data
+        file.data = (char*) KernelHeap::malloc(size + 1, &dummy);
+        MemoryOperations::memcpy(file.data, data, size);
+        file.data[size] = '\0'; // Ensure null-termination
+
+        // Copy size and access
         file.size = size;
+        file.access = access_req;
 
-        files[i_file].name = file.name;
-        files[i_file].data = file.data;
-        files[i_file].size = file.size;
-        files[i_file].dir = current_directory;
-        if (access_req){
-            files[i_file].access = true;
-        }
+        // Copy current directory
+        file.dir = (char*) KernelHeap::malloc(String::strlen(current_directory) + 1, &dummy);
+        String::strcpy(file.dir, current_directory);
 
+        // Store in global files array
+        files[i_file].name   = file.name;
+        files[i_file].data   = file.data;
+        files[i_file].dir    = file.dir;
+        files[i_file].size   = file.size;
+        files[i_file].access = file.access;
+
+        // Print debug info
         printk(VGA_COLOR_WHITE, "File created!", 1);
         printk(VGA_COLOR_WHITE, "File name: ", 0);
         printk(VGA_COLOR_WHITE, files[i_file].name, 1);
@@ -61,6 +79,14 @@ file_t __create_file(char* name, char* data, INTEGER size,bool access_req) {
 
         i_file++;
         file_c++;
+    } else {
+        printk(VGA_COLOR_RED, "Error: File creation failed (invalid size or max files reached).", 1);
+        // Set to null to avoid undefined behavior
+        file.name = nullptr;
+        file.data = nullptr;
+        file.dir = nullptr;
+        file.size = 0;
+        file.access = false;
     }
 
     return file;

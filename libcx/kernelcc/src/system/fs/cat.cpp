@@ -17,12 +17,16 @@
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
 #include <fs/cat.h>
+#include <system/memory/heap.h>
+
+using namespace Novanix::system;
 
 /**
  * @brief Used to utilize 'cat' command.
  * NOTE: Do not use == 0 in String::strcmp(files[i].name, file)
  */
 VOID cat_file(char* file) {
+    
     for (INTEGER i = 0; i < MAX_FILES; i++) {
         if (!have_access && files[i].access){
             printk(VGA_RED,"You do not have access to this file",1);
