@@ -27,6 +27,6 @@ INTEGER i_file = 0;
 Snake snake;
 INTEGER counts_failed_sudo = 0;
 bool have_access = false;
-char user_password[] = "admin";
+char user_password[50] = "admin";
 ZipFile zip_manager;
 char* current_directory = "/home";

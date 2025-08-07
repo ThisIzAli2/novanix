@@ -34,7 +34,7 @@ extern INTEGER i_file;
 extern Snake snake;
 extern INTEGER counts_failed_sudo;
 extern bool have_access;
-extern char user_password[];
+extern char user_password[50];
 extern char* current_directory;
 
 
