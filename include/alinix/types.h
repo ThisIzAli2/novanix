@@ -149,7 +149,10 @@ typedef struct {
 #define CONSTANT const
 #define NO_ARGS void
 #define NO_RETURN VOID
-#define __always_inline inline
+
+#ifndef __always_inline
+#define __always_inline inline __attribute__((always_inline))
+#endif
 #define __ksym __attribute__((section(".ksyms")))
 #define RET return
 
