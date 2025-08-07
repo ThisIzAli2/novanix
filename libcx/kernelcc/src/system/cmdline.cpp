@@ -94,6 +94,10 @@ __always_inline INTEGER handle(const char* str){
 #ifdef DEV
 #undef DEV
 #endif
+
+#if defined(DEV)
+#warning "You are compiling Kernel in developer mode."
+#endif
 /**
  * Handle the command line in the kernel, does the command control of the CUI.
  */
