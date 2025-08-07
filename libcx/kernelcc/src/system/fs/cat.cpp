@@ -33,5 +33,4 @@ VOID cat_file(char* file) {
         }
     }
 
-    printk(VGA_WHITE, "File not found", 1);
 }

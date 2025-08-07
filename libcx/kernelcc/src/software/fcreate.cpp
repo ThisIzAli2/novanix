@@ -34,7 +34,7 @@ static uint32_t seed = 1;
 /**
  * @brief A function that creates a file for the system
  */
-file_t __create_file(char* name, char* data, INTEGER size) {
+file_t __create_file(char* name, char* data, INTEGER size,bool access_req) {
     file_t file;
     // i_file = 0;
 
@@ -47,6 +47,9 @@ file_t __create_file(char* name, char* data, INTEGER size) {
         files[i_file].data = file.data;
         files[i_file].size = file.size;
         files[i_file].dir = current_directory;
+        if (access_req){
+            files[i_file].access = true;
+        }
 
         printk(VGA_COLOR_WHITE, "File created!", 1);
         printk(VGA_COLOR_WHITE, "File name: ", 0);
@@ -89,7 +92,7 @@ char* generate_random_string() {
  * @brief a function that creates a file, gives the data as an input.
  */
 VOID create_file_function(char* data,char* name){
-    file_t file = __create_file(name,data,String::strlen(data)+1);
+    file_t file = __create_file(name,data,String::strlen(data)+1,false);
     files[i_file++].data = file.data;
 }
 

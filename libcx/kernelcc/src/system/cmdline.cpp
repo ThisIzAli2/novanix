@@ -413,7 +413,7 @@ VOID cmdline() {
                         } else{
                             // create_file_function(draw_editor(),to_print);
                             char* data = draw_editor();
-                            file_t file = __create_file(to_print,data,String::strlen(data)+1);
+                            file_t file = __create_file(to_print,data,String::strlen(data)+1,true);
                             files[i_file++].data = file.data;
                             i_file--;
                         }
@@ -432,7 +432,7 @@ VOID cmdline() {
                         } else{
                             // create_file_function(draw_editor(),to_print);
                             char* data = draw_editor();
-                            file_t file = __create_file(to_print,data,String::strlen(data)+1);
+                            file_t file = __create_file(to_print,data,String::strlen(data)+1,false);
                             files[i_file++].data = file.data;
                             i_file--;
                         }
