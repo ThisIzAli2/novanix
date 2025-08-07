@@ -33,11 +33,12 @@ VOID cat_file(char* file) {
             return;
         }
         // if (files[i].name == nullptr) continue; //! Do not use this. This will ignore spaces.
-        if (String::strcmp(files[i].name, file)) {
+        if (files[i].name != nullptr && file != nullptr && String::strcmp(files[i].name, file)) {
             printk(VGA_WHITE, files[i].data, 1);
             return;
         } else{
             printk(VGA_WHITE,"file not found",1);
+            break;
         }
     }
 
