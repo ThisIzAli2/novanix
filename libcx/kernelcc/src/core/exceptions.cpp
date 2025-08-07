@@ -76,6 +76,7 @@ uint32_t Exceptions::GeneralProtectionFault(uint32_t esp)
 }
 uint32_t Exceptions::PageFault(uint32_t esp)
 {
+    #ifdef DEV
     BootConsole::ForegroundColor = VGA_COLOR_BROWN;
 
     InterruptDescriptorTable::DisableInterrupts();
@@ -136,6 +137,7 @@ uint32_t Exceptions::PageFault(uint32_t esp)
     #endif
     System::Init();
     return esp; // We don't get here
+    #endif // DEV
 }
 
 uint32_t Exceptions::TrapException(uint32_t esp)
