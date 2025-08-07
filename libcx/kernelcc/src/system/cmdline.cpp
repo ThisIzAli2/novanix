@@ -398,6 +398,27 @@ VOID cmdline() {
                         delete[] to_print;
                     } 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                    ELIF(full_cmd[0] == 'h' && full_cmd[1] == 'a' && full_cmd[2] == 'w' && full_cmd[3] == 'k' && full_cmd[4] == '-' && full_cmd[5] == 's'){
+                        char to_print[BUFFER_CONSTANT] = {0};
+                        bool access_req;
+                        INTEGER i_for_hawk = 7;
+                        INTEGER counter_k = 0;
+                        while (full_cmd[i_for_hawk] != '\0' && counter_k < BUFFER_CONSTANT - 1) {
+                            to_print[counter_k++] = full_cmd[i_for_hawk++];
+                        }
+                        to_print[counter_k] = '\0';
+                        if (not IS_NOT_EMPTY_OR_SPACES(to_print)){
+                            printk(VGA_WHITE,"File name cannot be empty!",1);
+                        } else{
+                            // create_file_function(draw_editor(),to_print);
+                            char* data = draw_editor();
+                            file_t file = __create_file(to_print,data,String::strlen(data)+1);
+                            files[i_file++].data = file.data;
+                            i_file--;
+                        }
+                    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'h' && full_cmd[1] == 'a' && full_cmd[2] == 'w' && full_cmd[3] == 'k'){
                         char to_print[BUFFER_CONSTANT] = {0};
                         INTEGER i_for_hawk = 5;
