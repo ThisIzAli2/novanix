@@ -21,6 +21,9 @@
 #include <common/string.h>
 #include <global.h>
 
+/**
+ * @brief Search a file according to its name.
+ */
 file_t search_file(char* name) {
     INTEGER i;
     INTEGER files_size = sizeof(files) / sizeof(files[0]);
