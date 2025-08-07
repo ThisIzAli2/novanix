@@ -24,6 +24,10 @@
  */
 VOID cat_file(char* file) {
     for (INTEGER i = 0; i < MAX_FILES; i++) {
+        if (!have_access && files[i].access){
+            printk(VGA_RED,"You do not have access to this file",1);
+            return;
+        }
         // if (files[i].name == nullptr) continue; //! Do not use this. This will ignore spaces.
         if (String::strcmp(files[i].name, file)) {
             printk(VGA_WHITE, files[i].data, 1);
