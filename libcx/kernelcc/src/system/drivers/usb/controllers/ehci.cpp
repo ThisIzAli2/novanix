@@ -664,11 +664,11 @@ bool EHCIController::BulkOut(USBEndpoint* toggleSrc, const int devAddress, const
     queue->transferDescriptor.nextQTD = td0Phys;
 
     MakeTransferDesc(td0, td0Phys, 0, 0, bufPhys, len, true, toggleSrc->Toggle(), EHCI_TD_PID_OUT, packetSize);
-    for(int t = 0; t < (1 + ((len + (packetSize-1)) / packetSize)); t++)
+    for(INTEGER t = 0; t < (1 + ((len + (packetSize-1)) / packetSize)); t++)
         toggleSrc->Toggle();
 
     InsertIntoQueue(queue, queuePhys, QH_HS_TYPE_QH);
-    int ret = WaitForTransferComplete(td0, 2000, 0);
+    INTEGER ret = WaitForTransferComplete(td0, 2000, 0);
     RemoveFromQueue(queue);
 
     KernelHeap::allignedFree(queue);
@@ -697,11 +697,11 @@ bool EHCIController::BulkIn(USBEndpoint* toggleSrc, const int devAddress, const 
     queue->transferDescriptor.nextQTD = td0Phys;
 
     MakeTransferDesc(td0, td0Phys, 0, 0, bufferPhys, len, true, toggleSrc->Toggle(), EHCI_TD_PID_IN, packetSize);
-    for(int t = 0; t < (1 + ((len + (packetSize-1)) / packetSize)); t++)
+    for(INTEGER t = 0; t < (1 + ((len + (packetSize-1)) / packetSize)); t++)
         toggleSrc->Toggle();
 
     InsertIntoQueue(queue, queuePhys, QH_HS_TYPE_QH);
-    int ret = WaitForTransferComplete(td0, 2000, 0);
+    INTEGER ret = WaitForTransferComplete(td0, 2000, 0);
     RemoveFromQueue(queue);
     
     if (ret == 1) {
@@ -721,7 +721,7 @@ uint32_t EHCIController::ReadOpReg(uint32_t reg)
     return readMemReg(regBase + operRegsOffset + reg);
 }
 
-void EHCIController::WriteOpReg(uint32_t reg, uint32_t val)
+VOID EHCIController::WriteOpReg(uint32_t reg, uint32_t val)
 {
     writeMemReg(regBase + operRegsOffset + reg, val);
 }
