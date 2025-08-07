@@ -2,6 +2,7 @@
  * @author Ali Mirmohammad
  * @file installer.cpp
  * @Credits Remco123
+ * NOTE: This file is obsolete and soon will be removed.
  ** This file is part of Novanix.
 
 **Novanix is free software: you can redistribute it and/or modify
