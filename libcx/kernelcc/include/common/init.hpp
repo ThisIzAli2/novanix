@@ -33,6 +33,7 @@
 #include <novanix/user.h>
 #include <novanix/access.h>
 #include <novanix/time/time.hpp>
+#include <system/memory/heap.h>
 
 
 #ifndef __keep_inline 
