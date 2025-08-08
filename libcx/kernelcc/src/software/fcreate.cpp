@@ -134,6 +134,7 @@ file_t __create_empty_file(char* name){
 
 /**
  * @brief This function is used for the "touch" command.
+ * NOTE: This method is unsafe now!
  */
 VOID create_empty_file(char* name){
     file_t file = __create_empty_file(name);
