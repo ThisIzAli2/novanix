@@ -20,7 +20,7 @@
 #include <security/lockdown.h>
 
 
-#define TIME_DEF 30000000000ULL
+#define TIME_DEF 30000
 
 /**
  * This file manages the lockdown mechanism for the kernel.
