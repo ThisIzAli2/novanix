@@ -20,6 +20,8 @@
 #include <security/lockdown.h>
 
 
+#define TIME_DEF 30000000000ULL
+
 /**
  * This file manages the lockdown mechanism for the kernel.
  */
@@ -27,9 +29,12 @@
  * @brief Put the system into the lockdown.
  */
 VOID put_system_lockdown(enum LOCKDOWN_REASON reason){
+    uint64_t i = TIME_DEF;
     switch (reason){
         case ROOT_ACCESS_FAILED:
             printk(VGA_COLOR_RED,"You have tried too many wrong passwords for the sudo access. The kernel is going to be put in the lockdown. Please restart your system, if you believe this is a mistake.",1);
-            HALT_COMMAND;
+            while (i--){
+                __asm__ volatile("nop");
+            }
     }
 }
