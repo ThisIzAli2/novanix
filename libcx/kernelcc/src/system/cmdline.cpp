@@ -60,6 +60,7 @@
 #include <fs/filesearch.h>
 #include <fs/commands.h>
 #include <common/common.hpp>
+#include <graphics/graphics.hpp>
 
 char* dirs[MAX_DIRS];
 
@@ -149,6 +150,15 @@ VOID cmdline() {
                         }else{
                         shutdown_sys_now();
                         }
+                    }
+                    ELIF(cmd_cmp(full_cmd,"graph") == 0){
+                    draw_rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 0xFF000000); // opaque black
+
+                    // Draw a red rectangle at position (100, 100), size 200x150
+                    draw_rect(100, 100, 200, 150, 0xFFFF0000); // opaque red
+
+                    // Draw a green rectangle inside the red one
+                    draw_rect(150, 150, 100, 50, 0xFF00FF00); // opaque green
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"shutdown-delay") == 0){
