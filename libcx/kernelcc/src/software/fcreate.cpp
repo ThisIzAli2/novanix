@@ -69,15 +69,15 @@ file_t __create_file(char* name, char* data, INTEGER size, bool access_req) {
     data_copy[size] = '\0';
 
     // Allocate dir
-    dir_len = String::strlen(current_directory);
-    dir_copy = (char*) KernelHeap::malloc(dir_len + 1, &dummy);
-    if (!dir_copy) goto oom;
-    String::strcpy(dir_copy, current_directory);
+    // dir_len = String::strlen(current_directory);
+    // dir_copy = (char*) KernelHeap::malloc(dir_len + 1, &dummy);
+    // if (!dir_copy) goto oom;
+    // String::strcpy(dir_copy, current_directory);
 
     // Store in files[]
     files[i_file].name   = name_copy;
     files[i_file].data   = data_copy;
-    files[i_file].dir    = dir_copy;
+    files[i_file].dir    = current_directory;
     files[i_file].size   = size;
     files[i_file].access = access_req;
 
