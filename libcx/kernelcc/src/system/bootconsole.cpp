@@ -152,8 +152,8 @@ VOID BootConsole::WriteLine()
 }
 VOID BootConsole::Clear()
 {
-    for(int y = 0; y < VGA_HEIGHT; y++)
-        for(int x = 0; x < VGA_WIDTH; x++) {
+    for(INTEGER y = 0; y < VGA_HEIGHT; y++)
+        for(INTEGER x = 0; x < VGA_WIDTH; x++) {
                 uint16_t attrib = (BackgroundColor << 4) | (ForegroundColor & 0x0F);
                 volatile uint16_t * where;
                 where = (volatile uint16_t *)videoMemory + (y * VGA_WIDTH + x) ;
