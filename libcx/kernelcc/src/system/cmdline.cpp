@@ -61,6 +61,7 @@
 #include <fs/commands.h>
 #include <common/common.hpp>
 #include <graphics/graphics.hpp>
+#include <fs/physical.h>
 
 char* dirs[MAX_DIRS];
 
@@ -458,6 +459,22 @@ VOID cmdline() {
                     ELIF(cmd_cmp(full_cmd,"time") == 0){
                         display_time();
                         printk(VGA_WHITE,__TIME__,1);
+                    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ELIF(cmd_cmp(full_cmd,"phy") == 0){
+                        uint8_t sector_data[512] = {0};  // Clear sector (all zeros)
+                        sector_data[0] = 'N';            // Just some test data
+                        sector_data[1] = 'O';
+                        sector_data[2] = 'V';
+                        sector_data[3] = 'A';
+                        sector_data[4] = 0;              // Null-terminator or just padding
+                        uint32_t sector_to_write = 100; // for example, sector #100 on the disk
+                        bool success = ata_write_sector(sector_to_write, sector_data);
+                        if (success) {
+                            printk(VGA_WHITE,"Sector written successfully!",1);
+                        } else {
+                            printk(VGA_WHITE,"Failed to write sector.",1);
+                        }
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"ls") == 0){
