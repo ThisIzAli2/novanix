@@ -67,6 +67,7 @@ char* dirs[MAX_DIRS];
 INTEGER counter = 0;
 
 
+
     
 #define PRINT_PROMPT Novanix::system::printk(Novanix::system::VGA_WHITE, "%s>", 0,current_directory);
 
@@ -104,6 +105,7 @@ __always_inline INTEGER handle(const char* str){
  * Handle the command line in the kernel, does the command control of the CUI.
  */
 VOID cmdline() {
+    
     char* key = new char[2];  // Single character input
     INTEGER index = 0;
     char* cmd = new char[BUFFER_CONSTANT];  // Command buffer
