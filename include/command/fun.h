@@ -38,6 +38,9 @@
 const char* motd_arr[] = {NEWTON_QUOTE, MESSAGE_OF_THE_DAY};
 const size_t motd_arr_len = sizeof(motd_arr) / sizeof(motd_arr[0]);
 
+/**
+ * Show a random message of the day to the user, just for Fun!
+ */
 const __always_inline char* randomMotd() {
     if (motd_arr_len == 0) return NULL;
     unsigned int index = krand() % motd_arr_len;
