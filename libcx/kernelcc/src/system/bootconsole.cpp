@@ -1,5 +1,5 @@
 /**
- ** This file is part of AliNix.
+ ** This file is part of Novanix kernel.
  @Credits Remco123
 
 **AliNix is free software: you can redistribute it and/or modify
