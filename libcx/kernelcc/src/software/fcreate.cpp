@@ -58,7 +58,7 @@ file_t __create_file(char* name, char* data, INTEGER size, bool access_req) {
         file.access = access_req;
 
         // Copy current directory
-        file.dir = (char*) KernelHeap::malloc(String::strlen(current_directory) + 1, &dummy);
+        file.dir = (char*) KernelHeap::malloc(String::strlen(current_directory) , &dummy); //? Add +1?
         String::strcpy(file.dir, current_directory);
 
         // Store in global files array
