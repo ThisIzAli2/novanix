@@ -626,6 +626,7 @@ VOID cmdline() {
                                 lockdown_reason = ROOT_ACCESS_FAILED;
                                 reset_super_access();
                                 put_system_lockdown(lockdown_reason);
+                                counts_failed_sudo = 0;
                             }
                             fail:
                             counts_failed_sudo++;
