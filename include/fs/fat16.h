@@ -163,4 +163,31 @@ struct fat16_file {
     u32 cur_pos; /* current file offset */
 };
 
+
+__always_inline VOID fat16_make_shortname_key(const char *name, char out[11]){
+    MemoryOperations::memset(out,' ',11);
+
+    const char* p = name;
+    INTEGER i = 0;
+
+    while (*p && *p != '.' && i < 8){
+        char c = *p;
+        if (c >= 'a' && c <= 'z') c -= 32;
+        out[i++] = c;
+        p++;
+    }
+
+    if (*p == '.'){
+        p++;
+        INTEGER j = 8;
+        while (*p && j < 11) {
+            char c = *p;
+            if (c >= 'a' && c <= 'z') c -= 32;
+            out[j++] = c;
+            p++;
+        
+    }
+
+}
+
 #endif /*__NOVANIX_KERNEL_FAT_16_DRIVER_H*/
