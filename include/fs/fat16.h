@@ -212,6 +212,8 @@ __always_inline INTEGER fat16_write_file(struct fat16_fs *fs, const char *filena
                 // Free entry found!
                 u32 clusters_needed = (size + (fs->sectors_per_cluster * fs->bytes_per_sector) - 1) /
                         (fs->sectors_per_cluster * fs->bytes_per_sector);
+                u16 prev_cluster = 0;
+                u16 first_cluster = 0;
             }
         }
     }
