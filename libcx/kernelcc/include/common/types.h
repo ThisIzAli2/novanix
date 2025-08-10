@@ -36,6 +36,11 @@ namespace Novanix
         typedef long long int               int64_t;
         typedef unsigned long long int      uint64_t;
         typedef unsigned long long          uintptr_t;
+        typedef uint8_t u8;
+        typedef uint16_t u16;
+        typedef uint32_t u32;
+        typedef uint64_t u64;
+
 
         constexpr uint64_t divide64(uint64_t n, uint32_t base, uint32_t* r = 0)
         {

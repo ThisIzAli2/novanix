@@ -62,6 +62,7 @@
 #include <common/common.hpp>
 #include <graphics/graphics.hpp>
 #include <fs/physical.h>
+#include <fs/fat16.h>
 
 char* dirs[MAX_DIRS];
 
@@ -531,6 +532,9 @@ VOID cmdline() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"sudo --help") == 0){
                         printk(VGA_WHITE,SUDO_HELP_MENU,1);
+                    }
+                    ELIF(cmd_cmp(full_cmd,"fat") == 0){
+                        sample_write();
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'e' && full_cmd[1] == 'c' && full_cmd[2] == 'h' && full_cmd[3] == 'o'){

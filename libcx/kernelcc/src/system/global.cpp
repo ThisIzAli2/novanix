@@ -18,6 +18,7 @@
 */
 #include <global.h>
 #include <fs/zip.hpp>
+#include <fs/fat16.h>
 
 /**
  * IMPORTANT: Define all the global variables here after the extern definition
