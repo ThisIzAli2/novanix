@@ -195,5 +195,9 @@ __always_inline bool fat16_dir_entry_name_match(struct fat16_dir_entry *de, cons
     return MemoryOperations::memcmp(de->name,key,11);
 }
 
+__always_inline INTEGER fat16_write_file(struct fat16_fs *fs, const char *filename, const void *data, u32 size){
+
+}
+
 
 #endif /*__NOVANIX_KERNEL_FAT_16_DRIVER_H*/
