@@ -77,5 +77,9 @@ struct fat16_fs {
     u8 *scratch; /* should be at least bytes_per_sector sized */
 };
 
+__always_inline INTEGER fat16_read_sector(struct fat16_fs *fs,u32 lba){
+    return fs->bdev->read_sectors(fs->bdev,lba,1,fs->scratch);
+}
+
 
 #endif /*__NOVANIX_KERNEL_FAT_16_DRIVER_H*/
