@@ -264,6 +264,24 @@ INTEGER __always_inline write_sample_file_to_cluster_5(struct fat16_fs *fs) {
     return res;
 }
 
+VOID __always_inline sample_write(){
+    novanix_fat16_fs.bdev = &my_block_device;
+    uint8_t scratch_buffer[512];
+    novanix_fat16_fs.scratch = scratch_buffer;
+    int res = fat16_parse_bpb(&novanix_fat16_fs, 0);
+    if (res != 0){
+        printk(VGA_RED,"Err",1);
+    }
+    res = write_sample_file_to_cluster_5(&novanix_fat16_fs);
+    if (res != 0) {
+     printk(VGA_RED,"fail",1);
+    } else {
+        // success! cluster 5 now contains "HELLO FAT16"
+     printk(VGA_GREEN,"success",1);
+
+    }
+}
+
 
 
 #endif /*__NOVANIX_KERNEL_FAT_16_DRIVER_H*/
