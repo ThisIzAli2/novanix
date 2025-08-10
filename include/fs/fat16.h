@@ -85,7 +85,7 @@ __always_inline INTEGER fat16_read_sector(struct fat16_fs *fs,u32 lba){
 __always_inline INTEGER fat16_parse_bpb(struct fat16_fs *fs, u32 lba0){
     INTEGER res = fat16_read_sector(fs,lba0);
     if (res) return res;
-    
+    struct bpb_common *bpb = (struct bpb_common *)fs->scratch;
 }
 
 
