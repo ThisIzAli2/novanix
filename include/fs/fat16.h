@@ -82,4 +82,9 @@ __always_inline INTEGER fat16_read_sector(struct fat16_fs *fs,u32 lba){
 }
 
 
+__always_inline INTEGER fat16_parse_bpb(struct fat16_fs *fs, u32 lba0){
+    INTEGER res = fat16_read_sector(fs,lba0);
+}
+
+
 #endif /*__NOVANIX_KERNEL_FAT_16_DRIVER_H*/
