@@ -117,4 +117,50 @@ __always_inline INTEGER fat16_parse_bpb(struct fat16_fs *fs, u32 lba0){
 }
 
 
+__always_inline u32 fat16_first_sector_of_cluster(struct fat16_fs *fs,u16 cluster){
+    return fs->first_data_sector + ( (u32)(cluster - 2) * fs->sectors_per_cluster );
+}
+
+__always_inline int fat16_get_fat_entry(struct fat16_fs *fs, u16 cluster, u16 *out)
+{
+    /* FAT starts at reserved_sector_count offset (plus lba0 assumed 0) */
+    u32 fat_offset = cluster * 2; /* two bytes per FAT16 entry */
+    u32 fat_sector = fs->reserved_sector_count + (fat_offset / fs->bytes_per_sector);
+    u32 ent_offset = fat_offset % fs->bytes_per_sector;
+
+    int res = fat16_read_sector(fs, fat_sector);
+    if (res) return res;
+
+    u8 *p = fs->scratch + ent_offset;
+    u16 val = p[0] | (p[1] << 8);
+    *out = val;
+    return 0;
+}
+
+__always_inline bool fat16_is_eof(u16 cluster){
+    return cluster >= 0xFFF8;
+}
+
+__always_inline INTEGER fat_16_read_cluster(struct fat16_fs *fs, u16 cluster, void *buffer){
+    u32 first_sector = fat16_first_sector_of_cluster(fs, cluster);
+    return fs->bdev->read_sectors(fs->bdev, first_sector, fs->sectors_per_cluster, buffer);
+}
+
+/* -- Directory and file handling structures -- */
+struct fat16_dir_handle {
+    struct fat16_fs *fs;
+    u32 sector; /* current sector LBA in root/data area */
+    u32 idx_in_sector; /* byte index within sector */
+    u16 cluster; /* for subdirs (not used for root dir) */
+    u32 entries_remaining;
+};
+
+struct fat16_file {
+    struct fat16_fs *fs;
+    u32 size;
+    u16 first_cluster;
+    u16 cur_cluster;
+    u32 cur_pos; /* current file offset */
+};
+
 #endif /*__NOVANIX_KERNEL_FAT_16_DRIVER_H*/
