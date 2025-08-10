@@ -30,3 +30,4 @@ bool have_access = false;
 char user_password[50] = "admin";
 ZipFile zip_manager;
 char* current_directory = "/home";
+struct fat16_fs novanix_fat16_fs;
