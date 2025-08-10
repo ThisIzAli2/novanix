@@ -207,7 +207,9 @@ __always_inline INTEGER fat16_write_file(struct fat16_fs *fs, const char *filena
         INTEGER res = fat16_read_sector(fs,root_dir_start+sector);
         if (res) return res;
         struct fat16_dir_entry *entries = (struct fat16_dir_entry *)fs->scratch;
-        
+        for (int i = 0; i < fs->bytes_per_sector / sizeof(struct fat16_dir_entry); i++){
+            
+        }
     }
 }
 
