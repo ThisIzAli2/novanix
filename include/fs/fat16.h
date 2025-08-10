@@ -3,6 +3,8 @@
 
 
 #include <common/init.hpp>
+extern struct fat16_fs novanix_fat16_fs;
+extern struct block_dev my_block_device; 
 
 struct block_dev {
     void *opaque; /* driver-specific */
