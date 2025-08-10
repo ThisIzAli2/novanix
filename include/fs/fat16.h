@@ -187,7 +187,13 @@ __always_inline VOID fat16_make_shortname_key(const char *name, char out[11]){
             p++;
         
     }
+}
 
 }
+
+__always_inline bool fat16_dir_entry_name_match(struct fat16_dir_entry *de, const char key[11]){
+    return MemoryOperations::memcmp(de->name,key,11);
+}
+
 
 #endif /*__NOVANIX_KERNEL_FAT_16_DRIVER_H*/
