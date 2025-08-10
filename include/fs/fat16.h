@@ -243,6 +243,7 @@ __always_inline INTEGER fat16_write_cluster(struct fat16_fs *fs, u16 cluster, co
     }
     uint8_t cluster_buf[cluster_size_bytes];
     MemoryOperations::memset(cluster_buf,0,cluster_size_bytes);
+    MemoryOperations::memcpy(cluster_buf,data,data_size);
 }
 
 #endif /*__NOVANIX_KERNEL_FAT_16_DRIVER_H*/
