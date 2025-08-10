@@ -208,7 +208,9 @@ __always_inline INTEGER fat16_write_file(struct fat16_fs *fs, const char *filena
         if (res) return res;
         struct fat16_dir_entry *entries = (struct fat16_dir_entry *)fs->scratch;
         for (INTEGER i = 0; i < fs->bytes_per_sector / sizeof(struct fat16_dir_entry); i++){
-
+            if (entries[i].name[0] == 0x00 || entries[i].name[0] == 0xE5){
+                // Free entry found!
+            }
         }
     }
 }
