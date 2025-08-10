@@ -214,6 +214,10 @@ __always_inline INTEGER fat16_write_file(struct fat16_fs *fs, const char *filena
                         (fs->sectors_per_cluster * fs->bytes_per_sector);
                 u16 prev_cluster = 0;
                 u16 first_cluster = 0;
+
+                for (u32 c = 0;c < clusters_needed;c++){
+                    printk(VGA_RED,"No free clusters!",1);
+                }
             }
         }
     }
