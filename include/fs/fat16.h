@@ -202,6 +202,10 @@ __always_inline INTEGER fat16_write_file(struct fat16_fs *fs, const char *filena
 
     u32 root_dir_start = fs->first_root_dir_sector;
     u32 root_dir_sectors = fs->root_dir_sectors;
+
+    for (u32 sector = 0;sector < root_dir_sectors;sector++){
+        INTEGER res = fat16_read_sector(fs,root_dir_start+sector);
+    }
 }
 
 
