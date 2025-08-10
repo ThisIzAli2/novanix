@@ -225,5 +225,13 @@ __always_inline INTEGER fat16_write_file(struct fat16_fs *fs, const char *filena
     }
 }
 
+INTEGER __always_inline fat16_write_sector(struct fat16_fs *fs, u32 lba, const void *buf) {
+    if (!fs || !fs->bdev || !fs->bdev->write_sectors)
+        return -1; // error: write not supported
+
+    // Write exactly 1 sector to block device
+    return fs->bdev->write_sectors(fs->bdev, lba, 1, buf);
+}
+
 
 #endif /*__NOVANIX_KERNEL_FAT_16_DRIVER_H*/
