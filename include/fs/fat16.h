@@ -268,7 +268,7 @@ VOID __always_inline sample_write(){
     novanix_fat16_fs.bdev = &my_block_device;
     uint8_t scratch_buffer[512];
     novanix_fat16_fs.scratch = scratch_buffer;
-    int res = fat16_parse_bpb(&novanix_fat16_fs, 0);
+    INTEGER res = fat16_parse_bpb(&novanix_fat16_fs, 0);
     if (res != 0){
         printk(VGA_RED,"Err",1);
     }
