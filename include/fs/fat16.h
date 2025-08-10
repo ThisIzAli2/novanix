@@ -196,7 +196,12 @@ __always_inline bool fat16_dir_entry_name_match(struct fat16_dir_entry *de, cons
 }
 
 __always_inline INTEGER fat16_write_file(struct fat16_fs *fs, const char *filename, const void *data, u32 size){
+    char short_name[11];
+    fat16_make_shortname_key(filename,short_name);
 
+
+    u32 root_dir_start = fs->first_root_dir_sector;
+    u32 root_dir_sectors = fs->root_dir_sectors;
 }
 
 
