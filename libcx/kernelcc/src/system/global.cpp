@@ -31,3 +31,4 @@ char user_password[50] = "admin";
 ZipFile zip_manager;
 char* current_directory = "/home";
 struct fat16_fs novanix_fat16_fs;
+struct block_dev my_block_device; 
