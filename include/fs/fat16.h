@@ -241,6 +241,8 @@ __always_inline INTEGER fat16_write_cluster(struct fat16_fs *fs, u16 cluster, co
     if (data_size > cluster_size_bytes){
         return -1;
     }
+    uint8_t cluster_buf[cluster_size_bytes];
+    
 }
 
 #endif /*__NOVANIX_KERNEL_FAT_16_DRIVER_H*/
