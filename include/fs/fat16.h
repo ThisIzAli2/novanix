@@ -235,7 +235,7 @@ INTEGER __always_inline fat16_write_sector(struct fat16_fs *fs, u32 lba, const v
 
 
 __always_inline INTEGER fat16_write_cluster(struct fat16_fs *fs, u16 cluster, const void *data, u32 data_size){
-    
+    u32 first_sector = fat16_first_sector_of_cluster(fs,cluster);
 }
 
 #endif /*__NOVANIX_KERNEL_FAT_16_DRIVER_H*/
