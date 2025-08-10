@@ -86,6 +86,13 @@ __always_inline INTEGER fat16_parse_bpb(struct fat16_fs *fs, u32 lba0){
     INTEGER res = fat16_read_sector(fs,lba0);
     if (res) return res;
     struct bpb_common *bpb = (struct bpb_common *)fs->scratch;
+
+    fs->bytes_per_sector = bpb->bytes_per_sector;
+    fs->sectors_per_cluster = bpb->sectors_per_cluster;
+    fs->reserved_sector_count = bpb->reserved_sector_count;
+    fs->num_fats = bpb->num_fats;
+    fs->root_entry_count = bpb->root_entry_count;
+    fs->fat_size_sectors = bpb->fat_size_16;
 }
 
 
