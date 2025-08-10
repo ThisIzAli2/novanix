@@ -244,6 +244,14 @@ __always_inline INTEGER fat16_write_cluster(struct fat16_fs *fs, u16 cluster, co
     uint8_t cluster_buf[cluster_size_bytes];
     MemoryOperations::memset(cluster_buf,0,cluster_size_bytes);
     MemoryOperations::memcpy(cluster_buf,data,data_size);
+    
+
+    for (u8 sector = 0; sector < fs->sectors_per_cluster;sector++){
+        INTEGER res = fat16_write_sector(fs, first_sector + sector,
+                                     cluster_buf + sector * fs->bytes_per_sector);
+        if (res != 0) return res;
+    }
+    return 0;
 }
 
 #endif /*__NOVANIX_KERNEL_FAT_16_DRIVER_H*/
