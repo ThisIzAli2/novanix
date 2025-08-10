@@ -9,6 +9,7 @@ struct block_dev {
     /* read `count` sectors starting at `lba` into `buf` (size: count * bytes_per_sector)
        return 0 on success, negative on error */
     int (*read_sectors)(struct block_dev *dev, u32 lba, u32 count, void *buf);
+    int (*write_sectors)(struct block_dev *dev, u32 lba, u32 count, const void *buf);
 };
 
 /* -- On-disk structures (packed) -- */
