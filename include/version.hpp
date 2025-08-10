@@ -19,7 +19,7 @@
 #ifndef __VERSION_HPP
 #define __VERSION_HPP
 
-
+// Current kernel version
 #define KERNEL_VERSION "       0.02"
 
 #endif
