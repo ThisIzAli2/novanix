@@ -156,6 +156,42 @@ INTEGER fat32_mount(uint32_t partition_lba) {
     return 0;
 }
 
+/**
+ * @brief Lists all directory entries starting from a given FAT32 cluster.
+ * 
+ * This function traverses the FAT32 cluster chain beginning at the specified cluster,
+ * reading each sector in each cluster, and processes directory entries found therein.
+ * It skips deleted entries, long file name (LFN) entries, and stops at the end of directory entries.
+ * 
+ * The function prints the file name and size for each valid directory entry.
+ * 
+ * @param cluster The starting cluster number of the directory to list.
+ * 
+ * @return OID No explicit return value (void-equivalent). The function returns early
+ *             when the end of the directory entries is reached.
+ * 
+ * @details
+ * - Uses `fat32_cluster_to_lba` to convert cluster numbers to LBAs.
+ * - Reads sectors cluster-by-cluster.
+ * - Each directory entry is 32 bytes.
+ * - Handles FAT32 special cluster markers to detect the end of cluster chain.
+ * - Skips:
+ *    - Entries with first byte 0x00 (no more entries).
+ *    - Entries with first byte 0xE5 (deleted files).
+ *    - Entries with attribute 0x0F (Long File Name entries).
+ * - Copies file names from the directory entry, trimming spaces may be needed.
+ * - Uses `printk` to output file information (file name and file size).
+ * 
+ * @note
+ * - Assumes `block_device_read_sector` reads a sector from the block device.
+ * - Assumes `fat32_get_fat_entry` provides the next cluster in the FAT chain.
+ * - Assumes `MemoryOperations::memcpy` is available for copying data.
+ * - Assumes `fs` is a global or accessible FAT32 filesystem metadata structure.
+ * 
+ * @example
+ * uint32_t root_dir_cluster = fs.root_cluster;
+ * fat32_list_directory(root_dir_cluster);
+ */
 VOID fat32_list_directory(uint32_t cluster) {
     uint32_t current = cluster;
     uint8_t sector[512];
@@ -183,7 +219,34 @@ VOID fat32_list_directory(uint32_t cluster) {
 }
 
 
-
+/**
+ * @brief Reads a 512-byte sector from a block device image into a buffer.
+ * 
+ * This function simulates reading a disk sector by copying data from a disk image
+ * loaded in memory. It calculates the byte offset of the requested Logical Block Address (LBA)
+ * sector within the disk image and copies 512 bytes into the provided buffer.
+ * 
+ * @param lba The Logical Block Address (sector number) to read.
+ * @param buffer Pointer to a buffer of at least 512 bytes where the sector data will be copied.
+ * 
+ * @return INTEGER Returns 0 on success, or -1 if the requested sector is out of the disk image bounds.
+ * 
+ * @details
+ * - Assumes a sector size of 512 bytes (SECTOR_SIZE).
+ * - Checks that the requested sector lies within the range of the disk image size.
+ * - Copies sector data from `disk_image` (assumed to be a pointer to loaded disk image bytes).
+ * 
+ * @note
+ * - This function operates on an in-memory disk image, not on physical hardware.
+ * - `disk_image_size` must represent the total size in bytes of the disk image.
+ * - `MemoryOperations::memcpy` is used for copying data safely.
+ * 
+ * @example
+ * uint8_t buffer[512];
+ * if (block_device_read_sector(2048, buffer) != 0) {
+ *     // Handle read error
+ * }
+ */
 INTEGER block_device_read_sector(uint32_t lba, uint8_t *buffer) {
     uint64_t offset = (uint64_t)lba * SECTOR_SIZE;
     if (offset + SECTOR_SIZE > disk_image_size) {
