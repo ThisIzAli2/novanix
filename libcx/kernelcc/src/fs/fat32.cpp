@@ -40,7 +40,7 @@ uint32_t static __always_inline fat32_get_fat_entry(uint32_t cluster, fat32_fs_t
     return entry & 0x0FFFFFFF; // mask 28 bits
 }
 
-int fat32_mount(uint32_t partition_lba) {
+INTEGER fat32_mount(uint32_t partition_lba) {
     uint8_t sector[512];
     if (block_device_read_sector(partition_lba, sector) != 0) return -1;
 
