@@ -24,6 +24,30 @@ extern fat32_fs_t fs;
 extern uint8_t *disk_image;   // pointer to disk image in memory
 extern uint64_t disk_image_size;
 
+/**
+ * @brief Converts a FAT32 cluster number to its corresponding Logical Block Address (LBA).
+ * 
+ * In the FAT32 file system, files are organized in clusters, each consisting of multiple sectors.
+ * This function calculates the starting sector (LBA) of a given cluster number.
+ * 
+ * Clusters are numbered starting from 2, as clusters 0 and 1 are reserved.
+ * The calculation returns the LBA of the first sector of the specified cluster.
+ * 
+ * @param cluster The FAT32 cluster number to convert. Must be >= 2.
+ * @param fs Pointer to a FAT32 filesystem metadata structure containing:
+ *           - data_start_lba: LBA of the first data sector in the partition.
+ *           - sectors_per_cluster: Number of sectors per cluster.
+ * 
+ * @return INTEGER The Logical Block Address (sector number) corresponding to the cluster start.
+ * 
+ * @note This function is marked as `static` and `__always_inline` for performance.
+ * 
+ * @example
+ * fat32_fs_t fat32_fs = {2048, 8}; // data starts at sector 2048, 8 sectors per cluster
+ * uint32_t cluster_num = 5;
+ * INTEGER sector = fat32_cluster_to_lba(cluster_num, &fat32_fs);
+ * // sector = 2048 + (5 - 2) * 8 = 2072
+ */
 static INTEGER __always_inline fat32_cluster_to_lba(uint32_t cluster,fat32_fs_t *fs){
     return fs->data_start_lba + (cluster-2) * fs->sectors_per_cluster;
 }
