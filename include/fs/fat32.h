@@ -22,15 +22,7 @@
 
 #include <common/init.hpp>
 
-typedef struct {
-    fat32_bpb_t bpb;
-    uint32_t fat_start_lba;
-    uint32_t data_start_lba;
-    uint32_t root_cluster;
-    uint16_t bytes_per_sector;
-    uint8_t sectors_per_cluster;
-    uint8_t num_fats;
-} fat32_fs_t;
+
 
 
 typedef struct __attribute__((packed)) {
@@ -80,7 +72,15 @@ typedef struct __attribute__((packed)) {
     uint16_t first_cluster_low;
     uint32_t file_size;
 } fat32_dir_entry_t;
-
+typedef struct {
+    fat32_bpb_t bpb;
+    uint32_t fat_start_lba;
+    uint32_t data_start_lba;
+    uint32_t root_cluster;
+    uint16_t bytes_per_sector;
+    uint8_t sectors_per_cluster;
+    uint8_t num_fats;
+} fat32_fs_t;
 
 INTEGER block_device_read_sector(uint32_t lba, uint8_t* buffer);
 INTEGER block_device_write_sector(uint32_t lba, const uint8_t* buffer);

@@ -22,7 +22,7 @@
 #include <fs/fat32.h>
 
 /**
- * IMPORTANT: Define all the global variables here after the extern definition
+ * IMPORTANT: Define all the global variables here after the definition
  */
 file_t files[MAX_FILES];
 INTEGER i_file = 0;
@@ -35,3 +35,5 @@ char* current_directory = "/home";
 struct fat16_fs novanix_fat16_fs;
 struct block_dev my_block_device; 
 fat32_fs_t fs;
+uint8_t *disk_image;   // pointer to disk image in memory
+uint64_t disk_image_size;
