@@ -280,7 +280,11 @@ __always_inline INTEGER fat16_write_cluster(struct fat16_fs *fs, u16 cluster, co
         INTEGER res = fat16_write_sector(fs, first_sector + sector,
                                      cluster_buf + sector * fs->bytes_per_sector);
         if (res != 0) return res;
+        #if defined(DEV)
+        printk(VGA_WHITE,stringify(res),1);
+        #endif
     }
+
     return 0;
 }
 
