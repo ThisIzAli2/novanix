@@ -22,7 +22,7 @@
 #include <common/init.hpp>
 
 
-
+char* encrypt( char* msg,char key);
 
 
 #endif /*__KERNEL_XOR_CRY_H*/
