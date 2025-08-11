@@ -24,6 +24,9 @@
 extern struct fat16_fs novanix_fat16_fs;
 extern struct block_dev my_block_device; 
 
+#define DEV
+
+
 struct block_dev {
     void *opaque; /* driver-specific */
     /* read `count` sectors starting at `lba` into `buf` (size: count * bytes_per_sector)
@@ -171,6 +174,9 @@ __always_inline bool fat16_is_eof(u16 cluster){
 
 __always_inline INTEGER fat_16_read_cluster(struct fat16_fs *fs, u16 cluster, void *buffer){
     u32 first_sector = fat16_first_sector_of_cluster(fs, cluster);
+    #if defined(DEV)
+    printk(VGA_WHITE,"good for fat_16_read_cluster",1);
+    #endif
     return fs->bdev->read_sectors(fs->bdev, first_sector, fs->sectors_per_cluster, buffer);
 }
 
@@ -260,7 +266,6 @@ INTEGER __always_inline fat16_write_sector(struct fat16_fs *fs, u32 lba, const v
     return fs->bdev->write_sectors(fs->bdev, lba, 1, buf);
 }
 
-#define DEV
 
 __always_inline INTEGER fat16_write_cluster(struct fat16_fs *fs, u16 cluster, const VOID *data, u32 data_size){
     u32 first_sector = fat16_first_sector_of_cluster(fs,cluster);
