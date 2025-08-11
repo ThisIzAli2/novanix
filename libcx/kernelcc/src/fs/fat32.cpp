@@ -23,6 +23,7 @@ extern fat32_fs_t fs;
 #define SECTOR_SIZE 512
 extern uint8_t *disk_image;   // pointer to disk image in memory
 extern uint64_t disk_image_size;
+
 static INTEGER __always_inline fat32_cluster_to_lba(uint32_t cluster,fat32_fs_t *fs){
     return fs->data_start_lba + (cluster-2) * fs->sectors_per_cluster;
 }
