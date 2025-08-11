@@ -538,7 +538,7 @@ VOID cmdline() {
                     }
                     ELIF(cmd_cmp(full_cmd,"fat") == 0){
                         INTEGER res;
-                        res = fat32_mount(partition_lba);
+                        res = fat32_mount(1);
                         printk(VGA_WHITE,stringify(res),1);
                         if (res == 0){
                             printk(VGA_WHITE,"FAT 32 mounted on LBA %s",1,partition_lba);
