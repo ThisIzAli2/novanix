@@ -19,5 +19,14 @@
 #include <mmap.h>
 
 VOID print_rem_ram(){
+    uint64_t total_ram = 0;
+    for (INTEGER i = 0;i < MEMMAP_ENTRIES;i++){
+        if (memmap[i].type == 1){
+            total_ram += memmap[i].length;
+                printk(VGA_WHITE,"RAM Region: Base=0x%llx Length=0x%llx bytes\n",1,memmap[i].base_addr, memmap[i].length);
+        }
+        }
 
+            printk(VGA_WHITE,"Total Available RAM: %llu bytes (%.2f MB)\n",1,
+           total_ram, total_ram / (1024.0*1024.0));
 }
