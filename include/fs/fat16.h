@@ -27,6 +27,7 @@ extern struct block_dev my_block_device;
 #define DEV
 
 
+
 struct block_dev {
     void *opaque; /* driver-specific */
     /* read `count` sectors starting at `lba` into `buf` (size: count * bytes_per_sector)
@@ -196,64 +197,6 @@ __always_inline INTEGER fat16_get_fat_entry(struct fat16_fs *fs, u16 cluster, u1
     return 0;
 }
 
-INTEGER fat16_read_file(struct fat16_file *file, void *buf, u32 bytes_to_read, u32 *bytes_read) {
-    if (!file || !buf || !bytes_read)
-        return -1; // invalid args
-
-    struct fat16_fs *fs = file->fs;
-    if (!fs)
-        return -2; // no filesystem
-
-    u8 *buffer = (u8 *)buf;
-    u32 remaining = bytes_to_read;
-    u32 total_read = 0;
-
-    // If file position beyond EOF, nothing to read
-    if (file->cur_pos >= file->size) {
-        *bytes_read = 0;
-        return 0;
-    }
-
-    // Adjust bytes_to_read if it goes past EOF
-    if (file->cur_pos + bytes_to_read > file->size)
-        remaining = file->size - file->cur_pos;
-
-    while (remaining > 0) {
-        // Calculate current cluster offset and bytes left in this cluster
-        u32 cluster_size = fs->bytes_per_sector * fs->sectors_per_cluster;
-        u32 cluster_offset = file->cur_pos % cluster_size;
-        u32 bytes_in_cluster = cluster_size - cluster_offset;
-
-        // Number of bytes to read from this cluster in this iteration
-        u32 chunk = (remaining < bytes_in_cluster) ? remaining : bytes_in_cluster;
-
-        // Read the whole cluster into scratch buffer if not already cached
-        INTEGER res = fat_16_read_cluster(fs, file->cur_cluster, fs->scratch);
-        if (res) return res;
-
-        // Copy requested chunk from cluster data starting at cluster_offset
-        MemoryOperations::memcpy(buffer + total_read, fs->scratch + cluster_offset, chunk);
-
-        file->cur_pos += chunk;
-        total_read += chunk;
-        remaining -= chunk;
-
-        // If we consumed all bytes in current cluster, move to next cluster
-        if (cluster_offset + chunk >= cluster_size) {
-            u16 next_cluster;
-            res = fat16_get_fat_entry(fs, file->cur_cluster, &next_cluster);
-            if (res) return res;
-            if (fat16_is_eof(next_cluster)) {
-                // Reached end of cluster chain, stop reading
-                break;
-            }
-            file->cur_cluster = next_cluster;
-        }
-    }
-
-    *bytes_read = total_read;
-    return 0; // success
-}
 
 
 __always_inline bool fat16_is_eof(u16 cluster){
@@ -267,6 +210,9 @@ __always_inline INTEGER fat_16_read_cluster(struct fat16_fs *fs, u16 cluster, vo
     #endif
     return fs->bdev->read_sectors(fs->bdev, first_sector, fs->sectors_per_cluster, buffer);
 }
+
+
+
 
 /* -- Directory and file handling structures -- */
 struct fat16_dir_handle {
@@ -392,6 +338,65 @@ INTEGER __always_inline write_sample_file_to_cluster_5(struct fat16_fs *fs) {
 
     INTEGER res = fat16_write_cluster(fs, cluster_to_use, sample_data, sizeof(sample_data));
     return res;
+}
+
+INTEGER __always_inline fat16_read_file(struct fat16_file *file, void *buf, u32 bytes_to_read, u32 *bytes_read) {
+    if (!file || !buf || !bytes_read)
+        return -1; // invalid args
+
+    struct fat16_fs *fs = file->fs;
+    if (!fs)
+        return -2; // no filesystem
+
+    u8 *buffer = (u8 *)buf;
+    u32 remaining = bytes_to_read;
+    u32 total_read = 0;
+
+    // If file position beyond EOF, nothing to read
+    if (file->cur_pos >= file->size) {
+        *bytes_read = 0;
+        return 0;
+    }
+
+    // Adjust bytes_to_read if it goes past EOF
+    if (file->cur_pos + bytes_to_read > file->size)
+        remaining = file->size - file->cur_pos;
+
+    while (remaining > 0) {
+        // Calculate current cluster offset and bytes left in this cluster
+        u32 cluster_size = fs->bytes_per_sector * fs->sectors_per_cluster;
+        u32 cluster_offset = file->cur_pos % cluster_size;
+        u32 bytes_in_cluster = cluster_size - cluster_offset;
+
+        // Number of bytes to read from this cluster in this iteration
+        u32 chunk = (remaining < bytes_in_cluster) ? remaining : bytes_in_cluster;
+
+        // Read the whole cluster into scratch buffer if not already cached
+        INTEGER res = fat_16_read_cluster(fs, file->cur_cluster, fs->scratch);
+        if (res) return res;
+
+        // Copy requested chunk from cluster data starting at cluster_offset
+        MemoryOperations::memcpy(buffer + total_read, fs->scratch + cluster_offset, chunk);
+
+        file->cur_pos += chunk;
+        total_read += chunk;
+        remaining -= chunk;
+
+        // If we consumed all bytes in current cluster, move to next cluster
+        if (cluster_offset + chunk >= cluster_size) {
+            u16 next_cluster;
+            res = fat16_get_fat_entry(fs, file->cur_cluster, &next_cluster);
+            if (res) return res;
+            if (fat16_is_eof(next_cluster)) {
+                // Reached end of cluster chain, stop reading
+                break;
+            }
+            file->cur_cluster = next_cluster;
+        }
+    }
+
+    *bytes_read = total_read;
+    return 0; // success
 }
 
 VOID __always_inline sample_write(){
