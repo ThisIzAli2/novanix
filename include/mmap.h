@@ -22,14 +22,13 @@
 
 #include <common/init.hpp>
 
-
 typedef struct{
     uint64_t base_addr;
     uint64_t length;
     uint32_t type;
 }memmap_entry_t;
 
-memmap_entry_t memmap[] = {
+static memmap_entry_t memmap[] = {
     {0x00000000, 0x0009FC00, 1},   // Usable RAM under 1MB
     {0x00100000, 0x3FF00000, 1},   // Usable RAM from 1MB to 1GB
     {0x40000000, 0x40000000, 2}    // Reserved

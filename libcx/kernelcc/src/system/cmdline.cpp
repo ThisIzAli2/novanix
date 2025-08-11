@@ -64,6 +64,7 @@
 #include <fs/physical.h>
 #include <fs/fat16.h>
 #include <fs/fat32.h>
+#include <mmap.h>
 
 char* dirs[MAX_DIRS];
 
@@ -300,6 +301,9 @@ VOID cmdline() {
                         printk(VGA_WHITE,"file compressed: %s",1,f.name);
                         // TODO: Should search for the file name to get the file_t
 
+                    }
+                    ELIF(cmd_cmp(full_cmd,"ram") == 0){
+                        print_rem_ram();
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (full_cmd[0] == 'c' && full_cmd[1] == 'a' && full_cmd[2] == 'w' && full_cmd[3] == 'k'){

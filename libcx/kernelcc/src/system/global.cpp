@@ -20,6 +20,7 @@
 #include <fs/zip.hpp>
 #include <fs/fat16.h>
 #include <fs/fat32.h>
+#include <mmap.h>
 
 /**
  * IMPORTANT: Define all the global variables here after the definition
