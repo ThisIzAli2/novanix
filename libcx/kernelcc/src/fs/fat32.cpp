@@ -103,6 +103,44 @@ uint32_t static __always_inline fat32_get_fat_entry(uint32_t cluster, fat32_fs_t
     return entry & 0x0FFFFFFF; // mask 28 bits
 }
 
+
+/**
+ * @brief Mounts a FAT32 filesystem by reading and parsing its BIOS Parameter Block (BPB).
+ * 
+ * This function initializes the FAT32 filesystem metadata structure (`fs`) 
+ * by reading the first sector of the specified partition (usually the boot sector)
+ * and extracting essential filesystem parameters from the BIOS Parameter Block (BPB).
+ * 
+ * It calculates key filesystem locations such as the FAT start sector and data region start sector,
+ * enabling subsequent file system operations like cluster-to-LBA translation.
+ * 
+ * @param partition_lba The Logical Block Address (LBA) of the partition's start sector (usually the boot sector).
+ * 
+ * @return INTEGER Returns 0 on success, or -1 if the initial sector read fails.
+ * 
+ * @details
+ * The function performs the following steps:
+ * 1. Reads the sector at `partition_lba` into a buffer.
+ * 2. Copies the BPB structure from the buffer into `fs.bpb`.
+ * 3. Extracts parameters such as bytes per sector, sectors per cluster, number of FATs.
+ * 4. Calculates:
+ *    - `fs.fat_start_lba`: The LBA where the FAT begins (partition start + reserved sectors).
+ *    - `fs.data_start_lba`: The LBA where the data region begins (FAT start + FAT area size).
+ *    - `fs.root_cluster`: The cluster number of the root directory.
+ * 
+ * These parameters are critical for navigating and reading files on the FAT32 filesystem.
+ * 
+ * @note
+ * - Assumes `block_device_read_sector` reads 512-byte sectors from the device.
+ * - Assumes `MemoryOperations::memcpy` is available for memory copying.
+ * - The `fs` object is a global or accessible FAT32 filesystem state structure.
+ * 
+ * @example
+ * uint32_t partition_start = 2048; // Example partition start sector
+ * if (fat32_mount(partition_start) != 0) {
+ *     // Handle error
+ * }
+ */
 INTEGER fat32_mount(uint32_t partition_lba) {
     uint8_t sector[512];
     if (block_device_read_sector(partition_lba, sector) != 0) return -1;
