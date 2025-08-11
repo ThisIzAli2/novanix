@@ -63,10 +63,13 @@
 #include <graphics/graphics.hpp>
 #include <fs/physical.h>
 #include <fs/fat16.h>
+#include <fs/fat32.h>
 
 char* dirs[MAX_DIRS];
 
 INTEGER counter = 0;
+extern fat32_fs_t fs;
+
 
 
 
@@ -534,7 +537,13 @@ VOID cmdline() {
                         printk(VGA_WHITE,SUDO_HELP_MENU,1);
                     }
                     ELIF(cmd_cmp(full_cmd,"fat") == 0){
-                        sample_write();
+                        INTEGER res;
+                        res = fat32_mount(partition_lba);
+                        printk(VGA_WHITE,stringify(res),1);
+                        if (res == 0){
+                            printk(VGA_WHITE,"FAT 32 mounted on LBA %s",1,partition_lba);
+                            printk(VGA_WHITE,"Bytes per sector: %u",1,fs.bytes_per_sector);
+                        }
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(full_cmd[0] == 'e' && full_cmd[1] == 'c' && full_cmd[2] == 'h' && full_cmd[3] == 'o'){
