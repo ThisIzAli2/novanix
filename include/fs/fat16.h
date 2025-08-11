@@ -214,7 +214,7 @@ __always_inline VOID fat16_make_shortname_key(const char *name, char out[11]){
 
 
 __always_inline bool fat16_dir_entry_name_match(struct fat16_dir_entry *de, const char key[11]){
-    return MemoryOperations::memcmp(de->name,key,11);
+    return MemoryOperations::memcmp(de->name,key,11) == 0;
 }
 
 __always_inline INTEGER fat16_write_file(struct fat16_fs *fs, const char *filename, const void *data, u32 size){
