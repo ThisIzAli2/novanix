@@ -29,4 +29,5 @@ VOID print_rem_ram(){
 
             printk(VGA_WHITE,"Total Available RAM: %llu bytes (%.2f MB)\n",1,
            total_ram, total_ram / (1024.0*1024.0));
+           printk(VGA_WHITE,stringify( total_ram / (1024.0*1024.0)),1);
 }
