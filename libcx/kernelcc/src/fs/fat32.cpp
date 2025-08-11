@@ -55,7 +55,7 @@ int fat32_mount(uint32_t partition_lba) {
     return 0;
 }
 
-void fat32_list_directory(uint32_t cluster) {
+VOID fat32_list_directory(uint32_t cluster) {
     uint32_t current = cluster;
     uint8_t sector[512];
     while (current < 0x0FFFFFF8) {
@@ -83,7 +83,7 @@ void fat32_list_directory(uint32_t cluster) {
 
 
 
-int block_device_read_sector(uint32_t lba, uint8_t *buffer) {
+INTEGER block_device_read_sector(uint32_t lba, uint8_t *buffer) {
     uint64_t offset = (uint64_t)lba * SECTOR_SIZE;
     if (offset + SECTOR_SIZE > disk_image_size) {
         return -1; // out of range
