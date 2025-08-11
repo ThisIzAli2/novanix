@@ -110,9 +110,37 @@ __always_inline INTEGER fat16_read_sector(struct fat16_fs *fs, u32 lba) {
     return fs->bdev->read_sectors(fs->bdev, lba, 1, fs->scratch);
 }
 
+
+/**
+ * Sector 0 (Boot Sector):
++------------------------------+
+| Jump code                    |
+| OEM name                     |
+| BPB:                         |
+|   bytes_per_sector           |
+|   sectors_per_cluster        |
+|   reserved_sector_count      |
+|   num_fats                   |
+|   root_entry_count           |
+|   total_sectors              |
+|   media_type                 |
+|   sectors_per_fat            |
+|   sectors_per_track          |
+|   number_of_heads            |
+|   hidden_sectors             |
+|   total_sectors_large        |
+| ...                          |
++------------------------------+
+
+ */
 __always_inline INTEGER fat16_parse_bpb(struct fat16_fs *fs, u32 lba0){
     
     INTEGER res = fat16_read_sector(fs,lba0);
+
+    #if defined(DEV)
+    printk(VGA_WHITE,"FAT 16 parse bpb",1);
+    printk(VGA_WHITE,stringify(res),1);
+    #endif
 
     if (res) return res;
     struct bpb_common *bpb = (struct bpb_common *)fs->scratch;
