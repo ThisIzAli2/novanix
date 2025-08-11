@@ -84,7 +84,7 @@ typedef struct __attribute__((packed)) {
 
 INTEGER block_device_read_sector(uint32_t lba, uint8_t* buffer);
 INTEGER block_device_write_sector(uint32_t lba, const uint8_t* buffer);
-
+INTEGER fat32_mount(uint32_t partition_lba);
 
 
 #endif /*__NOVANIX_KERNEL_FILE_SYSTEM__FAT_32__H*/
