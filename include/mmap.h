@@ -37,4 +37,6 @@ memmap_entry_t memmap[] = {
 
 #define MEMMAP_ENTRIES sizeof(sizeof(memmap) / sizeof(memmap[0]))
 
+VOID print_rem_ram();
+
 #endif /*NOVANIX_KERNEL_MEMORY_MAP_H*/
