@@ -19,3 +19,7 @@
 
 #include <fs/fat32.h>
 
+
+static INTEGER __always_inline fat32_cluster_to_lba(uint32_t cluster,fat32_fs_t *fs){
+    return fs->data_start_lba + (cluster-2) * fs->sectors_per_cluster;
+}

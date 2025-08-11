@@ -22,6 +22,16 @@
 
 #include <common/init.hpp>
 
+typedef struct {
+    fat32_bpb_t bpb;
+    uint32_t fat_start_lba;
+    uint32_t data_start_lba;
+    uint32_t root_cluster;
+    uint16_t bytes_per_sector;
+    uint8_t sectors_per_cluster;
+    uint8_t num_fats;
+} fat32_fs_t;
+
 
 typedef struct __attribute__((packed)) {
     uint8_t  jump_boot[3];
