@@ -1,6 +1,6 @@
 /**
  * @author Ali Mirmohammad
- * @file cryptography.h
+ * @file xor.h
  ** This file is part of Novanix.
 
 **Novanix is free software: you can redistribute it and/or modify
@@ -16,7 +16,13 @@
 **You should have received a copy of the GNU Affero General Public License
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
-#ifndef __NOVANIX_KERNEL_CRYPTOGRAPHY_H
-#define __NOVANIX_KERNEL_CRYPTOGRAPHY_H
+#ifndef __KERNEL_XOR_CRY_H
+#define __KERNEL_XOR_CRY_H
 
-#endif /*__NOVANIX_KERNEL_CRYPTOGRAPHY_H*/
+#include <common/init.hpp>
+
+
+
+
+
+#endif /*__KERNEL_XOR_CRY_H*/
