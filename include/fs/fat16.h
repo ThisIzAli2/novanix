@@ -98,13 +98,19 @@ struct fat16_fs {
     u8 *scratch; /* should be at least bytes_per_sector sized */
 };
 
-__always_inline INTEGER fat16_read_sector(struct fat16_fs *fs,u32 lba){
-    return fs->bdev->read_sectors(fs->bdev,lba,1,fs->scratch);
+__always_inline INTEGER fat16_read_sector(struct fat16_fs *fs, u32 lba) {
+    if (!fs) return -1; // fs is NULL
+    if (!fs->bdev) return -2; // block device not set
+    if (!fs->bdev->read_sectors) return -3; // no read function
+    if (!fs->scratch) return -4; // no buffer allocated
+
+    return fs->bdev->read_sectors(fs->bdev, lba, 1, fs->scratch);
 }
 
-
 __always_inline INTEGER fat16_parse_bpb(struct fat16_fs *fs, u32 lba0){
+    
     INTEGER res = fat16_read_sector(fs,lba0);
+
     if (res) return res;
     struct bpb_common *bpb = (struct bpb_common *)fs->scratch;
 
@@ -114,7 +120,7 @@ __always_inline INTEGER fat16_parse_bpb(struct fat16_fs *fs, u32 lba0){
     fs->num_fats = bpb->num_fats;
     fs->root_entry_count = bpb->root_entry_count;
     fs->fat_size_sectors = bpb->fat_size_16;
-
+    
     if (bpb->total_sectors_16 != 0)
         fs->total_sectors = bpb->total_sectors_16;
     else
@@ -133,6 +139,7 @@ __always_inline INTEGER fat16_parse_bpb(struct fat16_fs *fs, u32 lba0){
         /* still allow if user explicitly wants it, but warn by returning non-zero */
         /* For now, proceed but user should verify image type */
     }
+    
 
     return 0;
 }
@@ -284,9 +291,11 @@ INTEGER __always_inline write_sample_file_to_cluster_5(struct fat16_fs *fs) {
 
 VOID __always_inline sample_write(){
     novanix_fat16_fs.bdev = &my_block_device;
+    
     uint8_t scratch_buffer[512];
     novanix_fat16_fs.scratch = scratch_buffer;
     INTEGER res = fat16_parse_bpb(&novanix_fat16_fs, 0);
+
     if (res != 0){
         printk(VGA_RED,"Err",1);
     }

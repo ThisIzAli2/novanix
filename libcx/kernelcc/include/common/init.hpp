@@ -67,5 +67,7 @@ static __keep_inline uint32_t inl(uint16_t port) {
     _result;                                                \
 })
 
+#define HALT_SYS asm volatile("hlt");
+
 
 #endif
