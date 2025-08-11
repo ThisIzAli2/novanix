@@ -285,7 +285,7 @@ INTEGER __always_inline write_sample_file_to_cluster_5(struct fat16_fs *fs) {
     const char sample_data[] = "HELLO FAT16";
     u16 cluster_to_use = 5; // fixed cluster number
 
-    int res = fat16_write_cluster(fs, cluster_to_use, sample_data, sizeof(sample_data));
+    INTEGER res = fat16_write_cluster(fs, cluster_to_use, sample_data, sizeof(sample_data));
     return res;
 }
 
