@@ -23,3 +23,15 @@
 static INTEGER __always_inline fat32_cluster_to_lba(uint32_t cluster,fat32_fs_t *fs){
     return fs->data_start_lba + (cluster-2) * fs->sectors_per_cluster;
 }
+
+uint32_t static __always_inline fat32_get_fat_entry(uint32_t cluster, fat32_fs_t *fs){
+    uint32_t fat_offset = cluster *4;
+    uint32_t fat_sector = fs->fat_start_lba + (fat_offset / fs->bytes_per_sector);
+    uint32_t ent_offset = fat_offset % fs->bytes_per_sector;
+
+    uint8_t sector[512];
+    block_device_read_sector(fat_sector, sector);
+
+    uint32_t entry = *(uint32_t*)&sector[ent_offset];
+    return entry & 0x0FFFFFFF; // mask 28 bits
+}
