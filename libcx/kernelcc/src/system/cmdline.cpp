@@ -543,7 +543,12 @@ VOID cmdline() {
                     ELIF(cmd_cmp(full_cmd,"fat") == 0){
                         INTEGER res;
                         res = fat32_mount(partition_lba);
+
+                        #if defined(DEV)
+                        printk(VGA_WHITE,"status code:",1);
+
                         printk(VGA_WHITE,stringify(res),1);
+                        #endif
                         if (res == -1){
                             printk(VGA_RED,"Failed to mount FAT",1);
                         } else{
