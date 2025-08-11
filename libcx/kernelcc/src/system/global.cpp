@@ -19,6 +19,7 @@
 #include <global.h>
 #include <fs/zip.hpp>
 #include <fs/fat16.h>
+#include <fs/fat32.h>
 
 /**
  * IMPORTANT: Define all the global variables here after the extern definition
@@ -33,3 +34,4 @@ ZipFile zip_manager;
 char* current_directory = "/home";
 struct fat16_fs novanix_fat16_fs;
 struct block_dev my_block_device; 
+fat32_fs_t fs;
