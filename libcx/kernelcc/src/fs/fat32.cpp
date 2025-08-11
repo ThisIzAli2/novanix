@@ -52,6 +52,45 @@ static INTEGER __always_inline fat32_cluster_to_lba(uint32_t cluster,fat32_fs_t 
     return fs->data_start_lba + (cluster-2) * fs->sectors_per_cluster;
 }
 
+/**
+ * @brief Retrieves the FAT32 File Allocation Table (FAT) entry for a given cluster.
+ * 
+ * In the FAT32 filesystem, the FAT is an array of 32-bit entries, each corresponding 
+ * to a cluster. This function reads the FAT entry for the specified cluster to 
+ * determine the status or next cluster in the chain.
+ * 
+ * FAT32 entries use only the lower 28 bits; the upper 4 bits are reserved.
+ * 
+ * @param cluster The cluster number for which to retrieve the FAT entry.
+ * @param fs Pointer to the FAT32 filesystem metadata structure, which includes:
+ *           - fat_start_lba: LBA of the first FAT sector.
+ *           - bytes_per_sector: Number of bytes in one sector.
+ * 
+ * @return uint32_t The 28-bit FAT entry value, indicating the next cluster number 
+ *                  in the chain or a special marker (e.g., end-of-chain).
+ * 
+ * @details
+ * The function calculates the byte offset of the FAT entry:
+ * - Each FAT entry is 4 bytes (32 bits).
+ * - The FAT sector containing the entry is determined by dividing the offset by the sector size.
+ * - The offset within that sector is found by modulo operation.
+ * 
+ * The sector containing the FAT entry is read into a buffer,
+ * and the 4-byte FAT entry is extracted and masked to 28 bits.
+ * 
+ * @note 
+ * - This function assumes `block_device_read_sector` is available and works correctly.
+ * - The FAT is assumed to be contiguous and not fragmented.
+ * - This function is declared `static` and `__always_inline` for efficiency.
+ * 
+ * @example
+ * fat32_fs_t fs = {
+ *     .fat_start_lba = 1000,
+ *     .bytes_per_sector = 512
+ * };
+ * uint32_t cluster = 5;
+ * uint32_t next_cluster = fat32_get_fat_entry(cluster, &fs);
+ */
 uint32_t static __always_inline fat32_get_fat_entry(uint32_t cluster, fat32_fs_t *fs){
     uint32_t fat_offset = cluster *4;
     uint32_t fat_sector = fs->fat_start_lba + (fat_offset / fs->bytes_per_sector);
