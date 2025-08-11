@@ -20,7 +20,11 @@
 #ifndef NOVANIX_KERNEL_MEMORY_MAP_H
 #define NOVANIX_KERNEL_MEMORY_MAP_H
 
+#include <common/init.hpp>
 
 
+typedef struct{
+
+}memmap_entry_t;
 
 #endif /*NOVANIX_KERNEL_MEMORY_MAP_H*/
