@@ -544,11 +544,12 @@ VOID cmdline() {
                         INTEGER res;
                         res = fat32_mount(partition_lba);
                         printk(VGA_WHITE,stringify(res),1);
-                        if (res == 0){
-                            printk(VGA_WHITE,"FAT 32 mounted on LBA %s",1,partition_lba);
-                            printk(VGA_WHITE,"Bytes per sector: %u",1,fs.bytes_per_sector);
+                        if (res == -1){
+                            printk(VGA_RED,"Failed to mount FAT",1);
                         } else{
                             printk(VGA_RED,"Failed to mount FAT",1);
+                            printk(VGA_WHITE,"FAT 32 mounted on LBA %s",1,partition_lba);
+                            printk(VGA_WHITE,"Bytes per sector: %u",1,fs.bytes_per_sector);
                         }
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
