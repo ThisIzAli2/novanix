@@ -149,14 +149,14 @@ __always_inline u32 fat16_first_sector_of_cluster(struct fat16_fs *fs,u16 cluste
     return fs->first_data_sector + ( (u32)(cluster - 2) * fs->sectors_per_cluster );
 }
 
-__always_inline int fat16_get_fat_entry(struct fat16_fs *fs, u16 cluster, u16 *out)
+__always_inline INTEGER fat16_get_fat_entry(struct fat16_fs *fs, u16 cluster, u16 *out)
 {
     /* FAT starts at reserved_sector_count offset (plus lba0 assumed 0) */
     u32 fat_offset = cluster * 2; /* two bytes per FAT16 entry */
     u32 fat_sector = fs->reserved_sector_count + (fat_offset / fs->bytes_per_sector);
     u32 ent_offset = fat_offset % fs->bytes_per_sector;
 
-    int res = fat16_read_sector(fs, fat_sector);
+    INTEGER res = fat16_read_sector(fs, fat_sector);
     if (res) return res;
 
     u8 *p = fs->scratch + ent_offset;
