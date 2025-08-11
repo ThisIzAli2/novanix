@@ -197,9 +197,9 @@ VOID fat32_list_directory(uint32_t cluster) {
     uint8_t sector[512];
     while (current < 0x0FFFFFF8) {
         uint32_t first_sector = fat32_cluster_to_lba(current, &fs);
-        for (int i = 0; i < fs.sectors_per_cluster; i++) {
+        for (INTEGER i = 0; i < fs.sectors_per_cluster; i++) {
             block_device_read_sector(first_sector + i, sector);
-            for (int offset = 0; offset < fs.bytes_per_sector; offset += 32) {
+            for (INTEGER offset = 0; offset < fs.bytes_per_sector; offset += 32) {
                 fat32_dir_entry_t* entry = (fat32_dir_entry_t*)&sector[offset];
                 if (entry->name[0] == 0x00) return; // no more entries
                 if (entry->name[0] == 0xE5) continue; // deleted
