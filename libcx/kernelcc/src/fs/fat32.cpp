@@ -18,8 +18,11 @@
 */
 
 #include <fs/fat32.h>
-extern fat32_fs_t fs;
 
+extern fat32_fs_t fs;
+#define SECTOR_SIZE 512
+extern uint8_t *disk_image;   // pointer to disk image in memory
+extern uint64_t disk_image_size;
 static INTEGER __always_inline fat32_cluster_to_lba(uint32_t cluster,fat32_fs_t *fs){
     return fs->data_start_lba + (cluster-2) * fs->sectors_per_cluster;
 }
@@ -75,4 +78,15 @@ void fat32_list_directory(uint32_t cluster) {
         }
         current = fat32_get_fat_entry(current, &fs);
     }
+}
+
+
+
+int block_device_read_sector(uint32_t lba, uint8_t *buffer) {
+    uint64_t offset = (uint64_t)lba * SECTOR_SIZE;
+    if (offset + SECTOR_SIZE > disk_image_size) {
+        return -1; // out of range
+    }
+    MemoryOperations::memcpy(buffer, disk_image + offset, SECTOR_SIZE);
+    return 0; // success
 }
