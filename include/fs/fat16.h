@@ -260,12 +260,13 @@ INTEGER __always_inline fat16_write_sector(struct fat16_fs *fs, u32 lba, const v
     return fs->bdev->write_sectors(fs->bdev, lba, 1, buf);
 }
 
+#define DEV
 
 __always_inline INTEGER fat16_write_cluster(struct fat16_fs *fs, u16 cluster, const VOID *data, u32 data_size){
     u32 first_sector = fat16_first_sector_of_cluster(fs,cluster);
     u32 cluster_size_bytes = fs->sectors_per_cluster * fs->bytes_per_sector;
-    #ifdef DEV
-    printk(VGA_GREEN,"Working well in assigning")
+    #if defined(DEV)
+    printk(VGA_GREEN,"Working well in assigning",1);
     #endif
     if (data_size > cluster_size_bytes){
         return -1;
