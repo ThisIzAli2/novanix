@@ -35,4 +35,6 @@ memmap_entry_t memmap[] = {
     {0x40000000, 0x40000000, 2}    // Reserved
 };
 
+#define MEMMAP_ENTRIES sizeof(sizeof(memmap) / sizeof(memmap[0]))
+
 #endif /*NOVANIX_KERNEL_MEMORY_MAP_H*/
