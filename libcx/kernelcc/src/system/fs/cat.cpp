@@ -46,6 +46,7 @@ VOID cat_file(char* file) {
             printk(VGA_WHITE, files[i_file].data, 1);
             return;
         } else{
+            // This part is crucial, you should always write 'continue' to continue searching
             continue;
         }
     }
