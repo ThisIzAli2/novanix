@@ -136,8 +136,8 @@ BOOL rmdir(const char* name) {
         return false;
     }
 
-    int removeIndex = -1;
-    for (int i = 0; i < currentDir->subdirectoryCount; i++) {
+    INTEGER removeIndex = -1;
+    for (INTEGER i = 0; i < currentDir->subdirectoryCount; i++) {
         if (currentDir->subdirectories[i].name && String::strcmp(currentDir->subdirectories[i].name, name) == 0) {
             if (currentDir->subdirectories[i].subdirectoryCount > 0) {
                 Novanix::system::printk(VGA_COLOR_RED, "Error: Directory is not empty.\n", 1);
@@ -153,10 +153,10 @@ BOOL rmdir(const char* name) {
         return false;
     }
 
-    int newCount = currentDir->subdirectoryCount - 1;
+    INTEGER newCount = currentDir->subdirectoryCount - 1;
     Directory* newSubdirs = (newCount > 0) ? new Directory[newCount] : nullptr;
 
-    for (int i = 0, j = 0; i < currentDir->subdirectoryCount; i++) {
+    for (INTEGER i = 0, j = 0; i < currentDir->subdirectoryCount; i++) {
         if (i != removeIndex) {
             newSubdirs[j++] = currentDir->subdirectories[i];
         }
