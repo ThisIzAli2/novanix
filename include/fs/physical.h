@@ -56,7 +56,7 @@ bool __always_inline ata_write_sector(uint32_t lba, const uint8_t* data) {
     while (!(inb(ATA_STATUS) & 0x08));
 
     // Write 256 words (512 bytes) of data
-    for (int i = 0; i < 256; i++) {
+    for (INTEGER i = 0; i < 256; i++) {
         uint16_t word = data[2 * i] | (data[2 * i + 1] << 8);
         outw(ATA_DATA, word);
     }
