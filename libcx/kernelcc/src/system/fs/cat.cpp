@@ -21,26 +21,34 @@
 
 using namespace Novanix::system;
 
+#define DEV_CAT
+
+#undef DEV_CAT
+
 /**
  * @brief Used to utilize 'cat' command.
  * NOTE: Do not use == 0 in String::strcmp(files[i].name, file)
  */
 VOID cat_file(char* file) {
-    
-    for (INTEGER i = 0; i < MAX_FILES; i++) {
-        if (!have_access && files[i].access){
-            printk(VGA_RED,"You do not have access to this file",1);
-            return;
-        }
+    size_t size = sizeof(files) / sizeof(files[0]);
+    #if defined(DEV_CAT)
+    printk(VGA_WHITE,stringify(size),1);
+    #endif
+
+    INTEGER i;
+    for (i = 0; i < i_file; i++) {
+        #if defined(DEV_CAT)
+        printk(VGA_WHITE,stringify(i_file),1);
+        #endif
         //! Make sure to check for the null pointer, it can lead to crash.
         // if (files[i].name == nullptr) continue; //! Do not use this. This will empty ignore spaces.
         if (files[i].name != nullptr && file != nullptr && String::strcmp(files[i].name, file)) {
-            printk(VGA_WHITE, files[i].data, 1);
+            printk(VGA_WHITE, files[i_file].data, 1);
             return;
         } else{
-            printk(VGA_WHITE,"file not found",1);
-            break;
+            continue;;
         }
     }
+    printk(VGA_WHITE,"file not found",1);
 
 }
