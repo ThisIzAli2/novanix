@@ -32,18 +32,26 @@ extern INTEGER i_file;
  */
 __always_inline VOID print_ls_files_in_dir() {
     BOOL found = false;
-    INTEGER file_count = i_file - 1;
+    INTEGER file_count = i_file;
     INTEGER j = 0;
-    BOOL first = false;
+    bool once = false;
 
-
+    
 
     for (INTEGER i = 0; i < file_count; ++i) {
         // printk(VGA_WHITE, files[0].name, 1);
         if (String::strcmp(current_directory, files[i].dir) && files[i].name != nullptr) {
+            
+            #if defined(DEV_CMD)
+            printk(VGA_WHITE, stringify(i), 1);
+            #endif
             printk(VGA_WHITE, files[i].name, 1);
             
         } else{
+            
+            #if defined(DEV_CMD)
+            printk(VGA_WHITE, "Did not meet the initial if statement.", 1);
+            #endif
             continue;
         }
     }
