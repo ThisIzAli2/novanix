@@ -36,19 +36,18 @@ __always_inline VOID print_ls_files_in_dir() {
 
 
 
-    for (INTEGER i = 0; i < file_count; i++) {
+    for (INTEGER i = 0; i < file_count; ++i) {
         // printk(VGA_WHITE, files[0].name, 1);
-        if (String::strcmp(current_directory, files[i].dir)) {
+        if (String::strcmp(current_directory, files[i].dir) && files[i].name != nullptr) {
             printk(VGA_WHITE, files[i].name, 1);
 
-            found = true;
             
+        } else{
+            continue;
         }
     }
 
-    if (!found) {
-        printk(VGA_WHITE, "No file found in this directory.", 1);
-    }
+    // printk(VGA_WHITE, "No file found in this directory.", 1);
 }
 
 #endif /*NOVANIX_KERNEL_COMMANDS_FS_H__*/
