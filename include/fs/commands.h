@@ -26,6 +26,7 @@
 
 extern INTEGER i_file;
 
+
 /**
  * ABSTRACT: print all files in dir.
  */
@@ -33,6 +34,7 @@ __always_inline VOID print_ls_files_in_dir() {
     BOOL found = false;
     INTEGER file_count = i_file - 1;
     INTEGER j = 0;
+    BOOL first = false;
 
 
 
@@ -40,7 +42,6 @@ __always_inline VOID print_ls_files_in_dir() {
         // printk(VGA_WHITE, files[0].name, 1);
         if (String::strcmp(current_directory, files[i].dir) && files[i].name != nullptr) {
             printk(VGA_WHITE, files[i].name, 1);
-
             
         } else{
             continue;
