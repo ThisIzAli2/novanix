@@ -16,8 +16,8 @@
 **You should have received a copy of the GNU Affero General Public License
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
-#ifndef __INIT_HPP_ 
-#define __INIT_HPP_
+#ifndef __NOVANIX_KERNEL_COMMON_INIT__HPP 
+#define __NOVANIX_KERNEL_COMMON_INIT__HPP
 
 
 #include <keymap.hpp>
@@ -70,4 +70,4 @@ static __keep_inline uint32_t inl(uint16_t port) {
 #define HALT_SYS asm volatile("hlt");
 
 
-#endif
+#endif /*__NOVANIX_KERNEL_COMMON_INIT__HPP */
