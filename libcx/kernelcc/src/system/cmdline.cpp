@@ -84,20 +84,7 @@ INTEGER counter_terminal;
 #define str_cmp cmd_cmp
 
 
-/**
- * @brief 
- * An unused function that handles the other cases of the command line interface
- */
-__always_inline INTEGER handle(const char* str){
-    if (cmd_cmp(str,"get")){
-        return 0001;
-    } ELIF (cmd_cmp(str,"games") == 0){
-        return 0002;
-    } else {
-        return -1;
-    }
 
-}
 
 // We do not want to be in the developer mode, which shows all the bugs and logs.
 #ifdef DEV
