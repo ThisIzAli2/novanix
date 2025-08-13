@@ -50,7 +50,9 @@ static __keep_inline uint32_t inl(uint16_t port) {
 }
 
 
-
+/**
+ * Check wether a string is empty or not.
+ */
 #define IS_NOT_EMPTY_OR_SPACES(s) ({                        \
     const char* _p = (s);                                   \
     int _result = 0;                                        \
