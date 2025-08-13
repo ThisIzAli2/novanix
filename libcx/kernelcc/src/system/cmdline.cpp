@@ -527,6 +527,7 @@ VOID cmdline() {
                     ELIF (cmd_cmp(full_cmd,"sudo --help") == 0){
                         printk(VGA_WHITE,SUDO_HELP_MENU,1);
                     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"fat") == 0){
                         INTEGER res;
                         res = fat32_mount(partition_lba);
