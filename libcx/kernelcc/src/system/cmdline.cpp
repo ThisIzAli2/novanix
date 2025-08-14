@@ -33,6 +33,7 @@
  * motd: Show the message of the day.
  * set-password : Set the new password. 
  * sudo-reset : Reset the SUDO access.
+ * echo : print a word in the terminal.
  */
 
 #include <software/edit.h>
