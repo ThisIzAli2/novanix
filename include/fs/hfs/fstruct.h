@@ -22,5 +22,29 @@
 
 #include <fs/diskio.h>
 
+typedef struct {
+    char signature[2]; // 'H','+'
+    uint16_t version;
+    uint32_t catalogFileStart;
+    uint32_t catalogFileLength;
+    uint32_t allocationFileStart;
+    uint32_t allocationFileLength;
+    uint32_t blockSize;
+    uint32_t totalBlocks;
+    uint32_t freeBlocks;
+} hfs_volume_header_t;
+
+typedef struct {
+    uint32_t startBlock;
+    uint32_t blockCount;
+} hfs_extent_t;
+
+typedef struct {
+    uint32_t fileID;
+    uint32_t parentID;
+    char name[255];
+    uint32_t dataStartBlock;
+    uint32_t dataLength;
+} hfs_catalog_file_t;
 
 #endif /*__NOVANIX_KERNEL_HFS_FILE__STRUCTURE_H*/
