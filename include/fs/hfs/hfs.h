@@ -20,4 +20,6 @@
 #ifndef __NOVANIX_KERNEL_HFS_HFS_H
 #define __NOVANIX_KERNEL_HFS_HFS_H
 
+#include <global.h>
+
 #endif /*__NOVANIX_KERNEL_HFS_HFS_H*/

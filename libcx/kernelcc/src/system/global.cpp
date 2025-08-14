@@ -39,3 +39,4 @@ fat32_fs_t fs;
 uint8_t *disk_image;   // pointer to disk image in memory
 uint64_t disk_image_size;
 uint32_t partition_lba = 2048; // Example
+uint8_t hfs_buffer[512];

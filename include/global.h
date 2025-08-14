@@ -38,6 +38,7 @@ extern bool have_access;
 extern char user_password[50];
 extern char* current_directory;
 extern uint32_t partition_lba; // Example
+extern uint8_t hfs_buffer[512];
 
 
 
