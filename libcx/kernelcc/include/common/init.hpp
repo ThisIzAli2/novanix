@@ -49,6 +49,12 @@ static __keep_inline uint32_t inl(uint16_t port) {
     return ret;
 }
 
+static inline uint16_t inw(uint16_t port) {
+    uint16_t result;
+    __asm__ volatile ("inw %1, %0" : "=a"(result) : "Nd"(port));
+    return result;
+}
+
 
 /**
  * Check wether a string is empty or not.
