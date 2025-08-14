@@ -21,5 +21,10 @@
 #define __NOVANIX_KERNEL_HFS_HFS_H
 
 #include <global.h>
+#include <common/init.hpp>
+
+
+VOID hfs_read_block(uint32_t block_num, uint8_t* buffer);
+VOID hfs_write_block(uint32_t blockNum, uint8_t* buffer);
 
 #endif /*__NOVANIX_KERNEL_HFS_HFS_H*/
