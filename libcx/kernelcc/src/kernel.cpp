@@ -260,7 +260,10 @@ extern "C" void kernelMain(const multiboot_info_t* mbi, unsigned int multiboot_m
         // Just start running the idle thread so we at least detect device changes
         System::scheduler->ForceSwitch();
     }
+    ////////////
+    // We stop right here
     System::Init();
+    ///////////
 
     // Check if kernel is run from HardDisk
     // If not than ask the user if they would like to run the installer
