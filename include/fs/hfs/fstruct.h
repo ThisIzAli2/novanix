@@ -47,4 +47,6 @@ typedef struct {
     uint32_t dataLength;
 } hfs_catalog_file_t;
 
+VOID hfs_mount();
+
 #endif /*__NOVANIX_KERNEL_HFS_FILE__STRUCTURE_H*/

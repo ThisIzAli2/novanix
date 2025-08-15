@@ -21,6 +21,7 @@
 #include <fs/fat16.h>
 #include <fs/fat32.h>
 #include <mmap.h>
+#include <fs/hfs/fstruct.h>
 
 /**
  * IMPORTANT: Define all the global variables here after the definition
@@ -40,3 +41,4 @@ uint8_t *disk_image;   // pointer to disk image in memory
 uint64_t disk_image_size;
 uint32_t partition_lba = 2048; // Example
 uint8_t hfs_buffer[512];
+hfs_volume_header_t volume;
