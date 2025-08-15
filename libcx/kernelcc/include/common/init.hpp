@@ -34,26 +34,13 @@
 #include <novanix/access.h>
 #include <novanix/time/time.hpp>
 #include <system/memory/heap.h>
+#include <common/iokern.h>
 
 
 #ifndef __keep_inline 
 #define __keep_inline inline
 #endif //__keep_inline
 
-static __keep_inline VOID outl(uint16_t port, uint32_t val) {
-    asm volatile("outl %0, %1" : : "a"(val), "Nd"(port));
-}
-static __keep_inline uint32_t inl(uint16_t port) {
-    uint32_t ret;
-    asm volatile("inl %1, %0" : "=a"(ret) : "Nd"(port));
-    return ret;
-}
-
-static inline uint16_t inw(uint16_t port) {
-    uint16_t result;
-    __asm__ volatile ("inw %1, %0" : "=a"(result) : "Nd"(port));
-    return result;
-}
 
 
 /**
