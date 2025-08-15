@@ -27,4 +27,7 @@
 VOID hfs_read_block(uint32_t block_num, uint8_t* buffer);
 VOID hfs_write_block(uint32_t blockNum, uint8_t* buffer);
 
+INTEGER disk_read(uint32_t lba, uint8_t* buffer, uint32_t count);
+INTEGER disk_write(uint32_t lba, uint8_t* buffer, uint32_t count);
+
 #endif /*__NOVANIX_KERNEL_HFS_HFS_H*/
