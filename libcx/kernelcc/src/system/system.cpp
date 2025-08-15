@@ -291,9 +291,6 @@ VOID System::Start()
  */
 void System::Init()
 {
-    Log(Error, "-------------------------------");
-    Log(Error, "--------- Kernel Halted -------");
-    Log(Error, "-------------------------------");
     InterruptDescriptorTable::DisableInterrupts();
     for (;;) {
         printk(vga_color::VGA_COLOR_WHITE,"Stopping the kernel",1);
