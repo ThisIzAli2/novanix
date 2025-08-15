@@ -21,7 +21,11 @@
 #define __NOVANIX_KERNEL_DISK_IO_H
 
 
-#include <common/init.hpp>
+#include <typing.hpp>
+#include <common/iokern.h>
+
+#include <core/port.h>
+#include <shutdownsys.h>
 
 
 #define ATA_DATA      0x1F0
