@@ -66,6 +66,7 @@
 #include <fs/fat16.h>
 #include <fs/fat32.h>
 #include <mmap.h>
+#include <fs/hfs/fstruct.h>
 
 char* dirs[MAX_DIRS];
 
@@ -270,6 +271,10 @@ VOID cmdline() {
                         }
                         create_file(to_print,"");
                         read_file(to_print);
+                    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ELIF(cmd_cmp(full_cmd,"hfs") == 0){
+                        hfs_mount();
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (full_cmd[0] == 'z' and full_cmd[1] == 'i' and full_cmd[2] == 'p'){
