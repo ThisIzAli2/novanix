@@ -20,6 +20,10 @@
 #include <fs/hfs/hfs.h>
 #include <fs/diskio.h>
 #include <fs/hfs/fstruct.h>
+#include <system/log.h>
+#include <stringify.h>
+
+using namespace Novanix::system;
 
 extern hfs_volume_header_t volume;
 
@@ -32,5 +36,14 @@ VOID hfs_write_block(uint32_t blockNum, uint8_t* buffer){
 }
 
 VOID hfs_mount(){
+    hfs_read_block(2,(uint8_t*)&volume);
+
+    if (volume.signature[0] != 'H' || volume.signature[1] != '+'){
+        printk(VGA_COLOR_WHITE,"Not ready for HFS",1);
+        return;
+    }
+    printk(VGA_COLOR_WHITE,"HFS mounted on",1);
+    printk(VGA_COLOR_WHITE,stringify(volume.blockSize),1);
+
 
 }
