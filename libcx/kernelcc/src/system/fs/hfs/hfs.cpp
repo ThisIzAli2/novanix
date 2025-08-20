@@ -31,6 +31,9 @@ VOID hfs_read_block(uint32_t blockNum, uint8_t* buffer) {
     disk_read(blockNum,buffer,512);
 }
 
+/**
+ * @brief Write on a block in HFS
+ */
 VOID hfs_write_block(uint32_t blockNum, uint8_t* buffer){
     disk_write(blockNum, buffer, 512);
 }
