@@ -679,7 +679,8 @@ VOID cmdline() {
                             fail:
                             counts_failed_sudo++;
                             printk(VGA_WHITE, "Wrong password!", 1);
-                            printk(VGA_WHITE, "Kernel will go into lockdown if you try to brute force the sudo access.", 1);
+                            if (counts_failed_sudo > 1)
+                                printk(VGA_WHITE, "Kernel will go into lockdown if you try to brute force the sudo access.", 1);
                             
                         }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
