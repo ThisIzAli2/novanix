@@ -333,9 +333,9 @@ VOID cmdline() {
                             ++(*counter_k);
                             to_save[*counter_k] = '\0';
                         }
-                        create_empty_file(to_save);
-                        printk(VGA_WHITE,"File created!",1);
-
+                        file_t file = __create_file(to_save,"",String::strlen("")+1,false);
+                        files[i_file++].data = file.data;
+                        i_file--;
 
                         delete i_for_file;
                         delete counter_k;
