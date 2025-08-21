@@ -41,6 +41,14 @@ typedef struct ntfs_volume {
     uint64_t mft_start_lcn;  // logical cluster number
 } ntfs_volume_t;
 
+typedef struct ntfs_mft_entry {
+    uint64_t entry_number;
+    uint16_t flags;      // file/directory
+    uint64_t size;
+    uint32_t *clusters;  // list of clusters holding data
+} ntfs_mft_entry_t;
 
+VOID ntfs_mount(uint8_t* boot_sector,ntfs_file_t*vol);
+int ntfs_read_file(ntfs_file_t *file, uint8_t *buffer, uint64_t length);
 
 #endif /*__NOVANIX_KERNEL_NTFS_H__FS*/
