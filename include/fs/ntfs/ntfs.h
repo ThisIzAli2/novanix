@@ -49,6 +49,6 @@ typedef struct ntfs_mft_entry {
 } ntfs_mft_entry_t;
 
 VOID ntfs_mount(uint8_t* boot_sector,ntfs_file_t*vol);
-int ntfs_read_file(ntfs_file_t *file, uint8_t *buffer, uint64_t length);
+INTEGER ntfs_read_file(ntfs_file_t *file, uint8_t *buffer, uint64_t length);
 
 #endif /*__NOVANIX_KERNEL_NTFS_H__FS*/
