@@ -23,6 +23,7 @@
 #include <software/faccess.h>
 #include <game/gaming_generic.hpp>
 #include <fs/fat32.h>
+#include <fs/ntfs/ntfs.h>
 
 /**
  * IMPORTANT: Do not include any other file than init.hpp
@@ -39,6 +40,7 @@ extern char user_password[50];
 extern char* current_directory;
 extern uint32_t partition_lba; // Example
 extern uint8_t hfs_buffer[512];
+extern struct vfs_operations ntfs_ops;
 
 
 
