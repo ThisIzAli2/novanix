@@ -25,7 +25,13 @@
 
 using namespace Novanix::common;
 
-
+typedef struct ntfs_file {
+    uint64_t mft_entry_number;
+    uint64_t size;
+    uint32_t cluster_count;
+    uint32_t* clusters;
+    uint16_t flags;
+}ntfs_file_t;
 
 
 
