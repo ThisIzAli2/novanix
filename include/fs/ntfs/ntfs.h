@@ -22,6 +22,7 @@
 
 
 #include <common/types.h>
+#include <typing.hpp>
 
 using namespace Novanix::common;
 
@@ -39,6 +40,7 @@ typedef struct ntfs_volume {
     uint64_t total_clusters;
     uint64_t mft_start_lcn;  // logical cluster number
 } ntfs_volume_t;
+
 
 
 #endif /*__NOVANIX_KERNEL_NTFS_H__FS*/
