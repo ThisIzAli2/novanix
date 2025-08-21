@@ -21,6 +21,11 @@
 #define __NOVANIX_KERNEL_NTFS_H__FS
 
 
+#include <common/types.h>
+
+using namespace Novanix::common;
+
+
 
 
 
