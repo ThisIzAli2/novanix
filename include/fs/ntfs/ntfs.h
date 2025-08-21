@@ -34,5 +34,11 @@ typedef struct ntfs_file {
 }ntfs_file_t;
 
 
+typedef struct ntfs_volume {
+    uint32_t cluster_size;
+    uint64_t total_clusters;
+    uint64_t mft_start_lcn;  // logical cluster number
+} ntfs_volume_t;
+
 
 #endif /*__NOVANIX_KERNEL_NTFS_H__FS*/
