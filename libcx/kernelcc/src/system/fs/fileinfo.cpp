@@ -22,6 +22,4 @@
 
 
 
-VOID get_file_info(char* file_name){
 
-}

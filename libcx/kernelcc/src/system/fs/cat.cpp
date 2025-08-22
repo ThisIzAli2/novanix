@@ -18,6 +18,8 @@
 */
 #include <fs/cat.h>
 #include <system/memory/heap.h>
+#include <fs/fileinfo.h>
+
 
 using namespace Novanix::system;
 
@@ -55,7 +57,6 @@ VOID cat_file(char* file) {
 }
 
 
-#include <fs/fileinfo.h>
 
 
 
@@ -70,7 +71,12 @@ VOID get_file_info(char* file_name){
             printk(VGA_WHITE,files[i].name,1);
             printk(VGA_WHITE,"File directory is:",1);
             printk(VGA_WHITE,files[i].dir,1);
-            
+            printk(VGA_WHITE,"File size is:",1);
+            printk(VGA_WHITE,stringify(files[i].size),1);
+            printk(VGA_WHITE,"File data is:",1);
+            printk(VGA_WHITE,files[i].data,1);
+
+
 
         }
     }

@@ -67,6 +67,8 @@
 #include <fs/fat32.h>
 #include <mmap.h>
 #include <fs/hfs/fstruct.h>
+#include <fs/fileinfo.h>
+
 
 char* dirs[MAX_DIRS];
 
@@ -256,6 +258,25 @@ VOID cmdline() {
                         snake.print_s(keycode);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    ELIF(full_cmd[0] == 'i' && full_cmd[1] == 'f'){
+                        INTEGER *i_for_if = new INTEGER;
+                        INTEGER *counter_if = new INTEGER;
+                        char* to_print = new char[CHAR_CONSTANT];
+                        *counter_if = 0;
+                        to_print[0] = '\0';
+
+                        for (*i_for_if = 3;full_cmd[*i_for_if] != '\0';++(*i_for_if)){
+                            to_print[*counter_if] = full_cmd[*i_for_if];
+                            ++(*counter_if);
+                            to_print[*counter_if] = '\0';
+                        }
+                        get_file_info(to_print);
+                        delete i_for_if;
+                        delete counter_if;
+                        delete[] to_print;
+
+                    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (full_cmd[0] == 'i' && full_cmd[1] == 'n' && full_cmd[2] == 'i' && full_cmd[3] == 't' && full_cmd[4] == 'f' && full_cmd[5] == 'i' && full_cmd[6] == 'l' && full_cmd[7] == 'e' ){
                         INTEGER *i_for_file = new INTEGER;
                         INTEGER *counter_for_file = new INTEGER;
@@ -271,6 +292,9 @@ VOID cmdline() {
                         }
                         create_file(to_print,"");
                         read_file(to_print);
+                        delete i_for_file;
+                        delete counter_for_file;
+                        delete[] to_print;
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"hfs") == 0){
