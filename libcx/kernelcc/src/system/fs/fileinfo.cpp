@@ -22,6 +22,7 @@
 extern INTEGER i_file;
 
 
+
 VOID get_file_info(char* file_name){
 
 }
