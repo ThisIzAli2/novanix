@@ -19,5 +19,12 @@
 #ifndef __NOVANIX_KERNEL_FILE_INFO__H
 #define __NOVANIX_KERNEL_FILE_INFO__H
 
+#include <typing.hpp>
+#include <common/types.h>
+
+using namespace Novanix::common;
+
+VOID get_file_info(char* file_name);
+
 
 #endif /*__NOVANIX_KERNEL_FILE_INFO__H*/
