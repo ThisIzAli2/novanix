@@ -64,4 +64,11 @@ VOID cat_file(char* file) {
 VOID get_file_info(char* file_name){
     size_t size = sizeof(files) / sizeof(files[0]);
     INTEGER i;
+    for (i = 0;i < i_file;i++){
+        if (files[i].name != nullptr && file_name != nullptr && String::strcmp(file_name,files[i].name)){
+            printk(VGA_WHITE,"File name is:",1);
+            printk(VGA_WHITE,files[i].name,1);
+
+        }
+    }
 }
