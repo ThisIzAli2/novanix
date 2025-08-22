@@ -19,7 +19,6 @@
 #include <fs/fileinfo.h>
 
 
-extern INTEGER i_file;
 
 
 
