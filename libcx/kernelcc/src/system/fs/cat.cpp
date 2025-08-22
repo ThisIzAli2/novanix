@@ -68,6 +68,9 @@ VOID get_file_info(char* file_name){
         if (files[i].name != nullptr && file_name != nullptr && String::strcmp(file_name,files[i].name)){
             printk(VGA_WHITE,"File name is:",1);
             printk(VGA_WHITE,files[i].name,1);
+            printk(VGA_WHITE,"File directory is:",1);
+            printk(VGA_WHITE,files[i].dir,1);
+            
 
         }
     }
