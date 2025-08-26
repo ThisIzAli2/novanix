@@ -65,6 +65,7 @@ VOID cat_file(char* file) {
 VOID get_file_info(char* file_name){
     size_t size = sizeof(files) / sizeof(files[0]);
     INTEGER i;
+    bool found = false;
     for (i = 0;i < i_file;i++){
         if (files[i].name != nullptr && file_name != nullptr && String::strcmp(file_name,files[i].name)){
             printk(VGA_WHITE,"File name is:",1);
@@ -75,10 +76,10 @@ VOID get_file_info(char* file_name){
             printk(VGA_WHITE,stringify(files[i].size),1);
             printk(VGA_WHITE,"File data is:",1);
             printk(VGA_WHITE,files[i].data,1);
-
-
+            found = true;
 
         } 
     }
-    printk(VGA_WHITE,"File not found",1);
+    if (!found)
+        printk(VGA_WHITE,"File not found",1);
 }
