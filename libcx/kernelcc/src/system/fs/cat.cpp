@@ -78,6 +78,7 @@ VOID get_file_info(char* file_name){
 
 
 
-        }
+        } 
     }
+    printk(VGA_WHITE,"File not found",1);
 }
