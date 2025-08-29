@@ -50,6 +50,7 @@ using namespace Novanix::common;
 using namespace Novanix::system;
 using namespace Novanix::core;
 
+//!NOTE: We do not want to be in the developer mode here.
 SymbolDebugger::SymbolDebugger(char* symFile, BOOL kernel)
 {
     #ifdef DEV
