@@ -34,6 +34,7 @@
  * set-password : Set the new password. 
  * sudo-reset : Reset the SUDO access.
  * echo : print a word in the terminal.
+ * if : Show the information about a file.
  */
 
 #include <software/edit.h>
