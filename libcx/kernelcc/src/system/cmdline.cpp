@@ -245,13 +245,13 @@ VOID cmdline() {
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF (cmd_cmp(full_cmd,"cal") == 0){
-                            printk(VGA_WHITE,"     August 2025\n",1);
+                            printk(VGA_WHITE,"     september 2025\n",1);
                             printk(VGA_WHITE,"Su Mo Tu We Th Fr Sa\n",1);
                             printk(VGA_WHITE,"       1  2  3  4  5\n",1);
                             printk(VGA_WHITE," 6  7  8  9 10 11 12\n",1);
                             printk(VGA_WHITE,"13 14 15 16 17 18 19\n",1);
                             printk(VGA_WHITE,"20 21 22 23 24 25 26\n",1);
-                            printk(VGA_WHITE,"27 28 29 30 31\n",1);
+                            printk(VGA_WHITE,"27 28 29 30 \n",1);
                     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     ELIF(cmd_cmp(full_cmd,"snake") == 0){
