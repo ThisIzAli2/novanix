@@ -61,7 +61,10 @@ VOID cat_file(char* file) {
 
 
 
-
+/**
+ * @brief Use this file to get the information about a file.
+ * NOTE: use "if" command for this function in the terminal to activate it.
+ */
 VOID get_file_info(char* file_name){
     size_t size = sizeof(files) / sizeof(files[0]);
     INTEGER i;
