@@ -16,6 +16,9 @@
 **You should have received a copy of the GNU Affero General Public License
 **along with Novanix. If not, see <https://www.gnu.org/licenses/>.
 */
+/**
+ * ABSTRACT: This file creates sufficient functions for reading a file and its information. 
+ */
 #include <fs/cat.h>
 #include <system/memory/heap.h>
 #include <fs/fileinfo.h>
