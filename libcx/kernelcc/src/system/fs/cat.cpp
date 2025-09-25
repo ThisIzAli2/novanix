@@ -80,6 +80,7 @@ VOID get_file_info(char* file_name){
             printk(VGA_WHITE,"File data is:",1);
             printk(VGA_WHITE,files[i].data,1);
             found = true;
+            goto exit;
 
         } 
     }
@@ -87,4 +88,7 @@ VOID get_file_info(char* file_name){
         printk(VGA_WHITE,"File ",0);
         printk(VGA_WHITE,file_name,0);
         printk(VGA_WHITE," Not found ",1);
+
+    exit:
+    return;
 }
