@@ -31,6 +31,7 @@ Some of the codes of this project are not used and are about to be removed. Thos
 ## 📸 Screenshots
 ![alt text](<etc/photos/Screenshot 2025-07-05 at 10.11.10 PM.png>)
 ![alt text](<etc/Screenshot 2025-07-14 at 2.42.55 PM.png>)
+![alt text](<etc/photos/Screenshot 2025-09-25 at 6.59.57 PM.png>)
 ## 🚀 Installation
 
 Clone the repository and install `libcx`, which contains Nox’s standard library:
