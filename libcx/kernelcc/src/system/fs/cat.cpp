@@ -43,7 +43,7 @@ VOID cat_file(char* file) {
         printk(VGA_WHITE,stringify(i_file),1);
         #endif
         //! Make sure to check for the null pointer, it can lead to crash.
-        // if (files[i].name == nullptr) continue; //! Do not use this. This will empty ignore spaces.
+        // if (files[i].name == nullptr) continue; //! Do not use this. This will ignore empty spaces.
         if (files[i].name != nullptr && file != nullptr && String::strcmp(files[i].name, file)) {
             printk(VGA_WHITE, files[i_file].data, 1);
             return;
