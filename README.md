@@ -1,5 +1,6 @@
 # 🌌 novanix OS/kernel
 
+<video controls src="etc/vid/REC-20250925184217.mp4" title="Title"></video>
 
 **Nox OS (Novanix/alinix kernel)** is a simple operating system built from scratch, featuring a modular kernel with a command-line interface. Designed for learning, experimentation, and expansion, Nox is lightweight, fast, and a great starting point for systems developers and OS enthusiasts.
 
@@ -26,7 +27,7 @@ Some of the codes of this project are not used and are about to be removed. Thos
 
 ## Videos 
 
-<video controls src="etc/vid/REC-20250925184217 copy.mp4" title="Title"></video>
+<video controls src="REC-20250925184217.mp4" title="Title"></video>
 
 ## 📸 Screenshots
 ![alt text](<etc/photos/Screenshot 2025-07-05 at 10.11.10 PM.png>)
