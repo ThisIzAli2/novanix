@@ -26,7 +26,7 @@ Some of the codes of this project are not used and are about to be removed. Thos
 
 ## Videos 
 
-<video controls src="etc/vid/REC-20250925184217.mp4" title="Title"></video>
+<video controls src="etc/vid/REC-20250925184217 copy.mp4" title="Title"></video>
 
 ## 📸 Screenshots
 ![alt text](<etc/photos/Screenshot 2025-07-05 at 10.11.10 PM.png>)
